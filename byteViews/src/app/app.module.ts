@@ -29,7 +29,8 @@ import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, Elimi
 import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
 
-
+//Importaciones RAUL
+import {ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParametrosTransaccion,EliminarParametrosTransaccion} from './components/parametros-transaccion/parametros-transaccion.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +102,13 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AsesoresDePrestamoComponent, 
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo,
+
+    //Importaciones Raul
+    ParametrosTransaccionComponent,
+    AgregarParametrosTransaccion,
+    EditarParametrosTransaccion,
+    EliminarParametrosTransaccion
   ],
   imports: [
     BrowserModule,
@@ -149,7 +156,10 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil,
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo,
+
+    //Importaciones Raul
+    AgregarParametrosTransaccion, EditarParametrosTransaccion, EliminarParametrosTransaccion
   ]
   ,
   providers: [

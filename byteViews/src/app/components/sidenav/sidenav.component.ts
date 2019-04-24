@@ -28,7 +28,9 @@ export class SidenavComponent implements OnInit {
     {name: "Notarios", route:"/notarios"},
     {name: "Motivos de ajustes", route:"/motivos-ajustes"},
     {name: "Días inhábiles", route:"/dias-inhabiles"},
-    {name: "Asesores de Prestamo", route:"/asesores-de-prestamos"}
+    {name: "Asesores de Prestamo", route:"/asesores-de-prestamos"},
+    //Vistas Raul
+    {name: 'Parametros de Transaccion', route:"/parametros-transaccion"}
   ]
 
 
