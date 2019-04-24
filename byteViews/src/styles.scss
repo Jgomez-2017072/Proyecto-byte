@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  padding: 0;
+  margin: 0;    
+}
+
+.mat-snack-bar-container {
+  max-width: 15% !important;
+  background-color:rgb(26, 96, 153);
+}
+
+.mat-simple-snackbar {
+  display: flex; 
+  font-size: 100% !important; // 28px  is double, 42px for triple
+  min-height: 18px !important; // 70px for double, 90px for triple
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: rgba(255, 0, 0, 0) ;
+  color: rgb(255, 255, 255);
+}
+
+
+table {
+  width: 100%;
+  margin: auto;
+  max-height: 400px;     
+}
+
+
+.container {
+  //max-height: 400px;
+  //overflow: auto;
+  margin: auto;
+  width: 60%;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Arial','Courier New', Courier, monospace;
+  font-size: 45px;
+}
+
+label {
+  //text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.labelEliminar{
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#add {
+  background-color : rgb(39, 180, 50); 
+  width: 50px ;
+  height: 50px;
+  margin-left: 20%;
+}
+
+.selector{
+  margin-left: 20%;
+  font-size: 14px;
+  width: 60%;
+}
+
+.btn{
+  background-color: transparent;
+  border: none;
+}
+//rgb(21, 100, 165)
+
+.encabezados{
+  background-color:rgb(17, 58, 136);
+  color:white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.encabezados2{
+  background-color:rgb(17, 58, 136);
+  width: 30px;
+}
+
+//MODAL
+
+.modal-down{
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 20px;
+  background-color: rgb(21, 100, 165);
+}
+
+.btn-aceptar{
+  background-color:rgb(39, 180, 50);
+  color: white;
+}
+
+.btn-cancelar{
+  background-color:rgb(238, 60, 48); 
+  color: white;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+ 

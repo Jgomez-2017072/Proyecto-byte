@@ -1,0 +1,28 @@
+.text {
+    height: 150px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor{
+    margin-top: 250px;
+}
+
+img{
+    width: 100%; /* en porcentaje (el highlight del foro lo trasforma) */
+    height: 100%;
+    position:fixed;
+    z-index: -1;   
+   //  width: 100%;
+   // size: cover;
+    //background-size: cover; 
+    //background-attachment: fixed; 
+    //background-position: center center; 
+    //background-repeat: no-repeat;
+    //background-color:rgb(215, 236, 229);
+}
