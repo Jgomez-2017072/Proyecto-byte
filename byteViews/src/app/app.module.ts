@@ -28,6 +28,8 @@ import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios } 
 import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste } from './components/motivos-ajustes/motivos-ajustes.component';
 import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
+import { ConsultasComponent, AgregarConsultas, EditarConsultas, EliminarConsultas } from './components/consultas/consultas.component';
+import { ClasificacionComponent, AgregarClasificacion, EditarClasificacion, EliminarClasificacion } from './components/clasificacion/clasificacion.component';
 
 
 @NgModule({
@@ -101,7 +103,15 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AsesoresDePrestamoComponent, 
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo, 
+    ConsultasComponent,
+    AgregarConsultas, 
+    EditarConsultas, 
+    EliminarConsultas, 
+    ClasificacionComponent,
+    AgregarClasificacion, 
+    EditarClasificacion, 
+    EliminarClasificacion
   ],
   imports: [
     BrowserModule,
@@ -149,7 +159,13 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil,
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo,
+    AgregarConsultas, 
+    EditarConsultas, 
+    EliminarConsultas,
+    AgregarClasificacion, 
+    EditarClasificacion, 
+    EliminarClasificacion
   ]
   ,
   providers: [

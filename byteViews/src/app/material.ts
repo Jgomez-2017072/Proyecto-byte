@@ -11,14 +11,17 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core'
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
-    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule],
+    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
+    MatPaginatorModule, MatSelectModule],
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
-    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule],
+    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
+    MatPaginatorModule,MatSelectModule],
 })
 export class MaterialModule { }
