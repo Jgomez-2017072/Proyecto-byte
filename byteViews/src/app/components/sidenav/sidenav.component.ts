@@ -33,7 +33,8 @@ export class SidenavComponent implements OnInit {
     {name: 'Parametros de Transaccion', route:"/parametros-transaccion"},
     {name: 'Medios de contacto', route:'/medios-contacto'},
     {name: 'Canales de venta', route: '/canales-venta'},
-    {name: 'Canales de Distribucion', route: '/canales-distribucion'}
+    {name: 'Canales de Distribucion', route: '/canales-distribucion'},
+    {name: 'Acercamientos', route: '/acercamientos'}
   ]
 
 

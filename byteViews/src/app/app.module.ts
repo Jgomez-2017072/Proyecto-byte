@@ -34,6 +34,7 @@ import { ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarPara
 import { MediosContactoComponent, AgregarMediosContacto,EditarMediosContacto,EliminarMediosContacto } from './components/medios-contacto/medios-contacto.component'
 import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCanalesVenta} from './components/canales-venta/canales-venta.component'
 import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion } from './components/canal-distribucion/canal-distribucion.component'
+import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, EditarAcercamiento } from './components/acercamiento/acercamiento.component';
 
 @NgModule({
   declarations: [
@@ -124,7 +125,11 @@ import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistri
     CanalDistribucionComponent,
     AgregarCanalDistribucion,
     EditarCanalDistribucion,
-    EliminarCanalDistribucion
+    EliminarCanalDistribucion,
+    AcercamientoComponent,
+    AgregarAcercamiento,
+    EditarAcercamiento,
+    EliminarAcercamiento
 
   ],
   imports: [
@@ -179,7 +184,8 @@ import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistri
     AgregarParametrosTransaccion, EditarParametrosTransaccion, EliminarParametrosTransaccion,
     AgregarMediosContacto, EditarMediosContacto, EliminarMediosContacto,
     AgregarCanalesVenta, EditarCanalesVenta, EliminarCanalesVenta,
-    AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion
+    AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion,
+    AgregarAcercamiento, EditarAcercamiento, EliminarAcercamiento
   ]
   ,
   providers: [

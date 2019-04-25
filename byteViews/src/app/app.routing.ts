@@ -25,6 +25,7 @@ import {ParametrosTransaccionComponent} from './components/parametros-transaccio
 import { MediosContactoComponent } from './components/medios-contacto/medios-contacto.component'
 import { CanalesVentaComponent } from './components/canales-venta/canales-venta.component';
 import { CanalDistribucionComponent } from './components/canal-distribucion/canal-distribucion.component';
+import { AcercamientoComponent } from './components/acercamiento/acercamiento.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -49,7 +50,8 @@ const appRoutes : Routes = [
     {path: 'parametros-transaccion', component: ParametrosTransaccionComponent},
     {path: 'medios-contacto', component: MediosContactoComponent},
     {path: 'canales-venta', component: CanalesVentaComponent},
-    {path: 'canales-distribucion', component: CanalDistribucionComponent}
+    {path: 'canales-distribucion', component: CanalDistribucionComponent},
+    {path: 'acercamientos', component: AcercamientoComponent}
     
 ]
 
