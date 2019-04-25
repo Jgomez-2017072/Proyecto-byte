@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 
 
@@ -10,20 +10,20 @@ export interface PeriodicElement {
 
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, descripcion: 'Ingresos institucion'},
-  {position: 2, descripcion: 'Ingresos institucion 2'},
-  {position: 3, descripcion: 'Ingresos institucion 3'}, 
-  {position: 4, descripcion: 'Ingresos institucion 4'},
-  {position: 5, descripcion: 'Choluteca'},
-  {position: 6, descripcion: 'Carbon'},
-  {position: 7, descripcion: 'Azteca'},
-  {position: 8, descripcion: 'Gracias a Dios'},
-  {position: 9, descripcion: 'Bebesita'},
-  {position: 10, descripcion: 'El Paraiso'},  
-  {position: 11, descripcion: 'Nitrogen'},
-  {position: 12, descripcion: 'Oxygen'},
-  {position: 13, descripcion: 'Fluorine'},
-  {position: 14, descripcion: 'Neon'},
+  { position: 1, descripcion: 'Ingresos institucion' },
+  { position: 2, descripcion: 'Ingresos institucion 2' },
+  { position: 3, descripcion: 'Ingresos institucion 3' },
+  { position: 4, descripcion: 'Ingresos institucion 4' },
+  { position: 5, descripcion: 'Choluteca' },
+  { position: 6, descripcion: 'Carbon' },
+  { position: 7, descripcion: 'Azteca' },
+  { position: 8, descripcion: 'Gracias a Dios' },
+  { position: 9, descripcion: 'Bebesita' },
+  { position: 10, descripcion: 'El Paraiso' },
+  { position: 11, descripcion: 'Nitrogen' },
+  { position: 12, descripcion: 'Oxygen' },
+  { position: 13, descripcion: 'Fluorine' },
+  { position: 14, descripcion: 'Neon' },
 ];
 
 @Component({
@@ -32,7 +32,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./instituciones.component.scss']
 })
 export class InstitucionesComponent implements OnInit {
-  
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
@@ -40,18 +40,18 @@ export class InstitucionesComponent implements OnInit {
   }
 
 
-  displayedColumns: string[] = [ 'position', 'name', 'editar', 'eliminar', 'ver'];
+  displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar', 'ver', 'maestros'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   //SELECTOR
 
- applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarInstituciones, {
@@ -82,7 +82,18 @@ export class InstitucionesComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(AgregarMaestros, {
+      width: '40%',
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
+
 
 @Component({
   selector: 'editar-instituciones',
@@ -91,13 +102,13 @@ export class InstitucionesComponent implements OnInit {
 })
 export class EditarInstituciones {
   constructor(
-    public dialogRef: MatDialogRef<EditarInstituciones>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EditarInstituciones>, private snackBar: MatSnackBar) { }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  openSnackBar() {
+    this.snackBar.open("Registro Actualizado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -110,15 +121,15 @@ export class EditarInstituciones {
   styleUrls: ['./instituciones.component.scss']
 })
 export class EliminarInstituciones {
-  
-  constructor(
-    public dialogRef: MatDialogRef<EliminarInstituciones>, private snackBar: MatSnackBar) {}
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  constructor(
+    public dialogRef: MatDialogRef<EliminarInstituciones>, private snackBar: MatSnackBar) { }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Eliminado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -131,15 +142,36 @@ export class EliminarInstituciones {
   styleUrls: ['./instituciones.component.scss']
 })
 export class AgregarInstituciones {
-  
-  constructor(
-    public dialogRef: MatDialogRef<AgregarInstituciones>,private snackBar: MatSnackBar) {}
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  constructor(
+    public dialogRef: MatDialogRef<AgregarInstituciones>, private snackBar: MatSnackBar) { }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Guardado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'agregar-maestros',
+  templateUrl: 'agregar-maestros.html',
+  styleUrls: ['./instituciones.component.scss']
+})
+export class AgregarMaestros {
+
+  constructor(
+    public dialogRef: MatDialogRef<AgregarMaestros>, private snackBar: MatSnackBar) { }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Guardado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

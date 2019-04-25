@@ -19,16 +19,17 @@
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
-        <mat-form-field>
-            <mat-label>retencion cargo</mat-label>
+        <mat-form-field style="margin-right: 130px">
+            <mat-label>Institucion</mat-label>
             <mat-select>
                 <mat-option *ngFor="let food of Institucions" [value]="food.value">
                     {{food.viewValue}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
+
         <mat-form-field>
-            <mat-label>Institucion</mat-label>
+            <mat-label>Retencion cargo</mat-label>
             <mat-select>
                 <mat-option *ngFor="let food of Cobros" [value]="food.value">
                     {{food.viewValue}}

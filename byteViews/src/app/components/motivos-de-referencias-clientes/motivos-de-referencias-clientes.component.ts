@@ -33,7 +33,7 @@ export class MotivosDeReferenciasClientesComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  displayedColumns: string[] = ['position', 'name', 'descripcion','editar', 'eliminar', 'ver'];
+  displayedColumns: string[] = ['position', 'descripcion','editar', 'eliminar', 'ver'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   //FILTRO

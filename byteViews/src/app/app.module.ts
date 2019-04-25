@@ -29,7 +29,7 @@ import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, Elimi
 import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
 import { RecargosAdicionalesComponent, EliminarRecargos, EditarRecargos, AgregarRecargos  } from './components/recargos-adicionales/recargos-adicionales.component';
-import { InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones } from './components/instituciones/instituciones.component';
+import { InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros } from './components/instituciones/instituciones.component';
 import { FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso  } from "./components/formas-de-desembolso/formas-de-desembolso.component";
 import { MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
 import { MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa } from './components/motivos-de-reversa/motivos-de-reversa.component';
@@ -109,7 +109,7 @@ import { MatSelect, MatSelectModule } from '@angular/material';
     EditarAsesoresDePrestamo, 
     EliminarAsesoresDePrestamo, 
     RecargosAdicionalesComponent, AgregarRecargos, EliminarRecargos, EditarRecargos, 
-    InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones,
+    InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros,
     FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso, MotivosDeReferenciasClientesComponent,
     MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes, MotivosDeReversaComponent,
     MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa
@@ -164,7 +164,7 @@ import { MatSelect, MatSelectModule } from '@angular/material';
     EditarAsesoresDePrestamo, 
     EliminarAsesoresDePrestamo,
     AgregarRecargos, EliminarRecargos, EditarRecargos,
-    EliminarInstituciones, EditarInstituciones, AgregarInstituciones,
+    EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros,
     EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso,
     EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes,
     EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa

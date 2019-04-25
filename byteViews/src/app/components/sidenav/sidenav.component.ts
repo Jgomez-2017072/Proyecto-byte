@@ -28,12 +28,12 @@ export class SidenavComponent implements OnInit {
     {name: "Notarios", route:"/notarios"},
     {name: "Motivos de ajustes", route:"/motivos-ajustes"},
     {name: "Días inhábiles", route:"/dias-inhabiles"},
+    {name: "Recargos Adicionales", route:"/recargos-adicionales"},
+    {name: "Motivos de reversa", route:"/motivos-de-reversa"},
+    {name: "Instituciones", route:"/instituciones"},
+    {name: "Formas de desembolso", route:"/formas-de-desembolso"},
+    {name: "Motivos de referencias clientes", route:"/motivos-de-referencias-clientes"},
     {name: "Asesores de Prestamo", route:"/asesores-de-prestamos"},
-    {name: "Cobros adicionales", route:""},
-    {name: "Instituciones cobros adicionales", route:""},
-    {name: "Motivos de reversa", route:""},
-    {name: "Formas de desembolso", route:""},
-    {name: "Motivos de referencias clientes", route:""},
     {name: "Relación transacciones depósitos", route:""},
     {name: "Medios de contacto", route:""},
     {name: "Canales de venta", route:""},
@@ -64,12 +64,8 @@ export class SidenavComponent implements OnInit {
     {name: "Definir categorías de usuarios", route:""},
     {name: "Asignación de categorías", route:""},
     {name: "Copiar parámetros de productos", route:""},
-    {name: "Estatus legales", route:""},
-    {name: "Recargos Adicionales", route:"/recargos-adicionales"},
-    {name: "Instituciones", route:"/instituciones"},
-    {name: "Formas de desembolso", route:"/formas-de-desembolso"},
-    {name: "Motivos de referencias clientes", route:"/motivos-de-referencias-clientes"},
-    {name: "Motivos de reversa", route:"/motivos-de-reversa"}
+    {name: "Estatus legales", route:""}
+    
   ]
 
 
