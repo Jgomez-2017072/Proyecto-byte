@@ -64,7 +64,12 @@ export class SidenavComponent implements OnInit {
     {name: "Definir categorías de usuarios", route:""},
     {name: "Asignación de categorías", route:""},
     {name: "Copiar parámetros de productos", route:""},
-    {name: "Estatus legales", route:""}
+    {name: "Estatus legales", route:""},
+    {name: "Recargos Adicionales", route:"/recargos-adicionales"},
+    {name: "Instituciones", route:"/instituciones"},
+    {name: "Formas de desembolso", route:"/formas-de-desembolso"},
+    {name: "Motivos de referencias clientes", route:"/motivos-de-referencias-clientes"},
+    {name: "Motivos de reversa", route:"/motivos-de-reversa"}
   ]
 
 

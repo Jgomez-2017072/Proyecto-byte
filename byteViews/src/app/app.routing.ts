@@ -19,6 +19,11 @@ import { NotariosComponent } from './components/notarios/notarios.component';
 import { DiasInhabilesComponent } from './components/dias-inhabiles/dias-inhabiles.component';
 import { MotivosAjustesComponent } from './components/motivos-ajustes/motivos-ajustes.component';
 import { AsesoresDePrestamoComponent } from './components/asesores-de-prestamo/asesores-de-prestamo.component';
+import { RecargosAdicionalesComponent } from './components/recargos-adicionales/recargos-adicionales.component';
+import { InstitucionesComponent } from './components/instituciones/instituciones.component';
+import { FormasDeDesembolsoComponent } from './components/formas-de-desembolso/formas-de-desembolso.component';
+import { MotivosDeReferenciasClientesComponent } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
+import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motivos-de-reversa.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -39,7 +44,12 @@ const appRoutes : Routes = [
     {path : 'notarios', component : NotariosComponent},
     {path : 'motivos-ajustes', component : MotivosAjustesComponent},
     {path : 'dias-inhabiles', component : DiasInhabilesComponent},
-    {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent}
+    {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent},
+    {path : 'recargos-adicionales', component : RecargosAdicionalesComponent},
+    {path : 'instituciones', component : InstitucionesComponent},
+    {path : 'formas-de-desembolso', component : FormasDeDesembolsoComponent},
+    {path : 'motivos-de-referencias-clientes', component : MotivosDeReferenciasClientesComponent},
+    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent}
     
 ]
 

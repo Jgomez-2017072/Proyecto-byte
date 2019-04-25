@@ -28,6 +28,12 @@ import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios } 
 import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste } from './components/motivos-ajustes/motivos-ajustes.component';
 import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
+import { RecargosAdicionalesComponent, EliminarRecargos, EditarRecargos, AgregarRecargos  } from './components/recargos-adicionales/recargos-adicionales.component';
+import { InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones } from './components/instituciones/instituciones.component';
+import { FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso  } from "./components/formas-de-desembolso/formas-de-desembolso.component";
+import { MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
+import { MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa } from './components/motivos-de-reversa/motivos-de-reversa.component';
+import { MatSelect, MatSelectModule } from '@angular/material';
 
 
 @NgModule({
@@ -101,12 +107,19 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AsesoresDePrestamoComponent, 
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo, 
+    RecargosAdicionalesComponent, AgregarRecargos, EliminarRecargos, EditarRecargos, 
+    InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones,
+    FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso, MotivosDeReferenciasClientesComponent,
+    MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes, MotivosDeReversaComponent,
+    MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MatSelectModule,
     routing,
     FormsModule, //preguntar
     HttpClientModule, //preguntar
@@ -149,7 +162,12 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil,
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo,
+    AgregarRecargos, EliminarRecargos, EditarRecargos,
+    EliminarInstituciones, EditarInstituciones, AgregarInstituciones,
+    EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso,
+    EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes,
+    EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa
   ]
   ,
   providers: [
