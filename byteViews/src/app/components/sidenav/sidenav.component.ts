@@ -53,8 +53,13 @@ export class SidenavComponent implements OnInit {
     {name: "Archivos de limpieza", route:""},
     {name: "Limpieza de archivos", route:""},
     {name: "Productos", route:""},
+<<<<<<< HEAD
     {name: "Consultas", route:"/consultas"},
     {name: "Clasificación", route:"/clasificacion"},
+=======
+    {name: "Consultas", route:""},
+    {name: "Clasificación", route:""},
+>>>>>>> 1624020b2b36d6c43b8bb0914b3d7832b9143044
     {name: "Parámetros adicionales por producto", route:""},
     {name: "Eventos de solicitudes", route:""},
     {name: "Documentos a presentar por producto", route:""},
