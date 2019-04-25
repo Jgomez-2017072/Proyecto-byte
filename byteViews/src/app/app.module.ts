@@ -34,6 +34,7 @@ import { FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDe
 import { MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
 import { MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa } from './components/motivos-de-reversa/motivos-de-reversa.component';
 import { MatSelect, MatSelectModule } from '@angular/material';
+import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
 
 
 @NgModule({
@@ -112,7 +113,7 @@ import { MatSelect, MatSelectModule } from '@angular/material';
     InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros,
     FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso, MotivosDeReferenciasClientesComponent,
     MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes, MotivosDeReversaComponent,
-    MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa
+    MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa, ParametrizacionDeNumeroDePrestamosComponent
 
   ],
   imports: [
