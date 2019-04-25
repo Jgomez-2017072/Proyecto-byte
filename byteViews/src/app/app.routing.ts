@@ -24,6 +24,7 @@ import { AsesoresDePrestamoComponent } from './components/asesores-de-prestamo/a
 import {ParametrosTransaccionComponent} from './components/parametros-transaccion/parametros-transaccion.component'
 import { MediosContactoComponent } from './components/medios-contacto/medios-contacto.component'
 import { CanalesVentaComponent } from './components/canales-venta/canales-venta.component';
+import { CanalDistribucionComponent } from './components/canal-distribucion/canal-distribucion.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -47,7 +48,8 @@ const appRoutes : Routes = [
     {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent},
     {path: 'parametros-transaccion', component: ParametrosTransaccionComponent},
     {path: 'medios-contacto', component: MediosContactoComponent},
-    {path: 'canales-venta', component: CanalesVentaComponent}
+    {path: 'canales-venta', component: CanalesVentaComponent},
+    {path: 'canales-distribucion', component: CanalDistribucionComponent}
     
 ]
 

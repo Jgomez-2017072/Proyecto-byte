@@ -33,6 +33,7 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
 import { ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParametrosTransaccion,EliminarParametrosTransaccion } from './components/parametros-transaccion/parametros-transaccion.component'
 import { MediosContactoComponent, AgregarMediosContacto,EditarMediosContacto,EliminarMediosContacto } from './components/medios-contacto/medios-contacto.component'
 import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCanalesVenta} from './components/canales-venta/canales-venta.component'
+import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion } from './components/canal-distribucion/canal-distribucion.component'
 
 @NgModule({
   declarations: [
@@ -119,7 +120,11 @@ import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCan
     CanalesVentaComponent,
     AgregarCanalesVenta,
     EditarCanalesVenta,
-    EliminarCanalesVenta
+    EliminarCanalesVenta,
+    CanalDistribucionComponent,
+    AgregarCanalDistribucion,
+    EditarCanalDistribucion,
+    EliminarCanalDistribucion
 
   ],
   imports: [
@@ -173,7 +178,8 @@ import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCan
     //Importaciones Raul
     AgregarParametrosTransaccion, EditarParametrosTransaccion, EliminarParametrosTransaccion,
     AgregarMediosContacto, EditarMediosContacto, EliminarMediosContacto,
-    AgregarCanalesVenta, EditarCanalesVenta, EliminarCanalesVenta
+    AgregarCanalesVenta, EditarCanalesVenta, EliminarCanalesVenta,
+    AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion
   ]
   ,
   providers: [
