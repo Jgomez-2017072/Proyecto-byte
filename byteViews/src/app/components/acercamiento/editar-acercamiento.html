@@ -1,15 +1,23 @@
-<div class="subir">
-    <br>
+<div>
+    <h2 mat-dialog-title>Editar</h2>
     <div mat-dialog-content class="modal-down1">
-        <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Edite la descripción" [(ngModel)]="value">
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-                  <mat-icon>close</mat-icon>
-              </button>
+        <mat-form-field>
+            <input matInput placeholder="Código" [(ngModel)]="value1" sdf>
+            <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                <mat-icon>close</mat-icon>
+            </button>
         </mat-form-field>
-    </div><br><br>
-    <div mat-dialog-actions class="modal-down">
-        <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" cdkFocusInitial>ACEPTAR</button>
-        <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Descripción" [(ngModel)]="value2">
+            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+              <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()">EDITAR</button>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        </div>
     </div>
 </div>
