@@ -35,6 +35,7 @@ import { MediosContactoComponent, AgregarMediosContacto,EditarMediosContacto,Eli
 import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCanalesVenta} from './components/canales-venta/canales-venta.component'
 import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion } from './components/canal-distribucion/canal-distribucion.component'
 import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, EditarAcercamiento } from './components/acercamiento/acercamiento.component';
+import { ProductosComponent } from './components/productos/productos.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, Edita
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
     EliminarAsesoresDePrestamo,
+    
 
     //Importaciones Raul
     ParametrosTransaccionComponent,
@@ -129,7 +131,8 @@ import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, Edita
     AcercamientoComponent,
     AgregarAcercamiento,
     EditarAcercamiento,
-    EliminarAcercamiento
+    EliminarAcercamiento,
+    ProductosComponent
 
   ],
   imports: [

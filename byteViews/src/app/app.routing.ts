@@ -26,6 +26,7 @@ import { MediosContactoComponent } from './components/medios-contacto/medios-con
 import { CanalesVentaComponent } from './components/canales-venta/canales-venta.component';
 import { CanalDistribucionComponent } from './components/canal-distribucion/canal-distribucion.component';
 import { AcercamientoComponent } from './components/acercamiento/acercamiento.component';
+import { ProductosComponent } from './components/productos/productos.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -51,7 +52,8 @@ const appRoutes : Routes = [
     {path: 'medios-contacto', component: MediosContactoComponent},
     {path: 'canales-venta', component: CanalesVentaComponent},
     {path: 'canales-distribucion', component: CanalDistribucionComponent},
-    {path: 'acercamientos', component: AcercamientoComponent}
+    {path: 'acercamientos', component: AcercamientoComponent},
+    {path: 'productos', component: ProductosComponent}
     
 ]
 
