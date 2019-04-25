@@ -30,7 +30,10 @@ import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDi
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
 
 //Importaciones RAUL
-import {ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParametrosTransaccion,EliminarParametrosTransaccion} from './components/parametros-transaccion/parametros-transaccion.component'
+import { ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParametrosTransaccion,EliminarParametrosTransaccion } from './components/parametros-transaccion/parametros-transaccion.component'
+import { MediosContactoComponent, AgregarMediosContacto,EditarMediosContacto,EliminarMediosContacto } from './components/medios-contacto/medios-contacto.component'
+import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCanalesVenta} from './components/canales-venta/canales-venta.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,7 +111,16 @@ import {ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParam
     ParametrosTransaccionComponent,
     AgregarParametrosTransaccion,
     EditarParametrosTransaccion,
-    EliminarParametrosTransaccion
+    EliminarParametrosTransaccion,
+    MediosContactoComponent,
+    AgregarMediosContacto,
+    EditarMediosContacto,
+    EliminarMediosContacto,
+    CanalesVentaComponent,
+    AgregarCanalesVenta,
+    EditarCanalesVenta,
+    EliminarCanalesVenta
+
   ],
   imports: [
     BrowserModule,
@@ -159,7 +171,9 @@ import {ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParam
     EliminarAsesoresDePrestamo,
 
     //Importaciones Raul
-    AgregarParametrosTransaccion, EditarParametrosTransaccion, EliminarParametrosTransaccion
+    AgregarParametrosTransaccion, EditarParametrosTransaccion, EliminarParametrosTransaccion,
+    AgregarMediosContacto, EditarMediosContacto, EliminarMediosContacto,
+    AgregarCanalesVenta, EditarCanalesVenta, EliminarCanalesVenta
   ]
   ,
   providers: [

@@ -19,8 +19,11 @@ import { NotariosComponent } from './components/notarios/notarios.component';
 import { DiasInhabilesComponent } from './components/dias-inhabiles/dias-inhabiles.component';
 import { MotivosAjustesComponent } from './components/motivos-ajustes/motivos-ajustes.component';
 import { AsesoresDePrestamoComponent } from './components/asesores-de-prestamo/asesores-de-prestamo.component';
+
 //Importaciones Raul
 import {ParametrosTransaccionComponent} from './components/parametros-transaccion/parametros-transaccion.component'
+import { MediosContactoComponent } from './components/medios-contacto/medios-contacto.component'
+import { CanalesVentaComponent } from './components/canales-venta/canales-venta.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -42,7 +45,9 @@ const appRoutes : Routes = [
     {path : 'motivos-ajustes', component : MotivosAjustesComponent},
     {path : 'dias-inhabiles', component : DiasInhabilesComponent},
     {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent},
-    {path: 'parametros-transaccion', component: ParametrosTransaccionComponent}
+    {path: 'parametros-transaccion', component: ParametrosTransaccionComponent},
+    {path: 'medios-contacto', component: MediosContactoComponent},
+    {path: 'canales-venta', component: CanalesVentaComponent}
     
 ]
 

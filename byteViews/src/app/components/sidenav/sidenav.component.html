@@ -1,23 +1,21 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <img src="./assets/icono-byte.png" class="imagen-menu" alt="">
-  </mat-toolbar>
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <img src="./assets/icono-byte.png" class="imagen-menu" alt="">
+    </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a>
-        <a mat-list-item  [routerLink]="nav.route" *ngFor="let nav of fillerNav">{{nav.name}}</a>
-      </mat-nav-list>
-    </mat-sidenav>
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <mat-nav-list>
+                <a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a>
+                <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">{{nav.name}}</a>
+            </mat-nav-list>
+        </mat-sidenav>
 
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>
 
 <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
