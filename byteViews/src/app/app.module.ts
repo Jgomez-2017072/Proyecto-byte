@@ -34,7 +34,9 @@ import { FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDe
 import { MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
 import { MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa } from './components/motivos-de-reversa/motivos-de-reversa.component';
 import { MatSelect, MatSelectModule } from '@angular/material';
-import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
+import { ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
+import { MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
+import { ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
 
 
 @NgModule({
@@ -113,7 +115,10 @@ import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parame
     InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros,
     FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso, MotivosDeReferenciasClientesComponent,
     MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes, MotivosDeReversaComponent,
-    MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa, ParametrizacionDeNumeroDePrestamosComponent
+    MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa, ParametrizacionDeNumeroDePrestamosComponent,
+    ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos, MantenimientoAPasosDelCierreComponent,
+    MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre, ArchivosDeLimpiezaComponent,
+    ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza
 
   ],
   imports: [
@@ -168,7 +173,11 @@ import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parame
     EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros,
     EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso,
     EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes,
-    EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa
+    EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa,
+    EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos,
+    EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre,
+    EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza
+
   ]
   ,
   providers: [

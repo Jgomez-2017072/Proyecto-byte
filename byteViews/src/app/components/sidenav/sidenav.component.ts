@@ -48,9 +48,8 @@ export class SidenavComponent implements OnInit {
     {name: "Tipos y subtipos de garantías reales", route:""},
     {name: "Frecuencias de amortización", route:""},
     {name: "Estados de préstamos", route:""},
-    {name: "Parametrización de número de préstamos", route:""},
+    {name: "Parametrización de número de préstamos", route:"/parametrizacion-de-numero-de-prestamos"},
     {name: "Pasos del cierre", route:""},
-    {name: "Archivos de limpieza", route:""},
     {name: "Limpieza de archivos", route:""},
     {name: "Productos", route:""},
     {name: "Consultas", route:""},
@@ -64,7 +63,9 @@ export class SidenavComponent implements OnInit {
     {name: "Definir categorías de usuarios", route:""},
     {name: "Asignación de categorías", route:""},
     {name: "Copiar parámetros de productos", route:""},
-    {name: "Estatus legales", route:""}
+    {name: "Estatus legales", route:""}, 
+    {name: "Mantenimiento a pasos del cierre", route:"/mantenimiento-apasos-del-cierre"},
+    {name: "Archivos de Limpieza", route:"/archivos-de-limpieza"}
     
   ]
 

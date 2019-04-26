@@ -1,0 +1,53 @@
+<div>
+    <h2 mat-dialog-title>Editar</h2>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <input matInput placeholder="No. de secuencia" [(ngModel)]="value1">
+            <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nombre Programa" [(ngModel)]="value2">
+            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Descripcion Programa" [(ngModel)]="value3">
+            <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Tipo de frecuencia" [(ngModel)]="value4">
+            <button mat-button *ngIf="value4" matSuffix mat-icon-button aria-label="Clear" (click)="value4=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Fecha Ultima Corrida" [(ngModel)]="value5">
+            <button mat-button *ngIf="value5" matSuffix mat-icon-button aria-label="Clear" (click)="value5=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">                
+            <input matInput placeholder="Fecha Siguiente Corrida" [(ngModel)]="value6">
+            <button mat-button  *ngIf="value6" matSuffix mat-icon-button aria-label="Clear" (click)="value6=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+        </mat-form-field>
+        <mat-form-field class="example-full-width">                
+            <input matInput placeholder="Estado del programa" [(ngModel)]="value7">
+            <button mat-button  *ngIf="value7" matSuffix mat-icon-button aria-label="Clear" (click)="value7=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+        </mat-form-field>
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()">EDITAR</button>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        </div>
+    </div>
+</div>

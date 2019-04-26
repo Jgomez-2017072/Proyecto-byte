@@ -24,6 +24,9 @@ import { InstitucionesComponent } from './components/instituciones/instituciones
 import { FormasDeDesembolsoComponent } from './components/formas-de-desembolso/formas-de-desembolso.component';
 import { MotivosDeReferenciasClientesComponent } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
 import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motivos-de-reversa.component';
+import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
+import { MantenimientoAPasosDelCierreComponent } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
+import { ArchivosDeLimpiezaComponent } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -49,7 +52,10 @@ const appRoutes : Routes = [
     {path : 'instituciones', component : InstitucionesComponent},
     {path : 'formas-de-desembolso', component : FormasDeDesembolsoComponent},
     {path : 'motivos-de-referencias-clientes', component : MotivosDeReferenciasClientesComponent},
-    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent}
+    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent},
+    {path : 'parametrizacion-de-numero-de-prestamos', component : ParametrizacionDeNumeroDePrestamosComponent},
+    {path : 'mantenimiento-apasos-del-cierre', component : MantenimientoAPasosDelCierreComponent},
+    {path : 'archivos-de-limpieza', component : ArchivosDeLimpiezaComponent}
     
 ]
 
