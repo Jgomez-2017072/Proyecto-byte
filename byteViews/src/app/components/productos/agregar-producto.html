@@ -13,6 +13,13 @@
                     <mat-icon>close</mat-icon>
                 </button>
         </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Tipo de Califica" [(ngModel)]="value2">
+            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+        </mat-form-field>
     </div><br>
     <div class="modal-down">
         <div mat-dialog-actions>

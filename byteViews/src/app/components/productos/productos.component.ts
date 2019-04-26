@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource, MatDialog } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
 
 export interface PeriodicElement {
   tipoDescripcion: string;
@@ -31,7 +31,7 @@ export class ProductosComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
-  displayedColumns: string[] = ['position', 'tipoProducto','tipoDescripcion'];
+  displayedColumns: string[] = ['position', 'tipoProducto','tipoDescripcion', 'edit', 'delete', 'ver'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   applyFilter(filterValue: string) {
@@ -39,15 +39,101 @@ export class ProductosComponent implements OnInit {
   }  
 
   //Para los modals
-constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog) {}
 
-openDialog1(): void{
-    const dialogRef = this.dialog.open(EditarPr)
+  //Editar Producto Modal
+  openDialog1(): void {
+    const dialogRef = this.dialog.open(EditarProducto, {
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
-  @Component({
-    selector: 'editar-producto',
-    templateUrl: 'editar-producto.html',
-    styleUrls: ['./productos.component.scss']
-  })
+  //Eliminar Producto modal
+  openDialog2(): void {
+    const dialogRef = this.dialog.open(EliminarProducto, {
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+//Agregar Producto Modal
+  openDialog3(): void {
+    const dialogRef = this.dialog.open(AgregarProducto, {
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
+
+@Component({
+  selector: 'editar-producto',
+  templateUrl: 'editar-producto.html',
+  styleUrls: ['./productos.component.scss']
+})
+export class EditarProducto {
+  constructor(
+    public dialogRef: MatDialogRef<EditarProducto>, private snackBar: MatSnackBar) {}
+
+    openSnackBar() {
+      this.snackBar.open("Registro Actualizado!", "", {
+        duration: 2100, horizontalPosition : 'end'
+      });
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'eliminar-producto',
+  templateUrl: 'eliminar-producto.html',
+  styleUrls: ['./productos.component.scss']
+})
+export class EliminarProducto {
+  
+  constructor(
+    public dialogRef: MatDialogRef<EliminarProducto>, private snackBar: MatSnackBar) {}
+
+    openSnackBar() {
+      this.snackBar.open("Registro Eliminado!", "", {
+        duration: 2100, horizontalPosition : 'end'
+      });
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'agregar-producto',
+  templateUrl: 'agregar-producto.html',
+  styleUrls: ['./productos.component.scss']
+})
+export class AgregarProducto {
+  
+  constructor(
+    public dialogRef: MatDialogRef<AgregarProducto>, private snackBar: MatSnackBar) {}
+
+    openSnackBar() {
+      this.snackBar.open("Registro Guardado!", "", {
+        duration: 2100, horizontalPosition : 'end'
+      });
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+ }

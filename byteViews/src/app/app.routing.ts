@@ -27,6 +27,7 @@ import { CanalesVentaComponent } from './components/canales-venta/canales-venta.
 import { CanalDistribucionComponent } from './components/canal-distribucion/canal-distribucion.component';
 import { AcercamientoComponent } from './components/acercamiento/acercamiento.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { SubProductosComponent } from './components/sub-productos/sub-productos.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -53,7 +54,8 @@ const appRoutes : Routes = [
     {path: 'canales-venta', component: CanalesVentaComponent},
     {path: 'canales-distribucion', component: CanalDistribucionComponent},
     {path: 'acercamientos', component: AcercamientoComponent},
-    {path: 'productos', component: ProductosComponent}
+    {path: 'productos', component: ProductosComponent},
+    {path: 'sub-productos', component: SubProductosComponent}
     
 ]
 

@@ -66,7 +66,8 @@ export class SidenavComponent implements OnInit {
     {name: "Definir categorías de usuarios", route:""},
     {name: "Asignación de categorías", route:""},
     {name: "Copiar parámetros de productos", route:""},
-    {name: "Estatus legales", route:""}
+    {name: "Estatus legales", route:""},
+    {name: 'SubProductos', route: '/sub-productos'}
   ]
 
 

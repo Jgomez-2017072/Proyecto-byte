@@ -35,7 +35,8 @@ import { MediosContactoComponent, AgregarMediosContacto,EditarMediosContacto,Eli
 import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCanalesVenta} from './components/canales-venta/canales-venta.component'
 import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion } from './components/canal-distribucion/canal-distribucion.component'
 import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, EditarAcercamiento } from './components/acercamiento/acercamiento.component';
-import { ProductosComponent } from './components/productos/productos.component';
+import { ProductosComponent, AgregarProducto, EditarProducto, EliminarProducto } from './components/productos/productos.component';
+import { SubProductosComponent, AgregarSubProductos, EditarSubProductos, EliminarSubProductos } from './components/sub-productos/sub-productos.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,14 @@ import { ProductosComponent } from './components/productos/productos.component';
     AgregarAcercamiento,
     EditarAcercamiento,
     EliminarAcercamiento,
-    ProductosComponent
+    ProductosComponent,
+    AgregarProducto,
+    EditarProducto,
+    EliminarProducto,
+    SubProductosComponent,
+    AgregarSubProductos,
+    EditarSubProductos,
+    EliminarSubProductos
 
   ],
   imports: [
@@ -188,7 +196,9 @@ import { ProductosComponent } from './components/productos/productos.component';
     AgregarMediosContacto, EditarMediosContacto, EliminarMediosContacto,
     AgregarCanalesVenta, EditarCanalesVenta, EliminarCanalesVenta,
     AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion,
-    AgregarAcercamiento, EditarAcercamiento, EliminarAcercamiento
+    AgregarAcercamiento, EditarAcercamiento, EliminarAcercamiento,
+    AgregarProducto, EditarProducto, EliminarProducto,
+    AgregarSubProductos, EditarSubProductos, EliminarSubProductos
   ]
   ,
   providers: [
