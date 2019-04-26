@@ -27,6 +27,10 @@ table {
   margin: auto; 
 }
 
+.centrar{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .container {
   //max-height: 400px;
@@ -99,8 +103,12 @@ label {
   background-color:rgb(238, 60, 48); 
   color: white;
 }
-
+//-------------------------------------
 .example-full-width {
   width: 100%;
 }
 
+
+.example-margin {
+  margin: 0 10px;
+}

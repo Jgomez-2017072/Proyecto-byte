@@ -21,6 +21,13 @@ import { MotivosAjustesComponent } from './components/motivos-ajustes/motivos-aj
 import { AsesoresDePrestamoComponent } from './components/asesores-de-prestamo/asesores-de-prestamo.component';
 import { ConsultasComponent } from './components/consultas/consultas.component';
 import { ClasificacionComponent } from './components/clasificacion/clasificacion.component';
+import { ParametrosAdicionalesProductoComponent } from './components/parametros-adicionales-producto/parametros-adicionales-producto.component';
+import { EventosSolicitudesComponent } from './components/eventos-solicitudes/eventos-solicitudes.component';
+import { DocumentosPresentarProductoComponent } from './components/documentos-presentar-producto/documentos-presentar-producto.component';
+import { MontosPorPlazoComponent } from './components/montos-por-plazo/montos-por-plazo.component';
+import { PorcentajesDeFinanciamientoComponent } from './components/porcentajes-de-financiamiento/porcentajes-de-financiamiento.component';
+import { RangoPlazosInteresComponent } from './components/rango-plazos-interes/rango-plazos-interes.component';
+import { DefinirCategoriasUsuariosComponent } from './components/definir-categorias-usuarios/definir-categorias-usuarios.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -43,8 +50,14 @@ const appRoutes : Routes = [
     {path : 'dias-inhabiles', component : DiasInhabilesComponent},
     {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent},
     {path : 'consultas', component : ConsultasComponent},
-    {path : 'clasificacion', component : ClasificacionComponent}
-    
+    {path : 'clasificacion', component : ClasificacionComponent},
+    {path : 'parametros-adicionales', component : ParametrosAdicionalesProductoComponent},
+    {path : 'evento-solicitudes', component : EventosSolicitudesComponent},
+    {path : 'documento-presentar-producto', component : DocumentosPresentarProductoComponent},
+    {path : 'montos-por-plazo', component : MontosPorPlazoComponent},
+    {path : 'porcentajes-de-financiamiento', component : PorcentajesDeFinanciamientoComponent},
+    {path : 'rango-plazo-interes', component : RangoPlazosInteresComponent},
+    {path : 'definir-categorias-usuarios', component : DefinirCategoriasUsuariosComponent}
 ]
 
 export const appRoutingProviders : any[] = [];

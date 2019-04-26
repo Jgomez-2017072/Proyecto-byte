@@ -1,0 +1,66 @@
+<br><mat-form-field class="centrar">
+    <mat-label>Seleccionar producto</mat-label>
+    <mat-select>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+    </mat-select>
+</mat-form-field>  <br>
+
+  <mat-form-field class="selector">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder='Search' [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" (click)="applyFilter(value)">
+          <mat-icon>close</mat-icon>
+      </button> 
+  </mat-form-field>
+  
+  <div class="container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">    
+       
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef  class="encabezados"> Codigo </th>
+          <td mat-cell  *matCellDef="let element"> {{element.codigo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef class="encabezados"> Descripcion </th>
+          <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="minimo">
+            <th mat-header-cell *matHeaderCellDef  class="encabezados"> Minimo </th>
+            <td mat-cell  *matCellDef="let element"> {{element.minimo}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="maximo">
+            <th mat-header-cell *matHeaderCellDef class="encabezados"> Maximo </th>
+            <td mat-cell *matCellDef="let element"> {{element.maximo}} </td>
+          </ng-container>
+  
+        <ng-container matColumnDef="editar">
+          <th mat-header-cell *matHeaderCellDef  class="encabezados2"></th>
+          <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()"><mat-icon style="color : rgb(21, 100, 165);">create</mat-icon></button></td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="eliminar">
+          <th mat-header-cell *matHeaderCellDef  class="encabezados2"></th>
+          <td mat-cell *matCellDef="let element"><button class="btn"(click)="openDialog2()"><mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon></button></td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ver">
+            <th mat-header-cell *matHeaderCellDef  class="encabezados2"></th>
+            <td mat-cell *matCellDef="let element"><button class="btn" ><mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon></button></td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selection.toggle(row)">
+        </tr>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div><br>
+  
+    <button mat-mini-fab (click)="openDialog3()" id="add"><mat-icon>add</mat-icon></button><br><br>
+

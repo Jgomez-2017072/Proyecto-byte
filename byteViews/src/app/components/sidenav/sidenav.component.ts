@@ -53,20 +53,15 @@ export class SidenavComponent implements OnInit {
     {name: "Archivos de limpieza", route:""},
     {name: "Limpieza de archivos", route:""},
     {name: "Productos", route:""},
-<<<<<<< HEAD
     {name: "Consultas", route:"/consultas"},
     {name: "Clasificación", route:"/clasificacion"},
-=======
-    {name: "Consultas", route:""},
-    {name: "Clasificación", route:""},
->>>>>>> 1624020b2b36d6c43b8bb0914b3d7832b9143044
-    {name: "Parámetros adicionales por producto", route:""},
-    {name: "Eventos de solicitudes", route:""},
-    {name: "Documentos a presentar por producto", route:""},
-    {name: "Montos por plazo", route:""},
-    {name: "Porcentajes de financiamiento", route:""},
-    {name: "Rango de plazos por interés", route:""},
-    {name: "Definir categorías de usuarios", route:""},
+    {name: "Parámetros adicionales por producto", route:"/parametros-adicionales"},
+    {name: "Eventos de solicitudes", route:"/evento-solicitudes"},
+    {name: "Documentos a presentar por producto", route:"/documento-presentar-producto"},
+    {name: "Montos por plazo", route:"/montos-por-plazo"},
+    {name: "Porcentajes de financiamiento", route:"/porcentajes-de-financiamiento"},
+    {name: "Rango de plazos por interés", route:"/rango-plazo-interes"},
+    {name: "Definir categorías de usuarios", route:"/definir-categorias-usuarios"},
     {name: "Asignación de categorías", route:""},
     {name: "Copiar parámetros de productos", route:""},
     {name: "Estatus legales", route:""}
