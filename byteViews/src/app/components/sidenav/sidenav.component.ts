@@ -50,7 +50,7 @@ export class SidenavComponent implements OnInit {
     {name: "Estados de préstamos", route:""},
     {name: "Parametrización de número de préstamos", route:"/parametrizacion-de-numero-de-prestamos"},
     {name: "Pasos del cierre", route:""},
-    {name: "Limpieza de archivos", route:""},
+    {name: "Limpieza de archivos", route:"/limpia-archivos"},
     {name: "Productos", route:""},
     {name: "Consultas", route:""},
     {name: "Clasificación", route:""},

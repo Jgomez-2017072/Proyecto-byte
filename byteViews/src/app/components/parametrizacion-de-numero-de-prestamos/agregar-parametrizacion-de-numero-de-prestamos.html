@@ -15,9 +15,8 @@
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input matInput type="text" placeholder="Separador" [(ngModel)]="value3">
-        <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
-            <mat-icon>close</mat-icon>
-        </button> 
+        <mat-checkbox *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">Check me!</mat-checkbox>
+       
       </mat-form-field>
   </div><br>
   <div  class="modal-down">

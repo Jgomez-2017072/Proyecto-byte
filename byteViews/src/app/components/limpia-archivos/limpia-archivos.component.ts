@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 
 export interface PeriodicElement {
@@ -8,25 +8,44 @@ export interface PeriodicElement {
   position: number;
 }
 
+export interface PeriodicElement2 {
+  descripcion: string;
+  descripcionParaReportes: string;
+  position: number;
+}
+
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, descripcion: 'Ajuste de intereses', descripcionParaReportes : "asddddd"},
-  {position: 2, descripcion: 'gastos de avaluo', descripcionParaReportes : "asddddd"},
-  {position: 3, descripcion: 'gastos de gestion legal', descripcionParaReportes : "asddddd"}, 
-  {position: 4, descripcion: 'Comision ctas incobrables', descripcionParaReportes : "asddddd"},
-  {position: 5, descripcion: 'Excedente Gto Escritura', descripcionParaReportes : "asddddd"},
-  {position: 6, descripcion: 'Gastos Escrituras Hipotecario',descripcionParaReportes : "asddddd"},
-  {position: 7, descripcion: 'Gtos legales inscripciones',descripcionParaReportes : "asddddd"},
-  {position: 8, descripcion: 'Desgravemen', descripcionParaReportes : "asddddd"},
-  {position: 9, descripcion: 'Desgravamen tarjeta de credito', descripcionParaReportes : "asddddd"},
-  {position: 10, descripcion: 'Neon', descripcionParaReportes : "asddddd"},
+  { position: 1, descripcion: 'Ajuste de intereses', descripcionParaReportes: "asddddd" },
+  { position: 2, descripcion: 'gastos de avaluo', descripcionParaReportes: "asddddd" },
+  { position: 3, descripcion: 'gastos de gestion legal', descripcionParaReportes: "asddddd" },
+  { position: 4, descripcion: 'Comision ctas incobrables', descripcionParaReportes: "asddddd" },
+  { position: 5, descripcion: 'Excedente Gto Escritura', descripcionParaReportes: "asddddd" },
+  { position: 6, descripcion: 'Gastos Escrituras Hipotecario', descripcionParaReportes: "asddddd" },
+  { position: 7, descripcion: 'Gtos legales inscripciones', descripcionParaReportes: "asddddd" },
+  { position: 8, descripcion: 'Desgravemen', descripcionParaReportes: "asddddd" },
+  { position: 9, descripcion: 'Desgravamen tarjeta de credito', descripcionParaReportes: "asddddd" },
+  { position: 10, descripcion: 'Neon', descripcionParaReportes: "asddddd" },
+];
+
+const ELEMENT_DATA2: PeriodicElement2[] = [
+  { position: 1, descripcion: 'Ajuste de intereses', descripcionParaReportes: "asddddd" },
+  { position: 2, descripcion: 'gastos de avaluo', descripcionParaReportes: "asddddd" },
+  { position: 3, descripcion: 'gastos de gestion legal', descripcionParaReportes: "asddddd" },
+  { position: 4, descripcion: 'Comision ctas incobrables', descripcionParaReportes: "asddddd" },
+  { position: 5, descripcion: 'Excedente Gto Escritura', descripcionParaReportes: "asddddd" },
+  { position: 6, descripcion: 'Gastos Escrituras Hipotecario', descripcionParaReportes: "asddddd" },
+  { position: 7, descripcion: 'Gtos legales inscripciones', descripcionParaReportes: "asddddd" },
+  { position: 8, descripcion: 'Desgravemen', descripcionParaReportes: "asddddd" },
+  { position: 9, descripcion: 'Desgravamen tarjeta de credito', descripcionParaReportes: "asddddd" },
+  { position: 10, descripcion: 'Neon', descripcionParaReportes: "asddddd" },
 ];
 
 @Component({
-  selector: 'app-recargos-adicionales',
-  templateUrl: './recargos-adicionales.component.html',
-  styleUrls: ['./recargos-adicionales.component.scss']
+  selector: 'app-limpia-archivos',
+  templateUrl: './limpia-archivos.component.html',
+  styleUrls: ['./limpia-archivos.component.scss']
 })
-export class RecargosAdicionalesComponent implements OnInit {
+export class LimpiaArchivosComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -34,40 +53,33 @@ export class RecargosAdicionalesComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  displayedColumns: string[] = ['position', 'name', 'descripcion','editar', 'eliminar', 'ver'];
+  displayedColumns: string[] = ['position', 'descripcion', 'descripcionParaReportes', 'limpiaArchivos', 'ver'];
+  displayedColumns2: string[] = ['position', 'descripcion', 'descripcionParaReportes', 'marcarIndi', 'desmarcarIndi'];
+  //'marcarTodos', 'desmarcarTodo',
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource2 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA2);
 
   //FILTRO
 
- applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
-
-  openDialog1(): void {
-    const dialogRef = this.dialog.open(EditarRecargos, {
-      width: '40%',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
-  openDialog2(): void {
-    const dialogRef = this.dialog.open(EliminarRecargos, {
-      width: '40%',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
+  constructor(public dialog: MatDialog) { }
 
   openDialog3(): void {
-    const dialogRef = this.dialog.open(AgregarRecargos, {
+    const dialogRef = this.dialog.open(LimpiezaSeleccionada, {
+      width: '80%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(Opciones, {
       width: '40%',
     });
 
@@ -79,59 +91,64 @@ export class RecargosAdicionalesComponent implements OnInit {
 }
 
 @Component({
-  selector: 'editar-recargos',
-  templateUrl: 'editar-recargos.html',
-  styleUrls: ['./recargos-adicionales.component.scss']
+  selector: 'opciones',
+  templateUrl: 'opciones.html',
+  styleUrls: ['./limpia-archivos.component.scss']
 })
-export class EditarRecargos {
+export class Opciones {
   constructor(
-    public dialogRef: MatDialogRef<EditarRecargos>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<Opciones>, public dialog: MatDialog) { }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
+
+    openDialog3(): void {
+      const dialogRef = this.dialog.open(LimpiezaSeleccionada, {
+        width: '40%',
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
       });
     }
-
+  
   onNoClick(): void {
     this.dialogRef.close();
   }
 }
 
 @Component({
-  selector: 'eliminar-recargos',
-  templateUrl: 'eliminar-recargos.html',
-  styleUrls: ['./recargos-adicionales.component.scss']
+  selector: 'limpieza-seleccionada',
+  templateUrl: 'limpieza-seleccionada.html',
+  styleUrls: ['./limpia-archivos.component.scss']
+
+  
 })
-export class EliminarRecargos {
-  constructor(
-    public dialogRef: MatDialogRef<EliminarRecargos>, private snackBar: MatSnackBar) {}
+export class LimpiezaSeleccionada implements OnInit{
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
+  public icon = 'check_circle_outline'; 
+
+  public toggleIcon() {
+    if (this.icon === 'check_circle_outline') {
+        this.icon = 'check_circle';
+    } else {
+        this.icon = 'check_circle_outline'
     }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
-}
 
-@Component({
-  selector: 'agregar-recargos',
-  templateUrl: 'agregar-recargos.html',
-  styleUrls: ['./recargos-adicionales.component.scss']
-})
-export class AgregarRecargos {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngOnInit() {
+    this.dataSource2.paginator = this.paginator;
+  }
+
+  displayedColumns2: string[] = ['position', 'descripcion', 'descripcionParaReportes', 'marcarIndi', 'desmarcarIndi'];
+  dataSource2 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA2);
+
+  applyFilter(filterValue: string) {
+    this.dataSource2.filter = filterValue.trim().toLowerCase();
+  }
+
   constructor(
-    public dialogRef: MatDialogRef<AgregarRecargos>, private snackBar: MatSnackBar) {}
-
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    public dialogRef: MatDialogRef<LimpiezaSeleccionada>) { }
 
 
   onNoClick(): void {

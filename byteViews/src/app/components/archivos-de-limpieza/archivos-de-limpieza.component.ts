@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 
 export interface PeriodicElement {
@@ -9,16 +9,16 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, descripcion: 'Arch', descripcionArchivo : "archivo de limpieza prueba"},
-  {position: 2, descripcion: 'gastos de avaluo', descripcionArchivo : "asddddd"},
-  {position: 3, descripcion: 'gastos de gestion legal', descripcionArchivo : "asddddd"}, 
-  {position: 4, descripcion: 'Comision ctas incobrables', descripcionArchivo : "asddddd"},
-  {position: 5, descripcion: 'Excedente Gto Escritura', descripcionArchivo : "asddddd"},
-  {position: 6, descripcion: 'Gastos Escrituras Hipotecario',descripcionArchivo : "asddddd"},
-  {position: 7, descripcion: 'Gtos legales inscripciones',descripcionArchivo : "asddddd"},
-  {position: 8, descripcion: 'Desgravemen', descripcionArchivo : "asddddd"},
-  {position: 9, descripcion: 'Desgravamen tarjeta de credito', descripcionArchivo : "asddddd"},
-  {position: 10, descripcion: 'Neon', descripcionArchivo : "asddddd"},
+  { position: 1, descripcion: 'Arch', descripcionArchivo: "archivo de limpieza prueba" },
+  { position: 2, descripcion: 'gastos de avaluo', descripcionArchivo: "asddddd" },
+  { position: 3, descripcion: 'gastos de gestion legal', descripcionArchivo: "asddddd" },
+  { position: 4, descripcion: 'Comision ctas incobrables', descripcionArchivo: "asddddd" },
+  { position: 5, descripcion: 'Excedente Gto Escritura', descripcionArchivo: "asddddd" },
+  { position: 6, descripcion: 'Gastos Escrituras Hipotecario', descripcionArchivo: "asddddd" },
+  { position: 7, descripcion: 'Gtos legales inscripciones', descripcionArchivo: "asddddd" },
+  { position: 8, descripcion: 'Desgravemen', descripcionArchivo: "asddddd" },
+  { position: 9, descripcion: 'Desgravamen tarjeta de credito', descripcionArchivo: "asddddd" },
+  { position: 10, descripcion: 'Neon', descripcionArchivo: "asddddd" },
 ];
 
 @Component({
@@ -34,17 +34,17 @@ export class ArchivosDeLimpiezaComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  displayedColumns: string[] = ['position', 'descripcion', 'descripcionArchivo', 'editar', 'eliminar', 'ver'];
+  displayedColumns: string[] = ['position', 'descripcion', 'descripcionArchivo', 'editar', 'eliminar', 'ver', 'limpiaArchivos'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   //FILTRO
 
- applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarArchivosDeLimpieza, {
@@ -85,13 +85,13 @@ export class ArchivosDeLimpiezaComponent implements OnInit {
 })
 export class EditarArchivosDeLimpieza {
   constructor(
-    public dialogRef: MatDialogRef<EditarArchivosDeLimpieza>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EditarArchivosDeLimpieza>, private snackBar: MatSnackBar) { }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  openSnackBar() {
+    this.snackBar.open("Registro Actualizado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -105,13 +105,13 @@ export class EditarArchivosDeLimpieza {
 })
 export class EliminarArchivosDeLimpieza {
   constructor(
-    public dialogRef: MatDialogRef<EliminarArchivosDeLimpieza>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EliminarArchivosDeLimpieza>, private snackBar: MatSnackBar) { }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  openSnackBar() {
+    this.snackBar.open("Registro Eliminado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -123,15 +123,15 @@ export class EliminarArchivosDeLimpieza {
   templateUrl: 'agregar-archivos-de-limpieza.html',
   styleUrls: ['./archivos-de-limpieza.component.scss']
 })
-export class AgregarArchivosDeLimpieza{
+export class AgregarArchivosDeLimpieza {
   constructor(
-    public dialogRef: MatDialogRef<AgregarArchivosDeLimpieza>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarArchivosDeLimpieza>, private snackBar: MatSnackBar) { }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  openSnackBar() {
+    this.snackBar.open("Registro Guardado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
 
   onNoClick(): void {

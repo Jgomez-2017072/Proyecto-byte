@@ -4,7 +4,7 @@ import { appRoutingProviders, routing } from './app.routing';
 import { AppComponent } from './app.component';
 
 //Animations
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
 //Material
 import { MaterialModule } from './material';
 
@@ -37,7 +37,7 @@ import { MatSelect, MatSelectModule } from '@angular/material';
 import { ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
 import { MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
 import { ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
-import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
+import { LimpiaArchivosComponent, Opciones , LimpiezaSeleccionada } from "./components/limpia-archivos/limpia-archivos.component";
 
 
 @NgModule({
@@ -119,7 +119,8 @@ import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-arc
     MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa, ParametrizacionDeNumeroDePrestamosComponent,
     ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos, MantenimientoAPasosDelCierreComponent,
     MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre, ArchivosDeLimpiezaComponent,
-    ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, LimpiaArchivosComponent
+    ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, 
+    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada
 
   ],
   imports: [
@@ -177,7 +178,8 @@ import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-arc
     EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa,
     EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos,
     EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre,
-    EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza
+    EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, 
+    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada
 
   ]
   ,

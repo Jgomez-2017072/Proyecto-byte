@@ -27,6 +27,8 @@ import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motiv
 import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
 import { MantenimientoAPasosDelCierreComponent } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
 import { ArchivosDeLimpiezaComponent } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
+import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
+
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -55,7 +57,8 @@ const appRoutes : Routes = [
     {path : 'motivos-de-reversa', component : MotivosDeReversaComponent},
     {path : 'parametrizacion-de-numero-de-prestamos', component : ParametrizacionDeNumeroDePrestamosComponent},
     {path : 'mantenimiento-apasos-del-cierre', component : MantenimientoAPasosDelCierreComponent},
-    {path : 'archivos-de-limpieza', component : ArchivosDeLimpiezaComponent}
+    {path : 'archivos-de-limpieza', component : ArchivosDeLimpiezaComponent},
+    {path : 'limpia-archivos', component : LimpiaArchivosComponent}
     
 ]
 
