@@ -28,6 +28,15 @@ import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios } 
 import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste } from './components/motivos-ajustes/motivos-ajustes.component';
 import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
+import { TiposDeTransaccionComponent, AgregarTiposTransacciones, EditarTiposTransacciones, EliminarTiposTransacciones } from './components/tipos-de-transaccion/tipos-de-transaccion.component';
+import { GarantiasContablesComponent, AgregarGarantiasContables, EditarGarantiasContables, EliminarGarantiasContables } from './components/garantias-contables/garantias-contables.component';
+import { TiposSubtiposGarantiasRealesComponent, AgregarTiposSubtiposGR, EditarTiposSubtiposGR, EliminarTiposSubtiposGR } from './components/tipos-subtipos-garantias-reales/tipos-subtipos-garantias-reales.component';
+import { SubtipoGarantiaComponent, AgregarSubTipoGarantia, EditarSubTipoGarantia, EliminarSubTipoGarantia } from './components/subtipo-garantia/subtipo-garantia.component';
+
+import { EstadosPrestamosComponent, AgregarEstadosPrestamos, EditarEstadosPrestamos, EliminarEstadosPrestamos } from './components/estados-prestamos/estados-prestamos.component';
+import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEstados } from './components/sub-estados/sub-estados.component';
+import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
+import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFrecuenciaAmortizacion, FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
 
 
 @NgModule({
@@ -101,7 +110,39 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AsesoresDePrestamoComponent, 
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo, 
+    TiposDeTransaccionComponent, 
+    AgregarTiposTransacciones,
+    EditarTiposTransacciones,
+    EliminarTiposTransacciones,
+    GarantiasContablesComponent, 
+    AgregarGarantiasContables,
+    EditarGarantiasContables,
+    EliminarGarantiasContables,
+    TiposSubtiposGarantiasRealesComponent, 
+    AgregarTiposSubtiposGR,
+    EditarTiposSubtiposGR,
+    EliminarTiposSubtiposGR,
+    SubtipoGarantiaComponent,
+    AgregarSubTipoGarantia,
+    EditarSubTipoGarantia,
+    EliminarSubTipoGarantia,
+    FrecuenciasAmortizacionComponent, 
+    AgregarFrecuenciaAmortizacion,
+    EditarFrecuenciaAmortizacion,
+    EliminarFrecuenciaAmortizacion,
+    EstadosPrestamosComponent, 
+    AgregarEstadosPrestamos,
+    EditarEstadosPrestamos,
+    EliminarEstadosPrestamos,
+    SubEstadosComponent, 
+    AgregarSubEstados,
+    EditarSubEstados,
+    EliminarSubEstados,
+    TrasladoEstadosPrestamosComponent,
+    AgregarTrasladoEstPrestamo,
+    EditarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo
   ],
   imports: [
     BrowserModule,
@@ -149,7 +190,31 @@ import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresD
     AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil,
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
-    EliminarAsesoresDePrestamo
+    EliminarAsesoresDePrestamo,
+    AgregarTiposTransacciones,
+    EditarTiposTransacciones,
+    EliminarTiposTransacciones,
+    AgregarGarantiasContables,
+    EditarGarantiasContables,
+    EliminarGarantiasContables,
+    AgregarTiposSubtiposGR,
+    EditarTiposSubtiposGR,
+    EliminarTiposSubtiposGR,
+    AgregarSubTipoGarantia,
+    EditarSubTipoGarantia,
+    EliminarSubTipoGarantia,
+    AgregarFrecuenciaAmortizacion,
+    EditarFrecuenciaAmortizacion,
+    EliminarFrecuenciaAmortizacion,
+    AgregarEstadosPrestamos,
+    EditarEstadosPrestamos,
+    EliminarEstadosPrestamos,
+    AgregarSubEstados,
+    EditarSubEstados,
+    EliminarSubEstados,
+    AgregarTrasladoEstPrestamo,
+    EditarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo
   ]
   ,
   providers: [

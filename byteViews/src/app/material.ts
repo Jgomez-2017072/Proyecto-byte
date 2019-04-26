@@ -12,13 +12,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
-    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule],
+    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
+    MatPaginatorModule, MatRadioModule],
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
-    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule],
+    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
+    MatPaginatorModule, MatRadioModule],
 })
 export class MaterialModule { }
