@@ -45,6 +45,16 @@ import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistri
 import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, EditarAcercamiento } from './components/acercamiento/acercamiento.component';
 import { ProductosComponent, AgregarProducto, EditarProducto, EliminarProducto } from './components/productos/productos.component';
 import { SubProductosComponent, AgregarSubProductos, EditarSubProductos, EliminarSubProductos } from './components/sub-productos/sub-productos.component';
+import { TiposDeTransaccionComponent, AgregarTiposTransacciones, EditarTiposTransacciones, EliminarTiposTransacciones } from './components/tipos-de-transaccion/tipos-de-transaccion.component';
+import { GarantiasContablesComponent, AgregarGarantiasContables, EditarGarantiasContables, EliminarGarantiasContables } from './components/garantias-contables/garantias-contables.component';
+import { TiposSubtiposGarantiasRealesComponent, AgregarTiposSubtiposGR, EditarTiposSubtiposGR, EliminarTiposSubtiposGR } from './components/tipos-subtipos-garantias-reales/tipos-subtipos-garantias-reales.component';
+import { SubtipoGarantiaComponent, AgregarSubTipoGarantia, EditarSubTipoGarantia, EliminarSubTipoGarantia } from './components/subtipo-garantia/subtipo-garantia.component';
+
+import { EstadosPrestamosComponent, AgregarEstadosPrestamos, EditarEstadosPrestamos, EliminarEstadosPrestamos } from './components/estados-prestamos/estados-prestamos.component';
+import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEstados } from './components/sub-estados/sub-estados.component';
+import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
+import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFrecuenciaAmortizacion, FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
+
 
 @NgModule({
   declarations: [
@@ -161,8 +171,39 @@ import { SubProductosComponent, AgregarSubProductos, EditarSubProductos, Elimina
     SubProductosComponent,
     AgregarSubProductos,
     EditarSubProductos,
-    EliminarSubProductos
-
+    EliminarSubProductos,
+    TiposDeTransaccionComponent, 
+    AgregarTiposTransacciones,
+    EditarTiposTransacciones,
+    EliminarTiposTransacciones,
+    GarantiasContablesComponent, 
+    AgregarGarantiasContables,
+    EditarGarantiasContables,
+    EliminarGarantiasContables,
+    TiposSubtiposGarantiasRealesComponent, 
+    AgregarTiposSubtiposGR,
+    EditarTiposSubtiposGR,
+    EliminarTiposSubtiposGR,
+    SubtipoGarantiaComponent,
+    AgregarSubTipoGarantia,
+    EditarSubTipoGarantia,
+    EliminarSubTipoGarantia,
+    FrecuenciasAmortizacionComponent, 
+    AgregarFrecuenciaAmortizacion,
+    EditarFrecuenciaAmortizacion,
+    EliminarFrecuenciaAmortizacion,
+    EstadosPrestamosComponent, 
+    AgregarEstadosPrestamos,
+    EditarEstadosPrestamos,
+    EliminarEstadosPrestamos,
+    SubEstadosComponent, 
+    AgregarSubEstados,
+    EditarSubEstados,
+    EliminarSubEstados,
+    TrasladoEstadosPrestamosComponent,
+    AgregarTrasladoEstPrestamo,
+    EditarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo
   ],
   imports: [
     BrowserModule,
@@ -230,7 +271,31 @@ import { SubProductosComponent, AgregarSubProductos, EditarSubProductos, Elimina
     AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion,
     AgregarAcercamiento, EditarAcercamiento, EliminarAcercamiento,
     AgregarProducto, EditarProducto, EliminarProducto,
-    AgregarSubProductos, EditarSubProductos, EliminarSubProductos
+    AgregarSubProductos, EditarSubProductos, EliminarSubProductos,
+    AgregarTiposTransacciones,
+    EditarTiposTransacciones,
+    EliminarTiposTransacciones,
+    AgregarGarantiasContables,
+    EditarGarantiasContables,
+    EliminarGarantiasContables,
+    AgregarTiposSubtiposGR,
+    EditarTiposSubtiposGR,
+    EliminarTiposSubtiposGR,
+    AgregarSubTipoGarantia,
+    EditarSubTipoGarantia,
+    EliminarSubTipoGarantia,
+    AgregarFrecuenciaAmortizacion,
+    EditarFrecuenciaAmortizacion,
+    EliminarFrecuenciaAmortizacion,
+    AgregarEstadosPrestamos,
+    EditarEstadosPrestamos,
+    EliminarEstadosPrestamos,
+    AgregarSubEstados,
+    EditarSubEstados,
+    EliminarSubEstados,
+    AgregarTrasladoEstPrestamo,
+    EditarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo
   ]
   ,
   providers: [

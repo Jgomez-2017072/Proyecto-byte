@@ -1,6 +1,5 @@
 
-<div class="">
-<br><br><h1 class="animated pulse">Aseguradoras</h1><br>
+<br><br><h1>Tipos de Garantía</h1><br>
 
 <mat-form-field class="selector">
     <mat-icon matPrefix>search</mat-icon>
@@ -10,7 +9,7 @@
     </button> 
 </mat-form-field>
 
-<div class="container mat-elevation-z8 animated fadeInRight">
+<div class="container mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">    
      
       <ng-container matColumnDef="position">
@@ -21,6 +20,16 @@
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef class="encabezados"> Descripción </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="equivalente">
+        <th mat-header-cell *matHeaderCellDef class="encabezados"> Equivalente </th>
+        <td mat-cell *matCellDef="let element"> {{element.equivalente}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="add">
+        <th mat-header-cell *matHeaderCellDef class="encabezados"></th>
+        <td mat-cell *matCellDef="let element"><a href="/subtipos-garantias"><mat-icon>add</mat-icon></a></td>
       </ng-container>
 
       <ng-container matColumnDef="editar">
@@ -49,4 +58,3 @@
 </div><br>
 
   <button mat-mini-fab (click)="openDialog3()" id="add"><mat-icon>add</mat-icon></button><br><br>
-</div>

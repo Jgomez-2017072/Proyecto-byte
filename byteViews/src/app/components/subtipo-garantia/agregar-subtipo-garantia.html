@@ -1,8 +1,11 @@
-<div class="animated fadeIn">     
+<div>     
     <h2 mat-dialog-title>Agregar</h2>
   <div mat-dialog-content>           
+      <mat-form-field >                
+          <input matInput placeholder="Tipo de garantía" value="1 BIEN INMUEBLE" disabled>          
+      </mat-form-field>
           <mat-form-field >                
-              <input matInput placeholder="Código" [(ngModel)]="value1">
+              <input matInput placeholder="Código de Sub-tipo" [(ngModel)]="value1">
               <button mat-button  *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
                   <mat-icon>close</mat-icon>
               </button> 
@@ -10,6 +13,18 @@
           <mat-form-field class="example-full-width">                
             <input matInput placeholder="Descripción" [(ngModel)]="value2">
             <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+          </mat-form-field>
+          <mat-form-field class="example-full-width">                
+            <input matInput placeholder="Porcentaje a cubrir" [(ngModel)]="value3">
+            <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+          </mat-form-field>
+          <mat-form-field class="example-full-width">                
+            <input matInput placeholder="Programa" [(ngModel)]="value4">
+            <button mat-button *ngIf="value4" matSuffix mat-icon-button aria-label="Clear" (click)="value4=''">
                 <mat-icon>close</mat-icon>
             </button> 
           </mat-form-field>

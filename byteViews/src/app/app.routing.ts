@@ -28,8 +28,6 @@ import { MontosPorPlazoComponent } from './components/montos-por-plazo/montos-po
 import { PorcentajesDeFinanciamientoComponent } from './components/porcentajes-de-financiamiento/porcentajes-de-financiamiento.component';
 import { RangoPlazosInteresComponent } from './components/rango-plazos-interes/rango-plazos-interes.component';
 import { DefinirCategoriasUsuariosComponent } from './components/definir-categorias-usuarios/definir-categorias-usuarios.component';
-
-//Importaciones Raul
 import {ParametrosTransaccionComponent} from './components/parametros-transaccion/parametros-transaccion.component'
 import { MediosContactoComponent } from './components/medios-contacto/medios-contacto.component'
 import { CanalesVentaComponent } from './components/canales-venta/canales-venta.component';
@@ -37,6 +35,14 @@ import { CanalDistribucionComponent } from './components/canal-distribucion/cana
 import { AcercamientoComponent } from './components/acercamiento/acercamiento.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { SubProductosComponent } from './components/sub-productos/sub-productos.component';
+import { TiposDeTransaccionComponent } from './components/tipos-de-transaccion/tipos-de-transaccion.component';
+import { GarantiasContablesComponent } from './components/garantias-contables/garantias-contables.component';
+import { TiposSubtiposGarantiasRealesComponent } from './components/tipos-subtipos-garantias-reales/tipos-subtipos-garantias-reales.component';
+import { SubtipoGarantiaComponent } from './components/subtipo-garantia/subtipo-garantia.component';
+import { FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
+import { EstadosPrestamosComponent } from './components/estados-prestamos/estados-prestamos.component';
+import { SubEstadosComponent } from './components/sub-estados/sub-estados.component';
+import { TrasladoEstadosPrestamosComponent } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -73,7 +79,15 @@ const appRoutes : Routes = [
     {path: 'canales-distribucion', component: CanalDistribucionComponent},
     {path: 'acercamientos', component: AcercamientoComponent},
     {path: 'productos', component: ProductosComponent},
-    {path: 'sub-productos', component: SubProductosComponent}
+    {path: 'sub-productos', component: SubProductosComponent},
+    {path : 'tipos-transaccion', component : TiposDeTransaccionComponent},
+    {path : 'garantias-contables', component : GarantiasContablesComponent},
+    {path : 'tipos-garantias', component : TiposSubtiposGarantiasRealesComponent},
+    {path : 'subtipos-garantias', component : SubtipoGarantiaComponent},
+    {path : 'frecuencia-amortizacion', component : FrecuenciasAmortizacionComponent},    
+    {path : 'estados-prestamos', component : EstadosPrestamosComponent},
+    {path : 'sub-estados', component : SubEstadosComponent},
+    {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent}
     
 ]
 

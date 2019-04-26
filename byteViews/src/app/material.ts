@@ -27,5 +27,6 @@ import {MatDividerModule} from '@angular/material/divider';
     MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule
     ,MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule
     , MatPaginatorModule, MatDividerModule]
+  
 })
 export class MaterialModule { }

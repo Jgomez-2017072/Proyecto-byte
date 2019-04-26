@@ -1,6 +1,4 @@
-
-<div class="">
-<br><br><h1 class="animated pulse">Aseguradoras</h1><br>
+<br><br><h1>Frecuencia de amortización</h1><br>
 
 <mat-form-field class="selector">
     <mat-icon matPrefix>search</mat-icon>
@@ -10,7 +8,7 @@
     </button> 
 </mat-form-field>
 
-<div class="container mat-elevation-z8 animated fadeInRight">
+<div class="container mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">    
      
       <ng-container matColumnDef="position">
@@ -22,6 +20,11 @@
         <th mat-header-cell *matHeaderCellDef class="encabezados"> Descripción </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
+
+      <ng-container matColumnDef="caefre">
+          <th mat-header-cell *matHeaderCellDef class="encabezados"> caefre </th>
+          <td mat-cell *matCellDef="let element"> {{element.caefre}} </td>
+        </ng-container>
 
       <ng-container matColumnDef="editar">
         <th mat-header-cell *matHeaderCellDef  class="encabezados2"></th>
@@ -49,4 +52,3 @@
 </div><br>
 
   <button mat-mini-fab (click)="openDialog3()" id="add"><mat-icon>add</mat-icon></button><br><br>
-</div>
