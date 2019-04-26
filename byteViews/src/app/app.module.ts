@@ -38,7 +38,13 @@ import { PorcentajesDeFinanciamientoComponent, AgregarPorcentaje, EditarPorcenta
 import { RangoPlazosInteresComponent, AgregarRango, EditarRango, EliminarRango } from './components/rango-plazos-interes/rango-plazos-interes.component';
 import { DefinirCategoriasUsuariosComponent, AgregarCategoria, EditarCategoria, EliminarCategoria } from './components/definir-categorias-usuarios/definir-categorias-usuarios.component';
 import { AsignarAutorizacionComponent, AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion } from './components/asignar-autorizacion/asignar-autorizacion.component';
-
+import { ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParametrosTransaccion,EliminarParametrosTransaccion } from './components/parametros-transaccion/parametros-transaccion.component'
+import { MediosContactoComponent, AgregarMediosContacto,EditarMediosContacto,EliminarMediosContacto } from './components/medios-contacto/medios-contacto.component'
+import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCanalesVenta} from './components/canales-venta/canales-venta.component'
+import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion } from './components/canal-distribucion/canal-distribucion.component'
+import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, EditarAcercamiento } from './components/acercamiento/acercamiento.component';
+import { ProductosComponent, AgregarProducto, EditarProducto, EliminarProducto } from './components/productos/productos.component';
+import { SubProductosComponent, AgregarSubProductos, EditarSubProductos, EliminarSubProductos } from './components/sub-productos/sub-productos.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +132,37 @@ import { AsignarAutorizacionComponent, AgregarAutorizacion, EditarAutorizacion, 
     AgregarPorcentaje, EditarPorcentaje, EliminarPorcentaje, RangoPlazosInteresComponent,
     AgregarRango, EditarRango, EliminarRango, DefinirCategoriasUsuariosComponent,
     AgregarCategoria, EditarCategoria, EliminarCategoria, AsignarAutorizacionComponent,
-    AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion
+    AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion,
+    EliminarAsesoresDePrestamo,
+    ParametrosTransaccionComponent,
+    AgregarParametrosTransaccion,
+    EditarParametrosTransaccion,
+    EliminarParametrosTransaccion,
+    MediosContactoComponent,
+    AgregarMediosContacto,
+    EditarMediosContacto,
+    EliminarMediosContacto,
+    CanalesVentaComponent,
+    AgregarCanalesVenta,
+    EditarCanalesVenta,
+    EliminarCanalesVenta,
+    CanalDistribucionComponent,
+    AgregarCanalDistribucion,
+    EditarCanalDistribucion,
+    EliminarCanalDistribucion,
+    AcercamientoComponent,
+    AgregarAcercamiento,
+    EditarAcercamiento,
+    EliminarAcercamiento,
+    ProductosComponent,
+    AgregarProducto,
+    EditarProducto,
+    EliminarProducto,
+    SubProductosComponent,
+    AgregarSubProductos,
+    EditarSubProductos,
+    EliminarSubProductos
+
   ],
   imports: [
     BrowserModule,
@@ -187,7 +223,14 @@ import { AsignarAutorizacionComponent, AgregarAutorizacion, EditarAutorizacion, 
     AgregarPorcentaje, EditarPorcentaje, EliminarPorcentaje,
     AgregarRango, EditarRango, EliminarRango,
     AgregarCategoria, EditarCategoria, EliminarCategoria,
-    AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion
+    AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion,
+    AgregarParametrosTransaccion, EditarParametrosTransaccion, EliminarParametrosTransaccion,
+    AgregarMediosContacto, EditarMediosContacto, EliminarMediosContacto,
+    AgregarCanalesVenta, EditarCanalesVenta, EliminarCanalesVenta,
+    AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion,
+    AgregarAcercamiento, EditarAcercamiento, EliminarAcercamiento,
+    AgregarProducto, EditarProducto, EliminarProducto,
+    AgregarSubProductos, EditarSubProductos, EliminarSubProductos
   ]
   ,
   providers: [

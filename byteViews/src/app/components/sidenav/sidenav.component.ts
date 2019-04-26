@@ -29,16 +29,17 @@ export class SidenavComponent implements OnInit {
     {name: "Motivos de ajustes", route:"/motivos-ajustes"},
     {name: "Días inhábiles", route:"/dias-inhabiles"},
     {name: "Asesores de Prestamo", route:"/asesores-de-prestamos"},
+    {name: 'Parametros de Transaccion', route:"/parametros-transaccion"},
     {name: "Cobros adicionales", route:""},
     {name: "Instituciones cobros adicionales", route:""},
     {name: "Motivos de reversa", route:""},
     {name: "Formas de desembolso", route:""},
     {name: "Motivos de referencias clientes", route:""},
     {name: "Relación transacciones depósitos", route:""},
-    {name: "Medios de contacto", route:""},
-    {name: "Canales de venta", route:""},
-    {name: "Tipos de canales de distribución", route:""},
-    {name: "Acercamientos", route:""},
+    {name: "Medios de contacto", route:"/medios-contacto"},
+    {name: "Canales de venta", route:"/canales-venta"},
+    {name: "Tipos de canales de distribución", route:"/canales-distribucion"},
+    {name: "Acercamientos", route:"/acercamientos"},
     {name: "Asesores de préstamo", route:""},
     {name: "Bancos", route:""},
     {name: "Tipos de deducciones", route:""},
@@ -52,7 +53,7 @@ export class SidenavComponent implements OnInit {
     {name: "Pasos del cierre", route:""},
     {name: "Archivos de limpieza", route:""},
     {name: "Limpieza de archivos", route:""},
-    {name: "Productos", route:""},
+    {name: "Productos", route:"/productos"},
     {name: "Consultas", route:"/consultas"},
     {name: "Clasificación", route:"/clasificacion"},
     {name: "Parámetros adicionales por producto", route:"/parametros-adicionales"},
@@ -64,7 +65,8 @@ export class SidenavComponent implements OnInit {
     {name: "Definir categorías de usuarios", route:"/definir-categorias-usuarios"},
     {name: "Asignación de categorías", route:""},
     {name: "Copiar parámetros de productos", route:""},
-    {name: "Estatus legales", route:""}
+    {name: "Estatus legales", route:""},
+    {name: 'SubProductos', route: '/sub-productos'}
   ]
 
 

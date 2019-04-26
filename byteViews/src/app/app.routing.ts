@@ -29,6 +29,15 @@ import { PorcentajesDeFinanciamientoComponent } from './components/porcentajes-d
 import { RangoPlazosInteresComponent } from './components/rango-plazos-interes/rango-plazos-interes.component';
 import { DefinirCategoriasUsuariosComponent } from './components/definir-categorias-usuarios/definir-categorias-usuarios.component';
 
+//Importaciones Raul
+import {ParametrosTransaccionComponent} from './components/parametros-transaccion/parametros-transaccion.component'
+import { MediosContactoComponent } from './components/medios-contacto/medios-contacto.component'
+import { CanalesVentaComponent } from './components/canales-venta/canales-venta.component';
+import { CanalDistribucionComponent } from './components/canal-distribucion/canal-distribucion.component';
+import { AcercamientoComponent } from './components/acercamiento/acercamiento.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { SubProductosComponent } from './components/sub-productos/sub-productos.component';
+
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
     {path : '', redirectTo: 'home', pathMatch : 'full'},
@@ -57,7 +66,15 @@ const appRoutes : Routes = [
     {path : 'montos-por-plazo', component : MontosPorPlazoComponent},
     {path : 'porcentajes-de-financiamiento', component : PorcentajesDeFinanciamientoComponent},
     {path : 'rango-plazo-interes', component : RangoPlazosInteresComponent},
-    {path : 'definir-categorias-usuarios', component : DefinirCategoriasUsuariosComponent}
+    {path : 'definir-categorias-usuarios', component : DefinirCategoriasUsuariosComponent},
+    {path: 'parametros-transaccion', component: ParametrosTransaccionComponent},
+    {path: 'medios-contacto', component: MediosContactoComponent},
+    {path: 'canales-venta', component: CanalesVentaComponent},
+    {path: 'canales-distribucion', component: CanalDistribucionComponent},
+    {path: 'acercamientos', component: AcercamientoComponent},
+    {path: 'productos', component: ProductosComponent},
+    {path: 'sub-productos', component: SubProductosComponent}
+    
 ]
 
 export const appRoutingProviders : any[] = [];

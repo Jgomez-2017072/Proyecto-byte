@@ -15,16 +15,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
     MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
-    MatPaginatorModule, MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule],
+    MatPaginatorModule, MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule,MatDividerModule],
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
-    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
-    MatPaginatorModule,MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule],
+    MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule
+    ,MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule
+    , MatPaginatorModule, MatDividerModule]
 })
 export class MaterialModule { }
