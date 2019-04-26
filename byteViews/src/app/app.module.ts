@@ -37,6 +37,7 @@ import { MatSelect, MatSelectModule } from '@angular/material';
 import { ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
 import { MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
 import { ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
+import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
 
 
 @NgModule({
@@ -118,7 +119,7 @@ import { ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivos
     MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa, ParametrizacionDeNumeroDePrestamosComponent,
     ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos, MantenimientoAPasosDelCierreComponent,
     MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre, ArchivosDeLimpiezaComponent,
-    ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza
+    ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, LimpiaArchivosComponent
 
   ],
   imports: [
