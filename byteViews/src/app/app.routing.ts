@@ -43,6 +43,7 @@ import { FrecuenciasAmortizacionComponent } from './components/frecuencia-amorti
 import { EstadosPrestamosComponent } from './components/estados-prestamos/estados-prestamos.component';
 import { SubEstadosComponent } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
+import { NivelesContabilizacionComponent } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -87,7 +88,8 @@ const appRoutes : Routes = [
     {path : 'frecuencia-amortizacion', component : FrecuenciasAmortizacionComponent},    
     {path : 'estados-prestamos', component : EstadosPrestamosComponent},
     {path : 'sub-estados', component : SubEstadosComponent},
-    {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent}
+    {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent},
+    {path : 'niveles-contabilizacion', component : NivelesContabilizacionComponent}
     
 ]
 
