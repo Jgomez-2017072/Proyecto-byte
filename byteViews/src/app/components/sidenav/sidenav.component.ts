@@ -65,7 +65,8 @@ export class SidenavComponent implements OnInit {
     {name: "Copiar parámetros de productos", route:""},
     {name: "Estatus legales", route:""}, 
     {name: "Mantenimiento a pasos del cierre", route:"/mantenimiento-apasos-del-cierre"},
-    {name: "Archivos de Limpieza", route:"/archivos-de-limpieza"}
+    {name: "Archivos de Limpieza", route:"/archivos-de-limpieza"},
+    {name: "Contenidos Contables", route:"/contenidos-contables"}
     
   ]
 

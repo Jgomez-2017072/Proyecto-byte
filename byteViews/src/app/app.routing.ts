@@ -28,6 +28,7 @@ import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parame
 import { MantenimientoAPasosDelCierreComponent } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
 import { ArchivosDeLimpiezaComponent } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
 import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
+import { ContenidosContablesComponent } from './components/contenidos-contables/contenidos-contables.component';
 
 
 const appRoutes : Routes = [
@@ -58,7 +59,8 @@ const appRoutes : Routes = [
     {path : 'parametrizacion-de-numero-de-prestamos', component : ParametrizacionDeNumeroDePrestamosComponent},
     {path : 'mantenimiento-apasos-del-cierre', component : MantenimientoAPasosDelCierreComponent},
     {path : 'archivos-de-limpieza', component : ArchivosDeLimpiezaComponent},
-    {path : 'limpia-archivos', component : LimpiaArchivosComponent}
+    {path : 'limpia-archivos', component : LimpiaArchivosComponent},
+    {path : 'contenidos-contables', component : ContenidosContablesComponent}
     
 ]
 

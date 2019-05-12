@@ -38,6 +38,7 @@ import { ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeN
 import { MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
 import { ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
 import { LimpiaArchivosComponent, Opciones , LimpiezaSeleccionada } from "./components/limpia-archivos/limpia-archivos.component";
+import { ContenidosContablesComponent, EliminarContenidosContables, EditarContenidosContables, AgregarContenidosContables } from './components/contenidos-contables/contenidos-contables.component';
 
 
 @NgModule({
@@ -120,7 +121,8 @@ import { LimpiaArchivosComponent, Opciones , LimpiezaSeleccionada } from "./comp
     ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos, MantenimientoAPasosDelCierreComponent,
     MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre, ArchivosDeLimpiezaComponent,
     ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, 
-    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada
+    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada, 
+    ContenidosContablesComponent, EliminarContenidosContables, EditarContenidosContables, AgregarContenidosContables
 
   ],
   imports: [
@@ -179,7 +181,8 @@ import { LimpiaArchivosComponent, Opciones , LimpiezaSeleccionada } from "./comp
     EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos,
     EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre,
     EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, 
-    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada
+    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada,
+    EliminarContenidosContables, EditarContenidosContables, AgregarContenidosContables
 
   ]
   ,
