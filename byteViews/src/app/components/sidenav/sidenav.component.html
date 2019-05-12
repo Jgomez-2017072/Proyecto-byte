@@ -8,7 +8,41 @@
         <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <mat-nav-list>
                 <a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a>
-                <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">{{nav.name}}</a>
+            
+               
+                <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                          <input type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                          <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                              {{option}}
+                              
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+                      </form>
+
+
+
+                <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+                        <span class="full-width" *ngIf="isExpanded || isShowing">Requerimientos</span>
+                       <!--<mat-icon mat-list-icon>home</mat-icon>--> 
+                        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </mat-list-item>
+                <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+                        <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">{{nav.name}}</a>
+                </div>  
+                
+                
+                <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+                        <span class="full-width" *ngIf="isExpanded || isShowing">Contabilidad</span>
+                        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                    </mat-list-item>
+                    <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+                        <mat-list-item>SubSubmenu Item 1</mat-list-item>
+                        <mat-list-item>SubSubmenu Item 2</mat-list-item>
+                    </div>
+
             </mat-nav-list>
         </mat-sidenav>
 
