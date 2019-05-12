@@ -54,6 +54,7 @@ import { EstadosPrestamosComponent, AgregarEstadosPrestamos, EditarEstadosPresta
 import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEstados } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
 import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFrecuenciaAmortizacion, FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
+import { NivelesContabilizacionComponent, AgregarNivelesContabilizacion, EditarNivelesContabilizacion, EliminarNivelesContabilizacion } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
 
 
 @NgModule({
@@ -203,7 +204,11 @@ import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFr
     TrasladoEstadosPrestamosComponent,
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
-    EliminarTrasladoEstPrestamo
+    EliminarTrasladoEstPrestamo,
+    NivelesContabilizacionComponent,
+    AgregarNivelesContabilizacion,
+    EditarNivelesContabilizacion,
+    EliminarNivelesContabilizacion
   ],
   imports: [
     BrowserModule,
@@ -295,7 +300,11 @@ import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFr
     EliminarSubEstados,
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
-    EliminarTrasladoEstPrestamo
+    EliminarTrasladoEstPrestamo,
+    NivelesContabilizacionComponent,
+    AgregarNivelesContabilizacion,
+    EditarNivelesContabilizacion,
+    EliminarNivelesContabilizacion
   ]
   ,
   providers: [
