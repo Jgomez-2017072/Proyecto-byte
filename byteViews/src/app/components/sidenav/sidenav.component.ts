@@ -55,6 +55,9 @@ export class SidenavComponent implements OnInit {
     mobileQuery: MediaQueryList;
 
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav2 = [
+    {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'}
+  ]
 
   fillerNav = [
     {name: "Almacenadoras", route:"/almacenadoras"},
@@ -112,7 +115,6 @@ export class SidenavComponent implements OnInit {
     {name: "Copiar parámetros de productos", route:""},
     {name: "Estatus legales", route:""},
     {name: 'SubProductos', route: '/sub-productos'},
-    {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'}
   ]
 
 
