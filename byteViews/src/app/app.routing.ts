@@ -61,6 +61,7 @@ import { ArchivosDeLimpiezaComponent } from './components/archivos-de-limpieza/a
 import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
 import { RecargosAdicionalesComponent } from './components/recargos-adicionales/recargos-adicionales.component';
 import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motivos-de-reversa.component';
+import { ContenidosContablesComponent } from './components/contenidos-contables/contenidos-contables.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -124,7 +125,8 @@ const appRoutes : Routes = [
     {path : 'archivos-de-limpieza', component : ArchivosDeLimpiezaComponent},
     {path : 'limpia-archivos', component : LimpiaArchivosComponent},
     {path : 'recargos-adicionales', component : RecargosAdicionalesComponent},
-    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent}
+    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent},
+    {path : 'contanido-contable', component : ContenidosContablesComponent}
     
 ]
 

@@ -45,8 +45,9 @@ export class SidenavComponent implements OnInit {
 
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   fillerNav2 = [
-    {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'},
     {name: 'Enlace Contabilidad', route: '/enlace-contabilidad'},
+    {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'},
+    {name: 'Contenidos Contables', route: '/contanido-contable'}    
   ]
 
   fillerNav = [
@@ -66,23 +67,20 @@ export class SidenavComponent implements OnInit {
     {name: "Motivos de ajustes", route:"/motivos-ajustes"},
     {name: "Días inhábiles", route:"/dias-inhabiles"},
     {name: "Recargos Adicionales", route:"/recargos-adicionales"},
-    {name: "Motivos de reversa", route:"/motivos-de-reversa"},
     {name: "Instituciones", route:"/instituciones"},
+    {name: "Motivos de reversa", route:"/motivos-de-reversa"},    
     {name: "Formas de desembolso", route:"/formas-de-desembolso"},
     {name: "Motivos de referencias clientes", route:"/motivos-de-referencias-clientes"},
-    {name: "Asesores de Prestamo", route:"/asesores-de-prestamos"},
     {name: 'Parametros de Transaccion', route:"/parametros-transaccion"},
-    {name: "Cobros adicionales", route:""},
-    {name: "Relación transacciones depósitos", route:""},
     {name: "Medios de contacto", route:"/medios-contacto"},
     {name: "Canales de venta", route:"/canales-venta"},
     {name: "Tipos de canales de distribución", route:"/canales-distribucion"},
     {name: "Acercamientos", route:"/acercamientos"},
-    {name: "Asesores de préstamo", route:""},
+    {name: "Asesores de Prestamo", route:"/asesores-de-prestamos"},
     {name: "Bancos", route:"/bancos"},
     {name: "Tipos de deducciones", route:"/tipos-de-deducciones"},
     {name: "Tipos de prestamos", route:"/tipos-de-prestamos"},
-    {name: "Datos generales (Registro y Control)", route:"/datos-generales"},
+    {name: "Datos generales (Registro y Control)", route:"/datos-generales"},    
     {name: "Tipos de transacción", route:"/tipos-transaccion"},
     {name: "Garantías Contables", route:"/garantias-contables"},
     {name: "Tipos de garantias reales", route:"/tipos-garantias"},
@@ -103,9 +101,8 @@ export class SidenavComponent implements OnInit {
     {name: "Rango de plazos por interés", route:"/rango-plazo-interes"},
     {name: "Definir categorías de usuarios", route:"/definir-categorias-usuarios"},
     {name: "Asignación de categorías", route:"/asignacion-de-categorias"},
-    {name: "Estatus legales", route:"/status-legales"},
     {name: "Parametro de Productos", route:"/parametros-de-productos"},
-    
+    {name: "Estatus legales", route:"/status-legales"},    
     {name: 'SubProductos', route: '/sub-productos'},
   ]
 
