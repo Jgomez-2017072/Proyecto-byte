@@ -54,7 +54,14 @@ import { EstadosPrestamosComponent, AgregarEstadosPrestamos, EditarEstadosPresta
 import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEstados } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
 import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFrecuenciaAmortizacion, FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
-import { NivelesContabilizacionComponent, AgregarNivelesContabilizacion, EditarNivelesContabilizacion, EliminarNivelesContabilizacion } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
+import { EnlaceContabilidadComponent, AgregarEnlaceContabilidad, EditarEnlaceContabilidad, EliminarEnlaceContabilidad} from './components/enlace-contabilidad/enlace-contabilidad.component';
+import { BancosComponent, AgregarBancos, EliminarBancos, EditarBancos, CuentasBancos } from './components/bancos/bancos.component';
+import { TiposDeDeduccionesComponent, AgregarTipoDeDeduccion, EliminarTipoDeDeduccion, EditarTipoDeDeduccion } from './components/tipos-de-deducciones/tipos-de-deducciones.component';
+import { TiposDePrestamosComponent, AgregarTipoDePrestamos, EditarTipoDePrestamos, EliminarTipoDePrestamos } from './components/tipos-de-prestamos/tipos-de-prestamos.component';
+import { DatosGeneralesComponent, FechaValor, FechasDelSistema, GenerarNumeroAutomatico, Provision } from './components/datos-generales/datos-generales.component';
+import { AsignacionDeCategoriasComponent, AgregarAsignacionDeCategorias, EditarAsignacionDeCategorias, EliminarAsignacionDeCategorias } from './components/asignacion-de-categorias/asignacion-de-categorias.component';
+import { ParametrosDeProductosComponent, EditarParametrosDeProductos, EliminarParametrosDeProductos, AgregarParametrosDeProductos } from './components/parametros-de-productos/parametros-de-productos.component';
+import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, EliminarStatusLegales } from './components/status-legales/status-legales.component';
 
 
 @NgModule({
@@ -205,10 +212,41 @@ import { NivelesContabilizacionComponent, AgregarNivelesContabilizacion, EditarN
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
     EliminarTrasladoEstPrestamo,
-    NivelesContabilizacionComponent,
-    AgregarNivelesContabilizacion,
-    EditarNivelesContabilizacion,
-    EliminarNivelesContabilizacion
+    EnlaceContabilidadComponent,
+    AgregarEnlaceContabilidad,
+    EditarEnlaceContabilidad,
+    EliminarEnlaceContabilidad,
+    BancosComponent,
+    AgregarBancos,
+    EliminarBancos,
+    EditarBancos,
+    CuentasBancos,
+    TiposDeDeduccionesComponent,
+    AgregarTipoDeDeduccion,
+    EliminarTipoDeDeduccion,
+    EditarTipoDeDeduccion,
+    TiposDePrestamosComponent,
+    AgregarTipoDePrestamos,
+    EditarTipoDePrestamos,
+    EliminarTipoDePrestamos,
+    DatosGeneralesComponent,
+    FechaValor,
+    FechasDelSistema,
+    GenerarNumeroAutomatico,
+    Provision,
+    AsignacionDeCategoriasComponent,
+    AgregarAsignacionDeCategorias,
+    EditarAsignacionDeCategorias,
+    EliminarAsignacionDeCategorias,
+    ParametrosDeProductosComponent,
+    AgregarParametrosDeProductos,
+    EditarParametrosDeProductos,
+    EliminarParametrosDeProductos,
+    StatusLegalesComponent,
+    AgregarStatusLegales,
+    EditarStatusLegales,
+    EliminarStatusLegales
+    
   ],
   imports: [
     BrowserModule,
@@ -301,10 +339,34 @@ import { NivelesContabilizacionComponent, AgregarNivelesContabilizacion, EditarN
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
     EliminarTrasladoEstPrestamo,
-    NivelesContabilizacionComponent,
-    AgregarNivelesContabilizacion,
-    EditarNivelesContabilizacion,
-    EliminarNivelesContabilizacion
+    AgregarEnlaceContabilidad,
+    EditarEnlaceContabilidad,
+    EliminarEnlaceContabilidad,
+    AgregarBancos,
+    EliminarBancos,
+    EditarBancos,
+    CuentasBancos,
+    AgregarTipoDeDeduccion,
+    EliminarTipoDeDeduccion,
+    EditarTipoDeDeduccion,
+    AgregarTipoDePrestamos,
+    EditarTipoDePrestamos,
+    EliminarTipoDePrestamos,
+    DatosGeneralesComponent,
+    FechaValor,
+    FechasDelSistema,
+    GenerarNumeroAutomatico,
+    Provision,
+    AgregarAsignacionDeCategorias,
+    EditarAsignacionDeCategorias,
+    EliminarAsignacionDeCategorias,
+    AgregarParametrosDeProductos,
+    EditarParametrosDeProductos,
+    EliminarParametrosDeProductos,
+    AgregarStatusLegales,
+    EditarStatusLegales,
+    EliminarStatusLegales
+    
   ]
   ,
   providers: [

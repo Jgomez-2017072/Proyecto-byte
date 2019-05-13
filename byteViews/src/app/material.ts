@@ -16,20 +16,18 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatTreeModule} from '@angular/material/tree';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {ReactiveFormsModule} from '@angular/forms'
+import {MatGridListModule} from '@angular/material/grid-list';
+
 @NgModule({
   imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
     MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
-    MatPaginatorModule, MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule,MatDividerModule,
-    MatTreeModule,MatAutocompleteModule,ReactiveFormsModule],
+    MatPaginatorModule, MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule,MatDividerModule],
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
     MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule
     ,MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule
-    , MatPaginatorModule, MatDividerModule,MatTreeModule,MatAutocompleteModule,ReactiveFormsModule]
+    , MatPaginatorModule, MatDividerModule, MatGridListModule]
   
 })
 export class MaterialModule { }

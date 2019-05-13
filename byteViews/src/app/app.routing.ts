@@ -43,7 +43,15 @@ import { FrecuenciasAmortizacionComponent } from './components/frecuencia-amorti
 import { EstadosPrestamosComponent } from './components/estados-prestamos/estados-prestamos.component';
 import { SubEstadosComponent } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
-import { NivelesContabilizacionComponent } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
+import { EnlaceContabilidadComponent } from './components/enlace-contabilidad/enlace-contabilidad.component';
+import { BancosComponent } from './components/bancos/bancos.component';
+import { TiposDeDeduccionesComponent } from './components/tipos-de-deducciones/tipos-de-deducciones.component';
+import { TiposDePrestamosComponent } from './components/tipos-de-prestamos/tipos-de-prestamos.component';
+import { DatosGeneralesComponent } from './components/datos-generales/datos-generales.component';
+import { AsignacionDeCategoriasComponent } from './components/asignacion-de-categorias/asignacion-de-categorias.component';
+import { ParametrosDeProductosComponent } from './components/parametros-de-productos/parametros-de-productos.component';
+import { StatusLegalesComponent } from './components/status-legales/status-legales.component';
+
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -64,7 +72,7 @@ const appRoutes : Routes = [
     {path : 'notarios', component : NotariosComponent},
     {path : 'motivos-ajustes', component : MotivosAjustesComponent},
     {path : 'dias-inhabiles', component : DiasInhabilesComponent},
-    {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent},
+    {path : 'asesores-de-prestamo', component : AsesoresDePrestamoComponent},
     {path : 'consultas', component : ConsultasComponent},
     {path : 'clasificacion', component : ClasificacionComponent},
     {path : 'parametros-adicionales', component : ParametrosAdicionalesProductoComponent},
@@ -89,8 +97,16 @@ const appRoutes : Routes = [
     {path : 'estados-prestamos', component : EstadosPrestamosComponent},
     {path : 'sub-estados', component : SubEstadosComponent},
     {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent},
-    {path : 'niveles-contabilizacion', component : NivelesContabilizacionComponent}
+    {path : 'enlace-contabilidad', component : EnlaceContabilidadComponent},
+    {path : 'bancos', component : BancosComponent},
+    {path : 'tipos-de-deducciones', component : TiposDeDeduccionesComponent},
+    {path : 'tipos-de-prestamos', component : TiposDePrestamosComponent},
+    {path : 'datos-generales', component : DatosGeneralesComponent},
+    {path : 'asignacion-de-categorias', component : AsignacionDeCategoriasComponent},
+    {path : 'parametros-de-productos', component : ParametrosDeProductosComponent},
+    {path : 'status-legales', component : StatusLegalesComponent},
     
+   
 ]
 
 export const appRoutingProviders : any[] = [];
