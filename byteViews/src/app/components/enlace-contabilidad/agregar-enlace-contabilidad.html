@@ -1,0 +1,98 @@
+<div class="animated fadeIn">     
+        <h2 mat-dialog-title>Contabilidad Actica</h2>
+       
+      <div mat-dialog-content> 
+            <mat-grid-list cols="3" rowHeight="70px">
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>País</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>Empresa</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>Departamento</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                   
+                  </mat-grid-list>
+                           
+
+             
+      </div>
+      <h2 mat-dialog-title>Configuración de Cheques</h2>
+       
+      <div mat-dialog-content> 
+            <mat-grid-list cols="3" rowHeight="70px">
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>Depto. Solicitante</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>Banco del sistema</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>Cuenta de Banco</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>Tipo de Documento</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                            <mat-form-field>
+                                    <mat-label>Código del Proveedor</mat-label>
+                                    <mat-select>
+                                      <mat-option>None</mat-option>
+                                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+             
+      </div>
+      <br>
+      <div  class="modal-down">
+          <div mat-dialog-actions>  
+              <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >AGREGAR</button>
+              <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
+            </div>
+      </div>  
+    </div>

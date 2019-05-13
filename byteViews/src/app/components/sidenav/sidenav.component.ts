@@ -45,7 +45,8 @@ export class SidenavComponent implements OnInit {
 
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   fillerNav2 = [
-    {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'}
+    {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'},
+    {name: 'Enlace Contabilidad', route: '/enlace-contabilidad'},
   ]
 
   fillerNav = [
@@ -77,10 +78,10 @@ export class SidenavComponent implements OnInit {
     {name: "Tipos de canales de distribución", route:"/canales-distribucion"},
     {name: "Acercamientos", route:"/acercamientos"},
     {name: "Asesores de préstamo", route:""},
-    {name: "Bancos", route:""},
-    {name: "Tipos de deducciones", route:""},
-    {name: "Tipos de prestamos", route:""},
-    {name: "Datos generales (Registro y Control)", route:""},
+    {name: "Bancos", route:"/bancos"},
+    {name: "Tipos de deducciones", route:"/tipos-de-deducciones"},
+    {name: "Tipos de prestamos", route:"/tipos-de-prestamos"},
+    {name: "Datos generales (Registro y Control)", route:"/datos-generales"},
     {name: "Tipos de transacción", route:"/tipos-transaccion"},
     {name: "Garantías Contables", route:"/garantias-contables"},
     {name: "Tipos de garantias reales", route:"/tipos-garantias"},
@@ -100,9 +101,11 @@ export class SidenavComponent implements OnInit {
     {name: "Porcentajes de financiamiento", route:"/porcentajes-de-financiamiento"},
     {name: "Rango de plazos por interés", route:"/rango-plazo-interes"},
     {name: "Definir categorías de usuarios", route:"/definir-categorias-usuarios"},
-    {name: "Asignación de categorías", route:""},
-    {name: "Copiar parámetros de productos", route:""},
-    {name: "Estatus legales", route:""},
+    {name: "Asignación de categorías", route:"/asignacion-de-categorias"},
+    {name: "Copiar parámetros de productos", route:"/parametros-de-productos"},
+    {name: "Estatus legales", route:"/status-legales"},
+    {name: "Parametro de Productos", route:"/parametros-de-productos"},
+    
     {name: 'SubProductos', route: '/sub-productos'},
   ]
 
