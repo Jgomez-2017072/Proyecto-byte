@@ -10,20 +10,7 @@
                 <a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a>
             
                
-                <form class="example-form">
-                        <mat-form-field class="example-full-width">
-                          <input type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                          <mat-autocomplete #auto="matAutocomplete">
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                              {{option}}
-                              
-                            </mat-option>
-                          </mat-autocomplete>
-                        </mat-form-field>
-                      </form>
-
-
-
+             
                 <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
                         <span class="full-width" *ngIf="isExpanded || isShowing">Requerimientos</span>
                        <!--<mat-icon mat-list-icon>home</mat-icon>--> 
