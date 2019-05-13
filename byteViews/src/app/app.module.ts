@@ -66,8 +66,19 @@ import {MantenimientoAPasosDelCierreComponent,AgregarMantenimientoAPasosDelCierr
 import {ArchivosDeLimpiezaComponent,AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza} from './components/archivos-de-limpieza/archivos-de-limpieza.component'
 import {LimpiaArchivosComponent, LimpiezaSeleccionada, Opciones} from './components/limpia-archivos/limpia-archivos.component'
 
+import { EnlaceContabilidadComponent, AgregarEnlaceContabilidad, EditarEnlaceContabilidad, EliminarEnlaceContabilidad} from './components/enlace-contabilidad/enlace-contabilidad.component';
+import { BancosComponent, AgregarBancos, EliminarBancos, EditarBancos, CuentasBancos } from './components/bancos/bancos.component';
+import { TiposDeDeduccionesComponent, AgregarTipoDeDeduccion, EliminarTipoDeDeduccion, EditarTipoDeDeduccion } from './components/tipos-de-deducciones/tipos-de-deducciones.component';
+import { TiposDePrestamosComponent, AgregarTipoDePrestamos, EditarTipoDePrestamos, EliminarTipoDePrestamos } from './components/tipos-de-prestamos/tipos-de-prestamos.component';
+import { DatosGeneralesComponent, FechaValor, FechasDelSistema, GenerarNumeroAutomatico, Provision } from './components/datos-generales/datos-generales.component';
+import { AsignacionDeCategoriasComponent, AgregarAsignacionDeCategorias, EditarAsignacionDeCategorias, EliminarAsignacionDeCategorias } from './components/asignacion-de-categorias/asignacion-de-categorias.component';
+import { ParametrosDeProductosComponent, EditarParametrosDeProductos, EliminarParametrosDeProductos, AgregarParametrosDeProductos } from './components/parametros-de-productos/parametros-de-productos.component';
+import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, EliminarStatusLegales } from './components/status-legales/status-legales.component';
+import { SearchPipe } from './components/pipes/search.pipe';
+
 @NgModule({
   declarations: [
+    SearchPipe,
     AppComponent,
     HomeComponent,
     SidenavComponent,
@@ -218,6 +229,40 @@ import {LimpiaArchivosComponent, LimpiezaSeleccionada, Opciones} from './compone
     AgregarNivelesContabilizacion,
     EditarNivelesContabilizacion,
     EliminarNivelesContabilizacion,
+    EnlaceContabilidadComponent,
+    AgregarEnlaceContabilidad,
+    EditarEnlaceContabilidad,
+    EliminarEnlaceContabilidad,
+    BancosComponent,
+    AgregarBancos,
+    EliminarBancos,
+    EditarBancos,
+    CuentasBancos,
+    TiposDeDeduccionesComponent,
+    AgregarTipoDeDeduccion,
+    EliminarTipoDeDeduccion,
+    EditarTipoDeDeduccion,
+    TiposDePrestamosComponent,
+    AgregarTipoDePrestamos,
+    EditarTipoDePrestamos,
+    EliminarTipoDePrestamos,
+    DatosGeneralesComponent,
+    FechaValor,
+    FechasDelSistema,
+    GenerarNumeroAutomatico,
+    Provision,
+    AsignacionDeCategoriasComponent,
+    AgregarAsignacionDeCategorias,
+    EditarAsignacionDeCategorias,
+    EliminarAsignacionDeCategorias,
+    ParametrosDeProductosComponent,
+    AgregarParametrosDeProductos,
+    EditarParametrosDeProductos,
+    EliminarParametrosDeProductos,
+    StatusLegalesComponent,
+    AgregarStatusLegales,
+    EditarStatusLegales,
+    EliminarStatusLegales,
     ContenidosContablesComponent,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables,
     RecargosAdicionalesComponent, AgregarRecargos,EditarRecargos,EliminarRecargos,
     MotivosDeReversaComponent,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
@@ -323,16 +368,41 @@ import {LimpiaArchivosComponent, LimpiezaSeleccionada, Opciones} from './compone
     NivelesContabilizacionComponent,
     AgregarNivelesContabilizacion,
     EditarNivelesContabilizacion,
-    EliminarNivelesContabilizacion,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables,
-    AgregarRecargos,EditarRecargos,EliminarRecargos,
-    AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
-    AgregarInstituciones,EditarInstituciones,EliminarInstituciones,
-    AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso,
-    AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes,
-    AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos,
-    AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre,
-    AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza,
-    LimpiezaSeleccionada, Opciones
+    EliminarNivelesContabilizacion,
+    AgregarEnlaceContabilidad,
+    EditarEnlaceContabilidad,
+    EliminarEnlaceContabilidad,
+    AgregarBancos,
+    EliminarBancos,
+    EditarBancos,
+    CuentasBancos,
+    AgregarTipoDeDeduccion,
+    EliminarTipoDeDeduccion,
+    EditarTipoDeDeduccion,
+    AgregarTipoDePrestamos,
+    EditarTipoDePrestamos,
+    EliminarTipoDePrestamos,
+    DatosGeneralesComponent,
+    FechaValor,
+    FechasDelSistema,
+    GenerarNumeroAutomatico,
+    Provision,
+    AgregarAsignacionDeCategorias,
+    EditarAsignacionDeCategorias,
+    EliminarAsignacionDeCategorias,
+    AgregarParametrosDeProductos,
+    EditarParametrosDeProductos,
+    EliminarParametrosDeProductos,
+    AgregarStatusLegales,
+    EditarStatusLegales,
+    EliminarStatusLegales,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables
+    , AgregarRecargos,EditarRecargos,EliminarRecargos,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
+    AgregarInstituciones,EditarInstituciones,EliminarInstituciones, AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso,
+   AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes,
+  AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos,
+  AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre,
+  AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza,
+   LimpiezaSeleccionada, Opciones
   ]
   ,
   providers: [

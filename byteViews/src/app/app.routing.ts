@@ -44,9 +44,14 @@ import { EstadosPrestamosComponent } from './components/estados-prestamos/estado
 import { SubEstadosComponent } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
 import { NivelesContabilizacionComponent } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
-import { ContenidosContablesComponent } from './components/contenidos-contables/contenidos-contables.component';
-import { RecargosAdicionalesComponent } from './components/recargos-adicionales/recargos-adicionales.component';
-import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motivos-de-reversa.component';
+import { EnlaceContabilidadComponent } from './components/enlace-contabilidad/enlace-contabilidad.component';
+import { BancosComponent } from './components/bancos/bancos.component';
+import { TiposDeDeduccionesComponent } from './components/tipos-de-deducciones/tipos-de-deducciones.component';
+import { TiposDePrestamosComponent } from './components/tipos-de-prestamos/tipos-de-prestamos.component';
+import { DatosGeneralesComponent } from './components/datos-generales/datos-generales.component';
+import { AsignacionDeCategoriasComponent } from './components/asignacion-de-categorias/asignacion-de-categorias.component';
+import { ParametrosDeProductosComponent } from './components/parametros-de-productos/parametros-de-productos.component';
+import { StatusLegalesComponent } from './components/status-legales/status-legales.component';
 import { InstitucionesComponent } from './components/instituciones/instituciones.component';
 import { FormasDeDesembolsoComponent } from './components/formas-de-desembolso/formas-de-desembolso.component';
 import { MotivosDeReferenciasClientesComponent } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
@@ -54,7 +59,6 @@ import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parame
 import { MantenimientoAPasosDelCierreComponent } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
 import { ArchivosDeLimpiezaComponent } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
 import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
-
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -101,10 +105,16 @@ const appRoutes : Routes = [
     {path : 'sub-estados', component : SubEstadosComponent},
     {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent},
     {path : 'niveles-contabilizacion', component : NivelesContabilizacionComponent},
-    {path : 'contenidos-contables', component : ContenidosContablesComponent},
-    {path : 'recargos-adicionales', component : RecargosAdicionalesComponent},
-    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent},
-    {path : 'instituciones', component: InstitucionesComponent},
+    
+    {path : 'enlace-contabilidad', component : EnlaceContabilidadComponent},
+    {path : 'bancos', component : BancosComponent},
+    {path : 'tipos-de-deducciones', component : TiposDeDeduccionesComponent},
+    {path : 'tipos-de-prestamos', component : TiposDePrestamosComponent},
+    {path : 'datos-generales', component : DatosGeneralesComponent},
+    {path : 'asignacion-de-categorias', component : AsignacionDeCategoriasComponent},
+    {path : 'parametros-de-productos', component : ParametrosDeProductosComponent},
+    {path : 'status-legales', component : StatusLegalesComponent},
+    {path : 'instituciones', component : InstitucionesComponent},
     {path : 'formas-de-desembolso', component : FormasDeDesembolsoComponent},
     {path : 'motivos-de-referencias-clientes', component : MotivosDeReferenciasClientesComponent},
     {path : 'parametrizacion-de-numero-de-prestamos', component : ParametrizacionDeNumeroDePrestamosComponent},

@@ -1,0 +1,131 @@
+<div>
+    <h2 mat-dialog-title>Fechas Del Sistema</h2>
+    <div mat-dialog-content style="justify-content: right">
+
+
+
+
+
+        <mat-grid-list cols="2" rowHeight="64px">
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Fecha Anterior" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Fecha Vigente del Sistema" [matDatepicker]="picker1">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Siguiente Fecha Hábil" [matDatepicker]="picker2">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                   
+                </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Dias a Calcular en cierre diario" [(ngModel)]="value1">
+                            <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
+            </mat-grid-tile>
+
+
+            
+        </mat-grid-list>
+
+
+
+
+
+
+
+        <mat-grid-list cols="4" rowHeight="40px" class="texto">
+            <mat-grid-tile>Control </mat-grid-tile>
+            <mat-grid-tile>Sistema </mat-grid-tile>
+            <mat-grid-tile>Mora </mat-grid-tile>
+            <mat-grid-tile>Estado </mat-grid-tile>
+
+            <mat-grid-tile>Sábado día Hábil </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width-bank2-1">
+                    <input matInput placeholder="S/N" [(ngModel)]="value2">
+                    <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width-bank2-1">
+                    <input matInput placeholder="S/N" [(ngModel)]="value3">
+                    <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width-bank2-1">
+                    <input matInput placeholder="S/N" [(ngModel)]="value4">
+                    <button mat-button *ngIf="value4" matSuffix mat-icon-button aria-label="Clear" (click)="value4=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile>Domingo día Hábil </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width-bank2-1">
+                    <input matInput placeholder="S/N" [(ngModel)]="value5">
+                    <button mat-button *ngIf="value5" matSuffix mat-icon-button aria-label="Clear" (click)="value5=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width-bank2-1">
+                    <input matInput placeholder="S/N" [(ngModel)]="value6">
+                    <button mat-button *ngIf="value6" matSuffix mat-icon-button aria-label="Clear" (click)="value6=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width-bank2-1">
+                    <input matInput placeholder="S/N" [(ngModel)]="value7">
+                    <button mat-button *ngIf="value7" matSuffix mat-icon-button aria-label="Clear" (click)="value7=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+
+        <mat-grid-list cols="1" rowHeight="40px" class="texto">
+            <mat-grid-tile>
+                <h4>Nota_</h4> Para los días hábiles es necesario ejecutar cierre diario.
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()">AGREGAR</button>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        </div>
+    </div>
+</div>
