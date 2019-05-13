@@ -1,16 +1,53 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material';
+import {map, startWith} from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
 
-  mobileQuery: MediaQueryList;
+export class SidenavComponent implements OnInit {
+  
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions: Observable<string[]>;
+
+  ngOnInit() {
+    
+  }
+
+
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
+
+    mobileQuery: MediaQueryList;
 
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav2 = [
+    {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'},
+    {name: "Contenidos Contables", route:"/contenidos-contables"}
+  ]
 
   fillerNav = [
     {name: "Almacenadoras", route:"/almacenadoras"},
@@ -34,40 +71,40 @@ export class SidenavComponent implements OnInit {
     {name: "Formas de desembolso", route:"/formas-de-desembolso"},
     {name: "Motivos de referencias clientes", route:"/motivos-de-referencias-clientes"},
     {name: "Asesores de Prestamo", route:"/asesores-de-prestamos"},
+    {name: 'Parametros de Transaccion', route:"/parametros-transaccion"},
+    {name: "Cobros adicionales", route:""},
+    {name: "Instituciones cobros adicionales", route:""},
+    {name: "Motivos de reversa", route:""},
+    {name: "Formas de desembolso", route:""},
+    {name: "Motivos de referencias clientes", route:""},
     {name: "Relación transacciones depósitos", route:""},
-    {name: "Medios de contacto", route:""},
-    {name: "Canales de venta", route:""},
-    {name: "Tipos de canales de distribución", route:""},
-    {name: "Acercamientos", route:""},
-    {name: "Asesores de préstamo", route:""},
-    {name: "Bancos", route:""},
-    {name: "Tipos de deducciones", route:""},
-    {name: "Tipos de prestamos", route:""},
-    {name: "Datos generales (Registro y Control)", route:""},
-    {name: "Garantias contables", route:""},
-    {name: "Tipos y subtipos de garantías reales", route:""},
-    {name: "Frecuencias de amortización", route:""},
-    {name: "Estados de préstamos", route:""},
+    {name: "Medios de contacto", route:"/medios-contacto"},
+    {name: "Canales de venta", route:"/canales-venta"},
+    {name: "Tipos de canales de distribución", route:"/canales-distribucion"},
+    {name: "Acercamientos", route:"/acercamientos"},    
+    {name: "Tipos de transacción", route:"/tipos-transaccion"},
+    {name: "Garantías Contables", route:"/garantias-contables"},
+    {name: "Tipos de garantias reales", route:"/tipos-garantias"},
+    {name: "Frecuencia de amortización", route:"/frecuencia-amortizacion"},
+    {name: "Estados Préstamos", route:"/estados-prestamos"},
     {name: "Parametrización de número de préstamos", route:"/parametrizacion-de-numero-de-prestamos"},
-    {name: "Pasos del cierre", route:""},
-    {name: "Limpieza de archivos", route:"/limpia-archivos"},
-    {name: "Productos", route:""},
-    {name: "Consultas", route:""},
-    {name: "Clasificación", route:""},
-    {name: "Parámetros adicionales por producto", route:""},
-    {name: "Eventos de solicitudes", route:""},
-    {name: "Documentos a presentar por producto", route:""},
-    {name: "Montos por plazo", route:""},
-    {name: "Porcentajes de financiamiento", route:""},
-    {name: "Rango de plazos por interés", route:""},
-    {name: "Definir categorías de usuarios", route:""},
-    {name: "Asignación de categorías", route:""},
-    {name: "Copiar parámetros de productos", route:""},
-    {name: "Estatus legales", route:""}, 
     {name: "Mantenimiento a pasos del cierre", route:"/mantenimiento-apasos-del-cierre"},
     {name: "Archivos de Limpieza", route:"/archivos-de-limpieza"},
-    {name: "Contenidos Contables", route:"/contenidos-contables"}
-    
+    {name: "Limpieza de archivos", route:"/limpia-archivos"},
+    {name: "Productos", route:"/productos"},
+    {name: "Consultas", route:"/consultas"},
+    {name: "Clasificación", route:"/clasificacion"},
+    {name: "Parámetros adicionales por producto", route:"/parametros-adicionales"},
+    {name: "Eventos de solicitudes", route:"/evento-solicitudes"},
+    {name: "Documentos a presentar por producto", route:"/documento-presentar-producto"},
+    {name: "Montos por plazo", route:"/montos-por-plazo"},
+    {name: "Porcentajes de financiamiento", route:"/porcentajes-de-financiamiento"},
+    {name: "Rango de plazos por interés", route:"/rango-plazo-interes"},
+    {name: "Definir categorías de usuarios", route:"/definir-categorias-usuarios"},
+    {name: "Asignación de categorías", route:""},
+    {name: "Copiar parámetros de productos", route:""},
+    {name: "Estatus legales", route:""},
+    {name: 'SubProductos', route: '/sub-productos'},
   ]
 
 
@@ -77,6 +114,8 @@ export class SidenavComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  
+
   }
 
   ngOnDestroy(): void {
@@ -84,8 +123,5 @@ export class SidenavComponent implements OnInit {
   }
 
   shouldRun =true;
-
-  ngOnInit() {
-  }
 
 }

@@ -1,0 +1,319 @@
+<div>
+    <mat-horizontal-stepper>
+        <mat-step label="Tasa de Interés">
+            <h2 class="ColorModalProducto" mat-dialog-title>Informacion Basica</h2>
+            <mat-divider></mat-divider>
+
+            <mat-form-field>
+                <input matInput placeholder="Selecciona el tipo de producto" [(ngModel)]="value1" sdf>
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput type="text" placeholder="Ingrese el Codigo de Producto" [(ngModel)]="value2">
+                <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                          <mat-icon>close</mat-icon>
+                      </button>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput type="text" placeholder="Edite la Descripcion" [(ngModel)]="value2">
+                <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                              <mat-icon>close</mat-icon>
+                          </button>
+            </mat-form-field>
+
+            <h2 class="ColorModalProducto" mat-dialog-title>Tasa de Interés</h2>
+            <mat-divider></mat-divider>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Tipo de Tasa de Interés" [(ngModel)]="value2">
+
+                <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                                  <mat-icon>close</mat-icon>
+                              </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Funcion de Calculo" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Tipo de Calculo" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                <mat-icon>close</mat-icon>
+                            </button>
+            </mat-form-field>
+
+            <h2 class="ColorModalProducto" mat-dialog-title>Recargos por Mora</h2>
+            <mat-divider></mat-divider>
+
+            <mat-form-field class="">
+                <input matInput type="text" placeholder="% de Tasa" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+            </mat-form-field>
+
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Limite Otorgamiento" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="% Tasa Minima" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="">
+                <input matInput type="text" placeholder="% Tasa Maxima" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="% Spread a Bajar" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="% Spread a Subir" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Vencimiento de Mora" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                            <mat-icon>close</mat-icon>
+                                        </button>
+            </mat-form-field>
+
+            <mat-checkbox class="espacioModal">Gracia de Interés</mat-checkbox>
+            <mat-checkbox class="espacioModal">Gracia de Estado</mat-checkbox>
+            <br><br>
+
+            <button class="espacioModal" mat-button matStepperNext>Siguiente</button>
+
+        </mat-step>
+
+        <mat-step label="Identificadores Generales">
+
+            <h2 class="ColorModalProducto" mat-dialog-title>Identificadores Generales</h2>
+            <mat-divider></mat-divider>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Tipo Calculo Interés" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                <mat-icon>close</mat-icon>
+                                            </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Tipo Calculo Mora" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                    <mat-icon>close</mat-icon>
+                                                </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Meses Minimos Vencimiento" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Base Calculo Interés" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                            <mat-icon>close</mat-icon>
+                                                        </button>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Base Calculo Mora" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                <mat-icon>close</mat-icon>
+                                            </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Meses Maximo Vencimiento" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                                <mat-icon>close</mat-icon>
+                                                            </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Forma de Proyeccion" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                                <mat-icon>close</mat-icon>
+                                                            </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Tipo de Cobro" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                                    <mat-icon>close</mat-icon>
+                                                                </button>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Comision de Cancelacion" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                                                                        <mat-icon>close</mat-icon>
+                                                                    </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Comision por Amortizacion" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                    </button>
+            </mat-form-field>
+            <br>
+            <mat-checkbox>Permite Pago Sin Prioridades</mat-checkbox>
+            <mat-checkbox class="espacioModal">Proyecta Recibos</mat-checkbox>
+            <mat-checkbox class="espacioModal">Crea Automaticamente Credito</mat-checkbox>
+            <br> <br>
+            <mat-checkbox>Cancelacion Crea TRX VEN</mat-checkbox>
+            <mat-checkbox class="espacioModal">Dist Hora(S), Vertical(N)</mat-checkbox>
+            <mat-checkbox class="espacioModal">Saldos Resolventes</mat-checkbox>
+            <br><br><br>
+            <button class="espacioModal" mat-button matStepperNext>Siguiente</button>
+            <button class="espacioModal" mat-button matStepperPrevious>Volver</button>
+        </mat-step>
+
+        <mat-step label="Identificadores Cuota Nivelada">
+            <h2 class="ColorModalProducto" mat-dialog-title>Identificadores Cuota Nivelada</h2>
+            <mat-divider></mat-divider>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Tipo Calculo Inicio" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                        </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Tipo Calculo Cuota" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                            </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Base Calculo Inicio" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                        </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Base Calculo Cuota" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                            </button>
+            </mat-form-field>
+            <br><br>
+
+            <mat-checkbox>Permite Cuota Nivelada</mat-checkbox>
+            <mat-checkbox class="espacioModal">Interes Dia que Cancela</mat-checkbox>
+            <mat-checkbox class="espacioModal">Cuota Capital Por Diferencia</mat-checkbox>
+            <br><br>
+
+            <mat-checkbox>Cambio Tarea Mod. la Cuota</mat-checkbox>
+            <br><br><br>
+
+            <h2 class="ColorModalProducto" mat-dialog-title>Identificadores de Mora</h2>
+            <mat-divider></mat-divider>
+            <br>
+            <mat-checkbox>Sobre Capital Atrasado</mat-checkbox>
+            <mat-checkbox class="espacioModal">Sobre Interes Atrasado</mat-checkbox>
+            <br><br>
+            <br>
+
+            <h2 class="ColorModalProducto" mat-dialog-title>Formas de Impresion</h2>
+            <mat-divider></mat-divider>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Recibos Masivos" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                                </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Recibos Individuales" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                                    </button>
+            </mat-form-field>
+            <br><br>
+
+            <h2 class="ColorModalProducto" mat-dialog-title>Excepciones Para Transacciones</h2>
+            <mat-divider></mat-divider>
+            <br>
+            <mat-checkbox>Si Esta Suspendido</mat-checkbox>
+            <mat-checkbox class="espacioModal">Si Esta en Cobro Judicial</mat-checkbox>
+            <br><br><br>
+            <button class="espacioModal" mat-button matStepperNext>Siguiente</button>
+            <button class="espacioModal" mat-button matStepperPrevious>Volver</button>
+
+        </mat-step>
+
+        <mat-step label="Caracteristicas Especiales">
+            <h2 class="ColorModalProducto" mat-dialog-title>Caracteristicas Especiales</h2>
+            <mat-divider></mat-divider>
+            <br>
+
+            <mat-checkbox>Calcula Impuesto</mat-checkbox>
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Vencim Com Pago a Fin de Mes" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                                        </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Medios de Contacto" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                                        </button>
+            </mat-form-field>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Moneda" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                                        </button>
+            </mat-form-field>
+            <br>
+
+            <mat-checkbox>Mora por Cuotas</mat-checkbox>
+
+            <mat-form-field class="espacioModal">
+                <input matInput type="text" placeholder="Calculo de Vencimiento" [(ngModel)]="value2">
+                <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">                                                        <mat-icon>close</mat-icon>
+                                                                                            </button>
+            </mat-form-field>
+
+            <mat-checkbox class="espacioModal">Utiliza Cupo</mat-checkbox>
+
+            <mat-checkbox class="espacioModal">Mora Una Vez Por Cuota</mat-checkbox>
+
+            <mat-checkbox>Utiliza Proyecto</mat-checkbox>
+            <br><br><br>
+
+            <button class="espacioModal" mat-button matStepperPrevious>Volver</button>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

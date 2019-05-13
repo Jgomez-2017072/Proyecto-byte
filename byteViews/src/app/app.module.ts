@@ -28,18 +28,43 @@ import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios } 
 import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste } from './components/motivos-ajustes/motivos-ajustes.component';
 import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
-import { RecargosAdicionalesComponent, EliminarRecargos, EditarRecargos, AgregarRecargos  } from './components/recargos-adicionales/recargos-adicionales.component';
-import { InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros } from './components/instituciones/instituciones.component';
-import { FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso  } from "./components/formas-de-desembolso/formas-de-desembolso.component";
-import { MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
-import { MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa } from './components/motivos-de-reversa/motivos-de-reversa.component';
-import { MatSelect, MatSelectModule } from '@angular/material';
-import { ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
-import { MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
-import { ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
-import { LimpiaArchivosComponent, Opciones , LimpiezaSeleccionada } from "./components/limpia-archivos/limpia-archivos.component";
-import { ContenidosContablesComponent, EliminarContenidosContables, EditarContenidosContables, AgregarContenidosContables } from './components/contenidos-contables/contenidos-contables.component';
+import { ConsultasComponent, AgregarConsultas, EditarConsultas, EliminarConsultas } from './components/consultas/consultas.component';
+import { ClasificacionComponent, AgregarClasificacion, EditarClasificacion, EliminarClasificacion } from './components/clasificacion/clasificacion.component';
+import { ParametrosAdicionalesProductoComponent } from './components/parametros-adicionales-producto/parametros-adicionales-producto.component';
+import { EventosSolicitudesComponent, AgregarEvento, EditarEvento, EliminarEvento } from './components/eventos-solicitudes/eventos-solicitudes.component';
+import { DocumentosPresentarProductoComponent,AgregarDocumento,EditarDocumento,EliminarDocumento } from './components/documentos-presentar-producto/documentos-presentar-producto.component';
+import { MontosPorPlazoComponent, AgregarMonto, EditarMonto, EliminarMonto } from './components/montos-por-plazo/montos-por-plazo.component';
+import { PorcentajesDeFinanciamientoComponent, AgregarPorcentaje, EditarPorcentaje, EliminarPorcentaje } from './components/porcentajes-de-financiamiento/porcentajes-de-financiamiento.component';
+import { RangoPlazosInteresComponent, AgregarRango, EditarRango, EliminarRango } from './components/rango-plazos-interes/rango-plazos-interes.component';
+import { DefinirCategoriasUsuariosComponent, AgregarCategoria, EditarCategoria, EliminarCategoria } from './components/definir-categorias-usuarios/definir-categorias-usuarios.component';
+import { AsignarAutorizacionComponent, AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion } from './components/asignar-autorizacion/asignar-autorizacion.component';
+import { ParametrosTransaccionComponent, AgregarParametrosTransaccion,EditarParametrosTransaccion,EliminarParametrosTransaccion } from './components/parametros-transaccion/parametros-transaccion.component'
+import { MediosContactoComponent, AgregarMediosContacto,EditarMediosContacto,EliminarMediosContacto } from './components/medios-contacto/medios-contacto.component'
+import {CanalesVentaComponent,AgregarCanalesVenta,EditarCanalesVenta,EliminarCanalesVenta} from './components/canales-venta/canales-venta.component'
+import { CanalDistribucionComponent, AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion } from './components/canal-distribucion/canal-distribucion.component'
+import { AcercamientoComponent, AgregarAcercamiento, EliminarAcercamiento, EditarAcercamiento } from './components/acercamiento/acercamiento.component';
+import { ProductosComponent, AgregarProducto, EditarProducto, EliminarProducto } from './components/productos/productos.component';
+import { SubProductosComponent, AgregarSubProductos, EditarSubProductos, EliminarSubProductos } from './components/sub-productos/sub-productos.component';
+import { TiposDeTransaccionComponent, AgregarTiposTransacciones, EditarTiposTransacciones, EliminarTiposTransacciones } from './components/tipos-de-transaccion/tipos-de-transaccion.component';
+import { GarantiasContablesComponent, AgregarGarantiasContables, EditarGarantiasContables, EliminarGarantiasContables } from './components/garantias-contables/garantias-contables.component';
+import { TiposSubtiposGarantiasRealesComponent, AgregarTiposSubtiposGR, EditarTiposSubtiposGR, EliminarTiposSubtiposGR } from './components/tipos-subtipos-garantias-reales/tipos-subtipos-garantias-reales.component';
+import { SubtipoGarantiaComponent, AgregarSubTipoGarantia, EditarSubTipoGarantia, EliminarSubTipoGarantia } from './components/subtipo-garantia/subtipo-garantia.component';
 
+import { EstadosPrestamosComponent, AgregarEstadosPrestamos, EditarEstadosPrestamos, EliminarEstadosPrestamos } from './components/estados-prestamos/estados-prestamos.component';
+import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEstados } from './components/sub-estados/sub-estados.component';
+import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
+import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFrecuenciaAmortizacion, FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
+import { NivelesContabilizacionComponent, AgregarNivelesContabilizacion, EditarNivelesContabilizacion, EliminarNivelesContabilizacion } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
+import { ContenidosContablesComponent,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables} from './components/contenidos-contables/contenidos-contables.component'
+import {RecargosAdicionalesComponent, AgregarRecargos,EditarRecargos,EliminarRecargos} from './components/recargos-adicionales/recargos-adicionales.component'
+import {MotivosDeReversaComponent,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa} from './components/motivos-de-reversa/motivos-de-reversa.component'
+import {InstitucionesComponent,AgregarInstituciones,EditarInstituciones,EliminarInstituciones} from './components/instituciones/instituciones.component'
+import {FormasDeDesembolsoComponent, AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso} from './components/formas-de-desembolso/formas-de-desembolso.component'
+import {MotivosDeReferenciasClientesComponent, AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes} from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component'
+import {ParametrizacionDeNumeroDePrestamosComponent, AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos} from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component'
+import {MantenimientoAPasosDelCierreComponent,AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre} from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component'
+import {ArchivosDeLimpiezaComponent,AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza} from './components/archivos-de-limpieza/archivos-de-limpieza.component'
+import {LimpiaArchivosComponent, LimpiezaSeleccionada, Opciones} from './components/limpia-archivos/limpia-archivos.component'
 
 @NgModule({
   declarations: [
@@ -113,23 +138,101 @@ import { ContenidosContablesComponent, EliminarContenidosContables, EditarConten
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
     EliminarAsesoresDePrestamo, 
-    RecargosAdicionalesComponent, AgregarRecargos, EliminarRecargos, EditarRecargos, 
-    InstitucionesComponent, EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros,
-    FormasDeDesembolsoComponent, EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso, MotivosDeReferenciasClientesComponent,
-    MotivosDeReferenciasClientesComponent, EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes, MotivosDeReversaComponent,
-    MotivosDeReversaComponent, EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa, ParametrizacionDeNumeroDePrestamosComponent,
-    ParametrizacionDeNumeroDePrestamosComponent, EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos, MantenimientoAPasosDelCierreComponent,
-    MantenimientoAPasosDelCierreComponent, EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre, ArchivosDeLimpiezaComponent,
-    ArchivosDeLimpiezaComponent, EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, 
-    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada, 
-    ContenidosContablesComponent, EliminarContenidosContables, EditarContenidosContables, AgregarContenidosContables
-
+    ConsultasComponent,
+    AgregarConsultas, 
+    EditarConsultas, 
+    EliminarConsultas, 
+    ClasificacionComponent,
+    AgregarClasificacion, 
+    EditarClasificacion, 
+    EliminarClasificacion, ParametrosAdicionalesProductoComponent, EventosSolicitudesComponent,
+    AgregarEvento, EditarEvento, EliminarEvento, DocumentosPresentarProductoComponent,
+    AgregarDocumento,EditarDocumento,EliminarDocumento, MontosPorPlazoComponent,
+    AgregarMonto, EditarMonto, EliminarMonto, PorcentajesDeFinanciamientoComponent,
+    AgregarPorcentaje, EditarPorcentaje, EliminarPorcentaje, RangoPlazosInteresComponent,
+    AgregarRango, EditarRango, EliminarRango, DefinirCategoriasUsuariosComponent,
+    AgregarCategoria, EditarCategoria, EliminarCategoria, AsignarAutorizacionComponent,
+    AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion,
+    EliminarAsesoresDePrestamo,
+    ParametrosTransaccionComponent,
+    AgregarParametrosTransaccion,
+    EditarParametrosTransaccion,
+    EliminarParametrosTransaccion,
+    MediosContactoComponent,
+    AgregarMediosContacto,
+    EditarMediosContacto,
+    EliminarMediosContacto,
+    CanalesVentaComponent,
+    AgregarCanalesVenta,
+    EditarCanalesVenta,
+    EliminarCanalesVenta,
+    CanalDistribucionComponent,
+    AgregarCanalDistribucion,
+    EditarCanalDistribucion,
+    EliminarCanalDistribucion,
+    AcercamientoComponent,
+    AgregarAcercamiento,
+    EditarAcercamiento,
+    EliminarAcercamiento,
+    ProductosComponent,
+    AgregarProducto,
+    EditarProducto,
+    EliminarProducto,
+    SubProductosComponent,
+    AgregarSubProductos,
+    EditarSubProductos,
+    EliminarSubProductos,
+    TiposDeTransaccionComponent, 
+    AgregarTiposTransacciones,
+    EditarTiposTransacciones,
+    EliminarTiposTransacciones,
+    GarantiasContablesComponent, 
+    AgregarGarantiasContables,
+    EditarGarantiasContables,
+    EliminarGarantiasContables,
+    TiposSubtiposGarantiasRealesComponent, 
+    AgregarTiposSubtiposGR,
+    EditarTiposSubtiposGR,
+    EliminarTiposSubtiposGR,
+    SubtipoGarantiaComponent,
+    AgregarSubTipoGarantia,
+    EditarSubTipoGarantia,
+    EliminarSubTipoGarantia,
+    FrecuenciasAmortizacionComponent, 
+    AgregarFrecuenciaAmortizacion,
+    EditarFrecuenciaAmortizacion,
+    EliminarFrecuenciaAmortizacion,
+    EstadosPrestamosComponent, 
+    AgregarEstadosPrestamos,
+    EditarEstadosPrestamos,
+    EliminarEstadosPrestamos,
+    SubEstadosComponent, 
+    AgregarSubEstados,
+    EditarSubEstados,
+    EliminarSubEstados,
+    TrasladoEstadosPrestamosComponent,
+    AgregarTrasladoEstPrestamo,
+    EditarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo,
+    NivelesContabilizacionComponent,
+    AgregarNivelesContabilizacion,
+    EditarNivelesContabilizacion,
+    EliminarNivelesContabilizacion,
+    ContenidosContablesComponent,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables,
+    RecargosAdicionalesComponent, AgregarRecargos,EditarRecargos,EliminarRecargos,
+    MotivosDeReversaComponent,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
+    InstitucionesComponent,AgregarInstituciones,EditarInstituciones,EliminarInstituciones,
+    FormasDeDesembolsoComponent, AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso,
+    MotivosDeReferenciasClientesComponent, AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes,
+    ParametrizacionDeNumeroDePrestamosComponent, AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos,
+    MantenimientoAPasosDelCierreComponent,AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre,
+    ArchivosDeLimpiezaComponent,AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza,
+    LimpiaArchivosComponent, LimpiezaSeleccionada, Opciones
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatSelectModule,
     routing,
     FormsModule, //preguntar
     HttpClientModule, //preguntar
@@ -173,17 +276,63 @@ import { ContenidosContablesComponent, EliminarContenidosContables, EditarConten
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
     EliminarAsesoresDePrestamo,
-    AgregarRecargos, EliminarRecargos, EditarRecargos,
-    EliminarInstituciones, EditarInstituciones, AgregarInstituciones, AgregarMaestros,
-    EliminarFormasDeDesembolso, EditarFormasDeDesembolso, AgregarFormasDeDesembolso,
-    EliminarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes, AgregarMotivosDeReferenciasClientes,
-    EliminarMotivosDeReversa, EditarMotivosDeReversa, AgregarMotivosDeReversa,
-    EliminarParametrizacionDeNumeroDePrestamos, EditarParametrizacionDeNumeroDePrestamos, AgregarParametrizacionDeNumeroDePrestamos,
-    EliminarMantenimientoAPasosDelCierre, EditarMantenimientoAPasosDelCierre, AgregarMantenimientoAPasosDelCierre,
-    EliminarArchivosDeLimpieza, EditarArchivosDeLimpieza, AgregarArchivosDeLimpieza, 
-    LimpiaArchivosComponent, Opciones, LimpiezaSeleccionada,
-    EliminarContenidosContables, EditarContenidosContables, AgregarContenidosContables
-
+    AgregarConsultas, 
+    EditarConsultas, 
+    EliminarConsultas,
+    AgregarClasificacion, 
+    EditarClasificacion, 
+    EliminarClasificacion,
+    AgregarEvento, EditarEvento, EliminarEvento,
+    AgregarDocumento,EditarDocumento,EliminarDocumento,
+    AgregarMonto, EditarMonto, EliminarMonto,
+    AgregarPorcentaje, EditarPorcentaje, EliminarPorcentaje,
+    AgregarRango, EditarRango, EliminarRango,
+    AgregarCategoria, EditarCategoria, EliminarCategoria,
+    AgregarAutorizacion, EditarAutorizacion, EliminarAutorizacion,
+    AgregarParametrosTransaccion, EditarParametrosTransaccion, EliminarParametrosTransaccion,
+    AgregarMediosContacto, EditarMediosContacto, EliminarMediosContacto,
+    AgregarCanalesVenta, EditarCanalesVenta, EliminarCanalesVenta,
+    AgregarCanalDistribucion, EditarCanalDistribucion, EliminarCanalDistribucion,
+    AgregarAcercamiento, EditarAcercamiento, EliminarAcercamiento,
+    AgregarProducto, EditarProducto, EliminarProducto,
+    AgregarSubProductos, EditarSubProductos, EliminarSubProductos,
+    AgregarTiposTransacciones,
+    EditarTiposTransacciones,
+    EliminarTiposTransacciones,
+    AgregarGarantiasContables,
+    EditarGarantiasContables,
+    EliminarGarantiasContables,
+    AgregarTiposSubtiposGR,
+    EditarTiposSubtiposGR,
+    EliminarTiposSubtiposGR,
+    AgregarSubTipoGarantia,
+    EditarSubTipoGarantia,
+    EliminarSubTipoGarantia,
+    AgregarFrecuenciaAmortizacion,
+    EditarFrecuenciaAmortizacion,
+    EliminarFrecuenciaAmortizacion,
+    AgregarEstadosPrestamos,
+    EditarEstadosPrestamos,
+    EliminarEstadosPrestamos,
+    AgregarSubEstados,
+    EditarSubEstados,
+    EliminarSubEstados,
+    AgregarTrasladoEstPrestamo,
+    EditarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo,
+    NivelesContabilizacionComponent,
+    AgregarNivelesContabilizacion,
+    EditarNivelesContabilizacion,
+    EliminarNivelesContabilizacion,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables,
+    AgregarRecargos,EditarRecargos,EliminarRecargos,
+    AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
+    AgregarInstituciones,EditarInstituciones,EliminarInstituciones,
+    AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso,
+    AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes,
+    AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos,
+    AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre,
+    AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza,
+    LimpiezaSeleccionada, Opciones
   ]
   ,
   providers: [

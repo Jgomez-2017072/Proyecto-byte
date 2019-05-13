@@ -1,0 +1,38 @@
+<div>     
+        <h2 mat-dialog-title>Agregar</h2><br>
+        <h3>Tipo Producto</h3>
+        <h3>Producto</h3><br>
+      <div mat-dialog-content>  
+            <mat-form-field>
+                    <mat-label>Código</mat-label>
+                    <mat-select>
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                    </mat-select>
+            </mat-form-field>        
+            <mat-form-field class="example-full-width">                
+                <input matInput placeholder="Descripción" [(ngModel)]="value1">
+                <button mat-button  *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                    <mat-icon>close</mat-icon>
+                </button> 
+            </mat-form-field>
+            <mat-form-field class="example-full-width">                
+            <input matInput placeholder="Descripción corta" [(ngModel)]="value2">
+            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+            </mat-form-field><br><br>
+            
+            <label>Obligatorio:</label>
+            <mat-radio-group [(ngModel)]="labelPosition">
+                <mat-radio-button class="example-margin" value="after">Si</mat-radio-button>
+                <mat-radio-button class="example-margin" value="before">No</mat-radio-button>
+            </mat-radio-group><br><br>
+      </div><br>
+      <div  class="modal-down">
+          <div mat-dialog-actions>  
+              <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >AGREGAR</button>
+              <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
+            </div>
+      </div>  
+</div>

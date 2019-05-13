@@ -23,6 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 10, name: 'Neon',descripcion : "asddddd"},
 ];
 
+
 @Component({
   selector: 'app-origen-de-fondos',
   templateUrl: './origen-de-fondos.component.html',

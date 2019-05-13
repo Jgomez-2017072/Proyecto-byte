@@ -19,16 +19,41 @@ import { NotariosComponent } from './components/notarios/notarios.component';
 import { DiasInhabilesComponent } from './components/dias-inhabiles/dias-inhabiles.component';
 import { MotivosAjustesComponent } from './components/motivos-ajustes/motivos-ajustes.component';
 import { AsesoresDePrestamoComponent } from './components/asesores-de-prestamo/asesores-de-prestamo.component';
+import { ConsultasComponent } from './components/consultas/consultas.component';
+import { ClasificacionComponent } from './components/clasificacion/clasificacion.component';
+import { ParametrosAdicionalesProductoComponent } from './components/parametros-adicionales-producto/parametros-adicionales-producto.component';
+import { EventosSolicitudesComponent } from './components/eventos-solicitudes/eventos-solicitudes.component';
+import { DocumentosPresentarProductoComponent } from './components/documentos-presentar-producto/documentos-presentar-producto.component';
+import { MontosPorPlazoComponent } from './components/montos-por-plazo/montos-por-plazo.component';
+import { PorcentajesDeFinanciamientoComponent } from './components/porcentajes-de-financiamiento/porcentajes-de-financiamiento.component';
+import { RangoPlazosInteresComponent } from './components/rango-plazos-interes/rango-plazos-interes.component';
+import { DefinirCategoriasUsuariosComponent } from './components/definir-categorias-usuarios/definir-categorias-usuarios.component';
+import {ParametrosTransaccionComponent} from './components/parametros-transaccion/parametros-transaccion.component'
+import { MediosContactoComponent } from './components/medios-contacto/medios-contacto.component'
+import { CanalesVentaComponent } from './components/canales-venta/canales-venta.component';
+import { CanalDistribucionComponent } from './components/canal-distribucion/canal-distribucion.component';
+import { AcercamientoComponent } from './components/acercamiento/acercamiento.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { SubProductosComponent } from './components/sub-productos/sub-productos.component';
+import { TiposDeTransaccionComponent } from './components/tipos-de-transaccion/tipos-de-transaccion.component';
+import { GarantiasContablesComponent } from './components/garantias-contables/garantias-contables.component';
+import { TiposSubtiposGarantiasRealesComponent } from './components/tipos-subtipos-garantias-reales/tipos-subtipos-garantias-reales.component';
+import { SubtipoGarantiaComponent } from './components/subtipo-garantia/subtipo-garantia.component';
+import { FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
+import { EstadosPrestamosComponent } from './components/estados-prestamos/estados-prestamos.component';
+import { SubEstadosComponent } from './components/sub-estados/sub-estados.component';
+import { TrasladoEstadosPrestamosComponent } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
+import { NivelesContabilizacionComponent } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
+import { ContenidosContablesComponent } from './components/contenidos-contables/contenidos-contables.component';
 import { RecargosAdicionalesComponent } from './components/recargos-adicionales/recargos-adicionales.component';
+import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motivos-de-reversa.component';
 import { InstitucionesComponent } from './components/instituciones/instituciones.component';
 import { FormasDeDesembolsoComponent } from './components/formas-de-desembolso/formas-de-desembolso.component';
 import { MotivosDeReferenciasClientesComponent } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
-import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motivos-de-reversa.component';
 import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
 import { MantenimientoAPasosDelCierreComponent } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
 import { ArchivosDeLimpiezaComponent } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
 import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
-import { ContenidosContablesComponent } from './components/contenidos-contables/contenidos-contables.component';
 
 
 const appRoutes : Routes = [
@@ -51,16 +76,41 @@ const appRoutes : Routes = [
     {path : 'motivos-ajustes', component : MotivosAjustesComponent},
     {path : 'dias-inhabiles', component : DiasInhabilesComponent},
     {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent},
+    {path : 'consultas', component : ConsultasComponent},
+    {path : 'clasificacion', component : ClasificacionComponent},
+    {path : 'parametros-adicionales', component : ParametrosAdicionalesProductoComponent},
+    {path : 'evento-solicitudes', component : EventosSolicitudesComponent},
+    {path : 'documento-presentar-producto', component : DocumentosPresentarProductoComponent},
+    {path : 'montos-por-plazo', component : MontosPorPlazoComponent},
+    {path : 'porcentajes-de-financiamiento', component : PorcentajesDeFinanciamientoComponent},
+    {path : 'rango-plazo-interes', component : RangoPlazosInteresComponent},
+    {path : 'definir-categorias-usuarios', component : DefinirCategoriasUsuariosComponent},
+    {path: 'parametros-transaccion', component: ParametrosTransaccionComponent},
+    {path: 'medios-contacto', component: MediosContactoComponent},
+    {path: 'canales-venta', component: CanalesVentaComponent},
+    {path: 'canales-distribucion', component: CanalDistribucionComponent},
+    {path: 'acercamientos', component: AcercamientoComponent},
+    {path: 'productos', component: ProductosComponent},
+    {path: 'sub-productos', component: SubProductosComponent},
+    {path : 'tipos-transaccion', component : TiposDeTransaccionComponent},
+    {path : 'garantias-contables', component : GarantiasContablesComponent},
+    {path : 'tipos-garantias', component : TiposSubtiposGarantiasRealesComponent},
+    {path : 'subtipos-garantias', component : SubtipoGarantiaComponent},
+    {path : 'frecuencia-amortizacion', component : FrecuenciasAmortizacionComponent},    
+    {path : 'estados-prestamos', component : EstadosPrestamosComponent},
+    {path : 'sub-estados', component : SubEstadosComponent},
+    {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent},
+    {path : 'niveles-contabilizacion', component : NivelesContabilizacionComponent},
+    {path : 'contenidos-contables', component : ContenidosContablesComponent},
     {path : 'recargos-adicionales', component : RecargosAdicionalesComponent},
-    {path : 'instituciones', component : InstitucionesComponent},
+    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent},
+    {path : 'instituciones', component: InstitucionesComponent},
     {path : 'formas-de-desembolso', component : FormasDeDesembolsoComponent},
     {path : 'motivos-de-referencias-clientes', component : MotivosDeReferenciasClientesComponent},
-    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent},
     {path : 'parametrizacion-de-numero-de-prestamos', component : ParametrizacionDeNumeroDePrestamosComponent},
     {path : 'mantenimiento-apasos-del-cierre', component : MantenimientoAPasosDelCierreComponent},
     {path : 'archivos-de-limpieza', component : ArchivosDeLimpiezaComponent},
-    {path : 'limpia-archivos', component : LimpiaArchivosComponent},
-    {path : 'contenidos-contables', component : ContenidosContablesComponent}
+    {path : 'limpia-archivos', component : LimpiaArchivosComponent}
     
 ]
 
