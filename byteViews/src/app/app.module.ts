@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AlmacenadorasComponent,EditarAlmacenadora, EliminarAlmacenadora, AgregarAlmacenadora } from './components/almacenadoras/almacenadoras.component';
-import { AseguradorasComponent,EditarAseguradora, EliminarAseguradora, AgregarAseguradora } from './components/aseguradoras/aseguradoras.component';
+import { AseguradorasComponent,EditarAseguradora, EliminarAseguradora, AgregarAseguradora , VerAseguradora} from './components/aseguradoras/aseguradoras.component';
 import { AgrupacionDeCreditosComponent,EditarCredito, EliminarCredito,AgregarCredito } from './components/agrupacion-de-creditos/agrupacion-de-creditos.component';
 import { LugaresDeInversionComponent, EditarLugar, EliminarLugar, AgregarLugar } from './components/lugares-de-inversion/lugares-de-inversion.component';
 import { UbicacionDeLaGarantiaComponent, EditarUbicacion, EliminarUbicacion, AgregarUbicacion } from './components/ubicacion-de-la-garantia/ubicacion-de-la-garantia.component';
@@ -90,6 +90,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarAseguradora,
     EliminarAseguradora,
     AgregarAseguradora,
+    VerAseguradora,
     AgrupacionDeCreditosComponent,
     EditarCredito, 
     EliminarCredito,
@@ -289,6 +290,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarAseguradora,
     EliminarAseguradora,
     AgregarAseguradora,
+    VerAseguradora,
     EditarCredito, 
     EliminarCredito,
     AgregarCredito,

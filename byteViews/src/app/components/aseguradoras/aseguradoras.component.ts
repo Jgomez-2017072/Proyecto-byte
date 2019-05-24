@@ -88,7 +88,7 @@ export class AseguradorasComponent implements OnInit {
 
  openDialog1(): void {
     const dialogRef = this.dialog.open(EditarAseguradora, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -96,13 +96,13 @@ export class AseguradorasComponent implements OnInit {
 
       setTimeout(() => {
         this.getAseguradoras();
-      }, 500);
+      }, 800);
     });
   }
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(EliminarAseguradora, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -110,13 +110,13 @@ export class AseguradorasComponent implements OnInit {
       
       setTimeout(() => {
         this.getAseguradoras();
-      }, 600);
+      }, 800);
     });
   }
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(AgregarAseguradora, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -124,7 +124,17 @@ export class AseguradorasComponent implements OnInit {
       
       setTimeout(() => {
         this.getAseguradoras();
-      }, 550);
+      }, 800);
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerAseguradora, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }
@@ -182,26 +192,7 @@ export class EditarAseguradora implements OnInit{
     )
   }
 
-  /*buscarAseguradora(){
-      this._requerimientosService.buscarAseguradora(codigo).subscribe(
-        response=>{
-          console.log(response)
-          this.aseguradora = response
-          if(!response){
-            this.status = "error"
-          }else{
-            this.status = "Success"
-          }
-        },
-        error => {
-          var errorMessage = <any>error;
-          console.log(errorMessage);
-          if(errorMessage != null){
-            this.status = "error";
-          }
-        }
-      )
-  }*/
+  
   
 
 }
@@ -309,5 +300,59 @@ export class AgregarAseguradora {
 
     )
   }
+
+}
+
+
+@Component({
+  selector: 'ver-aseguradora',
+  templateUrl: 'ver-aseguradora.html',
+  styleUrls: ['./aseguradoras.component.scss'],
+  providers : [RequerimientosService]
+
+})
+export class VerAseguradora implements OnInit{
+
+  ngOnInit() {
+    this.aseguradora.codigo = codigo;
+    this.aseguradora.descripcion = descripcion;
+    this.aseguradora.empresa = empresa;
+    //this.buscarAseguradora();
+  }
+  
+  public aseguradora : Aseguradora ;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<VerAseguradora>,private snackBar: MatSnackBar, private _requerimientosService : RequerimientosService) {
+      this.aseguradora = new Aseguradora("","","");
+
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+  /*buscarAseguradora(){
+      this._requerimientosService.buscarAseguradora(this.aseguradora.codigo).subscribe(
+        response=>{
+          console.log(response)
+          this.aseguradora = response
+          if(!response){
+            this.status = "error"
+          }else{
+            this.status = "Success"
+          }
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+          if(errorMessage != null){
+            this.status = "error";
+          }
+        }
+      )
+  }*/
 
 }
