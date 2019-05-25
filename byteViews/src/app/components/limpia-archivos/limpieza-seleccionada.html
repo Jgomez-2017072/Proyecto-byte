@@ -1,0 +1,52 @@
+<br><br>
+<h1>Limpieza Seleccionada</h1><br>
+
+<mat-form-field class="selector">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder='Search' [(ngModel)]="value">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''"
+      (click)="applyFilter(value)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  
+  <div class="container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource2">
+  
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef class="encabezados"> Código </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef class="encabezados"> nomarc </th>
+        <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="descripcionParaReportes">
+        <th mat-header-cell *matHeaderCellDef class="encabezados"> desarc </th>
+        <td mat-cell *matCellDef="let element"> {{element.descripcionParaReportes}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="marcarIndi">
+        <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
+        <td mat-cell *matCellDef="let element"><button class="btn">
+            <mat-icon style="color :rgb(17, 84, 104); ">check_circle</mat-icon>
+            
+          </button></td>
+      </ng-container>
+
+      <ng-container matColumnDef="desmarcarIndi">
+        <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
+        <td mat-cell *matCellDef="let element"><button class="btn">
+            <mat-icon style="color :rgb(17, 84, 104); ">check_circle_outline</mat-icon>
+          </button></td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;" (click)="selection.toggle(row)">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div><br>

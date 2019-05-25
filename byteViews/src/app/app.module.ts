@@ -4,7 +4,7 @@ import { appRoutingProviders, routing } from './app.routing';
 import { AppComponent } from './app.component';
 
 //Animations
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
 //Material
 import { MaterialModule } from './material';
 
@@ -13,15 +13,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AlmacenadorasComponent,EditarAlmacenadora, EliminarAlmacenadora, AgregarAlmacenadora } from './components/almacenadoras/almacenadoras.component';
-import { AseguradorasComponent,EditarAseguradora, EliminarAseguradora, AgregarAseguradora } from './components/aseguradoras/aseguradoras.component';
+import { AseguradorasComponent,EditarAseguradora, EliminarAseguradora, AgregarAseguradora , VerAseguradora} from './components/aseguradoras/aseguradoras.component';
 import { AgrupacionDeCreditosComponent,EditarCredito, EliminarCredito,AgregarCredito } from './components/agrupacion-de-creditos/agrupacion-de-creditos.component';
 import { LugaresDeInversionComponent, EditarLugar, EliminarLugar, AgregarLugar } from './components/lugares-de-inversion/lugares-de-inversion.component';
 import { UbicacionDeLaGarantiaComponent, EditarUbicacion, EliminarUbicacion, AgregarUbicacion } from './components/ubicacion-de-la-garantia/ubicacion-de-la-garantia.component';
 import { OrigenDeFondosComponent, EditarOrigenDeFondos, EliminarOrigenDeFondos, AgregarOrigenDeFondos} from './components/origen-de-fondos/origen-de-fondos.component';
-import { FormasDePagoComponent, EditarFormasDePago, EliminarFormasDePago, AgregarFormasDePago} from './components/formas-de-pago/formas-de-pago.component';
-import { DestinosComponent, EditarDestino, EliminarDestino, AgregarDestino} from './components/destinos/destinos.component';
-import { CategoriasSibComponent, EditarCategoriasSib, EliminarCategoriasSib, AgregarCategoriasSib} from './components/categorias-sib/categorias-sib.component';
-import { EstatusGarantiasRealesComponent, EditarEstatusGarantiasReales, EliminarEstatusGarantiasReales, AgregarEstatusGarantiasReales} from './components/estatus-garantias-reales/estatus-garantias-reales.component';
+import { FormasDePagoComponent, EditarFormasDePago, EliminarFormasDePago, AgregarFormasDePago, VerFormaDePago} from './components/formas-de-pago/formas-de-pago.component';
+import { DestinosComponent, VerDestino, EditarDestino, EliminarDestino, AgregarDestino} from './components/destinos/destinos.component';
+import { CategoriasSibComponent, EditarCategoriasSib, EliminarCategoriasSib, AgregarCategoriasSib, VerCategoria} from './components/categorias-sib/categorias-sib.component';
+import { EstatusGarantiasRealesComponent, VerStatusGarantiaReal, EditarEstatusGarantiasReales, EliminarEstatusGarantiasReales, AgregarEstatusGarantiasReales} from './components/estatus-garantias-reales/estatus-garantias-reales.component';
 import { EstatusAvaluosComponent, AgregarEstatusAvaluos, EditarEstatusAvaluos, EliminarEstatusAvaluos } from './components/estatus-avaluos/estatus-avaluos.component';
 import { IngenierosValuadoresComponent, AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador } from './components/ingenieros-valuadores/ingenieros-valuadores.component';
 import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios } from './components/notarios/notarios.component';
@@ -54,6 +54,18 @@ import { EstadosPrestamosComponent, AgregarEstadosPrestamos, EditarEstadosPresta
 import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEstados } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
 import { AgregarFrecuenciaAmortizacion, EditarFrecuenciaAmortizacion, EliminarFrecuenciaAmortizacion, FrecuenciasAmortizacionComponent } from './components/frecuencia-amortizacion/frecuencias-amortizacion.component';
+import { NivelesContabilizacionComponent, AgregarNivelesContabilizacion, EditarNivelesContabilizacion, EliminarNivelesContabilizacion } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
+import { ContenidosContablesComponent,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables} from './components/contenidos-contables/contenidos-contables.component'
+import {RecargosAdicionalesComponent, AgregarRecargos,EditarRecargos,EliminarRecargos} from './components/recargos-adicionales/recargos-adicionales.component'
+import {MotivosDeReversaComponent,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa} from './components/motivos-de-reversa/motivos-de-reversa.component'
+import {InstitucionesComponent,AgregarInstituciones,EditarInstituciones,EliminarInstituciones} from './components/instituciones/instituciones.component'
+import {FormasDeDesembolsoComponent, AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso} from './components/formas-de-desembolso/formas-de-desembolso.component'
+import {MotivosDeReferenciasClientesComponent, AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes} from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component'
+import {ParametrizacionDeNumeroDePrestamosComponent, AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos} from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component'
+import {MantenimientoAPasosDelCierreComponent,AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre} from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component'
+import {ArchivosDeLimpiezaComponent,AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza} from './components/archivos-de-limpieza/archivos-de-limpieza.component'
+import {LimpiaArchivosComponent, LimpiezaSeleccionada, Opciones} from './components/limpia-archivos/limpia-archivos.component'
+
 import { EnlaceContabilidadComponent, AgregarEnlaceContabilidad, EditarEnlaceContabilidad, EliminarEnlaceContabilidad} from './components/enlace-contabilidad/enlace-contabilidad.component';
 import { BancosComponent, AgregarBancos, EliminarBancos, EditarBancos, CuentasBancos } from './components/bancos/bancos.component';
 import { TiposDeDeduccionesComponent, AgregarTipoDeDeduccion, EliminarTipoDeDeduccion, EditarTipoDeDeduccion } from './components/tipos-de-deducciones/tipos-de-deducciones.component';
@@ -62,10 +74,11 @@ import { DatosGeneralesComponent, FechaValor, FechasDelSistema, GenerarNumeroAut
 import { AsignacionDeCategoriasComponent, AgregarAsignacionDeCategorias, EditarAsignacionDeCategorias, EliminarAsignacionDeCategorias } from './components/asignacion-de-categorias/asignacion-de-categorias.component';
 import { ParametrosDeProductosComponent, EditarParametrosDeProductos, EliminarParametrosDeProductos, AgregarParametrosDeProductos } from './components/parametros-de-productos/parametros-de-productos.component';
 import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, EliminarStatusLegales } from './components/status-legales/status-legales.component';
-
+import { SearchPipe } from './components/pipes/search.pipe';
 
 @NgModule({
   declarations: [
+    SearchPipe,
     AppComponent,
     HomeComponent,
     SidenavComponent,
@@ -77,6 +90,7 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     EditarAseguradora,
     EliminarAseguradora,
     AgregarAseguradora,
+    VerAseguradora,
     AgrupacionDeCreditosComponent,
     EditarCredito, 
     EliminarCredito,
@@ -97,18 +111,22 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     EditarFormasDePago, 
     EliminarFormasDePago, 
     AgregarFormasDePago,
+    VerFormaDePago,
     DestinosComponent, 
     EditarDestino, 
     EliminarDestino, 
     AgregarDestino,
+    VerDestino,
     CategoriasSibComponent, 
     EditarCategoriasSib, 
     EliminarCategoriasSib, 
     AgregarCategoriasSib,
+    VerCategoria,
     EstatusGarantiasRealesComponent, 
     EditarEstatusGarantiasReales, 
     EliminarEstatusGarantiasReales, 
     AgregarEstatusGarantiasReales,
+    VerStatusGarantiaReal,
     EstatusAvaluosComponent,
     AgregarEstatusAvaluos, 
     EditarEstatusAvaluos, 
@@ -212,6 +230,10 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
     EliminarTrasladoEstPrestamo,
+    NivelesContabilizacionComponent,
+    AgregarNivelesContabilizacion,
+    EditarNivelesContabilizacion,
+    EliminarNivelesContabilizacion,
     EnlaceContabilidadComponent,
     AgregarEnlaceContabilidad,
     EditarEnlaceContabilidad,
@@ -245,8 +267,17 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     StatusLegalesComponent,
     AgregarStatusLegales,
     EditarStatusLegales,
-    EliminarStatusLegales
-    
+    EliminarStatusLegales,
+    ContenidosContablesComponent,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables,
+    RecargosAdicionalesComponent, AgregarRecargos,EditarRecargos,EliminarRecargos,
+    MotivosDeReversaComponent,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
+    InstitucionesComponent,AgregarInstituciones,EditarInstituciones,EliminarInstituciones,
+    FormasDeDesembolsoComponent, AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso,
+    MotivosDeReferenciasClientesComponent, AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes,
+    ParametrizacionDeNumeroDePrestamosComponent, AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos,
+    MantenimientoAPasosDelCierreComponent,AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre,
+    ArchivosDeLimpiezaComponent,AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza,
+    LimpiaArchivosComponent, LimpiezaSeleccionada, Opciones
   ],
   imports: [
     BrowserModule,
@@ -263,6 +294,7 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     EditarAseguradora,
     EliminarAseguradora,
     AgregarAseguradora,
+    VerAseguradora,
     EditarCredito, 
     EliminarCredito,
     AgregarCredito,
@@ -278,15 +310,19 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     EditarFormasDePago, 
     EliminarFormasDePago, 
     AgregarFormasDePago,
+    VerFormaDePago,
     EditarDestino, 
     EliminarDestino, 
     AgregarDestino,
+    VerDestino,
     EditarCategoriasSib, 
     EliminarCategoriasSib, 
     AgregarCategoriasSib,
+    VerCategoria,
     EditarEstatusGarantiasReales, 
     EliminarEstatusGarantiasReales, 
     AgregarEstatusGarantiasReales,
+    VerStatusGarantiaReal,
     EditarEstatusAvaluos, EliminarEstatusAvaluos, AgregarEstatusAvaluos, 
     AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador,
     AgregarNotarios, EditarNotarios, EliminarNotarios,
@@ -339,6 +375,10 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
     EliminarTrasladoEstPrestamo,
+    NivelesContabilizacionComponent,
+    AgregarNivelesContabilizacion,
+    EditarNivelesContabilizacion,
+    EliminarNivelesContabilizacion,
     AgregarEnlaceContabilidad,
     EditarEnlaceContabilidad,
     EliminarEnlaceContabilidad,
@@ -365,8 +405,14 @@ import { StatusLegalesComponent, AgregarStatusLegales, EditarStatusLegales, Elim
     EliminarParametrosDeProductos,
     AgregarStatusLegales,
     EditarStatusLegales,
-    EliminarStatusLegales
-    
+    EliminarStatusLegales,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables
+    , AgregarRecargos,EditarRecargos,EliminarRecargos,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
+    AgregarInstituciones,EditarInstituciones,EliminarInstituciones, AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso,
+   AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes,
+  AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos,
+  AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre,
+  AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza,
+   LimpiezaSeleccionada, Opciones
   ]
   ,
   providers: [

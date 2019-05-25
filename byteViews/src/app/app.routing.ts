@@ -43,6 +43,7 @@ import { FrecuenciasAmortizacionComponent } from './components/frecuencia-amorti
 import { EstadosPrestamosComponent } from './components/estados-prestamos/estados-prestamos.component';
 import { SubEstadosComponent } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
+import { NivelesContabilizacionComponent } from './components/niveles-contabilizacion/niveles-contabilizacion.component';
 import { EnlaceContabilidadComponent } from './components/enlace-contabilidad/enlace-contabilidad.component';
 import { BancosComponent } from './components/bancos/bancos.component';
 import { TiposDeDeduccionesComponent } from './components/tipos-de-deducciones/tipos-de-deducciones.component';
@@ -51,7 +52,16 @@ import { DatosGeneralesComponent } from './components/datos-generales/datos-gene
 import { AsignacionDeCategoriasComponent } from './components/asignacion-de-categorias/asignacion-de-categorias.component';
 import { ParametrosDeProductosComponent } from './components/parametros-de-productos/parametros-de-productos.component';
 import { StatusLegalesComponent } from './components/status-legales/status-legales.component';
-
+import { InstitucionesComponent } from './components/instituciones/instituciones.component';
+import { FormasDeDesembolsoComponent } from './components/formas-de-desembolso/formas-de-desembolso.component';
+import { MotivosDeReferenciasClientesComponent } from './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.component';
+import { ParametrizacionDeNumeroDePrestamosComponent } from './components/parametrizacion-de-numero-de-prestamos/parametrizacion-de-numero-de-prestamos.component';
+import { MantenimientoAPasosDelCierreComponent } from './components/mantenimiento-apasos-del-cierre/mantenimiento-apasos-del-cierre.component';
+import { ArchivosDeLimpiezaComponent } from './components/archivos-de-limpieza/archivos-de-limpieza.component';
+import { LimpiaArchivosComponent } from './components/limpia-archivos/limpia-archivos.component';
+import { RecargosAdicionalesComponent } from './components/recargos-adicionales/recargos-adicionales.component';
+import { MotivosDeReversaComponent } from './components/motivos-de-reversa/motivos-de-reversa.component';
+import { ContenidosContablesComponent } from './components/contenidos-contables/contenidos-contables.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -72,7 +82,7 @@ const appRoutes : Routes = [
     {path : 'notarios', component : NotariosComponent},
     {path : 'motivos-ajustes', component : MotivosAjustesComponent},
     {path : 'dias-inhabiles', component : DiasInhabilesComponent},
-    {path : 'asesores-de-prestamo', component : AsesoresDePrestamoComponent},
+    {path : 'asesores-de-prestamos', component : AsesoresDePrestamoComponent},
     {path : 'consultas', component : ConsultasComponent},
     {path : 'clasificacion', component : ClasificacionComponent},
     {path : 'parametros-adicionales', component : ParametrosAdicionalesProductoComponent},
@@ -97,6 +107,8 @@ const appRoutes : Routes = [
     {path : 'estados-prestamos', component : EstadosPrestamosComponent},
     {path : 'sub-estados', component : SubEstadosComponent},
     {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent},
+    {path : 'niveles-contabilizacion', component : NivelesContabilizacionComponent},
+    
     {path : 'enlace-contabilidad', component : EnlaceContabilidadComponent},
     {path : 'bancos', component : BancosComponent},
     {path : 'tipos-de-deducciones', component : TiposDeDeduccionesComponent},
@@ -105,8 +117,17 @@ const appRoutes : Routes = [
     {path : 'asignacion-de-categorias', component : AsignacionDeCategoriasComponent},
     {path : 'parametros-de-productos', component : ParametrosDeProductosComponent},
     {path : 'status-legales', component : StatusLegalesComponent},
+    {path : 'instituciones', component : InstitucionesComponent},
+    {path : 'formas-de-desembolso', component : FormasDeDesembolsoComponent},
+    {path : 'motivos-de-referencias-clientes', component : MotivosDeReferenciasClientesComponent},
+    {path : 'parametrizacion-de-numero-de-prestamos', component : ParametrizacionDeNumeroDePrestamosComponent},
+    {path : 'mantenimiento-apasos-del-cierre', component : MantenimientoAPasosDelCierreComponent},
+    {path : 'archivos-de-limpieza', component : ArchivosDeLimpiezaComponent},
+    {path : 'limpia-archivos', component : LimpiaArchivosComponent},
+    {path : 'recargos-adicionales', component : RecargosAdicionalesComponent},
+    {path : 'motivos-de-reversa', component : MotivosDeReversaComponent},
+    {path : 'contanido-contable', component : ContenidosContablesComponent}
     
-   
 ]
 
 export const appRoutingProviders : any[] = [];

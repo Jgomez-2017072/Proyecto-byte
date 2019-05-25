@@ -1,49 +1,60 @@
-<br><br><h1>Tipos de transaccion</h1><br>
+<div class="animated fadeIn">
+  <br><br>
+  <h1 class="animated pulse">Tipos de transaccion</h1><br>
 
-<mat-form-field class="selector">
+  <mat-form-field class="selector">
     <mat-icon matPrefix>search</mat-icon>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder='Search' [(ngModel)]="value">
-    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" (click)="applyFilter(value)">
-        <mat-icon>close</mat-icon>
-    </button> 
-</mat-form-field>
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''"
+      (click)="applyFilter(value)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
 
-<div class="container mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">    
-     
+  <div class="container mat-elevation-z8 animated lightSpeedIn">
+    <table mat-table [dataSource]="dataSource">
+
       <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef  class="encabezados"> Código </th>
-        <td mat-cell  *matCellDef="let element"> {{element.position}} </td>
+        <th mat-header-cell *matHeaderCellDef class="encabezados"> Código </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
       </ng-container>
-    
+
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef class="encabezados"> Descripción </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="editar">
-        <th mat-header-cell *matHeaderCellDef  class="encabezados2"></th>
-        <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()"><mat-icon style="color : rgb(21, 100, 165);">create</mat-icon></button></td>
+        <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
+        <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()">
+            <mat-icon style="color : rgb(21, 100, 165);">create</mat-icon>
+          </button></td>
       </ng-container>
-    
-      
+
+
       <ng-container matColumnDef="eliminar">
-        <th mat-header-cell *matHeaderCellDef  class="encabezados2"></th>
-        <td mat-cell *matCellDef="let element"><button class="btn"(click)="openDialog2()"><mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon></button></td>
+        <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
+        <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog2()">
+            <mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon>
+          </button></td>
       </ng-container>
 
       <ng-container matColumnDef="ver">
-          <th mat-header-cell *matHeaderCellDef  class="encabezados2"></th>
-          <td mat-cell *matCellDef="let element"><button class="btn" ><mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon></button></td>
-        </ng-container>
-    
+        <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
+        <td mat-cell *matCellDef="let element"><button class="btn">
+            <mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon>
+          </button></td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-          (click)="selection.toggle(row)">
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
       </tr>
     </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div><br>
+  </div><br>
 
-  <button mat-mini-fab (click)="openDialog3()" id="add"><mat-icon>add</mat-icon></button><br><br>
+  <button mat-mini-fab (click)="openDialog3()" id="add">
+    <mat-icon>add</mat-icon>
+  </button><br><br>
+</div>

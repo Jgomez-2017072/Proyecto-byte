@@ -1,26 +1,22 @@
 import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { FormasDePago } from 'src/app/models/formasDePago.model';
+import { FormasDePagoService } from 'src/app/services/formas-de-pago.service';
 
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
+  codigo: String;
+  descripcion: String;
+  empresa: String;
+
 }
 
+var datosFormaDePago: FormasDePago[];
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'}, 
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'},
-];
+var codigo = '';
+var descripcion = '';
+var empresa = '';
 
 
 @Component({
@@ -29,16 +25,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./formas-de-pago.component.scss']
 })
 export class FormasDePagoComponent implements OnInit {
-
+  public dataSource;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.getFormaDePago();
   }
 
-  displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar', 'ver'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
+  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
+  
   //FILTRO
 
  applyFilter(filterValue: string) {
@@ -47,31 +42,83 @@ export class FormasDePagoComponent implements OnInit {
 
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private _formaDePagoService : FormasDePagoService) {}
+
+
+//CRUD --------------------- TRAER DATOS --------------------------
+  
+
+
+
+public getFormaDePago(){
+  this._formaDePagoService.getFormasDePago().subscribe(
+    response => {
+      if(response){
+        datosFormaDePago = response;
+        console.log(datosFormaDePago)
+        this.dataSource = new MatTableDataSource<PeriodicElement>(datosFormaDePago);
+        this.dataSource.paginator = this.paginator;
+
+      } 
+    },
+    error=>{
+      console.log(<any>error);
+    }
+
+  )
+}
+
+buscar(id, descripcion2, empresa2){
+  codigo = id;
+  descripcion = descripcion2;
+  empresa = empresa2;
+  console.log(codigo + " - " + descripcion + " - " + empresa)
+}
+
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarFormasDePago, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getFormaDePago();
+      }, 800);
     });
   }
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(EliminarFormasDePago, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      setTimeout(() => {
+        this.getFormaDePago();
+      }, 800);
     });
   }
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(AgregarFormasDePago, {
-      width: '40%',
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      setTimeout(() => {
+        this.getFormaDePago();
+      }, 800);
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerFormaDePago, {
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -87,8 +134,21 @@ export class FormasDePagoComponent implements OnInit {
   styleUrls: ['./formas-de-pago.component.scss']
 })
 export class EditarFormasDePago {
+
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.formaDePago.codigo = codigo;
+    this.formaDePago.descripcion = descripcion;
+    this.formaDePago.empresa = empresa;
+  }
+
+  public formaDePago : FormasDePago ;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<EditarFormasDePago>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EditarFormasDePago>, private snackBar: MatSnackBar, private _formaDePagoService : FormasDePagoService) {
+      this.formaDePago = new FormasDePago("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Actualizado!", "", {
@@ -99,6 +159,24 @@ export class EditarFormasDePago {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  editarFormaDePago(){
+    console.log(this.formaDePago)
+    this._formaDePagoService.editarFormaDePago(this.formaDePago).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
 }
 
 @Component({
@@ -108,8 +186,20 @@ export class EditarFormasDePago {
 })
 export class EliminarFormasDePago {
   
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.formaDePago.codigo = codigo;
+    this.formaDePago.descripcion = descripcion;
+    this.formaDePago.empresa = empresa;
+  }
+  
+  public formaDePago : FormasDePago ;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<EliminarFormasDePago>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EliminarFormasDePago>, private snackBar: MatSnackBar, private _formasDePagoService : FormasDePagoService) {
+      this.formaDePago = new FormasDePago("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Eliminado!", "", {
@@ -120,17 +210,41 @@ export class EliminarFormasDePago {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  eliminarFormaDePAgo(){    
+    this._formasDePagoService.eliminarFormaDePago(this.formaDePago).subscribe(
+      response=>{
+        if(!response){
+          this.status = "error"
+        }else{
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if(errorMessage != null){
+          this.status = "error";
+        }
+      }
+    )
+  }
 }
 
 @Component({
   selector: 'agregar-formas-de-pago',
   templateUrl: 'agregar-formas-de-pago.html',
-  styleUrls: ['./formas-de-pago.component.scss']
+  styleUrls: ['./formas-de-pago.component.scss'],
+  providers : [FormasDePagoService]
 })
 export class AgregarFormasDePago {
-  
+  public formasDePago : FormasDePago ;
+  public status;
   constructor(
-    public dialogRef: MatDialogRef<AgregarFormasDePago>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarFormasDePago>, private snackBar: MatSnackBar, private _formaDePagoService: FormasDePagoService) {
+      this.formasDePago = new FormasDePago("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Guardado!", "", {
@@ -141,4 +255,59 @@ export class AgregarFormasDePago {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  crearFormaDePago(){
+    this.formasDePago.empresa = "1";
+    this._formaDePagoService.crearFormaDePago(this.formasDePago).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+          
+        }
+      },
+      error => {
+          if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
+}
+
+
+@Component({
+  selector: 'ver-forma-de-pago',
+  templateUrl: 'ver-forma-de-pago.html',
+  styleUrls: ['./formas-de-pago.component.scss'],
+  providers : [FormasDePagoService]
+
+})
+export class VerFormaDePago implements OnInit{
+
+  ngOnInit() {
+    this.formaDePago.codigo = codigo;
+    this.formaDePago.descripcion = descripcion;
+    this.formaDePago.empresa = empresa;
+    //this.buscarAseguradora();
+  }
+  
+  public formaDePago : FormasDePago ;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<VerFormaDePago>,private snackBar: MatSnackBar) {
+      this.formaDePago = new FormasDePago("","","");
+
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+  
+
 }
