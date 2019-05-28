@@ -1,24 +1,24 @@
-<div>     
-    <h2 mat-dialog-title>Agregar</h2>
-  <div mat-dialog-content>           
-          <mat-form-field >                
-              <input matInput placeholder="Estatus" [(ngModel)]="value1">
-              <button mat-button  *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
-                  <mat-icon>close</mat-icon>
-              </button> 
-          </mat-form-field>
-          <mat-form-field class="example-full-width">                
-            <input matInput placeholder="Descripción" [(ngModel)]="value2">
-            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+<div class="animated fadeIn">     
+  <h2 mat-dialog-title>Agregar</h2>
+
+<div mat-dialog-content>           
+        <mat-form-field >                
+            <input matInput placeholder="Código" [(ngModel)]="statusGarantiaReal.codigo">
+            <button mat-button  *ngIf="statusGarantiaReal.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.codigo=''">
                 <mat-icon>close</mat-icon>
             </button> 
-          </mat-form-field>
-  </div><br>
-  <div  class="modal-down">
-      <div mat-dialog-actions>  
-          <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >AGREGAR</button>
-          <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
-        </div>
-  </div>  
+        </mat-form-field>
+        <mat-form-field class="example-full-width">                
+          <input matInput placeholder="Descripción" [(ngModel)]="statusGarantiaReal.descripcion">
+          <button mat-button *ngIf="statusGarantiaReal.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.descripcion=''">
+              <mat-icon>close</mat-icon>
+          </button> 
+        </mat-form-field>
+</div><br>
+<div  class="modal-down">
+    <div mat-dialog-actions>  
+        <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();crearStatusGarantiaReal();" >AGREGAR</button>
+        <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
+      </div>
+</div>  
 </div>
-    

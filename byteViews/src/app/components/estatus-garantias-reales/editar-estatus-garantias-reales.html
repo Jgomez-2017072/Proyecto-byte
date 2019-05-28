@@ -1,22 +1,22 @@
-<div>
+<div class="animated fadeIn">
     <h2 mat-dialog-title>Editar</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Estatus" [(ngModel)]="value1" sdf>
-            <button mat-button  *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+            <input matInput placeholder="Código" [(ngModel)]="statusGarantiaReal.codigo" sdf>
+            <button mat-button  *ngIf="statusGarantiaReal.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.codigo=''">
                 <mat-icon>close</mat-icon>
             </button> 
         </mat-form-field>  
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripción" [(ngModel)]="value2">
-          <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+          <input matInput type="text" placeholder="Descripción" [(ngModel)]="statusGarantiaReal.descripcion">
+          <button mat-button *ngIf="statusGarantiaReal.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.descripcion=''">
               <mat-icon>close</mat-icon>
           </button> 
         </mat-form-field>     
     </div><br>
     <div  class="modal-down">
         <div mat-dialog-actions>  
-            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >EDITAR</button>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();editarStatusGarantiaReal();" >EDITAR</button>
             <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
           </div>
     </div>  

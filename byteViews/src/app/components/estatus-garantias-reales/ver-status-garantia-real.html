@@ -1,15 +1,13 @@
-<div>
+<div class="animated fadeIn">
     <h2 mat-dialog-title>Aseguradora</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" disabled [(ngModel)]="aseguradora.codigo">
+            <input matInput placeholder="Código" disabled [(ngModel)]="statusGarantiaReal.codigo">
         </mat-form-field>  
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripción" disabled [(ngModel)]="aseguradora.descripcion">
+          <input matInput type="text" placeholder="Descripción" disabled [(ngModel)]="statusGarantiaReal.descripcion">
         </mat-form-field>   
-        <mat-form-field >                
-            <input matInput placeholder="Empresa" disabled [(ngModel)]="aseguradora.empresa">        
-        </mat-form-field>    
+         
     </div><br>
     <div  class="modal-down">
         <div mat-dialog-actions>  

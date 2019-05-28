@@ -12,16 +12,16 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { AlmacenadorasComponent,EditarAlmacenadora, EliminarAlmacenadora, AgregarAlmacenadora, VerAlmacenadora } from './components/almacenadoras/almacenadoras.component';
+import { AlmacenadorasComponent,EditarAlmacenadora, EliminarAlmacenadora, AgregarAlmacenadora ,VerAlmacenadora} from './components/almacenadoras/almacenadoras.component';
 import { AseguradorasComponent,EditarAseguradora, EliminarAseguradora, AgregarAseguradora , VerAseguradora} from './components/aseguradoras/aseguradoras.component';
 import { AgrupacionDeCreditosComponent,EditarCredito, EliminarCredito,AgregarCredito } from './components/agrupacion-de-creditos/agrupacion-de-creditos.component';
 import { LugaresDeInversionComponent, EditarLugar, EliminarLugar, AgregarLugar, VerLugar } from './components/lugares-de-inversion/lugares-de-inversion.component';
 import { UbicacionDeLaGarantiaComponent, EditarUbicacion, EliminarUbicacion, AgregarUbicacion } from './components/ubicacion-de-la-garantia/ubicacion-de-la-garantia.component';
 import { OrigenDeFondosComponent, EditarOrigenDeFondos, EliminarOrigenDeFondos, AgregarOrigenDeFondos} from './components/origen-de-fondos/origen-de-fondos.component';
-import { FormasDePagoComponent, EditarFormasDePago, EliminarFormasDePago, AgregarFormasDePago} from './components/formas-de-pago/formas-de-pago.component';
-import { DestinosComponent, EditarDestino, EliminarDestino, AgregarDestino} from './components/destinos/destinos.component';
-import { CategoriasSibComponent, EditarCategoriasSib, EliminarCategoriasSib, AgregarCategoriasSib} from './components/categorias-sib/categorias-sib.component';
-import { EstatusGarantiasRealesComponent, EditarEstatusGarantiasReales, EliminarEstatusGarantiasReales, AgregarEstatusGarantiasReales} from './components/estatus-garantias-reales/estatus-garantias-reales.component';
+import { FormasDePagoComponent, EditarFormasDePago, EliminarFormasDePago, AgregarFormasDePago, VerFormaDePago} from './components/formas-de-pago/formas-de-pago.component';
+import { DestinosComponent, VerDestino, EditarDestino, EliminarDestino, AgregarDestino} from './components/destinos/destinos.component';
+import { CategoriasSibComponent, EditarCategoriasSib, EliminarCategoriasSib, AgregarCategoriasSib, VerCategoria} from './components/categorias-sib/categorias-sib.component';
+import { EstatusGarantiasRealesComponent, VerStatusGarantiaReal, EditarEstatusGarantiasReales, EliminarEstatusGarantiasReales, AgregarEstatusGarantiasReales} from './components/estatus-garantias-reales/estatus-garantias-reales.component';
 import { EstatusAvaluosComponent, AgregarEstatusAvaluos, EditarEstatusAvaluos, EliminarEstatusAvaluos } from './components/estatus-avaluos/estatus-avaluos.component';
 import { IngenierosValuadoresComponent, AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador } from './components/ingenieros-valuadores/ingenieros-valuadores.component';
 import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios } from './components/notarios/notarios.component';
@@ -113,18 +113,22 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarFormasDePago, 
     EliminarFormasDePago, 
     AgregarFormasDePago,
+    VerFormaDePago,
     DestinosComponent, 
     EditarDestino, 
     EliminarDestino, 
     AgregarDestino,
+    VerDestino,
     CategoriasSibComponent, 
     EditarCategoriasSib, 
     EliminarCategoriasSib, 
     AgregarCategoriasSib,
+    VerCategoria,
     EstatusGarantiasRealesComponent, 
     EditarEstatusGarantiasReales, 
     EliminarEstatusGarantiasReales, 
     AgregarEstatusGarantiasReales,
+    VerStatusGarantiaReal,
     EstatusAvaluosComponent,
     AgregarEstatusAvaluos, 
     EditarEstatusAvaluos, 
@@ -310,15 +314,19 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarFormasDePago, 
     EliminarFormasDePago, 
     AgregarFormasDePago,
+    VerFormaDePago,
     EditarDestino, 
     EliminarDestino, 
     AgregarDestino,
+    VerDestino,
     EditarCategoriasSib, 
     EliminarCategoriasSib, 
     AgregarCategoriasSib,
+    VerCategoria,
     EditarEstatusGarantiasReales, 
     EliminarEstatusGarantiasReales, 
     AgregarEstatusGarantiasReales,
+    VerStatusGarantiaReal,
     EditarEstatusAvaluos, EliminarEstatusAvaluos, AgregarEstatusAvaluos, 
     AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador,
     AgregarNotarios, EditarNotarios, EliminarNotarios,
