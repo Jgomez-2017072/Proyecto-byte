@@ -1,53 +1,59 @@
-<div>     
-    <h2 mat-dialog-title>Agregar</h2>
-  <div mat-dialog-content>     
-      <mat-form-field >
-          <input matInput type="text" placeholder="Código" [(ngModel)]="value">
-          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-              <mat-icon>close</mat-icon>
-          </button> 
-        </mat-form-field>      
-      <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Nombre" [(ngModel)]="value0">
-          <button mat-button *ngIf="value0" matSuffix mat-icon-button aria-label="Clear" (click)="value0=''">
-              <mat-icon>close</mat-icon>
-          </button> 
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="text" placeholder="No. Colegiado" [(ngModel)]="value1">
-        <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
-            <mat-icon>close</mat-icon>
-        </button> 
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput type="text" placeholder="Dirección" [(ngModel)]="value2">
-        <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
-            <mat-icon>close</mat-icon>
-        </button> 
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput type="text" placeholder="Identificación" [(ngModel)]="value3">
-        <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
-            <mat-icon>close</mat-icon>
-        </button> 
-      </mat-form-field>
-      <mat-form-field >
-        <input matInput type="text" placeholder="Teléfono" [(ngModel)]="value4">
-        <button mat-button *ngIf="value4" matSuffix mat-icon-button aria-label="Clear" (click)="value4=''">
-            <mat-icon>close</mat-icon>
-        </button> 
-      </mat-form-field>
-      <mat-form-field >
-        <input matInput type="text" placeholder="Fax" [(ngModel)]="value5">
-        <button mat-button *ngIf="value5" matSuffix mat-icon-button aria-label="Clear" (click)="value5=''">
-            <mat-icon>close</mat-icon>
-        </button> 
-      </mat-form-field>
+<div>
+  <h2 mat-dialog-title>Agregar</h2>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Código" [(ngModel)]="notario.codigo">
+      <button mat-button *ngIf="notario.codigo" matSuffix mat-icon-button aria-label="Clear"
+        (click)="notario.codigo=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Nombre" [(ngModel)]="notario.nombre">
+      <button mat-button *ngIf="notario.nombre" matSuffix mat-icon-button aria-label="Clear"
+        (click)="notario.nombre=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="No. Colegiado" [(ngModel)]="notario.colegiado">
+      <button mat-button *ngIf="notario.colegiado" matSuffix mat-icon-button aria-label="Clear"
+        (click)="notario.colegiado=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Dirección" [(ngModel)]="notario.direccion">
+      <button mat-button *ngIf="notario.direccion" matSuffix mat-icon-button aria-label="Clear"
+        (click)="notario.direccion=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Identificación" [(ngModel)]="notario.identificacion">
+      <button mat-button *ngIf="notario.identificacion" matSuffix mat-icon-button aria-label="Clear"
+        (click)="notario.identificacion=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Teléfono" [(ngModel)]="notario.telefono">
+      <button mat-button *ngIf="notario.telefono" matSuffix mat-icon-button aria-label="Clear"
+        (click)="notario.telefono=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Fax" [(ngModel)]="notario.fax">
+      <button mat-button *ngIf="notario.fax" matSuffix mat-icon-button aria-label="Clear" (click)="notario.fax=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
   </div><br>
-  <div  class="modal-down">
-      <div mat-dialog-actions>  
-          <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >AGREGAR</button>
-          <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
-        </div>
-  </div>  
+  <div class="modal-down">
+    <div mat-dialog-actions>
+      <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();crearNotario();">AGREGAR</button>
+      <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+    </div>
+  </div>
 </div>

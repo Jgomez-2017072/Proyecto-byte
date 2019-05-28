@@ -1,52 +1,122 @@
 
-import { Component, OnInit, Inject, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { NotarioService } from 'src/app/services/notario.service';
+import { Notario } from 'src/app/models/notario.model';
 
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
+  cheque: String,
+  codigo: String,
+  colegiado: String,
+  direccion: String,
+  direccionDos: String,
+  email: String,
+  empresa: String,
+  fax: String,
+  identificacion: String,
+  isr: String,
+  nombre: String,
+  numeroCuenta: String,
+  telefono: String,
+  tipoCuenta: String
 }
 
+var datosNotario: Notario[];
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'}, 
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-];
+
+var cheque = '';
+var codigo = '';
+var colegiado = '';
+var direccion = '';
+var direccionDos = '';
+var email = '';
+var empresa = '';
+var fax = '';
+var identificacion = '';
+var isr = '';
+var nombre = '';
+var numeroCuenta = '';
+var telefono = '';
+var tipoCuenta = '';
+
 
 @Component({
   selector: 'app-notarios',
   templateUrl: './notarios.component.html',
-  styleUrls: ['./notarios.component.scss']
+  styleUrls: ['./notarios.component.scss'],
+  providers: [NotarioService]
 })
 export class NotariosComponent implements OnInit {
+
+  public dataSource;
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.getNotarios()
   }
 
 
-  displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar','ver'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
 
-  //FILTRO
+  //SELECTOR
 
- applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+    private _notariosService: NotarioService) { }
+
+
+  //CRUD --------------------- TRAER DATOS --------------------------
+
+
+
+
+  public getNotarios() {
+    this._notariosService.getNotarios().subscribe(
+      response => {
+        if (response) {
+          datosNotario = response;
+          console.log(datosNotario)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosNotario);
+          this.dataSource.paginator = this.paginator;
+
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+
+    )
+  }
+
+
+
+  buscar(id, cheque2, colegiado2, direccion2, direccionDos2,email2,
+    empresa2,fax2,identificacion2,isr2,nombre2,
+    numeroCuenta2,telefono2,tipoCuenta2) {
+    codigo = id;
+    cheque = cheque2;
+    colegiado = colegiado2;
+    direccion = direccion2;
+    direccionDos = direccionDos2;
+    email = email2;
+    empresa = empresa2;
+    fax = fax2;
+    identificacion = identificacion2;
+    isr = isr2;
+    nombre = nombre2;
+    numeroCuenta = numeroCuenta2;
+    telefono = telefono2;
+    tipoCuenta = tipoCuenta2;    
+    //console.log(codigo + " - " + descripcion + " - " + empresa + " - " + numeroRegistro)
+  }
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarNotarios, {
@@ -55,6 +125,10 @@ export class NotariosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getNotarios();
+      }, 800);
     });
   }
 
@@ -65,6 +139,10 @@ export class NotariosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getNotarios();
+      }, 800);
     });
   }
 
@@ -75,66 +153,240 @@ export class NotariosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getNotarios();
+      }, 800);
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerNotario, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }
 
 @Component({
-  selector: 'editar-almacenadora',
+  selector: 'editar-notarios',
   templateUrl: 'editar-notarios.html',
   styleUrls: ['./notarios.component.scss']
 })
 export class EditarNotarios {
-  constructor(
-    public dialogRef: MatDialogRef<EditarNotarios>, private snackBar: MatSnackBar) {}
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+
+
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.notario.codigo = codigo;
+    this.notario.cheque = cheque;
+    this.notario.colegiado = empresa;
+    this.notario.direccion = direccion;
+    this.notario.direccionDos = direccionDos;
+    this.notario.email = email;
+    this.notario.empresa = empresa;
+    this.notario.fax = fax;
+    this.notario.identificacion = identificacion;
+    this.notario.isr = isr;
+    this.notario.nombre = nombre;
+    this.notario.numeroCuenta = numeroCuenta;
+    this.notario.telefono = telefono;
+    this.notario.tipoCuenta = tipoCuenta;    
+  }
+
+  public notario: Notario;
+  public status;
+
+  constructor(
+    public dialogRef: MatDialogRef<EditarNotarios>,
+    private snackBar: MatSnackBar,
+    private _notariosService: NotarioService) {
+    this.notario = new Notario("","","","","","","","","",true,"","","","","","","");
+  }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Actualizado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+  editarNotario() {
+    console.log(this.notario)
+    this._notariosService.editarNotario(this.notario).subscribe(
+      response => {
+        if (response) {
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
 }
 
 @Component({
-  selector: 'eliminar-almacenadora',
+  selector: 'eliminar-notarios',
   templateUrl: 'eliminar-notarios.html',
   styleUrls: ['./notarios.component.scss']
 })
 export class EliminarNotarios {
-  
-  constructor(
-    public dialogRef: MatDialogRef<EliminarNotarios>, private snackBar: MatSnackBar) {}
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.notario.codigo = codigo;
+    this.notario.cheque = cheque;
+    this.notario.colegiado = empresa;
+    this.notario.direccion = direccion;
+    this.notario.direccionDos = direccionDos;
+    this.notario.email = email;
+    this.notario.empresa = empresa;
+    this.notario.fax = fax;
+    this.notario.identificacion = identificacion;
+    this.notario.isr = isr;
+    this.notario.nombre = nombre;
+    this.notario.numeroCuenta = numeroCuenta;
+    this.notario.telefono = telefono;
+    this.notario.tipoCuenta = tipoCuenta;    
+  }
+
+  public notario: Notario;
+  public status;
+
+  constructor(
+    public dialogRef: MatDialogRef<EliminarNotarios>,
+    private snackBar: MatSnackBar,
+    private _notariosService: NotarioService) {
+      this.notario = new Notario("","","","","","","","","",true,"","","","","","","");
     }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Eliminado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+  eliminarNotario() {
+    this._notariosService.eliminarNotario(this.notario).subscribe(
+      response => {
+        if (!response) {
+          this.status = "error"
+        } else {
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if (errorMessage != null) {
+          this.status = "error";
+        }
+      }
+    )
+  }
 }
 
 @Component({
-  selector: 'agregar-almacenadora',
+  selector: 'agregar-notarios',
   templateUrl: 'agregar-notarios.html',
-  styleUrls: ['./notarios.component.scss']
+  styleUrls: ['./notarios.component.scss'],
+  providers: [NotarioService]
 })
 export class AgregarNotarios {
-  
-  constructor(
-    public dialogRef: MatDialogRef<AgregarNotarios>, private snackBar: MatSnackBar) {}
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  public notario: Notario;
+  public status;
+
+  constructor(
+    public dialogRef: MatDialogRef<AgregarNotarios>,
+    private snackBar: MatSnackBar,
+    private _notariosService: NotarioService) {
+      this.notario = new Notario("","","","","","","","","",true,"","","","","","","");
+  }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Guardado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  crearNotario() {
+    this.notario.empresa = "1";
+    this._notariosService.crearNotario(this.notario).subscribe(
+      response => {
+        if (response) {
+          this.status = 'ok';
+          console.log(response);
+
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
+}
+
+@Component({
+  selector: 'ver-notario',
+  templateUrl: 'ver-notario.html',
+  styleUrls: ['./notarios.component.scss'],
+  providers: [NotarioService]
+
+})
+export class VerNotario implements OnInit {
+
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.notario.codigo = codigo;
+    this.notario.cheque = cheque;
+    this.notario.colegiado = empresa;
+    this.notario.direccion = direccion;
+    this.notario.direccionDos = direccionDos;
+    this.notario.email = email;
+    this.notario.empresa = empresa;
+    this.notario.fax = fax;
+    this.notario.identificacion = identificacion;
+    this.notario.isr = isr;
+    this.notario.nombre = nombre;
+    this.notario.numeroCuenta = numeroCuenta;
+    this.notario.telefono = telefono;
+    this.notario.tipoCuenta = tipoCuenta;    
+  }
+
+  public notario: Notario;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<VerNotario>,
+    private snackBar: MatSnackBar,
+    private _NotariosService: NotarioService) {
+    this.notario = new Notario("","","","","","","","","",true,"","","","","","","");
+
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -22,11 +22,11 @@ import { FormasDePagoComponent, EditarFormasDePago, EliminarFormasDePago, Agrega
 import { DestinosComponent, EditarDestino, EliminarDestino, AgregarDestino} from './components/destinos/destinos.component';
 import { CategoriasSibComponent, EditarCategoriasSib, EliminarCategoriasSib, AgregarCategoriasSib} from './components/categorias-sib/categorias-sib.component';
 import { EstatusGarantiasRealesComponent, EditarEstatusGarantiasReales, EliminarEstatusGarantiasReales, AgregarEstatusGarantiasReales} from './components/estatus-garantias-reales/estatus-garantias-reales.component';
-import { EstatusAvaluosComponent, AgregarEstatusAvaluos, EditarEstatusAvaluos, EliminarEstatusAvaluos } from './components/estatus-avaluos/estatus-avaluos.component';
-import { IngenierosValuadoresComponent, AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador } from './components/ingenieros-valuadores/ingenieros-valuadores.component';
-import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios } from './components/notarios/notarios.component';
-import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste } from './components/motivos-ajustes/motivos-ajustes.component';
-import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
+import { EstatusAvaluosComponent, AgregarEstatusAvaluos, EditarEstatusAvaluos, EliminarEstatusAvaluos, VerEstatusAvaluos } from './components/estatus-avaluos/estatus-avaluos.component';
+import { IngenierosValuadoresComponent, AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador, VerIngenieroValuador } from './components/ingenieros-valuadores/ingenieros-valuadores.component';
+import { NotariosComponent, AgregarNotarios, EditarNotarios, EliminarNotarios, VerNotario } from './components/notarios/notarios.component';
+import { MotivosAjustesComponent, AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste, VerMotivoAjuste } from './components/motivos-ajustes/motivos-ajustes.component';
+import { DiasInhabilesComponent, AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil, VerDiaInhabil } from './components/dias-inhabiles/dias-inhabiles.component';
 import { AsesoresDePrestamoComponent, AgregarAsesoresDePrestamo, EditarAsesoresDePrestamo, EliminarAsesoresDePrestamo} from './components/asesores-de-prestamo/asesores-de-prestamo.component';
 import { ConsultasComponent, AgregarConsultas, EditarConsultas, EliminarConsultas } from './components/consultas/consultas.component';
 import { ClasificacionComponent, AgregarClasificacion, EditarClasificacion, EliminarClasificacion } from './components/clasificacion/clasificacion.component';
@@ -127,7 +127,9 @@ import { SearchPipe } from './components/pipes/search.pipe';
     AgregarEstatusAvaluos, 
     EditarEstatusAvaluos, 
     EliminarEstatusAvaluos,
+    VerEstatusAvaluos,
     IngenierosValuadoresComponent,
+    VerIngenieroValuador,
     NotariosComponent,
     MotivosAjustesComponent,
     DiasInhabilesComponent,
@@ -140,12 +142,15 @@ import { SearchPipe } from './components/pipes/search.pipe';
     AgregarNotarios,
     EditarNotarios,
     EliminarNotarios,
+    VerNotario,
     AgregarMotivoAjuste,
     EditarMotivoAjuste,
     EliminarMotivoAjuste,
+    VerMotivoAjuste,
     AgregarDiaInhabil,
     EditarDiaInhabil,
     EliminarDiaInhabil,
+    VerDiaInhabil,
     AsesoresDePrestamoComponent, 
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
@@ -290,7 +295,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarAseguradora,
     EliminarAseguradora,
     AgregarAseguradora,
-    VerAseguradora,
+    VerAseguradora,    
     EditarCredito, 
     EliminarCredito,
     AgregarCredito,
@@ -315,11 +320,11 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarEstatusGarantiasReales, 
     EliminarEstatusGarantiasReales, 
     AgregarEstatusGarantiasReales,
-    EditarEstatusAvaluos, EliminarEstatusAvaluos, AgregarEstatusAvaluos, 
-    AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador,
-    AgregarNotarios, EditarNotarios, EliminarNotarios,
-    AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste,
-    AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil,
+    EditarEstatusAvaluos, EliminarEstatusAvaluos, AgregarEstatusAvaluos, VerEstatusAvaluos,
+    AgregarIngenieroValuador, EditarIngenieroValuador, EliminarIngenieroValuador, VerIngenieroValuador,
+    AgregarNotarios, EditarNotarios, EliminarNotarios, VerNotario,
+    AgregarMotivoAjuste, EditarMotivoAjuste, EliminarMotivoAjuste, VerMotivoAjuste,
+    AgregarDiaInhabil, EditarDiaInhabil, EliminarDiaInhabil, VerDiaInhabil,
     AgregarAsesoresDePrestamo, 
     EditarAsesoresDePrestamo, 
     EliminarAsesoresDePrestamo,
@@ -400,7 +405,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EliminarStatusLegales,AgregarContenidosContables,EditarContenidosContables,EliminarContenidosContables
     , AgregarRecargos,EditarRecargos,EliminarRecargos,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa,
     AgregarInstituciones,EditarInstituciones,EliminarInstituciones, AgregarFormasDeDesembolso, EditarFormasDeDesembolso,EliminarFormasDeDesembolso,
-   AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes,
+   AgregarMotivosDeReferenciasClientes, EditarMotivosDeReferenciasClientes , EliminarMotivosDeReferenciasClientes, 
   AgregarParametrizacionDeNumeroDePrestamos ,EditarParametrizacionDeNumeroDePrestamos,EliminarParametrizacionDeNumeroDePrestamos,
   AgregarMantenimientoAPasosDelCierre,EditarMantenimientoAPasosDelCierre,EliminarMantenimientoAPasosDelCierre,
   AgregarArchivosDeLimpieza,EditarArchivosDeLimpieza,EliminarArchivosDeLimpieza,
