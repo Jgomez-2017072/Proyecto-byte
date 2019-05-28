@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator, DialogPosition } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-import { RequerimientosService } from 'src/app/services/requerimientos.service';
+import { AseguradorasService } from 'src/app/services/aseguradoras.service';
 import { Aseguradora } from 'src/app/models/aseguradora.model';
 
 
@@ -23,7 +23,7 @@ var empresa = '';
   templateUrl: './aseguradoras.component.html',
 
   styleUrls: ['./aseguradoras.component.scss'],
-  providers : [RequerimientosService]
+  providers : [AseguradorasService]
 
 })
 
@@ -49,7 +49,7 @@ export class AseguradorasComponent implements OnInit {
 
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog, private _requerimientosService : RequerimientosService) {
+  constructor(public dialog: MatDialog, private _aseguradorasService : AseguradorasService) {
   }
 
   //CRUD --------------------- TRAER DATOS --------------------------
@@ -58,7 +58,7 @@ export class AseguradorasComponent implements OnInit {
 
 
   public getAseguradoras(){
-    this._requerimientosService.getAseguradoras().subscribe(
+    this._aseguradorasService.getAseguradoras().subscribe(
       response => {
         if(response){
           datosAseguradora = response;
@@ -159,7 +159,7 @@ export class EditarAseguradora implements OnInit{
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarAseguradora>, private snackBar: MatSnackBar,private _requerimientosService : RequerimientosService) {
+    public dialogRef: MatDialogRef<EditarAseguradora>, private snackBar: MatSnackBar,private _aseguradorasService : AseguradorasService) {
       this.aseguradora = new Aseguradora("","","");
     }
     
@@ -176,7 +176,7 @@ export class EditarAseguradora implements OnInit{
 
   editarAseguradora(){
     console.log(this.aseguradora)
-    this._requerimientosService.editarAseguradora(this.aseguradora).subscribe(
+    this._aseguradorasService.editarAseguradora(this.aseguradora).subscribe(
       response => {
         if(response){
           this.status = 'ok';
@@ -215,7 +215,7 @@ export class EliminarAseguradora implements OnInit {
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EliminarAseguradora>, private snackBar: MatSnackBar,private _requerimientosService : RequerimientosService) {
+    public dialogRef: MatDialogRef<EliminarAseguradora>, private snackBar: MatSnackBar,private _aseguradorasService : AseguradorasService) {
       this.aseguradora = new Aseguradora("","","");
 
     }
@@ -231,7 +231,7 @@ export class EliminarAseguradora implements OnInit {
   }
 
   eliminarAseguradora(){    
-    this._requerimientosService.eliminarAseguradora(this.aseguradora).subscribe(
+    this._aseguradorasService.eliminarAseguradora(this.aseguradora).subscribe(
       response=>{
         if(!response){
           this.status = "error"
@@ -256,7 +256,7 @@ export class EliminarAseguradora implements OnInit {
   selector: 'agregar-aseguradora',
   templateUrl: 'agregar-aseguradora.html',
   styleUrls: ['./aseguradoras.component.scss'],
-  providers : [RequerimientosService]
+  providers : [AseguradorasService]
 
 })
 export class AgregarAseguradora {
@@ -266,7 +266,7 @@ export class AgregarAseguradora {
 
 
   constructor(
-    public dialogRef: MatDialogRef<AgregarAseguradora>,private snackBar: MatSnackBar, private _requerimientosService : RequerimientosService) {
+    public dialogRef: MatDialogRef<AgregarAseguradora>,private snackBar: MatSnackBar, private _aseguradorasService : AseguradorasService) {
       this.aseguradora = new Aseguradora("","","");
 
     }
@@ -283,7 +283,7 @@ export class AgregarAseguradora {
   
   crearAseguradora(){
     this.aseguradora.empresa = "1";
-    this._requerimientosService.crearAseguradora(this.aseguradora).subscribe(
+    this._aseguradorasService.crearAseguradora(this.aseguradora).subscribe(
       response => {
         if(response){
           this.status = 'ok';
@@ -308,7 +308,7 @@ export class AgregarAseguradora {
   selector: 'ver-aseguradora',
   templateUrl: 'ver-aseguradora.html',
   styleUrls: ['./aseguradoras.component.scss'],
-  providers : [RequerimientosService]
+  providers : [AseguradorasService]
 
 })
 export class VerAseguradora implements OnInit{
@@ -317,7 +317,6 @@ export class VerAseguradora implements OnInit{
     this.aseguradora.codigo = codigo;
     this.aseguradora.descripcion = descripcion;
     this.aseguradora.empresa = empresa;
-    //this.buscarAseguradora();
   }
   
   public aseguradora : Aseguradora ;
@@ -325,7 +324,7 @@ export class VerAseguradora implements OnInit{
 
 
   constructor(
-    public dialogRef: MatDialogRef<VerAseguradora>,private snackBar: MatSnackBar, private _requerimientosService : RequerimientosService) {
+    public dialogRef: MatDialogRef<VerAseguradora>,private snackBar: MatSnackBar, private _aseguradorasService : AseguradorasService) {
       this.aseguradora = new Aseguradora("","","");
 
     }
@@ -334,25 +333,5 @@ export class VerAseguradora implements OnInit{
     this.dialogRef.close();
   }
   
-  /*buscarAseguradora(){
-      this._requerimientosService.buscarAseguradora(this.aseguradora.codigo).subscribe(
-        response=>{
-          console.log(response)
-          this.aseguradora = response
-          if(!response){
-            this.status = "error"
-          }else{
-            this.status = "Success"
-          }
-        },
-        error => {
-          var errorMessage = <any>error;
-          console.log(errorMessage);
-          if(errorMessage != null){
-            this.status = "error";
-          }
-        }
-      )
-  }*/
 
 }

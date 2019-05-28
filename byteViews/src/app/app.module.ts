@@ -12,10 +12,10 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { AlmacenadorasComponent,EditarAlmacenadora, EliminarAlmacenadora, AgregarAlmacenadora } from './components/almacenadoras/almacenadoras.component';
+import { AlmacenadorasComponent,EditarAlmacenadora, EliminarAlmacenadora, AgregarAlmacenadora, VerAlmacenadora } from './components/almacenadoras/almacenadoras.component';
 import { AseguradorasComponent,EditarAseguradora, EliminarAseguradora, AgregarAseguradora , VerAseguradora} from './components/aseguradoras/aseguradoras.component';
 import { AgrupacionDeCreditosComponent,EditarCredito, EliminarCredito,AgregarCredito } from './components/agrupacion-de-creditos/agrupacion-de-creditos.component';
-import { LugaresDeInversionComponent, EditarLugar, EliminarLugar, AgregarLugar } from './components/lugares-de-inversion/lugares-de-inversion.component';
+import { LugaresDeInversionComponent, EditarLugar, EliminarLugar, AgregarLugar, VerLugar } from './components/lugares-de-inversion/lugares-de-inversion.component';
 import { UbicacionDeLaGarantiaComponent, EditarUbicacion, EliminarUbicacion, AgregarUbicacion } from './components/ubicacion-de-la-garantia/ubicacion-de-la-garantia.component';
 import { OrigenDeFondosComponent, EditarOrigenDeFondos, EliminarOrigenDeFondos, AgregarOrigenDeFondos} from './components/origen-de-fondos/origen-de-fondos.component';
 import { FormasDePagoComponent, EditarFormasDePago, EliminarFormasDePago, AgregarFormasDePago} from './components/formas-de-pago/formas-de-pago.component';
@@ -85,6 +85,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     AlmacenadorasComponent,
     EditarAlmacenadora,
     EliminarAlmacenadora,
+    VerAlmacenadora,
     AgregarAlmacenadora,
     AseguradorasComponent,
     EditarAseguradora,
@@ -99,6 +100,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarLugar, 
     EliminarLugar, 
     AgregarLugar, 
+    VerLugar,
     UbicacionDeLaGarantiaComponent ,
     EditarUbicacion, 
     EliminarUbicacion, 
@@ -287,6 +289,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarAlmacenadora,
     EliminarAlmacenadora,
     AgregarAlmacenadora,
+    VerAlmacenadora,
     EditarAseguradora,
     EliminarAseguradora,
     AgregarAseguradora,
@@ -297,6 +300,7 @@ import { SearchPipe } from './components/pipes/search.pipe';
     EditarLugar, 
     EliminarLugar, 
     AgregarLugar,
+    VerLugar,
     EditarUbicacion, 
     EliminarUbicacion, 
     AgregarUbicacion,
