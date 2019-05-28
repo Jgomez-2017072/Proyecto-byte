@@ -15,19 +15,23 @@
   <div class="container mat-elevation-z8 animated lightSpeedIn">
     <table mat-table [dataSource]="dataSource">
 
-      <ng-container matColumnDef="position">
+      <ng-container matColumnDef="codigo">
         <th mat-header-cell *matHeaderCellDef class="encabezados"> Código </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="descripcion">
         <th mat-header-cell *matHeaderCellDef class="encabezados"> Descripción </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container> 
 
       <ng-container matColumnDef="editar">
         <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-        <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()">
+        <td mat-cell *matCellDef="let element"><button class="btn" 
+          (click)="openDialog1();buscar(element.codigo, element.cheque,element.colegiado, element.direccion,
+          element.direccionDos, element.email,element.empresa, element.fax,
+          element.identificacion, element.isr,element.nombre, element.numeroCuenta,
+          element.telefono, element.tipoCuenta)">
             <mat-icon style="color : rgb(21, 100, 165);">create</mat-icon>
           </button></td>
       </ng-container>
@@ -35,20 +39,29 @@
 
       <ng-container matColumnDef="eliminar">
         <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-        <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog2()">
+        <td mat-cell *matCellDef="let element"><button class="btn" 
+          (click)="openDialog2();buscar(element.codigo, element.cheque,element.colegiado, element.direccion,
+          element.direccionDos, element.email,element.empresa, element.fax,
+          element.identificacion, element.isr,element.nombre, element.numeroCuenta,
+          element.telefono, element.tipoCuenta)">
             <mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon>
           </button></td>
       </ng-container>
+      
 
       <ng-container matColumnDef="ver">
         <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-        <td mat-cell *matCellDef="let element"><button class="btn">
+        <td mat-cell *matCellDef="let element"><button class="btn"
+          (click)="openDialog4();buscar(element.codigo, element.cheque,element.colegiado, element.direccion,
+          element.direccionDos, element.email,element.empresa, element.fax,
+          element.identificacion, element.isr,element.nombre, element.numeroCuenta,
+          element.telefono, element.tipoCuenta)">
             <mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon>
           </button></td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
       </tr>
     </table>
 
