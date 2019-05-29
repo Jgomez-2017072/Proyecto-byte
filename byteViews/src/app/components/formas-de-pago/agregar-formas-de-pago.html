@@ -1,24 +1,24 @@
-<div class="animated fadeIn">     
-  <h2 mat-dialog-title>Agregar</h2>
+<div class="animated fadeIn">
+    <h2 mat-dialog-title>Agregar</h2>
 
-<div mat-dialog-content>           
-        <mat-form-field >                
+    <div mat-dialog-content>
+        <mat-form-field>
             <input matInput placeholder="Código" [(ngModel)]="formasDePago.codigo">
-            <button mat-button  *ngIf="formasDePago.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="formasDePago.codigo=''">
+            <button mat-button *ngIf="formasDePago.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="formasDePago.codigo">
                 <mat-icon>close</mat-icon>
-            </button> 
+            </button>
         </mat-form-field>
-        <mat-form-field class="example-full-width">                
-          <input matInput placeholder="Descripción" [(ngModel)]="formasDePago.descripcion">
-          <button mat-button *ngIf="formasDePago.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="formasDePago.descripcion=''">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Descripción" [(ngModel)]="formasDePago.descripcion">
+            <button mat-button *ngIf="formasDePago.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="formasDePago.descripcion">
               <mat-icon>close</mat-icon>
-          </button> 
+          </button>
         </mat-form-field>
-</div><br>
-<div  class="modal-down">
-    <div mat-dialog-actions>  
-        <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();crearFormaDePago();" >AGREGAR</button>
-        <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
-      </div>
-</div>  
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();crearFormaDePago();">AGREGAR</button>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        </div>
+    </div>
 </div>
