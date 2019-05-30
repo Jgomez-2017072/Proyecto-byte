@@ -26,22 +26,22 @@
 
             <ng-container matColumnDef="editar">
                 <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()"><mat-icon style="color : rgb(21, 100, 165);">create</mat-icon></button></td>
+                <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1(); buscar(element.codigo, element.descripcion,element.empresa)"><mat-icon style="color : rgb(21, 100, 165);">create</mat-icon></button></td>
             </ng-container>
 
 
             <ng-container matColumnDef="eliminar">
                 <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog2()"><mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon></button></td>
+                <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog2(); buscar(element.codigo, element.descripcion,element.empresa)"><mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon></button></td>
             </ng-container>
 
             <ng-container matColumnDef="ver">
                 <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                <td mat-cell *matCellDef="let element"><button class="btn"><mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon></button></td>
+                <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog4()"><mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon></button></td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
             </tr>
         </table>
 

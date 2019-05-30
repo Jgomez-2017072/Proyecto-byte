@@ -40,4 +40,10 @@ export class TipoDeduccionService {
     return this._http.patch(this.url + 'tipoDeduccion/update', params, {headers : headers});
    }
 
+   eliminarTipoDeduccion(tipoDeduccion : TipoDeduccion): Observable<any>{
+    let params = JSON.stringify(tipoDeduccion);
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.delete(this.url + `tipoDeduccion/delete?empresa=${tipoDeduccion.empresa}&codigo=${tipoDeduccion.codigo}`)
+   }
+
 }
