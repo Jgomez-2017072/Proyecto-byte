@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Aseguradoras</title>
+</head>
+
+<body>
+
+
+
+    <div class="wrapper">
+        <app-sidebar></app-sidebar>
+
+        <div class="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="moverSidebar()" aria-controls="sidebar" aria-label="Toggle" data-target="#sidebar">
+          <i class="fas fa-align-justify"></i> <span></span>
+        </button>
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Perfil</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <div class="container">
+
+
+
+                <div class="row">
+                    <div class="input-group-btn col-xs-3 col-sm-2 col-md-3 col-lg-3">
+                        <button class=" btn btnRegresar btn-danger" type="button">
+              <i class=" fas fa-arrow-left"></i>
+            </button>
+                    </div>
+                    <div class="col-md-7">
+
+                    </div>
+                    <div class="input-group-btn col-xs-1 col-sm-3 col-md-1 col-lg-1">
+                        <div class="info" data-target="#modalInformacion" data-toggle="modal" data-whatever="@mdo">
+
+                            <img style="width:65px;height:55px;" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0OTYuMTU4IDQ5Ni4xNTgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5Ni4xNTggNDk2LjE1ODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiMyNUI3RDM7IiBkPSJNNDk2LjE1OCwyNDguMDg1YzAtMTM3LjAyMi0xMTEuMDY5LTI0OC4wODItMjQ4LjA3NS0yNDguMDgyQzExMS4wNywwLjAwMywwLDExMS4wNjMsMCwyNDguMDg1ICBjMCwxMzcuMDAxLDExMS4wNywyNDguMDcsMjQ4LjA4MywyNDguMDdDMzg1LjA4OSw0OTYuMTU1LDQ5Ni4xNTgsMzg1LjA4Niw0OTYuMTU4LDI0OC4wODV6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBkPSJNMTM4LjIxNiwxNzMuNTkyYzAtMTMuOTE1LDQuNDY3LTI4LjAxNSwxMy40MDMtNDIuMjk3YzguOTMzLTE0LjI4MiwyMS45NzMtMjYuMTEsMzkuMTExLTM1LjQ4NiAgYzE3LjEzOS05LjM3MywzNy4xMzQtMTQuMDYyLDU5Ljk4NS0xNC4wNjJjMjEuMjM4LDAsMzkuOTksMy45MjEsNTYuMjUsMTEuNzU1YzE2LjI2LDcuODM4LDI4LjgxOCwxOC40OTUsMzcuNjgzLDMxLjk3ICBjOC44NjEsMTMuNDc5LDEzLjI5MywyOC4xMjUsMTMuMjkzLDQzLjk0NWMwLDEyLjQ1Mi0yLjUyNywyMy4zNjctNy41ODEsMzIuNzM5Yy01LjA1NCw5LjM3Ni0xMS4wNjIsMTcuNDY5LTE4LjAxOCwyNC4yNzkgIGMtNi45NTksNi44MTItMTkuNDQ2LDE4LjI3NS0zNy40NjMsMzQuMzg4Yy00Ljk4MSw0LjU0Mi04Ljk3NSw4LjUzNS0xMS45NzUsMTEuOTc2Yy0zLjAwNCwzLjQ0My01LjIzOSw2LjU5Mi02LjcwMiw5LjQ0NyAgYy0xLjQ2NiwyLjg1Ny0yLjYwMyw1LjcxMy0zLjQwNiw4LjU3Yy0wLjgwNywyLjg1NS0yLjAxNSw3Ljg3NS0zLjYyNSwxNS4wNTFjLTIuNzg0LDE1LjIzNi0xMS41MDEsMjIuODUyLTI2LjE0NywyMi44NTIgIGMtNy42MTgsMC0xNC4wMjgtMi40ODktMTkuMjI2LTcuNDcxYy01LjIwMS00Ljk3OS03LjgtMTIuMzc3LTcuOC0yMi4xOTJjMC0xMi4zMDUsMS45MDItMjIuOTYyLDUuNzEzLTMxLjk3ICBjMy44MDgtOS4wMSw4Ljg2MS0xNi45MiwxNS4xNjEtMjMuNzNjNi4yOTYtNi44MTIsMTQuNzk0LTE0LjkwNCwyNS40ODgtMjQuMjhjOS4zNzMtOC4yMDIsMTYuMTUtMTQuMzkyLDIwLjMyNS0xOC41NjcgIGM0LjE3NS00LjE3NSw3LjY5LTguODIzLDEwLjU0Ny0xMy45NTNjMi44NTYtNS4xMjYsNC4yODUtMTAuNjkxLDQuMjg1LTE2LjY5OWMwLTExLjcxOC00LjM2LTIxLjYwNS0xMy4wNzQtMjkuNjYzICBjLTguNzE3LTguMDU0LTE5Ljk2MS0xMi4wODUtMzMuNzI4LTEyLjA4NWMtMTYuMTE2LDAtMjcuOTgxLDQuMDY1LTM1LjU5NiwxMi4xOTVjLTcuNjE4LDguMTMtMTQuMDYyLDIwLjEwNS0xOS4zMzYsMzUuOTI1ICBjLTQuOTgxLDE2LjU1NS0xNC40MywyNC44MjktMjguMzQ1LDI0LjgyOWMtOC4yMDYsMC0xNS4xMjctMi44OTEtMjAuNzY0LTguNjc5QzE0MS4wMzUsMTg2LjU5MywxMzguMjE2LDE4MC4zMzEsMTM4LjIxNiwxNzMuNTkyeiAgIE0yNDUuNDQyLDQxNC40MTJjLTguOTM3LDAtMTYuNzM3LTIuODk1LTIzLjQwMS04LjY4Yy02LjY2Ny01Ljc4NC05Ljk5OC0xMy44NzctOS45OTgtMjQuMjc5YzAtOS4yMjksMy4yMi0xNi45OTEsOS42NjgtMjMuMjkxICBjNi40NDQtNi4yOTcsMTQuMzU0LTkuNDQ4LDIzLjczLTkuNDQ4YzkuMjI5LDAsMTYuOTkxLDMuMTUxLDIzLjI5MSw5LjQ0OGM2LjI5Niw2LjMsOS40NDgsMTQuMDYyLDkuNDQ4LDIzLjI5MSAgYzAsMTAuMjU1LTMuMjk2LDE4LjMxMi05Ljg4OCwyNC4xN0MyNjEuNyw0MTEuNDgxLDI1NC4wODQsNDE0LjQxMiwyNDUuNDQyLDQxNC40MTJ6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="
+                            />
+
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br><br>
+
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Numero automatico de generacion
+                          </button>
+                        </h5>
+                      </div>
+                  
+                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                          
+                            Numero automatico de generacion
+                            <br>
+                            Siguiente recibo 
+                            <input type="text">
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Fechas del sistema
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                          
+                            Fechas del sistema
+                            <br>
+                            <br>
+                            Fecha anterior 
+                            <input type="date">
+                            <br>
+                            Fecha vigente 
+                            <input type="date">
+                            <br>
+                            Siguiente fecha habil 
+                            <input type="date">
+                            <br>
+                            Dias a calcular 
+                            <input type="text">
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Provision
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptates iste quidem itaque dolor necessitatibus illum nam sed ex! Iure facere officia quibusdam dolorum. Repellendus explicabo voluptatum rem delectus quas!
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                              Configuracion del sistema
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores mollitia eligendi esse? Quibusdam expedita iusto aperiam dolorum obcaecati aliquid commodi id adipisci dicta saepe natus, aspernatur atque ullam pariatur corrupti.
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+            </div>
+
+
+
+
+            
+
+
+            <!-- MODAL AGREGAR-->
+            <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="modalA" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalA">Agregar Aseguradora</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Codigo de Aseguradora:</label>
+                                    <input type="text" class="form-control" id="codigo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Descripcion:</label>
+                                    <textarea class="form-control" id="descripcion"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL EDITAR-->
+            <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalA" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalA">Editar Aseguradora</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Codigo:</label>
+                                    <input type="text" class="form-control" id="codigo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Descripcion:</label>
+                                    <textarea class="form-control" id="descripcion"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL ELIMINAR-->
+            <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalA" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalA">¿Está seguro que desea ELIMINAR esta Aseguradora?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success">No</button>
+                            <button type="button" class="btn btn-danger">Si</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- MODAL INFORMACION -->
+            <div class="modal fade" id="modalInformacion" tabindex="-1" role="dialog" aria-labelledby="modalInfo" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalInfo">¿Dónde estoy?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                        </div>
+                        <div class="modal-body">
+                            Este panel corresponde al mantenimiento de Almacenadoras, en el cual el usuario puede crear, editar o eliminar un registro existente; según sea su intención. Junto a este mismo botón encontrará los botones correspondientes a la realización de cada una
+                            de las acciones antes mencionadas.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <br><br>
+
+            <footer>
+                <div class="container">
+                    Byte S.A.
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+
+
+
+
+    <script lang="JavaScript">
+    </script>
+
+</body>
+
+</html>
