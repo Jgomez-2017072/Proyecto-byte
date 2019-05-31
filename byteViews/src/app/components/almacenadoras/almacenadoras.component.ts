@@ -1,42 +1,46 @@
 import { Component, OnInit, Inject, ViewEncapsulation, ViewChild} from '@angular/core';
 import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-
+import { Almacenadora } from 'src/app/models/almacenadora.model';
+import { AlmacenadorasService } from 'src/app/services/almacenadoras.service';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
+  codigo: String;
+  descripcion: String;
+  empresa: String;
 }
 
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'}, 
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'},
-];
+var datosAlmacenadora: Almacenadora[];
+
+
+var codigo = '';
+var descripcion = '';
+var empresa = '';
+
+
+
 
 @Component({
   selector: 'app-almacenadoras',
   templateUrl: './almacenadoras.component.html',
-  styleUrls: ['./almacenadoras.component.scss']
+  styleUrls: ['./almacenadoras.component.scss'],
+  providers : [AlmacenadorasService]
+
 })
 
 export class AlmacenadorasComponent implements OnInit {
+
+  public dataSource;
+
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.getAlmacenadoras();
   }
 
-  displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar', 'ver'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
 
   //FILTRO
  applyFilter(filterValue: string) {
@@ -44,35 +48,94 @@ export class AlmacenadorasComponent implements OnInit {
   }  
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,private _almacenadorasService : AlmacenadorasService) {}
+
+
+  //Crud -------------- Trae datos -----------------------
+
+  
+  public getAlmacenadoras(){
+    this._almacenadorasService.getAlmacenadoras().subscribe(
+      response => {
+        if(response){
+          datosAlmacenadora = response;
+          console.log(datosAlmacenadora)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosAlmacenadora);
+          this.dataSource.paginator = this.paginator;
+
+        } 
+      },
+      error=>{
+        console.log(<any>error);
+      }
+
+    )
+  }
+
+  buscar(id, descripcion2, empresa2){
+    codigo = id;
+    descripcion = descripcion2;
+    empresa = empresa2;
+    console.log(codigo + " - " + descripcion + " - " + empresa)
+  }
+
+
+  //----------------------------------------------------------
+
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarAlmacenadora, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getAlmacenadoras();
+      }, 800);
     });
   }
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(EliminarAlmacenadora, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getAlmacenadoras();
+      }, 800);
     });
   }
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(AgregarAlmacenadora, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getAlmacenadoras();
+      }, 800);
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerAlmacenadora, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getAlmacenadoras();
+      }, 800);
     });
   }
 }
@@ -82,9 +145,21 @@ export class AlmacenadorasComponent implements OnInit {
   templateUrl: 'editar-almacenadora.html',
   styleUrls: ['./almacenadoras.component.scss']
 })
-export class EditarAlmacenadora {
+export class EditarAlmacenadora implements OnInit{
+
+  ngOnInit() {
+    this.almacenadora.codigo = codigo;
+    this.almacenadora.descripcion = descripcion;
+    this.almacenadora.empresa = empresa;
+  }
+
+  public almacenadora : Almacenadora ;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar,private _almacenadorasService : AlmacenadorasService) {
+      this.almacenadora = new Almacenadora("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Actualizado!", "", {
@@ -95,6 +170,24 @@ export class EditarAlmacenadora {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  editarAlmacenadora(){
+    console.log(this.almacenadora)
+    this._almacenadorasService.editarAlmacenadora(this.almacenadora).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
 }
 
 @Component({
@@ -102,10 +195,21 @@ export class EditarAlmacenadora {
   templateUrl: 'eliminar-almacenadora.html',
   styleUrls: ['./almacenadoras.component.scss']
 })
-export class EliminarAlmacenadora {
-  
+export class EliminarAlmacenadora implements OnInit{
+
+  ngOnInit() {
+    this.almacenadora.codigo = codigo;
+    this.almacenadora.descripcion = descripcion;
+    this.almacenadora.empresa = empresa;
+  }
+
+  public almacenadora : Almacenadora ;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<EliminarAlmacenadora>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar,private _almacenadorasService : AlmacenadorasService) {
+      this.almacenadora = new Almacenadora("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Eliminado!", "", {
@@ -116,6 +220,27 @@ export class EliminarAlmacenadora {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  eliminarAlmacenadora(){    
+    this._almacenadorasService.eliminarAlmacenadora(this.almacenadora).subscribe(
+      response=>{
+        if(!response){
+          this.status = "error"
+        }else{
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if(errorMessage != null){
+          this.status = "error";
+        }
+      }
+    )
+  }
+
 }
 
 @Component({
@@ -125,8 +250,13 @@ export class EliminarAlmacenadora {
 })
 export class AgregarAlmacenadora {
   
+  public almacenadora : Almacenadora ;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<AgregarAlmacenadora>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService : AlmacenadorasService) {
+      this.almacenadora = new Almacenadora("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Guardado!", "", {
@@ -137,5 +267,56 @@ export class AgregarAlmacenadora {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  crearAlmacenadora(){
+    this.almacenadora.empresa = "1";
+    this._almacenadorasService.crearAlmacenadora(this.almacenadora).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+          
+        }
+      },
+      error => {
+          if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
 }
+
+
+@Component({
+  selector: 'ver-almacenadora',
+  templateUrl: 'ver-almacenadora.html',
+  styleUrls: ['./almacenadoras.component.scss']
+})
+
+export class VerAlmacenadora implements OnInit{
+
+  ngOnInit() {
+    this.almacenadora.codigo = codigo;
+    this.almacenadora.descripcion = descripcion;
+    this.almacenadora.empresa = empresa;
+  }
+
+  public almacenadora : Almacenadora ;
+  public status;
+
+  constructor(
+    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar,private _almacenadorasService : AlmacenadorasService) {
+      this.almacenadora = new Almacenadora("","","");
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+
+}
+
 

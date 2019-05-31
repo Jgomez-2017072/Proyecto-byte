@@ -2,27 +2,28 @@
     <h2 mat-dialog-title>Editar</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="value1" sdf>
-            <button mat-button  *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+            <input matInput placeholder="Código" [(ngModel)]="ingenieroValuador.codigo" sdf>
+            <button mat-button  *ngIf="ingenieroValuador.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="ingenieroValuador.codigo=''">
                 <mat-icon>close</mat-icon>
             </button> 
         </mat-form-field>  
         <mat-form-field class="example-full-width">                
-            <input matInput placeholder="Nombre" [(ngModel)]="value2">
-            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+            <input matInput placeholder="Nombre" [(ngModel)]="ingenieroValuador.descripcion">
+            
+            <button mat-button *ngIf="ingenieroValuador.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="ingenieroValuador.descripcion=''">
                 <mat-icon>close</mat-icon>
             </button> 
           </mat-form-field>
           <mat-form-field class="example-full-width">                
-              <input matInput placeholder="Registro" [(ngModel)]="value3">
-              <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
+              <input matInput placeholder="Registro" [(ngModel)]="ingenieroValuador.numeroRegistro">
+              <button mat-button *ngIf="ingenieroValuador.numeroRegistro" matSuffix mat-icon-button aria-label="Clear" (click)="ingenieroValuador.numeroRegistro=''">
                   <mat-icon>close</mat-icon>
               </button> 
             </mat-form-field>    
     </div><br>
     <div  class="modal-down">
         <div mat-dialog-actions>  
-            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >EDITAR</button>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();editarIngenieroValuador();">EDITAR</button>
             <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
           </div>
     </div>  

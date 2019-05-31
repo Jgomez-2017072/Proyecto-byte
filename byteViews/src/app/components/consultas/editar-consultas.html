@@ -1,0 +1,61 @@
+<div>
+    <h2 mat-dialog-title>Editar</h2>
+    <h3>Tipo Producto: ---</h3>
+    <h3>Producto: ---</h3>
+  <div mat-dialog-content>           
+          <mat-form-field >                
+              <input matInput placeholder="Correlativo de línea" [(ngModel)]="value1">
+              <button mat-button  *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+                  <mat-icon>close</mat-icon>
+              </button> 
+          </mat-form-field><br>
+          <label>Columna Izquierda</label><br>
+          <mat-form-field>
+                <mat-label>Formato de columna</mat-label>
+                <mat-select>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">                
+            <input matInput placeholder="Texto de Columna" [(ngModel)]="value2">
+            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+                <mat-label>Campo para Despliegue</mat-label>
+                <mat-select>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                </mat-select>
+          </mat-form-field>
+          <label>Columna Izquierda</label><br>
+          <mat-form-field>
+                <mat-label>Formato de columna</mat-label>
+                <mat-select>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">                
+            <input matInput placeholder="Texto de Columna" [(ngModel)]="value3">
+            <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+                <mat-label>Campo para Despliegue</mat-label>
+                <mat-select>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                </mat-select>
+          </mat-form-field>
+  </div><br>
+  <div  class="modal-down">
+      <div mat-dialog-actions>  
+          <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >AGREGAR</button>
+          <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
+        </div>
+  </div>  
+</div>

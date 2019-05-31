@@ -1,23 +1,78 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <img src="./assets/icono-byte.png" class="imagen-menu" alt="">
-  </mat-toolbar>
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <img src="./assets/icono-byte.png" class="imagen-menu" alt="">
+    </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a>
-        <a mat-list-item  [routerLink]="nav.route" *ngFor="let nav of fillerNav">{{nav.name}}</a>
-      </mat-nav-list>
-    </mat-sidenav>
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list>
+                <a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a> 
+                
 
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+                <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+                    <span class="full-width" *ngIf="isExpanded || isShowing">Requerimientos</span>
+                    <!--<mat-icon mat-list-icon>home</mat-icon>-->
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">
+                        expand_more</mat-icon>           
+                </mat-list-item>
+
+                
+                <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">   
+                    
+                 
+                                <mat-form-field style="margin-left:5px" class="selector">
+                                    <mat-icon matPrefix>search</mat-icon>
+                                    <input matInput placeholder='Search' [(ngModel)]="busqueda">
+                                    <button mat-button *ngIf="busqueda" matSuffix mat-icon-button aria-label="Clear"
+                                     (click)="busqueda=''" >
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+                                </mat-form-field>
+
+                        <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav | search: busqueda">{{nav.name}}</a>
+
+                       
+                </div>
+              
+
+
+                
+
+                <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+                    <span class="full-width" *ngIf="isExpanded || isShowing">Contabilidad</span>
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}"
+                        *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </mat-list-item>
+
+                
+
+                <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+                      
+                                <mat-form-field style="margin-left:5px" class="selector">
+                                    <mat-icon matPrefix>search</mat-icon>
+                                    <input matInput placeholder='Search' [(ngModel)]="busqueda1">
+                                    <button mat-button *ngIf="busqueda1" matSuffix mat-icon-button aria-label="Clear"
+                                     (click)="busqueda1=''" >
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+                                </mat-form-field> 
+
+              
+
+                    <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav2 | search: busqueda1">{{nav.name}}</a>
+                </div>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>
 
 <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

@@ -1,38 +1,41 @@
 import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { Categoria } from 'src/app/models/categoria.model';
 
 export interface PeriodicElement {
-  descripcion: string;
-  tipo: string;
+  codigo: String;
+  descripcion: String;
+  empresa: String;
 }
 
+var datosCategoria: Categoria[];
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {tipo: 'I', descripcion: 'Hydrogen'},
-  {tipo: 'II', descripcion: 'Helium'},
-  {tipo: 'III', descripcion: 'Lithium'}, 
-  {tipo: 'IV', descripcion: 'Beryllium'},
-  {tipo: 'V', descripcion: 'Boron'},
-];
+
+var codigo = '';
+var descripcion = '';
+var empresa = '';
+
 @Component({
   selector: 'app-categorias-sib',
   templateUrl: './categorias-sib.component.html',
-  styleUrls: ['./categorias-sib.component.scss']
+  styleUrls: ['./categorias-sib.component.scss'],
+  providers:[CategoriaService]
 })
 export class CategoriasSibComponent implements OnInit {
+
+  public dataSource;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.getCategoria()
   }
 
 
-  displayedColumns: string[] = [ 'tipo', 'descripcion', 'editar', 'eliminar','ver'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
+  displayedColumns: string[] = [ 'codigo', 'descripcion', 'editar', 'eliminar','ver'];
+  
   //FILTRO
 
  applyFilter(filterValue: string) {
@@ -40,31 +43,86 @@ export class CategoriasSibComponent implements OnInit {
   }
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private _categoriaService : CategoriaService) {}
+
+
+  //CRUD --------------------- TRAER DATOS --------------------------
+  
+
+
+
+  public getCategoria(){
+    this._categoriaService.getCategorias().subscribe(
+      response => {
+        if(response){
+          datosCategoria = response;
+          console.log(datosCategoria)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosCategoria);
+          this.dataSource.paginator = this.paginator;
+
+        } 
+      },
+      error=>{
+        console.log(<any>error);
+      }
+
+    )
+  }
+
+  buscar(id, descripcion2, empresa2){
+    codigo = id;
+    descripcion = descripcion2;
+    empresa = empresa2;
+    console.log(codigo + " - " + descripcion + " - " + empresa)
+  }
+
+  
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarCategoriasSib, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getCategoria();
+      }, 800);
     });
   }
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(EliminarCategoriasSib, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getCategoria();
+      }, 800);
     });
   }
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(AgregarCategoriasSib, {
-      width: '40%',
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getCategoria();
+      }, 800);
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerCategoria, {
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -80,8 +138,21 @@ export class CategoriasSibComponent implements OnInit {
   styleUrls: ['./categorias-sib.component.scss']
 })
 export class EditarCategoriasSib {
+
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.categoria.codigo = codigo;
+    this.categoria.descripcion = descripcion;
+    this.categoria.empresa = empresa;
+  }
+
+  public categoria : Categoria;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<EditarCategoriasSib>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EditarCategoriasSib>, private snackBar: MatSnackBar, private _categoriaService : CategoriaService) {
+      this.categoria = new Categoria("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Actualizado!", "", {
@@ -93,6 +164,25 @@ export class EditarCategoriasSib {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  editarCategoria(){
+    console.log(this.categoria)
+    this._categoriaService.editarCategoria(this.categoria).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
+
 }
 
 @Component({
@@ -102,8 +192,21 @@ export class EditarCategoriasSib {
 })
 export class EliminarCategoriasSib {
   
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.categoria.codigo = codigo;
+    this.categoria.descripcion = descripcion;
+    this.categoria.empresa = empresa;
+  }
+  
+  public categoria : Categoria;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<EliminarCategoriasSib>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EliminarCategoriasSib>, private snackBar: MatSnackBar, private _categoriaService: CategoriaService) {
+      this.categoria = new Categoria("","","");
+
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Eliminado!", "", {
@@ -115,17 +218,41 @@ export class EliminarCategoriasSib {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  eliminarCategoria(){    
+    this._categoriaService.eliminarCategoria(this.categoria).subscribe(
+      response=>{
+        if(!response){
+          this.status = "error"
+        }else{
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if(errorMessage != null){
+          this.status = "error";
+        }
+      }
+    )
+  }
 }
 
 @Component({
   selector: 'agregar-categorias-sib',
   templateUrl: 'agregar-categorias-sib.html',
-  styleUrls: ['./categorias-sib.component.scss']
+  styleUrls: ['./categorias-sib.component.scss'],
+  providers:[CategoriaService]
 })
 export class AgregarCategoriasSib {
-  
+  public categoria : Categoria;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<AgregarCategoriasSib>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarCategoriasSib>, private snackBar: MatSnackBar, private _categoriaService : CategoriaService) {
+      this.categoria = new Categoria ("","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Guardado!", "", {
@@ -136,4 +263,60 @@ export class AgregarCategoriasSib {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  crearCategoria(){
+    this.categoria.empresa = "1";
+    this._categoriaService.crearCategoria(this.categoria).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+          
+        }
+      },
+      error => {
+          if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
+}
+
+
+
+@Component({
+  selector: 'ver-categoria',
+  templateUrl: 'ver-categoria.html',
+  styleUrls: ['./categorias-sib.component.scss'],
+  providers : [CategoriaService]
+
+})
+export class VerCategoria implements OnInit{
+
+  ngOnInit() {
+    this.categoria.codigo = codigo;
+    this.categoria.descripcion = descripcion;
+    this.categoria.empresa = empresa;
+    //this.buscarAseguradora();
+  }
+  
+  public categoria : Categoria;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<VerCategoria>,private snackBar: MatSnackBar) {
+      this.categoria = new Categoria("","","");
+
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+
+
 }

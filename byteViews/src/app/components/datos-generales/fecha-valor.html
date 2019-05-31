@@ -1,0 +1,19 @@
+<div>     
+        <h2 mat-dialog-title>Fecha Valor </h2>
+      <div mat-dialog-content> 
+          Fecha Unica Permitida              
+          <mat-form-field class="example-full-width">
+                <input matInput placeholder="" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              
+            </mat-form-field>
+             
+      </div><br>
+      <div  class="modal-down">
+          <div mat-dialog-actions>  
+              <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >AGREGAR</button>
+              <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
+            </div>
+      </div>  
+    </div>

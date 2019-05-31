@@ -1,26 +1,34 @@
 import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MotivoAjusteService } from 'src/app/services/motivo-ajuste.service';
+import { MotivoAjuste } from 'src/app/models/motivo-ajuste.model';
 
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
+  afectaSaldoCapital: String,
+  afectaSaldoInteres: String,
+  afectaSaldoMora: String,
+  codigo: String,
+  code: String,
+  descripcion: String,
+  descripcion2: String,
+  descripcion3: String,
+  empresa: String,
+  description: String,
+  errorCore: String
 }
 
+var datosMotivosAjustes: MotivoAjuste[];
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'}, 
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'},
-];
+var afectaSaldoCapital = '';
+var afectaSaldoInteres = '';
+var afectaSaldoMora = '';
+var codigo = '';
+var descripcion = '';
+var descripcion2 = '';
+var descripcion3 = '';
+var empresa = '';
 
 @Component({
   selector: 'app-motivos-ajustes',
@@ -29,24 +37,60 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class MotivosAjustesComponent implements OnInit {
 
+  public dataSource;
+
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+    this.getMotivosAjustes()
+ }
 
-  displayedColumns: string[] = [ 'position', 'name', 'editar', 'eliminar', 'ver'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  //FILTRO
+  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar','ver'];
+
+  //SELECTOR
 
  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+    private _motivosAjustesService : MotivoAjusteService) {}
+
+  public getMotivosAjustes(){
+    this._motivosAjustesService.getMotivosAjustes().subscribe(
+      response => {
+        if(response){
+          datosMotivosAjustes = response;
+          console.log(datosMotivosAjustes)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosMotivosAjustes);
+          this.dataSource.paginator = this.paginator;
+
+        } 
+      },
+      error=>{
+        console.log(<any>error);
+      }
+
+    )
+  }
+
+
+  buscar(id, descripcion2, empresa2, descripcionDos2, descripcionTres2, 
+    afectaSaldoCapital2, afectaSaldoInteres2, afectaSaldoMora2 ){
+    codigo = id;
+    descripcion = descripcion2;
+    descripcion2 = descripcionDos2;
+    descripcion3 = descripcionTres2;
+    afectaSaldoCapital = afectaSaldoCapital2,
+    afectaSaldoInteres = afectaSaldoInteres2,
+    afectaSaldoMora = afectaSaldoMora2,
+    empresa = empresa2;
+    console.log(codigo + " - " + descripcion + " - " + empresa + " - " + afectaSaldoCapital + " - " + 
+    afectaSaldoInteres + " - " + afectaSaldoMora)
+  }
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarMotivoAjuste, {
@@ -55,6 +99,10 @@ export class MotivosAjustesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getMotivosAjustes();
+      }, 800);
     });
   }
 
@@ -65,6 +113,10 @@ export class MotivosAjustesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getMotivosAjustes();
+      }, 800);
     });
   }
 
@@ -75,18 +127,53 @@ export class MotivosAjustesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getMotivosAjustes();
+      }, 800);
+    });
+  }
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerMotivoAjuste, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }
 
 @Component({
-  selector: 'editar-almacenadora',
+  selector: 'editar-motivos-ajustes',
   templateUrl: 'editar-motivos-ajustes.html',
   styleUrls: ['./motivos-ajustes.component.scss']
 })
 export class EditarMotivoAjuste {
+
+
+
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.motivoAjuste.codigo = codigo;
+    this.motivoAjuste.descripcion = descripcion;
+    this.motivoAjuste.descripcion2 = descripcion2;
+    this.motivoAjuste.descripcion3 = descripcion3;
+    this.motivoAjuste.empresa = empresa;
+    this.motivoAjuste.afectaSaldoCapital = afectaSaldoCapital;
+    this.motivoAjuste.afectaSaldoInteres = afectaSaldoInteres;
+    this.motivoAjuste.afectaSaldoMora = afectaSaldoMora;
+    this.motivoAjuste.empresa = empresa;
+  }
+
+  public motivoAjuste : MotivoAjuste;
+  public status;
   constructor(
-    public dialogRef: MatDialogRef<EliminarMotivoAjuste>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EliminarMotivoAjuste>, 
+    private snackBar: MatSnackBar,
+    private _motivosAjustesService : MotivoAjusteService) {
+      this.motivoAjuste = new MotivoAjuste("","","","","","","","","","","");
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Actualizado!", "", {
@@ -97,17 +184,55 @@ export class EditarMotivoAjuste {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  editarMotivoAjuste(){
+    console.log(this.motivoAjuste)
+    this._motivosAjustesService.editarMotivoAjuste(this.motivoAjuste).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
 }
 
 @Component({
-  selector: 'eliminar-almacenadora',
+  selector: 'eliminar-motivos-ajustes',
   templateUrl: 'eliminar-motivos-ajustes.html',
   styleUrls: ['./motivos-ajustes.component.scss']
 })
 export class EliminarMotivoAjuste {
+
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.motivoAjuste.codigo = codigo;
+    this.motivoAjuste.descripcion = descripcion;
+    this.motivoAjuste.descripcion2 = descripcion2;
+    this.motivoAjuste.descripcion3 = descripcion3;
+    this.motivoAjuste.empresa = empresa;
+    this.motivoAjuste.afectaSaldoCapital = afectaSaldoCapital;
+    this.motivoAjuste.afectaSaldoInteres = afectaSaldoInteres;
+    this.motivoAjuste.afectaSaldoMora = afectaSaldoMora;
+    this.motivoAjuste.empresa = empresa;
+  }
+
+  public motivoAjuste : MotivoAjuste;
+  public status;
   
   constructor(
-    public dialogRef: MatDialogRef<EliminarMotivoAjuste>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<EliminarMotivoAjuste>, 
+    private snackBar: MatSnackBar,
+    private _motivosAjustesService : MotivoAjusteService) {
+      this.motivoAjuste = new MotivoAjuste("","","","","","","","","","","");
+
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Eliminado!", "", {
@@ -118,17 +243,45 @@ export class EliminarMotivoAjuste {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  eliminarMotivoAjuste(){    
+    this._motivosAjustesService.eliminarMotivoAjuste(this.motivoAjuste).subscribe(
+      response=>{
+        if(!response){
+          this.status = "error"
+        }else{
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if(errorMessage != null){
+          this.status = "error";
+        }
+      }
+    )
+  }
 }
 
 @Component({
-  selector: 'agregar-almacenadora',
+  selector: 'agregar-motivos-ajustes',
   templateUrl: 'agregar-motivos-ajustes.html',
   styleUrls: ['./motivos-ajustes.component.scss']
 })
 export class AgregarMotivoAjuste {
   
+  public motivoAjuste : MotivoAjuste ;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<AgregarMotivoAjuste>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarMotivoAjuste>, 
+    private snackBar: MatSnackBar,
+    private _motivosAjustesService : MotivoAjusteService) {
+      this.motivoAjuste = new MotivoAjuste("","","","","","","","","","","");
+
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Guardado!", "", {
@@ -139,4 +292,64 @@ export class AgregarMotivoAjuste {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  crearMotivoAjuste(){
+    this.motivoAjuste.empresa = "1";
+    this._motivosAjustesService.crearMotivoAjuste(this.motivoAjuste).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+          
+        }
+      },
+      error => {
+          if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
+
+}
+
+
+@Component({
+  selector: 'ver-motivo-ajuste',
+  templateUrl: 'ver-motivo-ajuste.html',
+  styleUrls: ['./motivos-ajustes.component.scss'],
+  providers : [MotivoAjusteService]
+
+})
+export class VerMotivoAjuste implements OnInit{
+
+  ngOnInit() {    
+    this.motivoAjuste.codigo = codigo;
+    this.motivoAjuste.descripcion = descripcion;
+    this.motivoAjuste.descripcion2 = descripcion2;
+    this.motivoAjuste.descripcion3 = descripcion3;
+    this.motivoAjuste.empresa = empresa;
+    this.motivoAjuste.afectaSaldoCapital = afectaSaldoCapital;
+    this.motivoAjuste.afectaSaldoInteres = afectaSaldoInteres;
+    this.motivoAjuste.afectaSaldoMora = afectaSaldoMora;
+    this.motivoAjuste.empresa = empresa;
+  }
+  
+  public motivoAjuste : MotivoAjuste ;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<VerMotivoAjuste>,
+    private snackBar: MatSnackBar, 
+    private _motivosAjustesService : MotivoAjusteService) {
+      this.motivoAjuste = new MotivoAjuste("","","","","","","","","","","");
+
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }
