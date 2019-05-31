@@ -47,7 +47,7 @@ export class SidenavComponent implements OnInit {
   fillerNav2 = [
     {name: 'Enlace Contabilidad', route: '/enlace-contabilidad'},
     {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'},
-    {name: 'Contenidos Contables', route: '/contanido-contable'}    
+    {name: 'Contenidos Contables', route: '/contenido-contable'}    
   ]
 
   fillerNav = [

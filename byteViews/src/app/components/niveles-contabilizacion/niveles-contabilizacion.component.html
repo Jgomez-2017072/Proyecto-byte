@@ -1,6 +1,6 @@
 <div class="animated fadeIn">
-    <br><br>
-    <h1 class="animated pulse">Niveles de contabilización</h1><br>
+  <br><br>
+  <h1 class="animated pulse">Niveles de contabilización</h1><br>
 
   <mat-form-field class="selector">
     <mat-icon matPrefix>search</mat-icon>
@@ -47,7 +47,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
       </tr>
     </table>
 
