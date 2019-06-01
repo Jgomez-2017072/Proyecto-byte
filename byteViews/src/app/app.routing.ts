@@ -4,11 +4,6 @@ import { NgModule } from '@angular/core';
 
 //Components
 import { HomeComponent } from './components/home/home.component';
-import { EventosSolicitudesComponent } from './components/eventos-solicitudes/eventos-solicitudes.component';
-import { DocumentosPresentarProductoComponent } from './components/documentos-presentar-producto/documentos-presentar-producto.component';
-import { MontosPorPlazoComponent } from './components/montos-por-plazo/montos-por-plazo.component';
-import { PorcentajesDeFinanciamientoComponent } from './components/porcentajes-de-financiamiento/porcentajes-de-financiamiento.component';
-import { RangoPlazosInteresComponent } from './components/rango-plazos-interes/rango-plazos-interes.component';
 import { DefinirCategoriasUsuariosComponent } from './components/definir-categorias-usuarios/definir-categorias-usuarios.component';
 import { SubProductosComponent } from './components/sub-productos/sub-productos.component';
 import { SubtipoGarantiaComponent } from './components/subtipo-garantia/subtipo-garantia.component';
@@ -105,12 +100,6 @@ const appRoutes : Routes = [
         loadChildren : './components/clasificacion/clasificacion.module#ClasificacionModule'},
     {path : 'parametros-adicionales', 
         loadChildren : './components/parametros-adicionales-producto/parametros-adicionales-producto.module#ParametrosAdicionalesProductoModule'},
-
-    {path : 'evento-solicitudes', component : EventosSolicitudesComponent},
-    {path : 'documento-presentar-producto', component : DocumentosPresentarProductoComponent},
-    {path : 'montos-por-plazo', component : MontosPorPlazoComponent},
-    {path : 'porcentajes-de-financiamiento', component : PorcentajesDeFinanciamientoComponent},
-    {path : 'rango-plazo-interes', component : RangoPlazosInteresComponent},
 
     {path : 'definir-categorias-usuarios', component : DefinirCategoriasUsuariosComponent},
 
