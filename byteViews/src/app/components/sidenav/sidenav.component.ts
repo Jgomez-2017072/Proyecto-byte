@@ -99,7 +99,8 @@ export class SidenavComponent implements OnInit {
     {name: "Parametro de Productos", route:"/parametros-de-productos"},
     {name: "Estatus legales", route:"/status-legales"},    
     {name: 'SubProductos', route: '/sub-productos'},
-    {name: 'Cambio ejecutivo', route: '/motivo-cambio-ejecutivo'}
+    {name: 'Cambio ejecutivo', route: '/motivo-cambio-ejecutivo'},
+    {name: 'Poder', route: '/poder'}
   ]
 
 
