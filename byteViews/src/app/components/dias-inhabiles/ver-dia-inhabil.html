@@ -1,0 +1,23 @@
+<div>
+    <h2 mat-dialog-title>Dia Inhabil</h2>
+    <div mat-dialog-content class="modal-down1" >   
+        <mat-form-field >                
+            <input matInput placeholder="Fecha Feriado" disabled [(ngModel)]="diaInhabil.fechaFeriado">
+        </mat-form-field>  
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Descripción" disabled [(ngModel)]="diaInhabil.descripcion">
+        </mat-form-field>   
+        
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Tipo Feriado" disabled [(ngModel)]="diaInhabil.tipoFeriado">
+          </mat-form-field>   
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Empresa" disabled [(ngModel)]="diaInhabil.empresa">
+          </mat-form-field>             
+    </div><br>
+    <div  class="modal-down">
+        <div mat-dialog-actions>  
+            <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CERRAR</button>
+          </div>
+    </div>  
+</div>

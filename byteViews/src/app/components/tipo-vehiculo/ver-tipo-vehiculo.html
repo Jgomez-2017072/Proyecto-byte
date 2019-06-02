@@ -1,0 +1,20 @@
+<div class="animated fadeIn">
+    <h2 mat-dialog-title>Tipo Vehiculo</h2>
+    <div mat-dialog-content class="modal-down1" >   
+        <mat-form-field >                
+            <input matInput placeholder="Código" disabled [(ngModel)]="tipoVehiculo.codigo">
+        </mat-form-field>  
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Descripción" disabled [(ngModel)]="tipoVehiculo.descripcion">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Empresa" disabled [(ngModel)]="tipoVehiculo.empresa">
+          </mat-form-field>   
+           
+    </div><br>
+    <div  class="modal-down">
+        <div mat-dialog-actions>  
+            <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CERRAR</button>
+          </div>
+    </div>  
+</div>

@@ -1,47 +1,44 @@
 import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { Lugares } from 'src/app/models/lugares.model';
+import { LugaresService } from 'src/app/services/lugares.service';
 
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
+  codigo: String;
+  descripcion: String;
+  empresa: String;
+  equivalencia: String;
 }
 
+var datosLugares: Lugares[];
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Guatemala'},
-  {position: 2, name: 'Peten'},
-  {position: 3, name: 'Reu'}, 
-  {position: 4, name: 'Copan'},
-  {position: 5, name: 'Choluteca'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Azteca'},
-  {position: 8, name: 'Gracias a Dios'},
-  {position: 9, name: 'Bebesita'},
-  {position: 10, name: 'El Paraiso'},  
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'},
-];
+
+var codigo = '';
+var descripcion = '';
+var empresa = '';
+var equivalencia = '';
 
 @Component({
   selector: 'app-lugares-de-inversion',
   templateUrl: './lugares-de-inversion.component.html',
-  styleUrls: ['./lugares-de-inversion.component.scss']
+  styleUrls: ['./lugares-de-inversion.component.scss'],
+  providers: [LugaresService]
 })
 export class LugaresDeInversionComponent implements OnInit {
+
+  public dataSource;
+
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.getLugares();
   }
 
 
-  displayedColumns: string[] = [ 'position', 'name', 'editar', 'eliminar', 'ver'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = [ 'codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
 
   //SELECTOR
 
@@ -51,35 +48,94 @@ export class LugaresDeInversionComponent implements OnInit {
 
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,private _lugaresService : LugaresService) {}
+
+  //CRud ------------ trae data ----------------
+
+
+
+  public getLugares(){
+    this._lugaresService.getLugares().subscribe(
+      response => {
+        if(response){
+          datosLugares = response;
+          console.log(datosLugares)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosLugares);
+          this.dataSource.paginator = this.paginator;
+
+        } 
+      },
+      error=>{
+        console.log(<any>error);
+      }
+
+    )
+  }
+
+  buscar(id, descripcion2, empresa2, equivalencia2){
+    codigo = id;
+    descripcion = descripcion2;
+    empresa = empresa2;
+    equivalencia = equivalencia2;
+    console.log(codigo + " - " + descripcion + " - " + empresa)
+  }
+
+  // ----------------------------------------
+
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarLugar, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getLugares();
+      }, 800);
     });
   }
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(EliminarLugar, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getLugares();
+      }, 800);
     });
   }
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(AgregarLugar, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getLugares();
+      }, 800);
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerLugar, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getLugares();
+      }, 800);
     });
   }
 }
@@ -89,9 +145,24 @@ export class LugaresDeInversionComponent implements OnInit {
   templateUrl: 'editar-lugaresInversion.html',
   styleUrls: ['./lugares-de-inversion.component.scss']
 })
-export class EditarLugar {
+export class EditarLugar implements OnInit{
+
+  ngOnInit() {
+    this.lugares.codigo = codigo;
+    this.lugares.descripcion = descripcion;
+    this.lugares.empresa = empresa;
+    this.lugares.equivalencia = equivalencia;
+  }
+  
+  public lugares : Lugares ;
+  public status;
+
+
   constructor(
-    public dialogRef: MatDialogRef<EditarLugar>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
+      this.lugares = new Lugares("","","","");
+
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Actualizado!", "", {
@@ -102,6 +173,24 @@ export class EditarLugar {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  editarLugar(){
+    console.log(this.lugares)
+    this._lugaresService.editarLugar(this.lugares).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
 }
 
 @Component({
@@ -109,11 +198,24 @@ export class EditarLugar {
   templateUrl: 'eliminar-lugaresInversion.html',
   styleUrls: ['./lugares-de-inversion.component.scss']
 })
-export class EliminarLugar {
-  
-  constructor(
-    public dialogRef: MatDialogRef<EliminarLugar>, private snackBar: MatSnackBar) {}
+export class EliminarLugar implements OnInit{
 
+  ngOnInit() {
+    this.lugares.codigo = codigo;
+    this.lugares.descripcion = descripcion;
+    this.lugares.empresa = empresa;
+    this.lugares.equivalencia = equivalencia;
+  }
+  
+  public lugares : Lugares ;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<AgregarLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
+      this.lugares = new Lugares("","","","");
+
+    }
     openSnackBar() {
       this.snackBar.open("Registro Eliminado!", "", {
         duration: 2100, horizontalPosition : 'end'
@@ -122,6 +224,26 @@ export class EliminarLugar {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  eliminarLugar(){    
+    this._lugaresService.eliminarLugar(this.lugares).subscribe(
+      response=>{
+        if(!response){
+          this.status = "error"
+        }else{
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if(errorMessage != null){
+          this.status = "error";
+        }
+      }
+    )
   }
 }
 
@@ -132,8 +254,15 @@ export class EliminarLugar {
 })
 export class AgregarLugar {
   
+  public lugares : Lugares ;
+  public status;
+
+
   constructor(
-    public dialogRef: MatDialogRef<AgregarLugar>,private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
+      this.lugares = new Lugares("","","","");
+
+    }
 
     openSnackBar() {
       this.snackBar.open("Registro Guardado!", "", {
@@ -144,4 +273,61 @@ export class AgregarLugar {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  crearAseguradora(){
+    this.lugares.empresa = "1";
+    this._lugaresService.crearLugar(this.lugares).subscribe(
+      response => {
+        if(response){
+          this.status = 'ok';
+          console.log(response);
+          
+        }
+      },
+      error => {
+          if(error){
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
+}
+
+
+@Component({
+  selector: 'ver-lugaresInversion',
+  templateUrl: 'ver-lugaresInversion.html',
+  styleUrls: ['./lugares-de-inversion.component.scss']
+})
+
+export class VerLugar implements OnInit{
+
+  ngOnInit() {
+    this.lugares.codigo = codigo;
+    this.lugares.descripcion = descripcion;
+    this.lugares.empresa = empresa;
+    this.lugares.equivalencia = equivalencia;
+  }
+  
+  public lugares : Lugares ;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<VerLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
+      this.lugares = new Lugares("","","","");
+
+    }
+    openSnackBar() {
+      this.snackBar.open("Registro Eliminado!", "", {
+        duration: 2100, horizontalPosition : 'end'
+      });
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

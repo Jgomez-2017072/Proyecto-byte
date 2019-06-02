@@ -2,21 +2,48 @@
     <h2 mat-dialog-title>Editar</h2>
     <div mat-dialog-content class="modal-down1">
         <mat-form-field>
-            <input matInput placeholder="Código" [(ngModel)]="value1" sdf>
-            <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
-                <mat-icon>close</mat-icon>
+            <input matInput placeholder="Código" [(ngModel)]="motivoAjuste.codigo">
+            <button mat-button *ngIf="motivoAjuste.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="motivoAjuste.codigo=''">
+              <mat-icon>close</mat-icon>
             </button>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Descripción" [(ngModel)]="value2">
-            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
-                <mat-icon>close</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Descripción" [(ngModel)]="motivoAjuste.descripcion">
+            <button mat-button *ngIf="motivoAjuste.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="motivoAjuste.descripcion=''">
+              <mat-icon>close</mat-icon>
             </button>
-        </mat-form-field>
+          </mat-form-field>
+      
+          <section class="example-full-width">
+            <label id="example-radio-group-label">Afecta Saldo Capital</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              [(ngModel)]="motivoAjuste.afectaSaldoCapital">
+              <mat-radio-button color = "primary" class="example-margin" value="S">Si &nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button color = "primary" class="example-margin" value="N">No</mat-radio-button>
+            </mat-radio-group>
+          </section>
+      
+          <section class="example-full-width">
+            <label id="example-radio-group-label">Afecta Saldo Interes</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              [(ngModel)]="motivoAjuste.afectaSaldoInteres">
+              <mat-radio-button color = "primary" class="example-margin" value="S">Si &nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button color = "primary" class="example-margin" value="N">No</mat-radio-button>
+            </mat-radio-group>
+          </section>
+      
+          <section class="example-full-width">
+            <label id="example-radio-group-label">Afecta Saldo Mora&nbsp;&nbsp;&nbsp;</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              [(ngModel)]="motivoAjuste.afectaSaldoMora">
+              <mat-radio-button color = "primary" class="example-margin" value="S">Si &nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button color = "primary" class="example-margin" value="N">No</mat-radio-button>
+            </mat-radio-group>
+          </section>
     </div><br>
     <div class="modal-down">
         <div mat-dialog-actions>
-            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()">EDITAR</button>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();editarMotivoAjuste();">EDITAR</button>
             <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
         </div>
     </div>

@@ -20,6 +20,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -28,13 +29,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
     MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, 
     MatPaginatorModule, MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule,MatDividerModule,
-    MatTreeModule,MatAutocompleteModule,ReactiveFormsModule
+    MatTreeModule,MatAutocompleteModule,ReactiveFormsModule,MatExpansionModule
   ],
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
     MatMenuModule,MatSidenavModule,MatListModule,MatTableModule,MatFormFieldModule,
     MatDialogModule,MatInputModule,MatSnackBarModule, MatDatepickerModule, MatNativeDateModule
     ,MatSelectModule, MatTabsModule,MatRadioModule,MatStepperModule
-    , MatPaginatorModule, MatDividerModule,MatTreeModule,MatAutocompleteModule,ReactiveFormsModule, MatGridListModule]
+    , MatPaginatorModule, MatDividerModule,MatTreeModule,MatAutocompleteModule,ReactiveFormsModule, 
+    MatGridListModule, MatExpansionModule]
   
 })
 export class MaterialModule { }

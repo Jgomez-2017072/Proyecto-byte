@@ -1,0 +1,31 @@
+<div>
+    <h2 mat-dialog-title>Ingeniero Valuador</h2>
+    <div mat-dialog-content class="modal-down1">
+        <mat-form-field>
+            <input matInput placeholder="Código" disabled [(ngModel)]="notario.codigo">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Nombre" disabled [(ngModel)]="notario.nombre">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Colegiado" disabled [(ngModel)]="notario.colegiado">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Dirección" disabled [(ngModel)]="notario.direccion">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Identificación" disabled [(ngModel)]="notario.identificacion">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Teléfono" disabled [(ngModel)]="notario.telefono">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="FAX" disabled [(ngModel)]="notario.fax">
+        </mat-form-field>        
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CERRAR</button>
+        </div>
+    </div>
+</div>
