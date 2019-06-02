@@ -48,12 +48,12 @@ export class PoderComponent implements OnInit {
           this.dataSource = new MatTableDataSource<PeriodicElement>(datosPoder);
           this.dataSource.paginator = this.paginator;
         }
-      }
-    ),
-      error => {
+      },
+       error => {
         console.log(<any>error);
-
       }
+    )
+     
   }
 
   buscar(id, descripcion2, empresa2) {

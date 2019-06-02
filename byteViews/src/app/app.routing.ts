@@ -233,6 +233,10 @@ const appRoutes: Routes = [
     {
         path: 'poder',
         loadChildren: './components/poder/poder.module#PoderModule'
+    },
+    {
+        path: 'estado-resolucion',
+        loadChildren: './components/estado-resolucion/estado-resolucion.module#EstadoResolucionModule'
     }
 ];
 

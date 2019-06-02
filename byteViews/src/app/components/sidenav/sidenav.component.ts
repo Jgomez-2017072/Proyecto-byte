@@ -100,7 +100,8 @@ export class SidenavComponent implements OnInit {
     {name: "Estatus legales", route:"/status-legales"},    
     {name: 'SubProductos', route: '/sub-productos'},
     {name: 'Cambio ejecutivo', route: '/motivo-cambio-ejecutivo'},
-    {name: 'Poder', route: '/poder'}
+    {name: 'Poder', route: '/poder'},
+    {name: 'Estado Resolucion', route: 'estado-resolucion'}
   ]
 
 
