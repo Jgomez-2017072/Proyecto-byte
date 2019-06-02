@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OrigenDeFondosRoutingModule } from './origen-de-fondos-routing.module';
-import { OrigenDeFondosComponent, AgregarOrigenDeFondos, EditarOrigenDeFondos, EliminarOrigenDeFondos} from './origen-de-fondos.component';
+import { OrigenDeFondosComponent, AgregarOrigenDeFondos, EditarOrigenDeFondos, EliminarOrigenDeFondos, VerOrigenDeFondos} from './origen-de-fondos.component';
 import { MaterialModule } from 'src/app/material';
 import { FormsModule } from '@angular/forms';
 
@@ -11,12 +11,14 @@ import { FormsModule } from '@angular/forms';
     OrigenDeFondosComponent,
     AgregarOrigenDeFondos, 
     EditarOrigenDeFondos, 
-    EliminarOrigenDeFondos
+    EliminarOrigenDeFondos,
+    VerOrigenDeFondos,
   ],
   entryComponents : [
     AgregarOrigenDeFondos, 
     EditarOrigenDeFondos, 
-    EliminarOrigenDeFondos
+    EliminarOrigenDeFondos,
+    VerOrigenDeFondos
   ],
   imports: [
     MaterialModule,

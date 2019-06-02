@@ -110,6 +110,10 @@ const appRoutes : Routes = [
     {path : 'status-legales',
         loadChildren : './components/status-legales/status-legales.module#StatusLegalesModule'},
 
+    {path : 'tipo-vehiculo',
+        loadChildren : './components/tipo-vehiculo/tipo-vehiculo.module#TipoVehiculoModule'},
+    {path : 'tipo-activo-crediticio',
+        loadChildren : './components/tipo-activo-crediticio/tipo-activo-crediticio.module#TipoActivoCrediticioModule'},
     
         
     {path : 'enlace-contabilidad', 

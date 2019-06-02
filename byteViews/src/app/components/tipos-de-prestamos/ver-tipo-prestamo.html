@@ -1,15 +1,13 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Categoria</h2>
+    <h2 mat-dialog-title>Tipo Prestamo</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" disabled [(ngModel)]="categoria.codigo">
+            <input matInput placeholder="Código" disabled [(ngModel)]="tipoPrestamo.codigo">
         </mat-form-field>  
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripción" disabled [(ngModel)]="categoria.descripcion">
+          <input matInput type="text" placeholder="Descripción" disabled [(ngModel)]="tipoPrestamo.descripcion">
         </mat-form-field>   
-        <mat-form-field >                
-            <input matInput placeholder="Empresa" disabled [(ngModel)]="categoria.empresa">        
-        </mat-form-field>    
+           
     </div><br>
     <div  class="modal-down">
         <div mat-dialog-actions>  

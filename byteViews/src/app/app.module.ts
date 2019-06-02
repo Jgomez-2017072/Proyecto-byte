@@ -19,6 +19,7 @@ import { SubtipoGarantiaComponent, AgregarSubTipoGarantia, EditarSubTipoGarantia
 import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEstados } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
 import { SearchPipe } from './components/pipes/search.pipe';
+import { TipoActivoCrediticioComponent } from './components/tipo-activo-crediticio/tipo-activo-crediticio.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { SearchPipe } from './components/pipes/search.pipe';
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
     EliminarTrasladoEstPrestamo,
+    
+   
   ],
   imports: [
     BrowserModule,
