@@ -47,7 +47,7 @@ export class SidenavComponent implements OnInit {
   fillerNav2 = [
     {name: 'Enlace Contabilidad', route: '/enlace-contabilidad'},
     {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'},
-    {name: 'Contenidos Contables', route: '/contanido-contable'}    
+    {name: 'Contenidos Contables', route: '/contenido-contable'}    
   ]
 
   fillerNav = [
@@ -94,16 +94,12 @@ export class SidenavComponent implements OnInit {
     {name: "Consultas", route:"/consultas"},
     {name: "Clasificación", route:"/clasificacion"},
     {name: "Parámetros adicionales por producto", route:"/parametros-adicionales"},
-    {name: "Eventos de solicitudes", route:"/evento-solicitudes"},
-    {name: "Documentos a presentar por producto", route:"/documento-presentar-producto"},
-    {name: "Montos por plazo", route:"/montos-por-plazo"},
-    {name: "Porcentajes de financiamiento", route:"/porcentajes-de-financiamiento"},
-    {name: "Rango de plazos por interés", route:"/rango-plazo-interes"},
     {name: "Definir categorías de usuarios", route:"/definir-categorias-usuarios"},
     {name: "Asignación de categorías", route:"/asignacion-de-categorias"},
     {name: "Parametro de Productos", route:"/parametros-de-productos"},
     {name: "Estatus legales", route:"/status-legales"},    
     {name: 'SubProductos', route: '/sub-productos'},
+    {name: 'Cambio ejecutivo', route: '/motivo-cambio-ejecutivo'}
   ]
 
 
