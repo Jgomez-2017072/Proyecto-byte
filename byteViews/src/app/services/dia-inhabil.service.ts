@@ -38,7 +38,7 @@ export class DiaInhabilService {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     let params = JSON.stringify(aseguradora);
     console.log(params)
-    return this._http.patch(this.url + 'diasNoHabilesNoCobroMora/update', params,{headers : headers} );
+    return this._http.put(this.url + 'diasNoHabilesNoCobroMora/update', params,{headers : headers} );
   }
 
   eliminarDiaInhabil(diaInhabil : DiaInhabil): Observable<any>{   

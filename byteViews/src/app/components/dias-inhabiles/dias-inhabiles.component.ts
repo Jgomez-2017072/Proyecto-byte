@@ -17,7 +17,7 @@ var datosDiaInhabil: DiaInhabil[];
 
 var descripcion = '';
 var empresa = '';
-var fechaFeriado = '';
+var fechaFeriado;
 var tipoFeriado = '';
 
 @Component({
@@ -70,7 +70,8 @@ export class DiasInhabilesComponent implements OnInit {
     buscar(descripcion2, empresa2, fechaFeriado2, tipoFeriado2){
       descripcion = descripcion2;
       empresa = empresa2;
-      fechaFeriado = fechaFeriado2;
+      fechaFeriado = new Date(fechaFeriado2);
+      fechaFeriado = fechaFeriado.toISOString();
       tipoFeriado = tipoFeriado2;
       console.log(descripcion + " - " + empresa + " - " + fechaFeriado+ " - " + tipoFeriado)
     }
@@ -299,7 +300,9 @@ export class VerDiaInhabil implements OnInit{
     //this.buscarAseguradora();    
     this.diaInhabil.descripcion = descripcion;
     this.diaInhabil.empresa = empresa;
+    fechaFeriado = new Date(fechaFeriado).toLocaleDateString();
     this.diaInhabil.fechaFeriado = fechaFeriado;
+    this.diaInhabil.fechaFeriado =this.diaInhabil.fechaFeriado;
     this.diaInhabil.tipoFeriado = tipoFeriado;
   }
 
