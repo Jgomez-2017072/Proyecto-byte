@@ -124,8 +124,6 @@ export class PoderComponent implements OnInit {
   }
 }
 
-
-
 @Component({
   selector: 'agregar-poder',
   templateUrl: './agregar-poder.html',

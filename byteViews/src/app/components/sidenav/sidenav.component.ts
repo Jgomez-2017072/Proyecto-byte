@@ -101,7 +101,8 @@ export class SidenavComponent implements OnInit {
     {name: 'SubProductos', route: '/sub-productos'},
     {name: 'Cambio ejecutivo', route: '/motivo-cambio-ejecutivo'},
     {name: 'Poder', route: '/poder'},
-    {name: 'Estado Resolucion', route: 'estado-resolucion'}
+    {name: 'Estado Resolucion', route: 'estado-resolucion'},
+    {name: 'Tipo Ajuste', route: '/tipo-ajuste'}
   ]
 
 

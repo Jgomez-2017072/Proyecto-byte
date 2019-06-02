@@ -237,6 +237,10 @@ const appRoutes: Routes = [
     {
         path: 'estado-resolucion',
         loadChildren: './components/estado-resolucion/estado-resolucion.module#EstadoResolucionModule'
+    },
+    {
+        path: 'tipo-ajuste',
+        loadChildren: './components/tipo-ajuste/tipo-ajuste.module#TipoAjusteModule'
     }
 ];
 

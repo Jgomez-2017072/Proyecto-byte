@@ -43,7 +43,8 @@ import { SearchPipe } from './components/pipes/search.pipe';
     TrasladoEstadosPrestamosComponent,
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
-    EliminarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo
+  
   ],
   imports: [
     BrowserModule,
