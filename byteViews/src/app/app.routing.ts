@@ -133,6 +133,11 @@ const appRoutes : Routes = [
         loadChildren : './components/tipo-vehiculo/tipo-vehiculo.module#TipoVehiculoModule'},
     {path : 'tipo-activo-crediticio',
         loadChildren : './components/tipo-activo-crediticio/tipo-activo-crediticio.module#TipoActivoCrediticioModule'},
+    {path : 'instancias', 
+    loadChildren : './components/instancia/instancia.module#InstanciaModule'}, 
+    {path : 'moneda-motivo-pago', 
+    loadChildren : './components/moneda-motivo-reversion-pago/moneda-motivo-reversion-pago.module#MonedaMotivoReversionPagoModule'}, 
+
     
         
     {path : 'enlace-contabilidad', 

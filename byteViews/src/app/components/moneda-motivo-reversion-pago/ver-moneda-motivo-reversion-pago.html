@@ -1,0 +1,23 @@
+<div class="animated fadeIn">
+        <h2 mat-dialog-title>Moneda Motivo Reversion de Pago</h2>
+        <div mat-dialog-content class="modal-down1" >   
+            <mat-form-field >                
+                <input matInput placeholder="Código Moneda" disabled [(ngModel)]="monedaMotivo.codigoMoneda">
+            </mat-form-field>  
+            <mat-form-field >                
+                <input matInput placeholder="Código Motivo" disabled [(ngModel)]="monedaMotivo.codigoMotivo">
+            </mat-form-field>  
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" placeholder="Valor Cobro" disabled [(ngModel)]="monedaMotivo.valorCobro">
+            </mat-form-field>   
+            <mat-form-field >                
+                <input matInput placeholder="Empresa" disabled [(ngModel)]="monedaMotivo.empresa">        
+            </mat-form-field>    
+        </div><br>
+        <div  class="modal-down">
+            <div mat-dialog-actions>  
+                <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CERRAR</button>
+              </div>
+        </div>  
+    </div>
+    

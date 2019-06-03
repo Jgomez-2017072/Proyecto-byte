@@ -1,0 +1,24 @@
+<div class="animated fadeIn">
+    <h2 mat-dialog-title>Editar</h2>
+    <div mat-dialog-content class="modal-down1" >   
+        <mat-form-field >                
+            <input matInput placeholder="Código" [(ngModel)]="instancia.codigoInstancia" sdf>
+            <button mat-button  *ngIf="instancia.codigoInstancia" matSuffix mat-icon-button aria-label="Clear" (click)="instancia.codigoInstancia=''">
+                <mat-icon>close</mat-icon>
+            </button> 
+        </mat-form-field>  
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Descripción" [(ngModel)]="instancia.descripcion">
+          <button mat-button *ngIf="instancia.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="instancia.descripcion=''">
+              <mat-icon>close</mat-icon>
+          </button> 
+        </mat-form-field>     
+    </div><br>
+    <div  class="modal-down">
+        <div mat-dialog-actions>  
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();editarInstancia()" >EDITAR</button>
+            <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
+          </div>
+    </div>  
+</div>
+

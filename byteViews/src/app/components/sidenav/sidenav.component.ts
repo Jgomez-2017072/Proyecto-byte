@@ -108,7 +108,9 @@ export class SidenavComponent implements OnInit {
     {name: 'Cambio ejecutivo', route: '/motivo-cambio-ejecutivo'},
     {name: 'Poder', route: '/poder'},
     {name: 'Estado Resolucion', route: 'estado-resolucion'},
-    {name: 'Tipo Ajuste', route: '/tipo-ajuste'}
+    {name: 'Tipo Ajuste', route: '/tipo-ajuste'},
+    {name: 'Instancias', route: '/instancias'},
+    {name: 'Moneda Motivo Reversion de pago', route: '/moneda-motivo-pago'}
   ]
 
 

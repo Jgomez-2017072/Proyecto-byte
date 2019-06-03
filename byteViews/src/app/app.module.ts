@@ -21,6 +21,7 @@ import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTr
 import { SearchPipe } from './components/pipes/search.pipe';
 import { TipoActivoCrediticioComponent } from './components/tipo-activo-crediticio/tipo-activo-crediticio.component';
 
+
 @NgModule({
   declarations: [
     SearchPipe,
@@ -46,6 +47,8 @@ import { TipoActivoCrediticioComponent } from './components/tipo-activo-creditic
     EditarTrasladoEstPrestamo,
     EliminarTrasladoEstPrestamo
   
+    
+    
   ],
   imports: [
     BrowserModule,

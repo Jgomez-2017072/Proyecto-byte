@@ -19,7 +19,7 @@ var descripcion = '';
 var empresa = '';
 
 
-
+ 
 
 @Component({
   selector: 'app-almacenadoras',
