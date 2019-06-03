@@ -4,8 +4,8 @@ import { FormasDeDesembolsoComponent } from './formas-de-desembolso.component';
 
 const routes: Routes = [
   {
-    path : '',
-    component : FormasDeDesembolsoComponent
+    path: '',
+    component: FormasDeDesembolsoComponent
   }
 ];
 

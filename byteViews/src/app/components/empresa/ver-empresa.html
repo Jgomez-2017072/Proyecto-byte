@@ -1,0 +1,34 @@
+<div class="animated fadeIn">
+    <h2 mat-dialog-title>Empresa</h2>
+    <div mat-dialog-content class="modal-down1">
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Codigo" disabled [(ngModel)]="empresa.codigo">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Descripcion" disabled [(ngModel)]="empresa.descripcion">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Direccion" disabled [(ngModel)]="empresa.direccion">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Nit" disabled [(ngModel)]="empresa.nit">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Patente Comercio" disabled [(ngModel)]="empresa.patenteComercio">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Razon Social" disabled [(ngModel)]="empresa.razonSocial">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Representante Legal" disabled [(ngModel)]="empresa.representanteLegal">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Seguro Social" disabled [(ngModel)]="empresa.seguroSocial">
+        </mat-form-field>
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CERRAR</button>
+        </div>
+    </div>
+</div>

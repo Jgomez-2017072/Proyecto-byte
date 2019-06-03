@@ -1,78 +1,133 @@
-import { Component, OnInit, Inject, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { RecargosAdicionalesService } from 'src/app/services/recargos-adicionales.service';
+import { RecargoAdicional } from 'src/app/models/recargoAdicional.model';
 
 export interface PeriodicElement {
-  descripcion: string;
-  descripcionParaReportes: string;
-  position: number;
+  codigo: String,
+  descripcion: String,
+  //description: String,
+  empresa: String
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, descripcion: 'Ajuste de intereses', descripcionParaReportes : "asddddd"},
-  {position: 2, descripcion: 'gastos de avaluo', descripcionParaReportes : "asddddd"},
-  {position: 3, descripcion: 'gastos de gestion legal', descripcionParaReportes : "asddddd"}, 
-  {position: 4, descripcion: 'Comision ctas incobrables', descripcionParaReportes : "asddddd"},
-  {position: 5, descripcion: 'Excedente Gto Escritura', descripcionParaReportes : "asddddd"},
-  {position: 6, descripcion: 'Gastos Escrituras Hipotecario',descripcionParaReportes : "asddddd"},
-  {position: 7, descripcion: 'Gtos legales inscripciones',descripcionParaReportes : "asddddd"},
-  {position: 8, descripcion: 'Desgravemen', descripcionParaReportes : "asddddd"},
-  {position: 9, descripcion: 'Desgravamen tarjeta de credito', descripcionParaReportes : "asddddd"},
-  {position: 10, descripcion: 'Neon', descripcionParaReportes : "asddddd"},
-];
+var datosRecargoAdicional: RecargoAdicional[];
+
+
+var codigo = '';
+var descripcion = '';
+//var description = '';
+var empresa = '';
 
 @Component({
   selector: 'app-recargos-adicionales',
   templateUrl: './recargos-adicionales.component.html',
-  styleUrls: ['./recargos-adicionales.component.scss']
+  styleUrls: ['./recargos-adicionales.component.scss'],
+  providers: [RecargosAdicionalesService]
 })
 export class RecargosAdicionalesComponent implements OnInit {
+
+  public dataSource;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.getRecargosAdicionales()
   }
 
-  displayedColumns: string[] = ['position', 'name', 'descripcion','editar', 'eliminar', 'ver'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['codigo', 'descripcion', /*'description',*/  'editar', 'eliminar', 'ver'];
 
   //FILTRO
 
- applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private _recargosAdicionalesService: RecargosAdicionalesService) {
+  }
+
+  //CRUD --------------------- TRAER DATOS --------------------------
+
+  public getRecargosAdicionales() {
+    this._recargosAdicionalesService.getRecargosAdicionales().subscribe(
+      response => {
+        if (response) {
+          datosRecargoAdicional = response;
+          console.log(datosRecargoAdicional)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosRecargoAdicional);
+          this.dataSource.paginator = this.paginator;
+
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+
+    )
+  }
+
+  buscar(id, descripcion2, empresa2/*, description2*/) {
+    codigo = id;
+    descripcion = descripcion2;
+    empresa = empresa2;
+    //description = description2;
+    console.log(codigo + " - " + descripcion + " - " + empresa /*+ " - " + description*/)
+  }
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarRecargos, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getRecargosAdicionales();
+      }, 800);
     });
   }
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(EliminarRecargos, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getRecargosAdicionales();
+      }, 800);
     });
   }
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(AgregarRecargos, {
-      width: '40%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getRecargosAdicionales();
+      }, 800);
+    });
+  }
+
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerRecargoAdicional, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getRecargosAdicionales();
+      }, 800);
     });
   }
 
@@ -83,19 +138,77 @@ export class RecargosAdicionalesComponent implements OnInit {
   templateUrl: 'editar-recargos.html',
   styleUrls: ['./recargos-adicionales.component.scss']
 })
-export class EditarRecargos {
-  constructor(
-    public dialogRef: MatDialogRef<EditarRecargos>, private snackBar: MatSnackBar) {}
+export class EditarRecargos implements OnInit {
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.recargoAdicional.codigo = codigo;
+    this.recargoAdicional.descripcion = descripcion;
+    this.recargoAdicional.empresa = empresa;
+    //this.recargoAdicional.description = description;
+  }
+
+  public recargoAdicional: RecargoAdicional;
+  public status;
+
+  constructor(
+    public dialogRef: MatDialogRef<EditarRecargos>, private snackBar: MatSnackBar, private _recargosAdicionalesService: RecargosAdicionalesService) {
+    //this.recargoAdicional = new RecargoAdicional(0, "", ""/*, ""*/);
+    this.recargoAdicional = new RecargoAdicional("", "", "", "", "", "", 0, "", "", true, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+  }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Actualizado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  editarRecargoAdicional() {
+    this.recargoAdicional.code = 0,
+      this.recargoAdicional.description = "",
+      this.recargoAdicional.errorCore = true,
+      this.recargoAdicional.empresa = "1",
+      //this.recargoAdicional.codigo = "23",
+      this.recargoAdicional.formatoImpresion = "string",
+      this.recargoAdicional.descripcionCorta = "",
+      //this.recargoAdicional.descripcion = "primero",
+      this.recargoAdicional.polizaColectiva = "N",
+      this.recargoAdicional.seUsaEnFianza = "N",
+      this.recargoAdicional.acumulaPeriodos = "N",
+      this.recargoAdicional.pagosAterceros = "N",
+      this.recargoAdicional.provisiona = "N",
+      this.recargoAdicional.asociaSeguros = "",
+      this.recargoAdicional.incluyeCalculoInteres = "N",
+      this.recargoAdicional.incluyeCalculoMora = "N",
+      this.recargoAdicional.incluyeEnCapital = "N",
+      this.recargoAdicional.inclusionComprobada = "N",
+      this.recargoAdicional.calculoFlatAlVencimiento = "N",
+      this.recargoAdicional.paraCalculoDeMora = "N",
+      this.recargoAdicional.repPagoTercero = "N",
+      this.recargoAdicional.utilizaCodeudor = "N",
+      this.recargoAdicional.opcionAcompra = "N",
+      this.recargoAdicional.utilizaFactorDivisorParaCalculoFlat = "N"
+    console.log(this.recargoAdicional)
+    this._recargosAdicionalesService.editarRecargoAdicional(this.recargoAdicional).subscribe(
+      response => {
+        if (response) {
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
+
 }
 
 @Component({
@@ -103,38 +216,161 @@ export class EditarRecargos {
   templateUrl: 'eliminar-recargos.html',
   styleUrls: ['./recargos-adicionales.component.scss']
 })
-export class EliminarRecargos {
-  constructor(
-    public dialogRef: MatDialogRef<EliminarRecargos>, private snackBar: MatSnackBar) {}
+export class EliminarRecargos implements OnInit {
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  ngOnInit() {
+    //this.buscarAseguradora();
+    this.recargoAdicional.codigo = codigo;
+    this.recargoAdicional.descripcion = descripcion;
+    this.recargoAdicional.empresa = empresa;
+    //this.recargoAdicional.description = description;
+  }
+
+  public recargoAdicional: RecargoAdicional;
+  public status;
+
+  constructor(
+    public dialogRef: MatDialogRef<EliminarRecargos>, private snackBar: MatSnackBar, private _recargosAdicionalesService: RecargosAdicionalesService) {
+    //this.recargoAdicional = new RecargoAdicional(0, "", ""/*, ""*/);
+    this.recargoAdicional = new RecargoAdicional("", "", "", "", "", "", 0, "", "", true, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+
+  }
+
+  openSnackBar() {
+    this.snackBar.open("Registro Eliminado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  eliminarRecargoAdicional() {
+    this._recargosAdicionalesService.eliminarRecargoAdicional(this.recargoAdicional).subscribe(
+      response => {
+        if (!response) {
+          this.status = "error"
+        } else {
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if (errorMessage != null) {
+          this.status = "error";
+        }
+      }
+    )
+  }
+
 }
 
 @Component({
   selector: 'agregar-recargos',
   templateUrl: 'agregar-recargos.html',
-  styleUrls: ['./recargos-adicionales.component.scss']
+  styleUrls: ['./recargos-adicionales.component.scss'],
+  providers: [RecargosAdicionalesService]
 })
 export class AgregarRecargos {
+
+  public recargoAdicional: RecargoAdicional;
+  public status;
+
+
   constructor(
-    public dialogRef: MatDialogRef<AgregarRecargos>, private snackBar: MatSnackBar) {}
+    public dialogRef: MatDialogRef<AgregarRecargos>, private snackBar: MatSnackBar, private _recargosAdicionalesService: RecargosAdicionalesService) {
+    //this.recargoAdicional = new RecargoAdicional(0, "", ""/*, ""*/);
+    this.recargoAdicional = new RecargoAdicional("", "", "", "", "", "", 0, "", "", true, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  }
 
+  openSnackBar() {
+    this.snackBar.open("Registro Guardado!", "", {
+      duration: 2100, horizontalPosition: 'end'
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  crearRecargoAdicional() {
+
+    //this.recargoAdicional.empresa = "1";
+    this.recargoAdicional.code = 0,
+      this.recargoAdicional.description = "",
+      this.recargoAdicional.errorCore = true,
+      this.recargoAdicional.empresa = "1",
+      //this.recargoAdicional.codigo = "23",
+      this.recargoAdicional.formatoImpresion = "string",
+      this.recargoAdicional.descripcionCorta = "",
+      //this.recargoAdicional.descripcion = "primero",
+      this.recargoAdicional.polizaColectiva = "N",
+      this.recargoAdicional.seUsaEnFianza = "N",
+      this.recargoAdicional.acumulaPeriodos = "N",
+      this.recargoAdicional.pagosAterceros = "N",
+      this.recargoAdicional.provisiona = "N",
+      this.recargoAdicional.asociaSeguros = "",
+      this.recargoAdicional.incluyeCalculoInteres = "N",
+      this.recargoAdicional.incluyeCalculoMora = "N",
+      this.recargoAdicional.incluyeEnCapital = "N",
+      this.recargoAdicional.inclusionComprobada = "N",
+      this.recargoAdicional.calculoFlatAlVencimiento = "N",
+      this.recargoAdicional.paraCalculoDeMora = "N",
+      this.recargoAdicional.repPagoTercero = "N",
+      this.recargoAdicional.utilizaCodeudor = "N",
+      this.recargoAdicional.opcionAcompra = "N",
+      this.recargoAdicional.utilizaFactorDivisorParaCalculoFlat = "N"
+
+    console.log(this.recargoAdicional)
+    this._recargosAdicionalesService.crearRecargoAdicional(this.recargoAdicional).subscribe(
+      response => {
+        if (response) {
+          this.status = 'ok';
+          console.log(response);
+
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
+}
+
+@Component({
+  selector: 'ver-recargos',
+  templateUrl: 'ver-recargos.html',
+  styleUrls: ['./recargos-adicionales.component.scss'],
+  providers: [RecargosAdicionalesService]
+})
+
+export class VerRecargoAdicional implements OnInit {
+
+  ngOnInit() {
+    this.recargoAdicional.codigo = codigo;
+    this.recargoAdicional.descripcion = descripcion;
+    this.recargoAdicional.empresa = empresa;
+  }
+
+  public recargoAdicional: RecargoAdicional;
+  public status;
+
+  constructor(
+    public dialogRef: MatDialogRef<VerRecargoAdicional>, private snackBar: MatSnackBar, private _recargosAdicionalesService: RecargosAdicionalesService) {
+    this.recargoAdicional = new RecargoAdicional("", "", "", "", "", "", 0, "", "", true, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+
 }

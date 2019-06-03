@@ -44,6 +44,7 @@ const appRoutes : Routes = [
         loadChildren : './components/motivos-ajustes/motivos-ajustes.module#MotivosAjustesModule'},
     {path : 'dias-inhabiles',
         loadChildren : './components/dias-inhabiles/dias-inhabiles.module#DiasInhabilesModule'},
+    /////////////////////////////////////CANAS
     {path : 'recargos-adicionales',
         loadChildren : './components/recargos-adicionales/recargos-adicionales.module#RecargosAdicionalesModule'},
     {path : 'instituciones',
@@ -52,6 +53,14 @@ const appRoutes : Routes = [
         loadChildren : './components/motivos-de-reversa/motivos-de-reversa.module#MotivosDeReversaModule'},
     {path : 'formas-de-desembolso',
         loadChildren : './components/formas-de-desembolso/formas-de-desembolso.module#FormasDeDesembolsoModule'},
+    
+    {path : 'corredor-seguro',
+                loadChildren: './components/corredor-seguro/corredor-seguro.module#CorredorSeguroModule'},
+    {path : 'ejecutivo-cuenta',
+                loadChildren: './components/ejecutivo-cuenta/ejecutivo-cuenta.module#EjecutivoCuentaModule'},
+    {path : 'empresa', 
+                loadChildren: './components/empresa/empresa.module#EmpresaModule'},
+    //////////////////////////////////////////
     {path : 'motivos-de-referencias-clientes',
         loadChildren : './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.module#MotivosDeReferenciasClientesModule'},
     {path: 'parametros-transaccion',

@@ -1,47 +1,41 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-
+import { InstitucionesService } from 'src/app/services/instituciones.service';
+import { Institucion } from 'src/app/models/institucion.model';
 
 export interface PeriodicElement {
-  descripcion: string;
-  position: number;
+  codigo: Number;
+  descripcion: String;
+  empresa: String;
 }
 
+var datosInstitucion: Institucion[];
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, descripcion: 'Ingresos institucion' },
-  { position: 2, descripcion: 'Ingresos institucion 2' },
-  { position: 3, descripcion: 'Ingresos institucion 3' },
-  { position: 4, descripcion: 'Ingresos institucion 4' },
-  { position: 5, descripcion: 'Choluteca' },
-  { position: 6, descripcion: 'Carbon' },
-  { position: 7, descripcion: 'Azteca' },
-  { position: 8, descripcion: 'Gracias a Dios' },
-  { position: 9, descripcion: 'Bebesita' },
-  { position: 10, descripcion: 'El Paraiso' },
-  { position: 11, descripcion: 'Nitrogen' },
-  { position: 12, descripcion: 'Oxygen' },
-  { position: 13, descripcion: 'Fluorine' },
-  { position: 14, descripcion: 'Neon' },
-];
+
+var codigo = 0;
+var descripcion = '';
+var empresa = '';
 
 @Component({
   selector: 'app-instituciones',
   templateUrl: './instituciones.component.html',
-  styleUrls: ['./instituciones.component.scss']
+  styleUrls: ['./instituciones.component.scss'],
+  providers: [InstitucionesService]
 })
 export class InstitucionesComponent implements OnInit {
+
+  public dataSource;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.getInstituciones()
   }
 
 
-  displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar', 'ver', 'maestros'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver', 'maestros'];
+  // displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar', 'maestros', 'ver'];
 
   //SELECTOR
 
@@ -51,7 +45,34 @@ export class InstitucionesComponent implements OnInit {
 
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private _institucionesService: InstitucionesService) { }
+
+  //CRUD --------------------- TRAER DATOS --------------------------
+
+  public getInstituciones() {
+    this._institucionesService.getInstituciones().subscribe(
+      response => {
+        if (response) {
+          datosInstitucion = response;
+          console.log(datosInstitucion)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosInstitucion);
+          this.dataSource.paginator = this.paginator;
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    )
+  }
+
+  buscar(id, descripcion2, empresa2) {
+    codigo = id;
+    descripcion = descripcion2;
+    empresa = empresa2;
+    console.log(codigo + " - " + descripcion + " - " + empresa)
+  }
+
+  // ---------------------------------------------------
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarInstituciones, {
@@ -60,16 +81,24 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getInstituciones();
+      }, 800);
     });
   }
 
   openDialog2(): void {
-    const dialogRef = this.dialog.open(EliminarInstituciones, {
+    const dialogRef = this.dialog.open(EliminarInstitucion, {
       width: '40%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getInstituciones();
+      }, 800);
     });
   }
 
@@ -80,14 +109,20 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
+      setTimeout(() => {
+        this.getInstituciones();
+      }, 800);
     });
   }
 
   openDialog4(): void {
-    const dialogRef = this.dialog.open(AgregarMaestros, {
-      width: '40%',
+    //const dialogRef = this.dialog.open(AgregarInstituciones, {
+    //const dialogRef = this.dialog.open(AgregarMaestros, {
+    const dialogRef = this.dialog.open(VerInstituciones, {
+      width: '50%',
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
@@ -97,12 +132,25 @@ export class InstitucionesComponent implements OnInit {
 
 @Component({
   selector: 'editar-instituciones',
-  templateUrl: 'editar-instituciones.html',
+  templateUrl: '/editar-instituciones.html',
   styleUrls: ['./instituciones.component.scss']
 })
-export class EditarInstituciones {
+export class EditarInstituciones implements OnInit {
+
+  ngOnInit() {
+    //this.buscarInstitucion();
+    this.institucion.codigo = codigo;
+    this.institucion.descripcion = descripcion;
+    this.institucion.empresa = empresa;
+  }
+
+  public institucion: Institucion;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<EditarInstituciones>, private snackBar: MatSnackBar) { }
+    public dialogRef: MatDialogRef<EditarInstituciones>, private snackBar: MatSnackBar, private _institucionService: InstitucionesService) {
+    this.institucion = new Institucion(0, "", "");
+  }
 
   openSnackBar() {
     this.snackBar.open("Registro Actualizado!", "", {
@@ -113,6 +161,25 @@ export class EditarInstituciones {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  editarInstitucion() {
+    console.log(this.institucion)
+    this._institucionService.editarInstitucion(this.institucion).subscribe(
+      response => {
+        if (response) {
+          this.status = 'ok';
+          console.log(response);
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
+
 }
 
 @Component({
@@ -120,10 +187,23 @@ export class EditarInstituciones {
   templateUrl: 'eliminar-instituciones.html',
   styleUrls: ['./instituciones.component.scss']
 })
-export class EliminarInstituciones {
+export class EliminarInstitucion implements OnInit {
+
+  ngOnInit() {
+    //this.buscarInstitucion();
+    this.institucion.codigo = codigo;
+    this.institucion.descripcion = descripcion;
+    this.institucion.empresa = empresa;
+  }
+
+  public institucion: Institucion;
+  public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EliminarInstituciones>, private snackBar: MatSnackBar) { }
+    public dialogRef: MatDialogRef<EliminarInstitucion>, private snackBar: MatSnackBar, private _institucionesService: InstitucionesService) {
+    this.institucion = new Institucion(0, "", "");
+
+  }
 
   openSnackBar() {
     this.snackBar.open("Registro Eliminado!", "", {
@@ -134,6 +214,27 @@ export class EliminarInstituciones {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  eliminarInstitucion() {
+    this._institucionesService.eliminarInstitucion(this.institucion).subscribe(
+      response => {
+        if (!response) {
+          this.status = "error"
+        } else {
+          this.status = "Success"
+          console.log(response)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if (errorMessage != null) {
+          this.status = "error";
+        }
+      }
+    )
+  }
+
 }
 
 @Component({
@@ -143,8 +244,18 @@ export class EliminarInstituciones {
 })
 export class AgregarInstituciones {
 
+  public institucion: Institucion;
+  public status;
+
   constructor(
-    public dialogRef: MatDialogRef<AgregarInstituciones>, private snackBar: MatSnackBar) { }
+    public dialogRef: MatDialogRef<AgregarInstituciones>, private snackBar: MatSnackBar,
+    private _institucionesService: InstitucionesService) {
+    this.institucion = new Institucion(0, "", "");
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    console.log("1")
+
+  }
 
   openSnackBar() {
     this.snackBar.open("Registro Guardado!", "", {
@@ -155,8 +266,66 @@ export class AgregarInstituciones {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  crearInstitucion() {
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    console.log("2")
+    console.log(this.institucion)
+    this.institucion.empresa = "1";
+    this._institucionesService.crearInstitucion(this.institucion).subscribe(
+      response => {
+        console.log("2")
+        if (response) {
+          this.status = 'ok';
+          console.log(response);
+
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+
+    )
+  }
+
 }
 
+@Component({
+  selector: 'ver-instituciones',
+  templateUrl: 'ver-instituciones.html',
+  styleUrls: ['./instituciones.component.scss'],
+  providers: [InstitucionesService]
+
+})
+export class VerInstituciones implements OnInit {
+
+  ngOnInit() {
+    this.institucion.codigo = codigo;
+    this.institucion.descripcion = descripcion;
+    this.institucion.empresa = empresa;
+    //this.buscarAseguradora();
+  }
+
+  public institucion: Institucion;
+  public status;
+
+
+  constructor(
+    public dialogRef: MatDialogRef<VerInstituciones>, private snackBar: MatSnackBar, private _institucionesService: InstitucionesService) {
+    this.institucion = new Institucion(0, "", "");
+
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+//??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 @Component({
   selector: 'agregar-maestros',
   templateUrl: 'agregar-maestros.html',
@@ -177,3 +346,4 @@ export class AgregarMaestros {
     this.dialogRef.close();
   }
 }
+//??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????

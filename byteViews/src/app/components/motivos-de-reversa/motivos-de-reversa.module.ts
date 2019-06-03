@@ -2,21 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MotivosDeReversaRoutingModule } from './motivos-de-reversa-routing.module';
-import { MotivosDeReversaComponent,AgregarMotivosDeReversa,EditarMotivosDeReversa,EliminarMotivosDeReversa } from './motivos-de-reversa.component';
+import { MotivosDeReversaComponent, AgregarMotivoDeReversa, EditarMotivoDeReversa, EliminarMotivosDeReversa, VerMotivoDeReversa } from './motivos-de-reversa.component';
 import { MaterialModule } from 'src/app/material';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     MotivosDeReversaComponent,
-    AgregarMotivosDeReversa,
-    EditarMotivosDeReversa,
-    EliminarMotivosDeReversa
-  ],
-  entryComponents : [
-    AgregarMotivosDeReversa,
-    EditarMotivosDeReversa,
-    EliminarMotivosDeReversa
+    AgregarMotivoDeReversa,
+    EditarMotivoDeReversa,
+    EliminarMotivosDeReversa,
+    VerMotivoDeReversa 
+  ], 
+  entryComponents: [
+    AgregarMotivoDeReversa,
+    EditarMotivoDeReversa,
+    EliminarMotivosDeReversa,
+    VerMotivoDeReversa
   ],
   imports: [
     MaterialModule,

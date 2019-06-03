@@ -1,0 +1,40 @@
+<div class="animated fadeIn">
+  <h2 mat-dialog-title>Agregar</h2>
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Código" [(ngModel)]="ejecutivoCuenta.codigo">
+      <button mat-button *ngIf="ejecutivoCuenta.codigo" matSuffix mat-icon-button aria-label="Clear"
+        (click)="ejecutivoCuenta.codigo=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Código Empleado" [(ngModel)]="ejecutivoCuenta.codigoEmpleado">
+      <button mat-button *ngIf="ejecutivoCuenta.codigoEmpleado" matSuffix mat-icon-button aria-label="Clear"
+        (click)="ejecutivoCuenta.codigoEmpleado=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Nombre" [(ngModel)]="ejecutivoCuenta.nombre">
+      <button mat-button *ngIf="ejecutivoCuenta.nombre" matSuffix mat-icon-button aria-label="Clear"
+        (click)="ejecutivoCuenta.nombre=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Status (A o I)" [(ngModel)]="ejecutivoCuenta.status">
+      <button mat-button *ngIf="ejecutivoCuenta.status" matSuffix mat-icon-button aria-label="Clear"
+        (click)="ejecutivoCuenta.status=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div><br>
+  <div class="modal-down">
+    <div mat-dialog-actions>
+      <button mat-button class="btn-aceptar" (click)="onNoClick()"
+        (click)="openSnackBar();crearEjecutivoCuenta()">AGREGAR</button>
+      <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+    </div>
+  </div>
+</div>

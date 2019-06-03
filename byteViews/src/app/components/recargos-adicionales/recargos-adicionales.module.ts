@@ -2,27 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RecargosAdicionalesRoutingModule } from './recargos-adicionales-routing.module';
-import { RecargosAdicionalesComponent, AgregarRecargos, EditarRecargos, EliminarRecargos} from './recargos-adicionales.component';
+import { RecargosAdicionalesComponent, AgregarRecargos, EditarRecargos, EliminarRecargos, VerRecargoAdicional } from './recargos-adicionales.component';
 import { MaterialModule } from 'src/app/material';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
+  declarations: [ //componente y modals
     RecargosAdicionalesComponent,
-    AgregarRecargos, 
-    EditarRecargos, 
-    EliminarRecargos
+    AgregarRecargos,
+    EditarRecargos,
+    EliminarRecargos,
+    VerRecargoAdicional
   ],
-  entryComponents : [
-    AgregarRecargos, 
-    EditarRecargos, 
-    EliminarRecargos
+  entryComponents:[ //modals
+    AgregarRecargos,
+    EditarRecargos,
+    EliminarRecargos,
+    VerRecargoAdicional
   ],
   imports: [
-    MaterialModule,
-    FormsModule,
     CommonModule,
-    RecargosAdicionalesRoutingModule
+    RecargosAdicionalesRoutingModule,
+    MaterialModule,
+    FormsModule
   ]
 })
 export class RecargosAdicionalesModule { }

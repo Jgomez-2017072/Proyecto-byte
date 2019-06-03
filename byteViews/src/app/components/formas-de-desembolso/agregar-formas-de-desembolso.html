@@ -2,21 +2,21 @@
     <h2 mat-dialog-title>Agregar</h2>
   <div mat-dialog-content>     
       <mat-form-field >
-          <input matInput type="text" placeholder="Código" [(ngModel)]="value">
-          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <input matInput type="text" placeholder="Código" [(ngModel)]="formasDeDesembolso.codigo">
+          <button mat-button *ngIf="formasDeDesembolso.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="formasDeDesembolso.codigo=''">
               <mat-icon>close</mat-icon>
           </button> 
         </mat-form-field>      
       <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripcion" [(ngModel)]="value0">
-          <button mat-button *ngIf="value0" matSuffix mat-icon-button aria-label="Clear" (click)="value0=''">
+          <input matInput type="text" placeholder="Descripcion" [(ngModel)]="formasDeDesembolso.descripcion">
+          <button mat-button *ngIf="formasDeDesembolso.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="formasDeDesembolso.descripcion=''">
               <mat-icon>close</mat-icon>
           </button> 
       </mat-form-field>
   </div><br>
   <div  class="modal-down">
       <div mat-dialog-actions>  
-          <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar()" >AGREGAR</button>
+          <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();crearFormaDeDesembolso();" >AGREGAR</button>
           <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
         </div>
   </div>  

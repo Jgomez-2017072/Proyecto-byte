@@ -2,28 +2,97 @@
     <h2 mat-dialog-title>Agregar</h2>
     <div mat-dialog-content>
         <mat-form-field>
-            <input matInput placeholder="Motivo" [(ngModel)]="value1">
-            <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+            <input matInput placeholder="Cobro Adicional" [(ngModel)]="motivoDeReversa.cobroAdicional">
+            <button mat-button *ngIf="motivoDeReversa.cobroAdicional" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.cobroAdicional=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Descripción" [(ngModel)]="value2">
-            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+            <input matInput placeholder="Code" [(ngModel)]="motivoDeReversa.code">
+            <button mat-button *ngIf="motivoDeReversa.code" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.code=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Cargo automatico" [(ngModel)]="value3">
-            <button mat-button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
+            <input matInput placeholder="codigo" [(ngModel)]="motivoDeReversa.codigo">
+            <button mat-button *ngIf="motivoDeReversa.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.codigo=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Descripcion" [(ngModel)]="motivoDeReversa.descripcion">
+            <button mat-button *ngIf="motivoDeReversa.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.descripcion=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <!--
+            <mat-form-field class="example-full-width">
+            <input matInput placeholder="Description" [(ngModel)]="motivoDeReversa.description">
+            <button mat-button *ngIf="motivoDeReversa.description" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.description=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        -->
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Empresa" [(ngModel)]="motivoDeReversa.empresa">
+            <button mat-button *ngIf="motivoDeReversa.empresa" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.empresa=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Error Core" [(ngModel)]="motivoDeReversa.errorCore">
+            <button mat-button *ngIf="motivoDeReversa.errorCore" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.errorCore=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Institucion" [(ngModel)]="motivoDeReversa.institucion">
+            <button mat-button *ngIf="motivoDeReversa.institucion" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.institucion=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Referencia 1" [(ngModel)]="motivoDeReversa.referencia1">
+            <button mat-button *ngIf="motivoDeReversa.referencia1" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.referencia1=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Referencia 2" [(ngModel)]="motivoDeReversa.referencia2">
+            <button mat-button *ngIf="motivoDeReversa.referencia2" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.referencia2=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Referencia 3" [(ngModel)]="motivoDeReversa.referencia3">
+            <button mat-button *ngIf="motivoDeReversa.referencia3" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.referencia3=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Tipo Retencion" [(ngModel)]="motivoDeReversa.tipoRetencion">
+            <button mat-button *ngIf="motivoDeReversa.tipoRetencion" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.tipoRetencion=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();crearMotivoDeReversa()">AGREGAR</button>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        </div>
+    </div>
+</div>
+
+<!--
+    <div>
+    <h2 mat-dialog-title>Agregar</h2>
+    <div mat-dialog-content>
         <mat-form-field style="margin-right: 130px">
             <mat-label>Institucion</mat-label>
             <mat-select>
-                <mat-option *ngFor="let food of Institucions" [value]="food.value">
-                    {{food.viewValue}}
+                <mat-option *ngFor="let inst of institucion2" [value]="inst.value">
+                    {{inst.viewValue}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -31,18 +100,11 @@
         <mat-form-field>
             <mat-label>Retencion cargo</mat-label>
             <mat-select>
-                <mat-option *ngFor="let food of Cobros" [value]="food.value">
-                    {{food.viewValue}}
+                <mat-option *ngFor="let cobr of Cobros" [value]="cobr.value">
+                    {{cobr.viewValue}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="referencias" [(ngModel)]="value4">
-            <button mat-button *ngIf="value4" matSuffix mat-icon-button aria-label="Clear" (click)="value4=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-
     </div><br>
     <div class="modal-down">
         <div mat-dialog-actions>
@@ -51,3 +113,4 @@
         </div>
     </div>
 </div>
+-->

@@ -1,0 +1,56 @@
+<div class="animated fadeIn">
+    <h2 mat-dialog-title>Almacenadora</h2>
+    <div mat-dialog-content class="modal-down1">
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Cobro Adicional" disabled
+                [(ngModel)]="motivoDeReversa.cobroAdicinal">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Code" disabled [(ngModel)]="motivoDeReversa.code">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Code" disabled [(ngModel)]="motivoDeReversa.code">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Descripcion" disabled
+                [(ngModel)]="motivoDeReversa.descripcion">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Description" disabled
+                [(ngModel)]="motivoDeReversa.description">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Empresa" disabled
+                [(ngModel)]="motivoDeReversa.empresa">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="ErrorCore" disabled
+                [(ngModel)]="motivoDeReversa.errorCore">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Institucion" disabled [(ngModel)]="motivoDeReversa.institucion">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Referencia 1" disabled
+                [(ngModel)]="motivoDeReversa.referencia1">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Referencia 2" disabled
+                [(ngModel)]="motivoDeReversa.referencia2">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Referencia 3" disabled
+                [(ngModel)]="motivoDeReversa.referencia3">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Tipo Retencion" disabled
+                [(ngModel)]="motivoDeReversa.tipoRetencion">
+        </mat-form-field>
+
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CERRAR</button>
+        </div>
+    </div>
+</div>

@@ -47,7 +47,7 @@ export class SidenavComponent implements OnInit {
   fillerNav2 = [
     {name: 'Enlace Contabilidad', route: '/enlace-contabilidad'},
     {name: 'Niveles de contabilizacion', route: '/niveles-contabilizacion'},
-    {name: 'Contenidos Contables', route: '/contenido-contable'}    
+    {name: 'Contenidos Contables', route: '/contenido-contable'} 
   ]
 
   fillerNav = [
@@ -66,7 +66,7 @@ export class SidenavComponent implements OnInit {
     {name: "Notarios", route:"/notarios"},
     {name: "Motivos de ajustes", route:"/motivos-ajustes"},
     {name: "Días inhábiles", route:"/dias-inhabiles"},
-    {name: "Recargos Adicionales", route:"/recargos-adicionales"},
+    {name: "Cobros Adicionales", route:"/recargos-adicionales"},
     {name: "Instituciones", route:"/instituciones"},
     {name: "Motivos de reversa", route:"/motivos-de-reversa"},    
     {name: "Formas de desembolso", route:"/formas-de-desembolso"},
@@ -101,6 +101,10 @@ export class SidenavComponent implements OnInit {
     {name: 'SubProductos', route: '/sub-productos'},
     {name: 'Tipo Vehiculo', route: '/tipo-vehiculo'},
     {name: 'Tipo Activo Crediticio', route: '/tipo-activo-crediticio'},
+
+    {name: "Corredor Seguro", route:"/corredor-seguro"},
+    {name: "Ejecutivo Cuenta", route:"/ejecutivo-cuenta"},
+    {name: "Empresa", route:"/empresa"}
   ]
 
 
