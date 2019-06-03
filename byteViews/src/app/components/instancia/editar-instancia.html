@@ -2,7 +2,7 @@
     <h2 mat-dialog-title>Editar</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="instancia.codigoInstancia" sdf>
+            <input matInput placeholder="Código" [(ngModel)]="instancia.codigoInstancia">
             <button mat-button  *ngIf="instancia.codigoInstancia" matSuffix mat-icon-button aria-label="Clear" (click)="instancia.codigoInstancia=''">
                 <mat-icon>close</mat-icon>
             </button> 

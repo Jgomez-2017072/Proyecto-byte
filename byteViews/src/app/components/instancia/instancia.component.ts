@@ -15,6 +15,7 @@ var datosInstancia: Instancia[];
 
 
 var codigoInstancia = '';
+var codigo = '';
 var descripcion = '';
 var empresa = '';
 
@@ -71,6 +72,7 @@ export class InstanciaComponent implements OnInit {
     codigoInstancia = id; 
     descripcion = descripcion2;
     empresa = empresa2;
+    codigo = id;
     console.log(codigoInstancia + " - " + descripcion + " - " + empresa)
   }
 
@@ -144,6 +146,7 @@ export class EditarInstancia implements OnInit{
 
   ngOnInit() {
     this.instancia.codigoInstancia = codigoInstancia;
+    this.instancia.codigo = codigo;
     this.instancia.descripcion = descripcion;
     this.instancia.empresa = empresa;
   }
@@ -153,7 +156,7 @@ export class EditarInstancia implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<EditarInstancia>, private snackBar: MatSnackBar,private _instanciasService : InstanciaService) {
-      this.instancia = new Instancia("","","");
+      this.instancia = new Instancia("","","","");
     }
 
     openSnackBar() {
@@ -203,7 +206,7 @@ export class EliminarInstancia implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<EditarInstancia>, private snackBar: MatSnackBar,private _instanciasService : InstanciaService) {
-      this.instancia = new Instancia("","","");
+      this.instancia = new Instancia("","","","");
     }
 
     openSnackBar() {
@@ -250,7 +253,7 @@ export class AgregarInstancia {
 
   constructor(
     public dialogRef: MatDialogRef<AgregarInstancia>, private snackBar: MatSnackBar, private _instanciasService : InstanciaService) {
-      this.instancia = new Instancia("","","");
+      this.instancia = new Instancia("","","","");
     }
 
     openSnackBar() {
@@ -304,7 +307,7 @@ export class VerInstancia implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<EditarInstancia>, private snackBar: MatSnackBar,private _instanciasService : InstanciaService) {
-      this.instancia = new Instancia("","","");
+      this.instancia = new Instancia("","","","");
     }
 
   onNoClick(): void {

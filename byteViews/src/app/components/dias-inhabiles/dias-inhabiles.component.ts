@@ -193,6 +193,7 @@ export class EliminarDiaInhabil {
     //this.buscarAseguradora();    
     this.diaInhabil.descripcion = descripcion;
     this.diaInhabil.empresa = empresa;
+    fechaFeriado = new Date(fechaFeriado)
     this.diaInhabil.fechaFeriado = fechaFeriado;
     this.diaInhabil.tipoFeriado = tipoFeriado;
   }

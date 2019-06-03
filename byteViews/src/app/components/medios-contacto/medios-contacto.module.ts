@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MediosContactoRoutingModule } from './medios-contacto-routing.module';
-import { MediosContactoComponent,AgregarMediosContacto,EditarMediosContacto,EliminarMediosContacto} from './medios-contacto.component';
+import { MediosContactoComponent,AgregarMediosContacto,EditarMediosContacto,EliminarMediosContacto, VerMedio} from './medios-contacto.component';
 import { MaterialModule } from 'src/app/material';
 import { FormsModule } from '@angular/forms';
 
@@ -11,12 +11,14 @@ import { FormsModule } from '@angular/forms';
     MediosContactoComponent,
     AgregarMediosContacto,
     EditarMediosContacto,
-    EliminarMediosContacto
+    EliminarMediosContacto,
+    VerMedio
   ],
   entryComponents : [
     AgregarMediosContacto,
     EditarMediosContacto,
-    EliminarMediosContacto
+    EliminarMediosContacto,
+    VerMedio
   ],
   imports: [
     MaterialModule,

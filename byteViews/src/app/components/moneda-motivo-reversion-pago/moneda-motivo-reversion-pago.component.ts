@@ -36,7 +36,7 @@ export class MonedaMotivoReversionPagoComponent implements OnInit {
     this.getMonedasMotivosRerversionPagos();
   }
 
-  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
+  displayedColumns: string[] = ['codigoModena', 'codigoMotivo','valorCobro', 'editar', 'eliminar', 'ver'];
 
   //FILTRO
  applyFilter(filterValue: string) {

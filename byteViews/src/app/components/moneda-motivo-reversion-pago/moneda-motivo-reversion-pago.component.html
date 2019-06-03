@@ -14,12 +14,17 @@
   <div class="container mat-elevation-z8 animated lightSpeedIn">
       <table mat-table [dataSource]="dataSource">
 
-          <ng-container matColumnDef="codigo">
-              <th mat-header-cell *matHeaderCellDef class="encabezados"> Codigo Moneda </th>
+          <ng-container matColumnDef="codigoModena">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> Código Moneda </th>
               <td mat-cell *matCellDef="let element"> {{element.codigoMoneda}} </td>
           </ng-container>
  
-          <ng-container matColumnDef="descripcion">
+          <ng-container matColumnDef="codigoMotivo">
+            <th mat-header-cell *matHeaderCellDef class="encabezados"> Código Motivo </th>
+            <td mat-cell *matCellDef="let element"> {{element.codigoMotivo}} </td>
+        </ng-container>
+
+          <ng-container matColumnDef="valorCobro">
               <th mat-header-cell *matHeaderCellDef class="encabezados"> Valor Cobro </th>
               <td mat-cell *matCellDef="let element"> {{element.valorCobro}} </td>
           </ng-container>
