@@ -102,10 +102,13 @@ export class SidenavComponent implements OnInit {
     {name: 'SubProductos', route: '/sub-productos'},
     {name: 'Tipo Vehiculo', route: '/tipo-vehiculo'},
     {name: 'Tipo Activo Crediticio', route: '/tipo-activo-crediticio'},
-
     {name: "Corredor Seguro", route:"/corredor-seguro"},
     {name: "Ejecutivo Cuenta", route:"/ejecutivo-cuenta"},
-    {name: "Empresa", route:"/empresa"}
+    {name: "Empresa", route:"/empresa"},
+    {name: 'Cambio ejecutivo', route: '/motivo-cambio-ejecutivo'},
+    {name: 'Poder', route: '/poder'},
+    {name: 'Estado Resolucion', route: 'estado-resolucion'},
+    {name: 'Tipo Ajuste', route: '/tipo-ajuste'}
   ]
 
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TiposDeDeduccionesRoutingModule } from './tipos-de-deducciones-routing.module';
-import { TiposDeDeduccionesComponent,AgregarTipoDeDeduccion,EditarTipoDeDeduccion,EliminarTipoDeDeduccion, VerTipoDeduccion} from './tipos-de-deducciones.component';
+import { TiposDeDeduccionesComponent,AgregarTipoDeDeduccion,EditarTipoDeDeduccion,EliminarTipoDeDeduccion, VerTipoDeDeduccion} from './tipos-de-deducciones.component';
 import { MaterialModule } from 'src/app/material';
 import { FormsModule } from '@angular/forms';
 
@@ -12,14 +12,14 @@ import { FormsModule } from '@angular/forms';
     AgregarTipoDeDeduccion,
     EditarTipoDeDeduccion,
     EliminarTipoDeDeduccion,
-    VerTipoDeduccion
+    VerTipoDeDeduccion
     
   ],
   entryComponents : [
     AgregarTipoDeDeduccion,
     EditarTipoDeDeduccion,
     EliminarTipoDeDeduccion,
-    VerTipoDeduccion
+    VerTipoDeDeduccion
   ],
   imports: [
     MaterialModule,

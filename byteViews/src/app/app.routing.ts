@@ -1,5 +1,5 @@
 import { ModuleWithProviders } from "@angular/core";
-import { Routes, RouterModule,PreloadAllModules } from "@angular/router";
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { NgModule } from '@angular/core';
 
 //Components
@@ -9,6 +9,7 @@ import { SubProductosComponent } from './components/sub-productos/sub-productos.
 import { SubtipoGarantiaComponent } from './components/subtipo-garantia/subtipo-garantia.component';
 import { SubEstadosComponent } from './components/sub-estados/sub-estados.component';
 import { TrasladoEstadosPrestamosComponent } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
+import { MotivoCambioEjecutivoComponent } from './components/motivo-cambio-ejecutivo/motivo-cambio-ejecutivo.component';
 
 const appRoutes : Routes = [
     {path : '', component : HomeComponent},
@@ -113,14 +114,20 @@ const appRoutes : Routes = [
     {path : 'parametros-adicionales', 
         loadChildren : './components/parametros-adicionales-producto/parametros-adicionales-producto.module#ParametrosAdicionalesProductoModule'},
 
-    {path : 'definir-categorias-usuarios', component : DefinirCategoriasUsuariosComponent},
+    { path: 'definir-categorias-usuarios', component: DefinirCategoriasUsuariosComponent },
 
-    {path : 'asignacion-de-categorias', 
-        loadChildren : './components/asignacion-de-categorias/asignacion-de-categorias.module#AsignacionDeCategoriasModule'},
-    {path : 'parametros-de-productos',
-        loadChildren : './components/parametros-de-productos/parametros-de-productos.module#ParametrosDeProductosModule'},
-    {path : 'status-legales',
-        loadChildren : './components/status-legales/status-legales.module#StatusLegalesModule'},
+    {
+        path: 'asignacion-de-categorias',
+        loadChildren: './components/asignacion-de-categorias/asignacion-de-categorias.module#AsignacionDeCategoriasModule'
+    },
+    {
+        path: 'parametros-de-productos',
+        loadChildren: './components/parametros-de-productos/parametros-de-productos.module#ParametrosDeProductosModule'
+    },
+    {
+        path: 'status-legales',
+        loadChildren: './components/status-legales/status-legales.module#StatusLegalesModule'
+    },
 
     {path : 'tipo-vehiculo',
         loadChildren : './components/tipo-vehiculo/tipo-vehiculo.module#TipoVehiculoModule'},
@@ -136,11 +143,43 @@ const appRoutes : Routes = [
         loadChildren : './components/contenidos-contables/contenidos-contables.module#ContenidosContablesModule'},
 
 
-    
-    {path: 'sub-productos', component: SubProductosComponent},
-    {path : 'subtipos-garantias', component : SubtipoGarantiaComponent},
-    {path : 'sub-estados', component : SubEstadosComponent},
-    {path : 'traslado-estados-prest', component : TrasladoEstadosPrestamosComponent},
+    {
+        path: 'enlace-contabilidad',
+        loadChildren: './components/enlace-contabilidad/enlace-contabilidad.module#EnlaceContabilidadModule'
+    },
+    {
+        path: 'niveles-contabilizacion',
+        loadChildren: './components/niveles-contabilizacion/niveles-contabilizacion.module#NivelesContabilizacionModule'
+    },
+    {
+        path: 'contenido-contable',
+        loadChildren: './components/contenidos-contables/contenidos-contables.module#ContenidosContablesModule'
+    },
+
+
+
+    { path: 'sub-productos', component: SubProductosComponent },
+    { path: 'subtipos-garantias', component: SubtipoGarantiaComponent },
+    { path: 'sub-estados', component: SubEstadosComponent },
+    { path: 'traslado-estados-prest', component: TrasladoEstadosPrestamosComponent },
+
+    //Rutas Raul
+    {
+        path: 'motivo-cambio-ejecutivo',
+        loadChildren: './components/motivo-cambio-ejecutivo/motivo-cambio-ejecutivo.module#MotivoCambioEjecutivoModule'
+    },
+    {
+        path: 'poder',
+        loadChildren: './components/poder/poder.module#PoderModule'
+    },
+    {
+        path: 'estado-resolucion',
+        loadChildren: './components/estado-resolucion/estado-resolucion.module#EstadoResolucionModule'
+    },
+    {
+        path: 'tipo-ajuste',
+        loadChildren: './components/tipo-ajuste/tipo-ajuste.module#TipoAjusteModule'
+    }
 ];
 
 /*@NgModule({
@@ -156,5 +195,5 @@ const appRoutes : Routes = [
   export class AppRoutingModule { }*/
 
 
-export const appRoutingProviders : any[] = [];
-export const routing : ModuleWithProviders = RouterModule.forRoot(appRoutes)
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes)

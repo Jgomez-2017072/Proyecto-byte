@@ -1,23 +1,33 @@
 <div class="animated fadeIn">
     <h2 mat-dialog-title>Editar</h2>
-    <div mat-dialog-content class="modal-down1" >   
-        <mat-form-field >                
+    <div mat-dialog-content class="modal-down1">
+
+        <mat-form-field>
             <input matInput placeholder="Código" [(ngModel)]="tipoDeduccion.codigo" sdf>
-            <button mat-button  *ngIf="tipoDeduccion.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="tipoDeduccion.codigo=''">
-                <mat-icon>close</mat-icon>
-            </button> 
-        </mat-form-field>  
+            <button mat-button *ngIf="tipoDeduccion.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="tipoDeduccion.codigo=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+        </mat-form-field>
+
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripción" [(ngModel)]="tipoDeduccion.descripcion">
-          <button mat-button *ngIf="tipoDeduccion.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="tipoDeduccion.descripcion=''">
-              <mat-icon>close</mat-icon>
-          </button> 
-        </mat-form-field>     
+            <input matInput type="text" placeholder="Descripción" [(ngModel)]="tipoDeduccion.descripcion">
+            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                  <mat-icon>close</mat-icon>
+              </button>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Empresa" [(ngModel)]="tipoDeduccion.empresa">
+            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                      <mat-icon>close</mat-icon>
+                  </button>
+        </mat-form-field>
+
     </div><br>
-    <div  class="modal-down">
-        <div mat-dialog-actions>  
-            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();editarTipoDeduccion();" >EDITAR</button>
-            <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
-          </div>
-    </div>  
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar(); editarTipoDeduccion();">EDITAR</button>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        </div>
+    </div>
 </div>

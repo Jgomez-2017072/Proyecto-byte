@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject, ViewEncapsulation, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator, MatTab } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-import { TipoDeduccion } from 'src/app/models/tipoDeduccion.model';
-import { TipoDeduccionService } from 'src/app/services/tipoDeduccion.service';
+import { TipoDeduccion } from 'src/app/models/tipo-deduccion.model';
+import { TipoDeduccionService } from 'src/app/services/tipo-deduccion.service';
 
 export interface PeriodicElement {
   codigo: String;
@@ -10,7 +10,7 @@ export interface PeriodicElement {
   empresa: String;
 }
 
-var datosTipoDeduccion: TipoDeduccion[];
+var datosTipoDeduccion: TipoDeduccion[]//Modelo de Deduccion
 
 var codigo = '';
 var descripcion = '';
@@ -23,15 +23,16 @@ var empresa = '';
   providers : [TipoDeduccionService]
 })
 export class TiposDeDeduccionesComponent implements OnInit {
-  public dataSource;
+  public dataSource
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getTipoDeduccion();
+    this.getTiposDeduccion();
   }
 
-  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
-  
+  displayedColumns: string[] = ['codigo', 'descripcion' ,'editar', 'eliminar', 'ver'];
+
+
   //FILTRO
  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -40,22 +41,21 @@ export class TiposDeDeduccionesComponent implements OnInit {
   //PARA LOS MODALS
   constructor(public dialog: MatDialog, private _tipoDeduccionService : TipoDeduccionService) {}
 
+  //CRUD----------------------------------- TRAER DATOS-------------------------------------
 
-  public getTipoDeduccion(){
-    this._tipoDeduccionService.getTipoDeduccion().subscribe(
+  public getTiposDeduccion(){
+    this._tipoDeduccionService.getTiposDeduccion().subscribe(
       response => {
         if(response){
           datosTipoDeduccion = response;
-          console.log(datosTipoDeduccion)
+          console.log(datosTipoDeduccion);
           this.dataSource = new MatTableDataSource<PeriodicElement>(datosTipoDeduccion);
-          this.dataSource.paginator = this.paginator;
-
-        } 
+          this.dataSource.paginator = this.paginator
+        }
       },
-      error=>{
-        console.log(<any>error);
+      error => {
+        console.log(<any>error);    
       }
-
     )
   }
 
@@ -66,7 +66,6 @@ export class TiposDeDeduccionesComponent implements OnInit {
     console.log(codigo + " - " + descripcion + " - " + empresa)
   }
 
-
   openDialog1(): void {
     const dialogRef = this.dialog.open(EditarTipoDeDeduccion, {
       width: '50%',
@@ -76,7 +75,7 @@ export class TiposDeDeduccionesComponent implements OnInit {
       console.log('The dialog was closed');
 
       setTimeout(() => {
-        this.getTipoDeduccion();
+        this.getTiposDeduccion();
       }, 800);
     });
   }
@@ -88,60 +87,63 @@ export class TiposDeDeduccionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
       setTimeout(() => {
-        this.getTipoDeduccion();
+        this.getTiposDeduccion();
       }, 800);
     });
   }
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(AgregarTipoDeDeduccion, {
-      width: '40%',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getTipoDeduccion();
-      }, 800);
-    });
-  }
-
-  openDialog4(): void {
-    const dialogRef = this.dialog.open(VerTipoDeduccion, {
       width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      
+      setTimeout(() => {
+        this.getTiposDeduccion();
+      }, 800);
+    });
+  }
+  
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(VerTipoDeDeduccion, {
+      width: '50%',
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      setTimeout(() => {
+        this.getTiposDeduccion();
+      }, 800);
     });
   }
 }
+
+
+
 
 @Component({
   selector: 'editar-tipo-de-deduccion',
   templateUrl: 'editar-tipo-de-deduccion.html',
   styleUrls: ['./tipos-de-deducciones.component.scss']
 })
-export class EditarTipoDeDeduccion implements OnInit{
+
+export class EditarTipoDeDeduccion {
+
+  public tipoDeduccion : TipoDeduccion;
+  public status;
 
   ngOnInit() {
-    //this.buscarAseguradora();
+    //Llenamos los label con la informacion.
     this.tipoDeduccion.codigo = codigo;
     this.tipoDeduccion.descripcion = descripcion;
     this.tipoDeduccion.empresa = empresa;
   }
 
-  public tipoDeduccion : TipoDeduccion ;
-  public status;
-
   constructor(
-    public dialogRef: MatDialogRef<EditarTipoDeDeduccion>, private snackBar: MatSnackBar, private _tipoDeduccionService : TipoDeduccionService) {
-      this.tipoDeduccion = new TipoDeduccion("","","");
+    public dialogRef: MatDialogRef<EditarTipoDeDeduccion>, private snackBar: MatSnackBar, private _tipoDeduccionService: TipoDeduccionService) {
+      this.tipoDeduccion = new TipoDeduccion('','','');
     }
 
     openSnackBar() {
@@ -154,24 +156,23 @@ export class EditarTipoDeDeduccion implements OnInit{
     this.dialogRef.close();
   }
 
-  editarTipoDeduccion(){
-    console.log(this.tipoDeduccion)
-    this._tipoDeduccionService.editarTipoDeduccion(this.tipoDeduccion).subscribe(
-      response => {
-        if(response){
-          this.status = 'ok';
-          console.log(response);
+    editarTipoDeduccion(){
+      console.log(this.tipoDeduccion);
+      this._tipoDeduccionService.editarTipoDeduccion(this.tipoDeduccion).subscribe(
+        response => {
+          if(response) {
+            this.status = 'ok';
+            console.log(response);
+          }
+        },
+        error => {
+          if(error){
+            console.log(<any>error);
+            this.status = 'error';
+          }
         }
-      },
-      error => {
-        if(error){
-          console.log(<any>error);
-          this.status = 'error';
-        }
-      }
-    )
-  }
-
+      )
+    }
 
 }
 
@@ -180,21 +181,20 @@ export class EditarTipoDeDeduccion implements OnInit{
   templateUrl: 'eliminar-tipo-de-deduccion.html',
   styleUrls: ['./tipos-de-deducciones.component.scss']
 })
-export class EliminarTipoDeDeduccion implements OnInit {
+export class EliminarTipoDeDeduccion {
 
-  ngOnInit() {
-    //this.buscarAseguradora();
+  ngOnInit(){
     this.tipoDeduccion.codigo = codigo;
     this.tipoDeduccion.descripcion = descripcion;
     this.tipoDeduccion.empresa = empresa;
   }
-  
-  public tipoDeduccion : TipoDeduccion ;
+
+  public tipoDeduccion : TipoDeduccion;
   public status;
-  
+
   constructor(
     public dialogRef: MatDialogRef<EliminarTipoDeDeduccion>, private snackBar: MatSnackBar, private _tipoDeduccionService : TipoDeduccionService) {
-      this.tipoDeduccion = new TipoDeduccion("","","");
+      this.tipoDeduccion = new TipoDeduccion('','','');
     }
 
     openSnackBar() {
@@ -207,21 +207,21 @@ export class EliminarTipoDeDeduccion implements OnInit {
     this.dialogRef.close();
   }
 
-  eliminarTipoDeduccion(){    
+  eliminarTipoDeduccion(){
     this._tipoDeduccionService.eliminarTipoDeduccion(this.tipoDeduccion).subscribe(
-      response=>{
-        if(!response){
-          this.status = "error"
+      response => {
+        if(!response) {
+          this.status = 'error'
         }else{
-          this.status = "Success"
-          console.log(response)
+          this.status = 'Success'
+          console.log(response);
         }
       },
       error => {
         var errorMessage = <any>error;
         console.log(errorMessage);
         if(errorMessage != null){
-          this.status = "error";
+          this.status = 'error'
         }
       }
     )
@@ -232,21 +232,22 @@ export class EliminarTipoDeDeduccion implements OnInit {
   selector: 'agregar-tipo-de-deduccion',
   templateUrl: 'agregar-tipo-de-deduccion.html',
   styleUrls: ['./tipos-de-deducciones.component.scss'],
-  providers : [TipoDeduccionService]
+  providers: [TipoDeduccionService]
 })
+
 export class AgregarTipoDeDeduccion {
-  
   public tipoDeduccion : TipoDeduccion;
   public status;
 
   constructor(
     public dialogRef: MatDialogRef<AgregarTipoDeDeduccion>, private snackBar: MatSnackBar, private _tipoDeduccionService : TipoDeduccionService) {
-      this.tipoDeduccion = new TipoDeduccion("","","");
+      this.tipoDeduccion = new TipoDeduccion('','','')
     }
 
     openSnackBar() {
       this.snackBar.open("Registro Guardado!", "", {
         duration: 2100, horizontalPosition : 'end'
+        
       });
     }
 
@@ -254,52 +255,53 @@ export class AgregarTipoDeDeduccion {
     this.dialogRef.close();
   }
 
-  crearTipoDeduccion(){
-    this.tipoDeduccion.empresa = "1";
+  crearTipoDeduccion() {
+    this.tipoDeduccion.empresa = '1';
     this._tipoDeduccionService.crearTipoDeduccion(this.tipoDeduccion).subscribe(
-      response =>{
-        if(response){
-          this.status = 'ok';
+      response => {
+        if(response) {
+          this.status = 'ok'
           console.log(response);
         }
       },
       error => {
         if(error){
           console.log(<any>error);
-          this.status = 'error';
+          this.status= 'error'
         }
       }
     )
   }
-
 }
 
-@Component({
-  selector: 'ver-tipo-deduccion',
-  templateUrl: 'ver-tipo-deduccion.html',
-  styleUrls: ['./tipos-de-deducciones.component.scss'],
-  providers: [TipoDeduccionService]
-})
-export class VerTipoDeduccion implements OnInit{
-  ngOnInit(){
-    this.tipoDeduccion.codigo = codigo;
-    this.tipoDeduccion.descripcion = descripcion;
-    this.tipoDeduccion.empresa = empresa;
-  }
+  @Component({
+    selector: 'ver-tipo-de-deduccion',
+    templateUrl: 'ver-tipo-de-deduccion.html',
+    styleUrls: ['./tipos-de-deducciones.component.scss'],
+    providers : [TipoDeduccionService]
+  })
 
-  public tipoDeduccion : TipoDeduccion;
-  public status;
-
-  constructor(
-    public dialogRef: MatDialogRef<VerTipoDeduccion>,private snackBar: MatSnackBar) {
-      this.tipoDeduccion = new TipoDeduccion("","","");
-
+  export class VerTipoDeDeduccion implements OnInit{
+    ngOnInit() {
+      this.tipoDeduccion.codigo = codigo;
+      this.tipoDeduccion.descripcion = descripcion;
+      this.tipoDeduccion.empresa = empresa;
     }
+    public tipoDeduccion : TipoDeduccion;
+    public status
 
-  onNoClick(): void {
-    this.dialogRef.close();
+    constructor(
+      public dialogRef: MatDialogRef<VerTipoDeDeduccion>, private snackBar: MatSnackBar, private _tipoDeduccionService : TipoDeduccionService) {
+        this.tipoDeduccion = new TipoDeduccion('','','')
+      }
+
+      onNoClick(): void {
+        this.dialogRef.close();
+      }
+
   }
-}
+
+
 
 
 

@@ -11,7 +11,6 @@ export class SearchPipe2 implements PipeTransform {
       return items;
     }
 
-    console.log(items)
     return items.filter(function(item){
       return item.name.toLowerCase().includes(term.toLowerCase());
     });

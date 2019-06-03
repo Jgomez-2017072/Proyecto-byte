@@ -1,0 +1,23 @@
+<div class="animated fadeIn">
+    <h2 mat-dialog-title>Agregar</h2>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <input matInput placeholder="Código" [(ngModel)]="motivoCambioEjecutivo.codigo">
+            <button mat-button *ngIf="motivoCambioEjecutivo.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="motivoCambioEjecutivo.codigo=''">
+                      <mat-icon>close</mat-icon>
+                  </button>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Descripción" [(ngModel)]="motivoCambioEjecutivo.descripcion">
+            <button mat-button *ngIf="motivoCambioEjecutivo.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="motivoCambioEjecutivo.descripcion=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+        </mat-form-field>
+    </div><br>
+    <div class="modal-down">
+        <div mat-dialog-actions>
+            <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();crearMotivoCambioEjecutivo()">AGREGAR</button>
+            <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
+        </div>
+    </div>
+</div>

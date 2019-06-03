@@ -44,9 +44,8 @@ import { TipoActivoCrediticioComponent } from './components/tipo-activo-creditic
     TrasladoEstadosPrestamosComponent,
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
-    EliminarTrasladoEstPrestamo,
-    
-   
+    EliminarTrasladoEstPrestamo
+  
   ],
   imports: [
     BrowserModule,
