@@ -89,6 +89,7 @@ export class MantenimientoContabilizacionComponent implements OnInit {
   displayedColumns2: string[] = ['position', 'Transaccion'];
   dataSource2 = new MatTableDataSource<PeriodicElement2>(ELEMENT_DATA2);
 
+  //displayedColumns3: string[] = ['position', 'Transaccion', 'editar', 'eliminar', 'ver'];
   displayedColumns3: string[] = ['position', 'Transaccion'];
   dataSource3 = new MatTableDataSource<PeriodicElement3>(ELEMENT_DATA3);
 
@@ -100,7 +101,7 @@ export class MantenimientoContabilizacionComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  openDialog1(): void {
+  /*openDialog1(): void {
     const dialogRef = this.dialog.open(EditarMantenimientoContabilizacion, {
       width: '50%',
     });
@@ -120,7 +121,7 @@ export class MantenimientoContabilizacionComponent implements OnInit {
     });
   }
 
-  /*openDialog3(): void {
+  openDialog3(): void {
     const dialogRef = this.dialog.open(Altas, {
       width: '50%',
     });
@@ -128,7 +129,7 @@ export class MantenimientoContabilizacionComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  }*/
+  }
 
   openDialog4(): void {
     const dialogRef = this.dialog.open(EstatusDelPrestamo, {
@@ -138,126 +139,6 @@ export class MantenimientoContabilizacionComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  }
+  }*/
 
-}
-
-@Component({
-  selector: 'editar-mantenimiento-contabilizacion',
-  templateUrl: 'editar-mantenimiento-contabilizacion.html',
-  styleUrls: ['./mantenimiento-contabilizacion.component.scss']
-})
-export class EditarMantenimientoContabilizacion {
-  constructor(
-    public dialogRef: MatDialogRef<EditarMantenimientoContabilizacion>, private snackBar: MatSnackBar) {}
-
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-}
-
-@Component({
-  selector: 'eliminar-mantenimiento-contabilizacion',
-  templateUrl: 'eliminar-mantenimiento-contabilizacion.html',
-  styleUrls: ['./mantenimiento-contabilizacion.component.scss']
-})
-export class EliminarMantenimientoContabilizacion {
-  constructor(
-    public dialogRef: MatDialogRef<EliminarMantenimientoContabilizacion>, private snackBar: MatSnackBar) {}
-
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-}
-
-/*@Component({
-  selector: 'altas',
-  templateUrl: 'altas.html',
-  styleUrls: ['./mantenimiento-contabilizacion.component.scss']
-})
-export class Altas{
-  constructor(
-    public dialogRef: MatDialogRef<Altas>, private snackBar: MatSnackBar) {}
-
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-}*/
-
-@Component({
-  selector: 'estatus-del-prestamo',
-  templateUrl: 'estatus-del-prestamo.html',
-  styleUrls: ['./mantenimiento-contabilizacion.component.scss']
-})
-export class EstatusDelPrestamo implements OnInit{
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatPaginator) paginator2: MatPaginator;
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    //this.dataSource2.paginator = this.paginator2;
-  }
-
-  displayedColumns: string[] = ['position', 'Transaccion'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
-  displayedColumns2: string[] = ['position', 'Transaccion'];
-  //dataSource2 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA2);
-
-  constructor(
-    public dialogRef: MatDialogRef<EstatusDelPrestamo>, private snackBar: MatSnackBar) {}
-
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-}
-
-//Configuracio Stepper
-@Component({
-  selector: 'mantenimiento-contabilizacion',
-  templateUrl: 'mantenimiento-contabilizacion.component.html',
-  styleUrls: ['./mantenimiento-contabilizacion.component.scss']
-})
-export class StepperOverviewExample implements OnInit {
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-
-  constructor(private _formBuilder: FormBuilder) {}
-
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-  }
 }

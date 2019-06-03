@@ -60,6 +60,9 @@ const appRoutes : Routes = [
                 loadChildren: './components/ejecutivo-cuenta/ejecutivo-cuenta.module#EjecutivoCuentaModule'},
     {path : 'empresa', 
                 loadChildren: './components/empresa/empresa.module#EmpresaModule'},
+
+    {path : 'mantenimiento-contabilizacion', 
+                loadChildren: './components/mantenimiento-contabilizacion/mantenimiento-contabilizacion.module#MantenimientoContabilizacionModule'},
     //////////////////////////////////////////
     {path : 'motivos-de-referencias-clientes',
         loadChildren : './components/motivos-de-referencias-clientes/motivos-de-referencias-clientes.module#MotivosDeReferenciasClientesModule'},
