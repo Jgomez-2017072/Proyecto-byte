@@ -110,6 +110,11 @@ const appRoutes : Routes = [
     {path : 'status-legales',
         loadChildren : './components/status-legales/status-legales.module#StatusLegalesModule'},
 
+    {path : 'instancias', 
+    loadChildren : './components/instancia/instancia.module#InstanciaModule'}, 
+    {path : 'moneda-motivo-pago', 
+    loadChildren : './components/moneda-motivo-reversion-pago/moneda-motivo-reversion-pago.module#MonedaMotivoReversionPagoModule'}, 
+
     
         
     {path : 'enlace-contabilidad', 

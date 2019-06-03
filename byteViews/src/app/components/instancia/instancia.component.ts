@@ -1,35 +1,30 @@
 import { Component, OnInit, Inject, ViewEncapsulation, ViewChild} from '@angular/core';
 import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Almacenadora } from 'src/app/models/almacenadora.model';
-import { AlmacenadorasService } from 'src/app/services/almacenadoras.service';
+import { Instancia } from 'src/app/models/instancia.model';
+import { InstanciaService } from 'src/app/services/instancia.service';
 
 export interface PeriodicElement {
-  codigo: String;
+  codigoInstancia: String;
   descripcion: String;
-  empresa: String;
+  empresa: String; 
 }
 
 
-var datosAlmacenadora: Almacenadora[];
+var datosInstancia: Instancia[];
 
 
-var codigo = '';
+var codigoInstancia = '';
 var descripcion = '';
 var empresa = '';
 
 
- 
-
 @Component({
-  selector: 'app-almacenadoras',
-  templateUrl: './almacenadoras.component.html',
-  styleUrls: ['./almacenadoras.component.scss'],
-  providers : [AlmacenadorasService]
-
+  selector: 'app-instancia',
+  templateUrl: './instancia.component.html',
+  styleUrls: ['./instancia.component.scss']
 })
-
-export class AlmacenadorasComponent implements OnInit {
+export class InstanciaComponent implements OnInit {
 
   public dataSource;
 
@@ -37,7 +32,7 @@ export class AlmacenadorasComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getAlmacenadoras();
+    this.getInstancias();
   }
 
   displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
@@ -48,19 +43,19 @@ export class AlmacenadorasComponent implements OnInit {
   }  
 
   //PARA LOS MODALS
-  constructor(public dialog: MatDialog,private _almacenadorasService : AlmacenadorasService) {}
+  constructor(public dialog: MatDialog,private _instanciasService : InstanciaService) {}
 
 
   //Crud -------------- Trae datos -----------------------
 
   
-  public getAlmacenadoras(){
-    this._almacenadorasService.getAlmacenadoras().subscribe(
+  public getInstancias(){
+    this._instanciasService.getInstancias().subscribe(
       response => {
         if(response){
-          datosAlmacenadora = response;
-          console.log(datosAlmacenadora)
-          this.dataSource = new MatTableDataSource<PeriodicElement>(datosAlmacenadora);
+          datosInstancia = response;
+          console.log(datosInstancia)
+          this.dataSource = new MatTableDataSource<PeriodicElement>(datosInstancia);
           this.dataSource.paginator = this.paginator;
 
         } 
@@ -73,10 +68,10 @@ export class AlmacenadorasComponent implements OnInit {
   }
 
   buscar(id, descripcion2, empresa2){
-    codigo = id;
+    codigoInstancia = id; 
     descripcion = descripcion2;
     empresa = empresa2;
-    console.log(codigo + " - " + descripcion + " - " + empresa)
+    console.log(codigoInstancia + " - " + descripcion + " - " + empresa)
   }
 
 
@@ -84,7 +79,7 @@ export class AlmacenadorasComponent implements OnInit {
 
 
   openDialog1(): void {
-    const dialogRef = this.dialog.open(EditarAlmacenadora, {
+    const dialogRef = this.dialog.open(EditarInstancia, {
       width: '50%',
     });
 
@@ -92,13 +87,13 @@ export class AlmacenadorasComponent implements OnInit {
       console.log('The dialog was closed');
 
       setTimeout(() => {
-        this.getAlmacenadoras();
+        this.getInstancias();
       }, 800);
     });
   }
 
   openDialog2(): void {
-    const dialogRef = this.dialog.open(EliminarAlmacenadora, {
+    const dialogRef = this.dialog.open(EliminarInstancia, {
       width: '50%',
     });
 
@@ -106,13 +101,13 @@ export class AlmacenadorasComponent implements OnInit {
       console.log('The dialog was closed');
 
       setTimeout(() => {
-        this.getAlmacenadoras();
+        this.getInstancias();
       }, 800);
     });
   }
 
   openDialog3(): void {
-    const dialogRef = this.dialog.open(AgregarAlmacenadora, {
+    const dialogRef = this.dialog.open(AgregarInstancia, {
       width: '50%',
     });
 
@@ -120,13 +115,13 @@ export class AlmacenadorasComponent implements OnInit {
       console.log('The dialog was closed');
 
       setTimeout(() => {
-        this.getAlmacenadoras();
+        this.getInstancias();
       }, 800);
     });
   }
 
   openDialog4(): void {
-    const dialogRef = this.dialog.open(VerAlmacenadora, {
+    const dialogRef = this.dialog.open(VerInstancia, {
       width: '50%',
     });
 
@@ -134,31 +129,31 @@ export class AlmacenadorasComponent implements OnInit {
       console.log('The dialog was closed');
 
       setTimeout(() => {
-        this.getAlmacenadoras();
+        this.getInstancias();
       }, 800);
     });
   }
 }
 
 @Component({
-  selector: 'editar-almacenadora',
-  templateUrl: 'editar-almacenadora.html',
-  styleUrls: ['./almacenadoras.component.scss']
+  selector: 'editar-instancia',
+  templateUrl: 'editar-instancia.html',
+  styleUrls: ['./instancia.component.scss']
 })
-export class EditarAlmacenadora implements OnInit{
+export class EditarInstancia implements OnInit{
 
   ngOnInit() {
-    this.almacenadora.codigo = codigo;
-    this.almacenadora.descripcion = descripcion;
-    this.almacenadora.empresa = empresa;
+    this.instancia.codigoInstancia = codigoInstancia;
+    this.instancia.descripcion = descripcion;
+    this.instancia.empresa = empresa;
   }
 
-  public almacenadora : Almacenadora ;
+  public instancia : Instancia ;
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar,private _almacenadorasService : AlmacenadorasService) {
-      this.almacenadora = new Almacenadora("","","");
+    public dialogRef: MatDialogRef<EditarInstancia>, private snackBar: MatSnackBar,private _instanciasService : InstanciaService) {
+      this.instancia = new Instancia("","","");
     }
 
     openSnackBar() {
@@ -171,9 +166,9 @@ export class EditarAlmacenadora implements OnInit{
     this.dialogRef.close();
   }
 
-  editarAlmacenadora(){
-    console.log(this.almacenadora)
-    this._almacenadorasService.editarAlmacenadora(this.almacenadora).subscribe(
+  editarInstancia(){
+    console.log(this.instancia)
+    this._instanciasService.editarInstancia(this.instancia).subscribe(
       response => {
         if(response){
           this.status = 'ok';
@@ -191,24 +186,24 @@ export class EditarAlmacenadora implements OnInit{
 }
 
 @Component({
-  selector: 'eliminar-almacenadora',
-  templateUrl: 'eliminar-almacenadora.html',
-  styleUrls: ['./almacenadoras.component.scss']
+  selector: 'eliminar-instancia',
+  templateUrl: 'eliminar-instancia.html',
+  styleUrls: ['./instancia.component.scss']
 })
-export class EliminarAlmacenadora implements OnInit{
+export class EliminarInstancia implements OnInit{
 
   ngOnInit() {
-    this.almacenadora.codigo = codigo;
-    this.almacenadora.descripcion = descripcion;
-    this.almacenadora.empresa = empresa;
+    this.instancia.codigoInstancia = codigoInstancia;
+    this.instancia.descripcion = descripcion;
+    this.instancia.empresa = empresa;
   }
 
-  public almacenadora : Almacenadora ;
+  public instancia : Instancia ;
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar,private _almacenadorasService : AlmacenadorasService) {
-      this.almacenadora = new Almacenadora("","","");
+    public dialogRef: MatDialogRef<EditarInstancia>, private snackBar: MatSnackBar,private _instanciasService : InstanciaService) {
+      this.instancia = new Instancia("","","");
     }
 
     openSnackBar() {
@@ -221,8 +216,8 @@ export class EliminarAlmacenadora implements OnInit{
     this.dialogRef.close();
   }
 
-  eliminarAlmacenadora(){    
-    this._almacenadorasService.eliminarAlmacenadora(this.almacenadora).subscribe(
+  eliminarInstancia(){    
+    this._instanciasService.eliminarInstancia(this.instancia).subscribe(
       response=>{
         if(!response){
           this.status = "error"
@@ -244,18 +239,18 @@ export class EliminarAlmacenadora implements OnInit{
 }
 
 @Component({
-  selector: 'agregar-almacenadora',
-  templateUrl: 'agregar-almacenadora.html',
-  styleUrls: ['./almacenadoras.component.scss']
+  selector: 'agregar-instancia',
+  templateUrl: 'agregar-instancia.html',
+  styleUrls: ['./instancia.component.scss']
 })
-export class AgregarAlmacenadora {
+export class AgregarInstancia {
   
-  public almacenadora : Almacenadora ;
+  public instancia : Instancia ;
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<AgregarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService : AlmacenadorasService) {
-      this.almacenadora = new Almacenadora("","","");
+    public dialogRef: MatDialogRef<AgregarInstancia>, private snackBar: MatSnackBar, private _instanciasService : InstanciaService) {
+      this.instancia = new Instancia("","","");
     }
 
     openSnackBar() {
@@ -268,9 +263,9 @@ export class AgregarAlmacenadora {
     this.dialogRef.close();
   }
 
-  crearAlmacenadora(){
-    this.almacenadora.empresa = "1";
-    this._almacenadorasService.crearAlmacenadora(this.almacenadora).subscribe(
+  crearInstancia(){
+    this.instancia.empresa = "1";
+    this._instanciasService.crearInstancia(this.instancia).subscribe(
       response => {
         if(response){
           this.status = 'ok';
@@ -291,25 +286,25 @@ export class AgregarAlmacenadora {
 
 
 @Component({
-  selector: 'ver-almacenadora',
-  templateUrl: 'ver-almacenadora.html',
-  styleUrls: ['./almacenadoras.component.scss']
+  selector: 'ver-instancia',
+  templateUrl: 'ver-instancia.html',
+  styleUrls: ['./instancia.component.scss']
 })
 
-export class VerAlmacenadora implements OnInit{
+export class VerInstancia implements OnInit{
 
   ngOnInit() {
-    this.almacenadora.codigo = codigo;
-    this.almacenadora.descripcion = descripcion;
-    this.almacenadora.empresa = empresa;
+    this.instancia.codigoInstancia = codigoInstancia;
+    this.instancia.descripcion = descripcion;
+    this.instancia.empresa = empresa;
   }
 
-  public almacenadora : Almacenadora ;
+  public instancia : Instancia ;
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar,private _almacenadorasService : AlmacenadorasService) {
-      this.almacenadora = new Almacenadora("","","");
+    public dialogRef: MatDialogRef<EditarInstancia>, private snackBar: MatSnackBar,private _instanciasService : InstanciaService) {
+      this.instancia = new Instancia("","","");
     }
 
   onNoClick(): void {
@@ -318,5 +313,3 @@ export class VerAlmacenadora implements OnInit{
   
 
 }
-
-

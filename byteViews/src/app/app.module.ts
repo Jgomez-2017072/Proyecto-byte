@@ -20,6 +20,7 @@ import { SubEstadosComponent, AgregarSubEstados, EditarSubEstados, EliminarSubEs
 import { TrasladoEstadosPrestamosComponent, AgregarTrasladoEstPrestamo, EditarTrasladoEstPrestamo, EliminarTrasladoEstPrestamo } from './components/traslado-estados-prestamos/traslado-estados-prestamos.component';
 import { SearchPipe } from './components/pipes/search.pipe';
 
+
 @NgModule({
   declarations: [
     SearchPipe,
@@ -43,7 +44,9 @@ import { SearchPipe } from './components/pipes/search.pipe';
     TrasladoEstadosPrestamosComponent,
     AgregarTrasladoEstPrestamo,
     EditarTrasladoEstPrestamo,
-    EliminarTrasladoEstPrestamo,
+    EliminarTrasladoEstPrestamo
+    
+    
   ],
   imports: [
     BrowserModule,
