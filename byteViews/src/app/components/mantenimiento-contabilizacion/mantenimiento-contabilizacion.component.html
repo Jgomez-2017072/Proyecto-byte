@@ -10,12 +10,15 @@
   }
 
   .container {
-    order: 1;
-    flex-grow: 1
+    order: 2;
+
   }
 
   .container2 {
     order: 2;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
   }
 </style>
 
@@ -83,20 +86,22 @@
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator1 showFirstLastButtons></mat-paginator>
   </div><br>
 
   <!--
     <button class="btn-aceptar" (click)="openDialog3()" id="alta">Altas</button>
   -->
+  <!--
+    <button class="btn-danger" (click)="openDialog4()" id="alta">Estatus del prestamo</button>
+  -->
 
-  <button class="btn-danger" (click)="openDialog4()" id="alta">Estatus del prestamo</button>
 
 </div>
 
 <mat-expansion-panel>
   <mat-expansion-panel-header>
-    This is the expansion title
+    Pasos para dar de alta
   </mat-expansion-panel-header>
 
   <div class="contenedor">
@@ -106,37 +111,23 @@
 
 
         <br>
-        <!--<mat-radio-group aria-label="Select an option">-->
+
         <mat-radio-group>
           <mat-radio-button color="primary" value="primero1">Resumida</mat-radio-button>
           <br><br>
           <mat-radio-button color="primary" value="primero2">Detallada</mat-radio-button>
         </mat-radio-group>
 
-        <!--
-          <input matInput type="text" placeholder="Transacción" [(ngModel)]="value1">
-        <br><br>
-        <button mat-button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
-          <mat-icon>close</mat-icon>
-        </button>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="resumidaSiNo" />Resumida?
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="detalladaSiNo" />Detallada?
-        </label>
-        -->
       </mat-step>
 
       <mat-step [stepControl]="secondFormGroup">
         <ng-template matStepLabel>Estatus del prestamo</ng-template>
 
         <div class="flexboxCabeceraVertical">
-          <div class="container">
+          <div class="container2">
             <div class="flexboxCabecera">
-              <div class="container">
+
+              <div class="container2">
                 <table mat-table [dataSource]="dataSource2">
 
                   <ng-container matColumnDef="position">
@@ -153,32 +144,11 @@
                   <tr mat-row *matRowDef="let row; columns: displayedColumns2;">
                   </tr>
                 </table>
-                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator2 showFirstLastButtons>
+                </mat-paginator>
               </div>
 
-              <div class="container">
-                <table mat-table [dataSource]="dataSource3">
-
-                  <ng-container matColumnDef="position">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
-                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                  </ng-container>
-
-                  <ng-container matColumnDef="Transaccion">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados"> Transaccion </th>
-                    <td mat-cell *matCellDef="let element"> {{element.transaccion}} </td>
-                  </ng-container>
-
-                  <tr mat-header-row *matHeaderRowDef="displayedColumns3; sticky: true"></tr>
-                  <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div class="container">
-            <div class="flexboxCabecera">
               <div class="container2">
                 <table mat-table [dataSource]="dataSource3">
 
@@ -192,36 +162,39 @@
                     <td mat-cell *matCellDef="let element"> {{element.transaccion}} </td>
                   </ng-container>
 
-                  <!--
-                                      <ng-container matColumnDef="editar">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                    <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()">
-                        <mat-icon style="color : rgb(21, 100, 165);">create</mat-icon>
-                      </button></td>
-                  </ng-container>
-
-                  <ng-container matColumnDef="eliminar">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                    <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog2()">
-                        <mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon>
-                      </button></td>
-                  </ng-container>
-
-                  <ng-container matColumnDef="ver">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                    <td mat-cell *matCellDef="let element"><button class="btn">
-                        <mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon>
-                      </button></td> 
-                  </ng-container>
-                  -->
-
                   <tr mat-header-row *matHeaderRowDef="displayedColumns3; sticky: true"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
                   </tr>
-
                 </table>
+
+                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator3 showFirstLastButtons>
+                </mat-paginator>
               </div>
             </div>
+
+          </div>
+
+          <div class="container2">
+            <table mat-table [dataSource]="dataSource4">
+
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Transaccion">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> Transaccion </th>
+                <td mat-cell *matCellDef="let element"> {{element.transaccion}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns4; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
+              </tr>
+
+            </table>
+
+            <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator4 showFirstLastButtons>
+            </mat-paginator>
           </div>
 
         </div>
@@ -247,46 +220,16 @@
           <mat-radio-button color="primary" value="segundo7">Cancelados</mat-radio-button>
         </mat-radio-group>
 
-
-        <!--
-          <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Vigente
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Atrasado
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Vencido
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Ejecucion Judicial
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Castigado
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Anulados
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Cancelados
-        </label>
-        -->
       </mat-step>
 
       <mat-step [stepControl]="fourFormGroup">
         <ng-template matStepLabel>Tipo de producto</ng-template>
 
         <div class="flexboxCabeceraVertical">
-          <div class="container">
+          <div class="container2">
             <div class="flexboxCabecera">
-              <div class="container">
-                <table mat-table [dataSource]="dataSource2">
+              <div class="container2">
+                <table mat-table [dataSource]="dataSource5">
 
                   <ng-container matColumnDef="position">
                     <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
@@ -302,11 +245,13 @@
                   <tr mat-row *matRowDef="let row; columns: displayedColumns2;">
                   </tr>
                 </table>
-                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator5 showFirstLastButtons>
+                </mat-paginator>
               </div>
 
-              <div class="container">
-                <table mat-table [dataSource]="dataSource3">
+              <div class="container2">
+                <table mat-table [dataSource]="dataSource6">
 
                   <ng-container matColumnDef="position">
                     <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
@@ -322,55 +267,34 @@
                   <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
                   </tr>
                 </table>
+
+                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator6 showFirstLastButtons>
+                </mat-paginator>
               </div>
             </div>
           </div>
 
-          <div class="container">
-            <div class="flexboxCabecera">
-              <div class="container2">
-                <table mat-table [dataSource]="dataSource3">
+          <div class="container2">
+            <table mat-table [dataSource]="dataSource7">
 
-                  <ng-container matColumnDef="position">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
-                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                  </ng-container>
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
 
-                  <ng-container matColumnDef="Transaccion">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados"> Transaccion </th>
-                    <td mat-cell *matCellDef="let element"> {{element.transaccion}} </td>
-                  </ng-container>
+              <ng-container matColumnDef="Transaccion">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> Transaccion </th>
+                <td mat-cell *matCellDef="let element"> {{element.transaccion}} </td>
+              </ng-container>
 
-                  <!--
-                                        <ng-container matColumnDef="editar">
-                      <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                      <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()">
-                          <mat-icon style="color : rgb(21, 100, 165);">create</mat-icon>
-                        </button></td>
-                    </ng-container>
-  
-                    <ng-container matColumnDef="eliminar">
-                      <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                      <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog2()">
-                          <mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon>
-                        </button></td>
-                    </ng-container>
-  
-                    <ng-container matColumnDef="ver">
-                      <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                      <td mat-cell *matCellDef="let element"><button class="btn">
-                          <mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon>
-                        </button></td> 
-                    </ng-container>
-                    -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns3; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
+              </tr>
 
-                  <tr mat-header-row *matHeaderRowDef="displayedColumns3; sticky: true"></tr>
-                  <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
-                  </tr>
+            </table>
 
-                </table>
-              </div>
-            </div>
+            <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator7 showFirstLastButtons>
+            </mat-paginator>
           </div>
 
         </div>
@@ -390,35 +314,16 @@
           <mat-radio-button color="primary" value="tercero4">Consumo</mat-radio-button>
         </mat-radio-group>
 
-        <!--
-            <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Fiduciarios
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Automatico
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Emergente
-        </label>
-        <br><br>
-        <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Consumo
-        </label>
-        <br><br>
-          -->
-
       </mat-step>
 
       <mat-step [stepControl]="sixFormGroup">
         <ng-template matStepLabel>Productos</ng-template>
 
         <div class="flexboxCabeceraVertical">
-          <div class="container">
+          <div class="container2">
             <div class="flexboxCabecera">
-              <div class="container">
-                <table mat-table [dataSource]="dataSource2">
+              <div class="container2">
+                <table mat-table [dataSource]="dataSource8">
 
                   <ng-container matColumnDef="position">
                     <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
@@ -434,11 +339,13 @@
                   <tr mat-row *matRowDef="let row; columns: displayedColumns2;">
                   </tr>
                 </table>
-                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator8 showFirstLastButtons>
+                </mat-paginator>
               </div>
 
-              <div class="container">
-                <table mat-table [dataSource]="dataSource3">
+              <div class="container2">
+                <table mat-table [dataSource]="dataSource9">
 
                   <ng-container matColumnDef="position">
                     <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
@@ -454,55 +361,34 @@
                   <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
                   </tr>
                 </table>
+
+                <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator9 showFirstLastButtons>
+                </mat-paginator>
               </div>
             </div>
           </div>
 
-          <div class="container">
-            <div class="flexboxCabecera">
-              <div class="container2">
-                <table mat-table [dataSource]="dataSource3">
+          <div class="container2">
+            <table mat-table [dataSource]="dataSource10">
 
-                  <ng-container matColumnDef="position">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
-                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                  </ng-container>
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> Position </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
 
-                  <ng-container matColumnDef="Transaccion">
-                    <th mat-header-cell *matHeaderCellDef class="encabezados"> Transaccion </th>
-                    <td mat-cell *matCellDef="let element"> {{element.transaccion}} </td>
-                  </ng-container>
+              <ng-container matColumnDef="Transaccion">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> Transaccion </th>
+                <td mat-cell *matCellDef="let element"> {{element.transaccion}} </td>
+              </ng-container>
 
-                  <!--
-                                        <ng-container matColumnDef="editar">
-                      <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                      <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog1()">
-                          <mat-icon style="color : rgb(21, 100, 165);">create</mat-icon>
-                        </button></td>
-                    </ng-container>
-  
-                    <ng-container matColumnDef="eliminar">
-                      <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                      <td mat-cell *matCellDef="let element"><button class="btn" (click)="openDialog2()">
-                          <mat-icon style="color :rgb(238, 60, 48); ">delete</mat-icon>
-                        </button></td>
-                    </ng-container>
-  
-                    <ng-container matColumnDef="ver">
-                      <th mat-header-cell *matHeaderCellDef class="encabezados2"></th>
-                      <td mat-cell *matCellDef="let element"><button class="btn">
-                          <mat-icon style="color :rgb(17, 84, 104); ">find_in_page</mat-icon>
-                        </button></td> 
-                    </ng-container>
-                    -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns3; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
+              </tr>
 
-                  <tr mat-header-row *matHeaderRowDef="displayedColumns3; sticky: true"></tr>
-                  <tr mat-row *matRowDef="let row; columns: displayedColumns3;">
-                  </tr>
+            </table>
 
-                </table>
-              </div>
-            </div>
+            <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" #paginator10 showFirstLastButtons>
+            </mat-paginator>
           </div>
 
         </div>
@@ -516,27 +402,9 @@
           <mat-radio-button color="primary" value="cuarto1">Fiduciario 1</mat-radio-button>
         </mat-radio-group>
 
-        <!--
-          <label class="container">
-          <input type="checkbox" [(ngModel)]="valor1" />Fiduciario 1
-        </label>
-        -->
       </mat-step>
 
-      <!--
-        <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        You are now done.
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
-      </mat-step>
-      -->
     </mat-vertical-stepper>
   </div>
 
-  <mat-action-row>
-    <button mat-button>Click me</button>
-  </mat-action-row>
 </mat-expansion-panel>
