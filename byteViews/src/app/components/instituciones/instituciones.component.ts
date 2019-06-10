@@ -34,7 +34,7 @@ export class InstitucionesComponent implements OnInit {
   }
 
 
-  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver', 'maestros'];
+  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
   // displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar', 'maestros', 'ver'];
 
   //SELECTOR

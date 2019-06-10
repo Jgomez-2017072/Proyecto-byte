@@ -23,11 +23,22 @@
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
+
+      <!--
+        <mat-radio-group matInput aria-label="Status" [(ngModel)]="ejecutivoCuenta.status">
+        <mat-radio-button value="A">A </mat-radio-button>
+        <mat-radio-button value="I">I</mat-radio-button>
+      </mat-radio-group>
+      -->
+
+
       <input matInput placeholder="Status (A o I)" [(ngModel)]="ejecutivoCuenta.status">
       <button mat-button *ngIf="ejecutivoCuenta.status" matSuffix mat-icon-button aria-label="Clear"
         (click)="ejecutivoCuenta.status=''">
         <mat-icon>close</mat-icon>
       </button>
+
+
     </mat-form-field>
   </div><br>
   <div class="modal-down">

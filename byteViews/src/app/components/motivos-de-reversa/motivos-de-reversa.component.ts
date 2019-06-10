@@ -233,13 +233,9 @@ export class EditarMotivoDeReversa implements OnInit {
 export class EliminarMotivosDeReversa implements OnInit{
 
   ngOnInit() {
-    this.motivoDeReversa.cobroAdicional = cobroAdicional;
-    this.motivoDeReversa.code = code;
+    
     this.motivoDeReversa.codigo = codigo;
     this.motivoDeReversa.descripcion = descripcion;
-    this.motivoDeReversa.description = description;
-    this.motivoDeReversa.empresa = empresa;
-    this.motivoDeReversa.errorCore = errorCore;
     this.motivoDeReversa.institucion = institucion;
     this.motivoDeReversa.referencia1 = referencia1;
     this.motivoDeReversa.referencia2 = referencia2;
@@ -315,6 +311,10 @@ export class AgregarMotivoDeReversa {
 
   crearMotivoDeReversa() {
     this.motivoDeReversa.empresa = "1";
+    this.motivoDeReversa.errorCore = true;
+    this.motivoDeReversa.description = "";
+    this.motivoDeReversa.cobroAdicional = "";
+    this.motivoDeReversa.code = 0;
     this._motivosDeReversaService.crearMotivoDeReversa(this.motivoDeReversa).subscribe(
       response => {
         if (response) {
