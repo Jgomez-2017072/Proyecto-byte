@@ -51,6 +51,10 @@ export class SidenavComponent implements OnInit {
     {name: 'Mantenimiento Contabilizacion', route: '/mantenimiento-contabilizacion'}
   ]
 
+  fillerNav3 = [
+    {image: './assets/image-menu.jpg', route: '/home'}
+  ]
+
   fillerNav = [
     {name: "Almacenadoras", route:"/almacenadoras"},
     {name: "Aseguradoras", route:"/aseguradoras"},

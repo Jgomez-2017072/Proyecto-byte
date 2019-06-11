@@ -10,8 +10,10 @@
         <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
             fixedTopGap="56">
             <mat-nav-list>
-                <a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a> 
-                
+                <!--<a href="./home"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a> -->
+                <br>
+                <a [routerLink]="nav.route" (click)="snav.toggle()" *ngFor="let nav of fillerNav3"><img src="./assets/image-menu.jpg" class="imagen" alt="cuentas"></a>
+                <br><br>
 
                 <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
                     <span class="full-width" *ngIf="isExpanded || isShowing">Requerimientos</span>
@@ -33,7 +35,7 @@
                                     </button>
                                 </mat-form-field>
 
-                        <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav | search: busqueda">{{nav.name}}</a>
+                        <a mat-list-item  (click)="snav.toggle()" [routerLink]="nav.route" *ngFor="let nav of fillerNav | search: busqueda">{{nav.name}}</a>
 
                        
                 </div>
@@ -63,7 +65,7 @@
 
               
 
-                    <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav2 | search: busqueda1">{{nav.name}}</a>
+                    <a mat-list-item (click)="snav.toggle()"  [routerLink]="nav.route" *ngFor="let nav of fillerNav2 | search: busqueda1">{{nav.name}}</a>
                 </div>
 
             </mat-nav-list>

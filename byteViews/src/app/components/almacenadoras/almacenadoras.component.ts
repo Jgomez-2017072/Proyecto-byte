@@ -90,10 +90,7 @@ export class AlmacenadorasComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getAlmacenadoras();
-      }, 800);
+       this.getAlmacenadoras();
     });
   }
 
@@ -104,10 +101,7 @@ export class AlmacenadorasComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getAlmacenadoras();
-      }, 800);
     });
   }
 
@@ -117,11 +111,8 @@ export class AlmacenadorasComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      setTimeout(() => {
+      console.log('The dialog was closed');     
         this.getAlmacenadoras();
-      }, 800);
     });
   }
 
@@ -132,10 +123,6 @@ export class AlmacenadorasComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getAlmacenadoras();
-      }, 800);
     });
   }
 }
@@ -143,9 +130,13 @@ export class AlmacenadorasComponent implements OnInit {
 @Component({
   selector: 'editar-almacenadora',
   templateUrl: 'editar-almacenadora.html',
-  styleUrls: ['./almacenadoras.component.scss']
+  styleUrls: ['./almacenadoras.component.scss'],
+  providers: [AlmacenadorasService]
+
 })
-export class EditarAlmacenadora implements OnInit {
+export class EditarAlmacenadora  implements OnInit {
+
+  
 
   ngOnInit() {
     this.almacenadora.codigo = codigo;
@@ -158,26 +149,36 @@ export class EditarAlmacenadora implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService: AlmacenadorasService) {
+    //super(dialog,_almacenadorasService2);
     this.almacenadora = new Almacenadora("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
+  
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   editarAlmacenadora() {
+    
     console.log(this.almacenadora)
     this._almacenadorasService.editarAlmacenadora(this.almacenadora).subscribe(
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+           // openSnackBar() {
+            //  super.getAlmacenadoras();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           // }
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
@@ -211,12 +212,6 @@ export class EliminarAlmacenadora implements OnInit {
     this.almacenadora = new Almacenadora("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -228,7 +223,16 @@ export class EliminarAlmacenadora implements OnInit {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -258,12 +262,6 @@ export class AgregarAlmacenadora {
     this.almacenadora = new Almacenadora("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -274,14 +272,23 @@ export class AgregarAlmacenadora {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
-
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
+          
         }
       }
 
