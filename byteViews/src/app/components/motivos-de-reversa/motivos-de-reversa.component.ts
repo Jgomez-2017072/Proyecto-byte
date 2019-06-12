@@ -195,12 +195,6 @@ export class EditarMotivoDeReversa implements OnInit {
     this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -211,7 +205,19 @@ export class EditarMotivoDeReversa implements OnInit {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if (response.description === 'Editado Correctamente') {
+            this.dialogRef.close();
+            // openSnackBar() {
+            //  super.getAlmacenadoras();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+            // }
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -230,10 +236,10 @@ export class EditarMotivoDeReversa implements OnInit {
   styleUrls: ['./motivos-de-reversa.component.scss'],
   providers: [MotivosDeReversaService]
 })
-export class EliminarMotivosDeReversa implements OnInit{
+export class EliminarMotivosDeReversa implements OnInit {
 
   ngOnInit() {
-    
+
     this.motivoDeReversa.codigo = codigo;
     this.motivoDeReversa.descripcion = descripcion;
     this.motivoDeReversa.institucion = institucion;
@@ -251,12 +257,6 @@ export class EliminarMotivosDeReversa implements OnInit{
     this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -268,7 +268,16 @@ export class EliminarMotivosDeReversa implements OnInit{
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if (response.description === 'Eliminado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -299,12 +308,6 @@ export class AgregarMotivoDeReversa {
     this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -319,8 +322,16 @@ export class AgregarMotivoDeReversa {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
-
+          if (response.description === 'Agregado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -332,6 +343,7 @@ export class AgregarMotivoDeReversa {
 
     )
   }
+
 }
 
 /*
@@ -459,7 +471,7 @@ export class VerMotivoDeReversa implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<VerMotivoDeReversa>, private snackBar: MatSnackBar, private _motivosDereversasService: MotivosDeReversaService) {
-      this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
+    this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
 
   }
 

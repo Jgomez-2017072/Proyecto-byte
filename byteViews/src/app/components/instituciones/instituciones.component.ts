@@ -152,12 +152,6 @@ export class EditarInstituciones implements OnInit {
     this.institucion = new Institucion(0, "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -168,7 +162,19 @@ export class EditarInstituciones implements OnInit {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if (response.description === 'Editado Correctamente') {
+            this.dialogRef.close();
+            // openSnackBar() {
+            //  super.getAlmacenadoras();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+            // }
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -205,12 +211,6 @@ export class EliminarInstitucion implements OnInit {
 
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -222,7 +222,16 @@ export class EliminarInstitucion implements OnInit {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if (response.description === 'Eliminado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -257,12 +266,6 @@ export class AgregarInstituciones {
 
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -275,11 +278,18 @@ export class AgregarInstituciones {
     this.institucion.empresa = "1";
     this._institucionesService.crearInstitucion(this.institucion).subscribe(
       response => {
-        console.log("2")
         if (response) {
           this.status = 'ok';
-          console.log(response);
-
+          if (response.description === 'Agregado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {

@@ -1,13 +1,6 @@
-<div class="animated fadeIn"> 
+<div class="animated fadeIn">
   <h2 mat-dialog-title>Editar</h2>
   <div mat-dialog-content>
-    <mat-form-field>
-      <input matInput placeholder="Código" [(ngModel)]="ejecutivoCuenta.codigo">
-      <button mat-button *ngIf="ejecutivoCuenta.codigo" matSuffix mat-icon-button aria-label="Clear"
-        (click)="ejecutivoCuenta.codigo=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Código Empleado" [(ngModel)]="ejecutivoCuenta.codigoEmpleado">
       <button mat-button *ngIf="ejecutivoCuenta.codigoEmpleado" matSuffix mat-icon-button aria-label="Clear"
@@ -22,18 +15,19 @@
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Status" [(ngModel)]="ejecutivoCuenta.status">
-      <button mat-button *ngIf="ejecutivoCuenta.status" matSuffix mat-icon-button aria-label="Clear"
-        (click)="ejecutivoCuenta.status=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
+    <section class="example-full-width">
+      <label id="example-radio-group-label">Status</label><br><br>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="ejecutivoCuenta.status">
+        <mat-radio-button color="primary" class="example-margin" value="A">A &nbsp;&nbsp;&nbsp;&nbsp;
+        </mat-radio-button>
+        <mat-radio-button color="primary" class="example-margin" value="I">I</mat-radio-button>
+      </mat-radio-group>
+    </section>
   </div><br>
   <div class="modal-down">
     <div mat-dialog-actions>
-      <button mat-button class="btn-aceptar" (click)="onNoClick()"
-        (click)="openSnackBar();editarEjecutivoCuenta()">EDITAR</button>
+      <button mat-button class="btn-aceptar" (click)="editarEjecutivoCuenta()">EDITAR</button>
       <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
     </div>
   </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, ViewEncapsulation, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { Component, OnInit, Inject, ViewEncapsulation, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { CorredorSeguro } from 'src/app/models/corredorSeguro.model';
 import { CorredorSeguroService } from "src/app/services/corredor-seguro.service";
@@ -170,7 +170,19 @@ export class EditarCorredorSeguro implements OnInit {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if (response.description === 'Editado Correctamente') {
+            this.dialogRef.close();
+            // openSnackBar() {
+            //  super.getAlmacenadoras();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+            // }
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -209,12 +221,6 @@ export class EliminarCorredorSeguro implements OnInit {
 
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -226,7 +232,16 @@ export class EliminarCorredorSeguro implements OnInit {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if (response.description === 'Eliminado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -252,17 +267,10 @@ export class AgregarCorredorSeguro {
   public corredorSeguro: CorredorSeguro;
   public status;
 
-
   constructor(
     public dialogRef: MatDialogRef<AgregarCorredorSeguro>, private snackBar: MatSnackBar, private _corredorSeguroService: CorredorSeguroService) {
     this.corredorSeguro = new CorredorSeguro("", "", "");
 
-  }
-
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
   }
 
   onNoClick(): void {
@@ -275,8 +283,16 @@ export class AgregarCorredorSeguro {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
-
+          if (response.description === 'Agregado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
