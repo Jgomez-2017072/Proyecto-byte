@@ -93,10 +93,8 @@ export class OrigenDeFondosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getOrigenDeFondos();
-      }, 800);
+     
     });
   }
 
@@ -107,10 +105,8 @@ export class OrigenDeFondosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getOrigenDeFondos();
-      }, 800);
+      
     });
   }
 
@@ -121,10 +117,8 @@ export class OrigenDeFondosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getOrigenDeFondos();
-      }, 800);
+      
     });
   }
 
@@ -169,11 +163,7 @@ export class EditarOrigenDeFondos implements OnInit{
       this.origenDeFondos = new OrigenDeFondos("","","","","","","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -185,7 +175,18 @@ export class EditarOrigenDeFondos implements OnInit{
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+            this.dialogRef.close();
+         
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+     
+        }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+        }
         }
       },
       error => {
@@ -227,11 +228,7 @@ export class EliminarOrigenDeFondos implements OnInit{
       this.origenDeFondos = new OrigenDeFondos("","","","","","","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+   
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -244,7 +241,16 @@ export class EliminarOrigenDeFondos implements OnInit{
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -276,11 +282,7 @@ export class AgregarOrigenDeFondos {
       this.origenDeFondos = new OrigenDeFondos("","","","","","","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
 
   onNoClick(): void {
@@ -296,7 +298,16 @@ export class AgregarOrigenDeFondos {
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
