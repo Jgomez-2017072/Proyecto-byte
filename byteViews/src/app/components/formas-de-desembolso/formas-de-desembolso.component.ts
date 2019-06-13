@@ -30,7 +30,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getFormasDeDesembolso()
+    this.getFormasDeDesembolso();
   }
 
 
@@ -82,10 +82,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getFormasDeDesembolso();
-      }, 800);
+      this.getFormasDeDesembolso();
     });
   }
 
@@ -96,10 +93,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getFormasDeDesembolso();
-      }, 800);
+      this.getFormasDeDesembolso();
     });
   }
 
@@ -110,10 +104,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getFormasDeDesembolso();
-      }, 800);
+      this.getFormasDeDesembolso();
     });
   }
 
@@ -124,6 +115,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getFormasDeDesembolso();
     });
   }
 }
@@ -149,12 +141,6 @@ export class EditarFormasDeDesembolso {
     this.formasDeDesembolso = new FormasDeDesembolso("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -165,7 +151,19 @@ export class EditarFormasDeDesembolso {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if (response.description === 'Editado Correctamente') {
+            this.dialogRef.close();
+            // openSnackBar() {
+            //  super.getAlmacenadoras();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+            // }
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -201,12 +199,6 @@ export class EliminarFormasDeDesembolso implements OnInit {
 
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -218,7 +210,16 @@ export class EliminarFormasDeDesembolso implements OnInit {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if (response.description === 'Eliminado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -248,12 +249,6 @@ export class AgregarFormasDeDesembolso {
     this.formasDeDesembolso = new FormasDeDesembolso("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -264,7 +259,16 @@ export class AgregarFormasDeDesembolso {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if (response.description === 'Agregado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {

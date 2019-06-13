@@ -1,12 +1,6 @@
-<div>     
+<div class="animated fadeIn">    
     <h2 mat-dialog-title>Editar</h2>
   <div mat-dialog-content>           
-          <mat-form-field>                
-              <input matInput placeholder="Código" [(ngModel)]="recargoAdicional.codigo">
-              <button mat-button  *ngIf="recargoAdicional.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="recargoAdicional.codigo=''">
-                  <mat-icon>close</mat-icon>
-              </button> 
-          </mat-form-field>
           <mat-form-field class="example-full-width">                
             <input matInput placeholder="Descripcion" [(ngModel)]="recargoAdicional.descripcion">
             <button mat-button *ngIf="recargoAdicional.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="recargoAdicional.descripcion=''">
@@ -25,7 +19,7 @@
   </div><br>
   <div  class="modal-down">
       <div mat-dialog-actions>  
-          <button mat-button class="btn-aceptar" (click)="onNoClick()" (click)="openSnackBar();editarRecargoAdicional();" >Editar</button>
+          <button mat-button class="btn-aceptar"  (click)="editarRecargoAdicional();" >Editar</button>
           <button  mat-button class="btn-cancelar"  (click)="onNoClick()"  >CANCELAR</button>
         </div>
   </div>  

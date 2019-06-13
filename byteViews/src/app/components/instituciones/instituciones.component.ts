@@ -30,11 +30,11 @@ export class InstitucionesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getInstituciones()
+    this.getInstituciones();
   }
 
 
-  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver', 'maestros'];
+  displayedColumns: string[] = ['codigo', 'descripcion', 'editar', 'eliminar', 'ver'];
   // displayedColumns: string[] = ['position', 'name', 'editar', 'eliminar', 'maestros', 'ver'];
 
   //SELECTOR
@@ -81,10 +81,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getInstituciones();
-      }, 800);
+      this.getInstituciones();
     });
   }
 
@@ -95,10 +92,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getInstituciones();
-      }, 800);
+      this.getInstituciones();
     });
   }
 
@@ -109,10 +103,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getInstituciones();
-      }, 800);
+      this.getInstituciones();
     });
   }
 
@@ -125,6 +116,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getInstituciones();
     });
   }
 }
@@ -152,12 +144,6 @@ export class EditarInstituciones implements OnInit {
     this.institucion = new Institucion(0, "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -168,7 +154,19 @@ export class EditarInstituciones implements OnInit {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if (response.description === 'Editado Correctamente') {
+            this.dialogRef.close();
+            // openSnackBar() {
+            //  super.getAlmacenadoras();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+            // }
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -205,12 +203,6 @@ export class EliminarInstitucion implements OnInit {
 
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -222,7 +214,16 @@ export class EliminarInstitucion implements OnInit {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if (response.description === 'Eliminado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -257,12 +258,6 @@ export class AgregarInstituciones {
 
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -275,11 +270,18 @@ export class AgregarInstituciones {
     this.institucion.empresa = "1";
     this._institucionesService.crearInstitucion(this.institucion).subscribe(
       response => {
-        console.log("2")
         if (response) {
           this.status = 'ok';
-          console.log(response);
-
+          if (response.description === 'Agregado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
