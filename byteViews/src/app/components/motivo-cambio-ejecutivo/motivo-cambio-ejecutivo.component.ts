@@ -147,7 +147,7 @@ export class AgregarMotivoCambioEjecutivo {
           this.status = 'ok'
           if(response.description === 'Agregado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.descripcion, "", {
+            this.snackBar.open(response.description, "", {
               duration:2100, horizontalPosition: 'end'
             })
           }else {
