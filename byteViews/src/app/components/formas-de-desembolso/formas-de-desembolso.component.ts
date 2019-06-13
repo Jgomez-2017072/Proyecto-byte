@@ -30,7 +30,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getFormasDeDesembolso()
+    this.getFormasDeDesembolso();
   }
 
 
@@ -82,6 +82,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getFormasDeDesembolso();
     });
   }
 
@@ -92,6 +93,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getFormasDeDesembolso();
     });
   }
 
@@ -102,6 +104,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getFormasDeDesembolso();
     });
   }
 
@@ -112,6 +115,7 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getFormasDeDesembolso();
     });
   }
 }

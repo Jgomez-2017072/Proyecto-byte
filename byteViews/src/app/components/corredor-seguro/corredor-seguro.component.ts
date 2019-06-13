@@ -84,6 +84,7 @@ export class CorredorSeguroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getCorredoresSeguros();
     });
   }
 
@@ -94,6 +95,7 @@ export class CorredorSeguroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getCorredoresSeguros();
     });
   }
 
@@ -104,6 +106,7 @@ export class CorredorSeguroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getCorredoresSeguros();
     });
   }
 
@@ -114,6 +117,7 @@ export class CorredorSeguroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getCorredoresSeguros();
     });
   }
 }

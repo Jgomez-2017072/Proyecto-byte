@@ -95,6 +95,7 @@ export class EjecutivoCuentaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getEjecutivosCuentas();
     });
   }
 
@@ -105,6 +106,7 @@ export class EjecutivoCuentaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getEjecutivosCuentas();
     });
   }
 
@@ -115,6 +117,7 @@ export class EjecutivoCuentaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getEjecutivosCuentas();
     });
   }
 
@@ -125,6 +128,7 @@ export class EjecutivoCuentaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getEjecutivosCuentas();
     });
   }
 }

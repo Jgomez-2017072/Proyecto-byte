@@ -32,7 +32,7 @@ export class RecargosAdicionalesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getRecargosAdicionales()
+    this.getRecargosAdicionales();
   }
 
   displayedColumns: string[] = ['codigo', 'descripcion', /*'description',*/  'editar', 'eliminar', 'ver'];
@@ -82,6 +82,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getRecargosAdicionales();
     });
   }
 
@@ -92,6 +93,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getRecargosAdicionales();
     });
   }
 
@@ -102,6 +104,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getRecargosAdicionales();
     });
   }
 
@@ -112,6 +115,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getRecargosAdicionales();
     });
   }
 

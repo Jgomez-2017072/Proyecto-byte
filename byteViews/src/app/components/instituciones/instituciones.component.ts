@@ -30,7 +30,7 @@ export class InstitucionesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getInstituciones()
+    this.getInstituciones();
   }
 
 
@@ -81,6 +81,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getInstituciones();
     });
   }
 
@@ -91,6 +92,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getInstituciones();
     });
   }
 
@@ -101,6 +103,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getInstituciones();
     });
   }
 
@@ -113,6 +116,7 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getInstituciones();
     });
   }
 }

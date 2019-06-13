@@ -118,6 +118,7 @@ export class MotivosDeReversaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getMotivosDeReversa();
     });
   }
 
@@ -128,6 +129,7 @@ export class MotivosDeReversaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getMotivosDeReversa();
     });
   }
 
@@ -138,12 +140,18 @@ export class MotivosDeReversaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getMotivosDeReversa();
     });
   }
 
   openDialog4(): void {
     const dialogRef = this.dialog.open(VerMotivoDeReversa, {
       width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.getMotivosDeReversa();
     });
   }
 }
