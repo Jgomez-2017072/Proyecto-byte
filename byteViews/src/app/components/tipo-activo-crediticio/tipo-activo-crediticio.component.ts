@@ -76,9 +76,9 @@ export class TipoActivoCrediticioComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getTipoActivoCrediticio();
-      }, 800);
+    
     });
   }
 
@@ -90,9 +90,9 @@ export class TipoActivoCrediticioComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getTipoActivoCrediticio();
-      }, 800);
+     
     });
   }
 
@@ -104,9 +104,9 @@ export class TipoActivoCrediticioComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getTipoActivoCrediticio();
-      }, 800);
+     
     });
   }
 
@@ -149,12 +149,7 @@ export class EditarTipoActivoCrediticio implements OnInit{
       this.tipoActivoCrediticio = new TipoActivoCrediticio("","","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
+    
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -165,7 +160,17 @@ export class EditarTipoActivoCrediticio implements OnInit{
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
@@ -202,11 +207,7 @@ export class EliminarTipoActivoCrediticio implements OnInit {
       this.tipoActivoCrediticio = new TipoActivoCrediticio("","","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+   
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -219,7 +220,16 @@ export class EliminarTipoActivoCrediticio implements OnInit {
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -249,11 +259,7 @@ export class AgregarTipoActivoCrediticio {
       this.tipoActivoCrediticio = new TipoActivoCrediticio("","","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -266,7 +272,16 @@ export class AgregarTipoActivoCrediticio {
       response =>{
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {

@@ -75,9 +75,9 @@ export class TiposDePrestamosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getTipoPrestamo();
-      }, 800);
+      
     });
   }
 
@@ -89,9 +89,9 @@ export class TiposDePrestamosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+      
         this.getTipoPrestamo();
-      }, 800);
+     
     });
   }
 
@@ -103,9 +103,9 @@ export class TiposDePrestamosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+      
         this.getTipoPrestamo();
-      }, 800);
+      
     });
   }
 
@@ -144,23 +144,29 @@ export class EditarTipoDePrestamos implements OnInit{
       this.tipoPrestamo = new TipoPrestamo("","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+  
   editarTipoPrestamo(){
     console.log(this.tipoPrestamo)
     this._tipoPrestamoService.editarTipoPrestamo(this.tipoPrestamo).subscribe(
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
@@ -198,11 +204,7 @@ export class EliminarTipoDePrestamos implements OnInit{
       this.tipoPrestamo = new TipoPrestamo("","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -215,7 +217,16 @@ export class EliminarTipoDePrestamos implements OnInit{
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error =>{
@@ -246,11 +257,7 @@ export class AgregarTipoDePrestamos {
       this.tipoPrestamo = new TipoPrestamo("","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -261,7 +268,16 @@ export class AgregarTipoDePrestamos {
       response =>{
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       }, 
       error => {

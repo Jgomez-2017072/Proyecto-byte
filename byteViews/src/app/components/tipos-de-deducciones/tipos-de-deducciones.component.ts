@@ -74,9 +74,9 @@ export class TiposDeDeduccionesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getTiposDeduccion();
-      }, 800);
+      
     });
   }
 
@@ -87,9 +87,9 @@ export class TiposDeDeduccionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      setTimeout(() => {
+      
         this.getTiposDeduccion();
-      }, 800);
+      
     });
   }
 
@@ -100,9 +100,9 @@ export class TiposDeDeduccionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      setTimeout(() => {
+     
         this.getTiposDeduccion();
-      }, 800);
+     
     });
   }
   
@@ -113,9 +113,9 @@ export class TiposDeDeduccionesComponent implements OnInit {
   
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      setTimeout(() => {
+      
         this.getTiposDeduccion();
-      }, 800);
+      
     });
   }
 }
@@ -146,11 +146,7 @@ export class EditarTipoDeDeduccion {
       this.tipoDeduccion = new TipoDeduccion('','','');
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+   
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -162,7 +158,18 @@ export class EditarTipoDeDeduccion {
         response => {
           if(response) {
             this.status = 'ok';
-            console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
+
           }
         },
         error => {
@@ -197,12 +204,7 @@ export class EliminarTipoDeDeduccion {
       this.tipoDeduccion = new TipoDeduccion('','','');
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
+    
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -213,8 +215,17 @@ export class EliminarTipoDeDeduccion {
         if(!response) {
           this.status = 'error'
         }else{
-          this.status = 'Success'
-          console.log(response);
+          this.status = "Success"
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -244,13 +255,7 @@ export class AgregarTipoDeDeduccion {
       this.tipoDeduccion = new TipoDeduccion('','','')
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-        
-      });
-    }
-
+   
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -260,8 +265,17 @@ export class AgregarTipoDeDeduccion {
     this._tipoDeduccionService.crearTipoDeduccion(this.tipoDeduccion).subscribe(
       response => {
         if(response) {
-          this.status = 'ok'
-          console.log(response);
+          this.status = 'ok';
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {

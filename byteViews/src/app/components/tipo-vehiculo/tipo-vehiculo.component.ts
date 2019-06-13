@@ -78,9 +78,9 @@ export class TipoVehiculoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+      
         this.getTipoVehiculo();
-      }, 800);
+     
     });
   }
 
@@ -92,9 +92,9 @@ export class TipoVehiculoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getTipoVehiculo();
-      }, 800);
+     
     });
   }
 
@@ -106,9 +106,9 @@ export class TipoVehiculoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getTipoVehiculo();
-      }, 800);
+     
     });
   }
 
@@ -149,11 +149,7 @@ export class EditarTipoVehiculo implements OnInit{
       this.tipoVehiculo = new TipoVehiculo("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -165,7 +161,18 @@ export class EditarTipoVehiculo implements OnInit{
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
+
         }
       },
       error => {
@@ -202,12 +209,7 @@ export class EliminarTipoVehiculo implements OnInit {
       this.tipoVehiculo = new TipoVehiculo("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
+  
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -219,7 +221,17 @@ export class EliminarTipoVehiculo implements OnInit {
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
+
         }
       },
       error => {
@@ -249,11 +261,7 @@ export class AgregarTipoVehiculo {
       this.tipoVehiculo = new TipoVehiculo("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+   
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -265,7 +273,16 @@ export class AgregarTipoVehiculo {
       response =>{
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
