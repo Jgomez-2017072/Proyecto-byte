@@ -34,7 +34,7 @@ export class MotivoCambioEjecutivoService {
 
    }
 
-   editarMotivoCambioEjecutivo(motivoCambioEjecutivo: MotivoCambioEjecutivo){
+   editarMotivoCambioEjecutivo(motivoCambioEjecutivo: MotivoCambioEjecutivo): Observable<any>{
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     let params = JSON.stringify(motivoCambioEjecutivo);
     return this._http.put(this.url + `motivoCambioEjecutivo/update?empresa=${motivoCambioEjecutivo.empresa}&codigo=${motivoCambioEjecutivo.codigo}`, params, {headers : headers})

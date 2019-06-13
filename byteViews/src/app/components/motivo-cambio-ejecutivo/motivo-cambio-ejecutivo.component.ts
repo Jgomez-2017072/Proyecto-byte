@@ -136,12 +136,6 @@ export class AgregarMotivoCambioEjecutivo {
     this.motivoCambioEjecutivo = new MotivoCambioEjecutivo('', '', '');
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    })
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -242,36 +236,36 @@ export class EditarMotivoCambioEjecutivo implements OnInit {
       this.motivoCambioEjecutivo.descripcion = descripcion,
       this.motivoCambioEjecutivo.empresa = empresa
   }
-
   public motivoCambioEjecutivo: MotivoCambioEjecutivo;
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarMotivoCambioEjecutivo>, private snackBar: MatSnackBar, private _motivoCambioEjecutivo: MotivoCambioEjecutivoService) {
-    this.motivoCambioEjecutivo = new MotivoCambioEjecutivo("", "", "");
+    public dialogRef: MatDialogRef<EliminarMotivoCambioEjecutivo>, private snackBar: MatSnackBar, private _motivoCambioEjecutivoService: MotivoCambioEjecutivoService
+  ) {
+    this.motivoCambioEjecutivo = new MotivoCambioEjecutivo('', '', '')
   }
-
-
+ 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   editarMotivoCambioEjecutivo() {
     console.log(this.motivoCambioEjecutivo);
-    this._motivoCambioEjecutivo.editarMotivoCambioEjecutivo(this.motivoCambioEjecutivo).subscribe(
+    this._motivoCambioEjecutivoService.editarMotivoCambioEjecutivo(this.motivoCambioEjecutivo).subscribe(
       response => {
         if (response) {
-          this.status = 'ok';
-          if(response.description === 'Editado Correctamente'){
+          this.status = 'ok'
+          if(response.description === 'Agregado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.descripcion, "", {
               duration:2100, horizontalPosition: 'end'
             })
           }else {
             this.snackBar.open(response.description, "", {
-              duration:2100, horizontalPosition: 'end'
+              duration: 2100, horizontalPosition: 'end'
             })
           }
+       
         }
       },
       error => {
