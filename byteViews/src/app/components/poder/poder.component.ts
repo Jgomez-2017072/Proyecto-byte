@@ -72,9 +72,7 @@ export class PoderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getPoderes();
-      }, 800);
+     this.getPoderes();
     });
   }
 
@@ -86,9 +84,7 @@ export class PoderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getPoderes();
-      }, 800);
+     this.getPoderes();
     });
   }
 
@@ -100,9 +96,7 @@ export class PoderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getPoderes();
-      }, 800);
+      this.getPoderes();
     });
   }
   ngOnInit() {
@@ -117,9 +111,7 @@ export class PoderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getPoderes();
-      }, 800);
+      this.getPoderes();
     });
   }
 }
@@ -137,11 +129,8 @@ export class AgregarPoder {
   constructor(public dialogRef: MatDialogRef<AgregarPoder>, private snackBar: MatSnackBar, private _poderService: PoderService) {
     this.poder = new Poder('', '', '');
   }
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
+
+
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -152,8 +141,17 @@ export class AgregarPoder {
     this._poderService.crearPoder(this.poder).subscribe(
       response => {
         if (response) {
-          console.log(response);
           this.status = 'ok';
+          if(response.description === "Agregado correctamente"){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }else{
+            this.snackBar.open(response.description,"", {
+              duration:2100, horizontalPosition:'end'
+            })
+          }
         }
       },
       error => {
@@ -187,12 +185,6 @@ export class EliminarPoder implements OnInit {
     this.poder = new Poder("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -204,7 +196,16 @@ export class EliminarPoder implements OnInit {
           this.status = 'error'
         } else {
           this.status = 'Success'
-          console.log(response);
+          if(response.description === "Eliminado correctamente"){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }
         }
       },
       error => {
@@ -240,11 +241,6 @@ export class EditarPoder implements OnInit {
     this.poder = new Poder("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -256,7 +252,17 @@ export class EditarPoder implements OnInit {
       response => {
         if (response) {
           this.status = 'ok'
-          console.log(response);
+          if(response.description === "Editado correctamente"){
+            this.dialogRef.close();
+
+            this.snackBar.open(response.description,"", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }else {
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }
         }
       },
       error => {

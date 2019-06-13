@@ -86,10 +86,7 @@ export class MediosContactoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getMedios();
-      }, 800);
+      this.getMedios();
     });
   }
 
@@ -100,10 +97,7 @@ export class MediosContactoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getMedios();
-      }, 800);
+      this.getMedios();
     });
   }
 
@@ -114,10 +108,7 @@ export class MediosContactoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getMedios();
-      }, 800);
+      this.getMedios();
     });
   }
 
@@ -156,11 +147,6 @@ export class EditarMediosContacto {
     this.medios = new Medios("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -172,7 +158,16 @@ export class EditarMediosContacto {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }else {
+            this.snackBar.open(response.description, '', {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }
         }
       },
       error => {
@@ -207,12 +202,6 @@ export class EliminarMediosContacto {
     this.medios = new Medios("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -224,7 +213,16 @@ export class EliminarMediosContacto {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+         if(response.description === 'Eliminado correctamente'){
+           this.dialogRef.close();
+           this.snackBar.open(response.description, '', {
+             duration: 2100, horizontalPosition: 'end'
+           })
+         }else {
+           this.snackBar.open(response.description, '', {
+             duration: 2100, horizontalPosition: 'end'
+           })
+         }
         }
       },
       error => {
@@ -254,12 +252,6 @@ export class AgregarMediosContacto {
     this.medios = new Medios("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -270,7 +262,16 @@ export class AgregarMediosContacto {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, '', {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }else {
+            this.snackBar.open(response.description, '', {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }
 
         }
       },
