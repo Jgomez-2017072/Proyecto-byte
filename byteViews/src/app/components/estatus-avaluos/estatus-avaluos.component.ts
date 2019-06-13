@@ -34,7 +34,7 @@ export class EstatusAvaluosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getAseguradoras()
+    this.getEstatusAvaluos()
  }
 
 
@@ -57,7 +57,7 @@ export class EstatusAvaluosComponent implements OnInit {
 
 
 
-  public getAseguradoras(){
+  public getEstatusAvaluos(){
     this._estatusAvaluosService.getEstatusAvaluos().subscribe(
       response => {
         if(response){
@@ -88,11 +88,8 @@ export class EstatusAvaluosComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getAseguradoras();
-      }, 800);
+      console.log('The dialog was closed');      
+      this.getEstatusAvaluos();      
     });
   }
 
@@ -104,9 +101,7 @@ export class EstatusAvaluosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getAseguradoras();
-      }, 800);
+      this.getEstatusAvaluos();      
     });
   }
 
@@ -116,11 +111,8 @@ export class EstatusAvaluosComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
-      setTimeout(() => {
-        this.getAseguradoras();
-      }, 800);
+      console.log('The dialog was closed');      
+      this.getEstatusAvaluos();      
     });
   }
   openDialog4(): void {
@@ -155,12 +147,7 @@ export class EditarEstatusAvaluos {
     private _estatusAvaluosService: EstatusAvaluosService) {
       this.estatusAvaluos = new EstatusAvaluos("","","");
     }
-
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -170,13 +157,23 @@ export class EditarEstatusAvaluos {
     console.log(this.estatusAvaluos)
     this._estatusAvaluosService.editarEstatusAvaluos(this.estatusAvaluos).subscribe(
       response => {
-        if(response){
+        if (response) {
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           // }
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
-        if(error){
+        if (error) {
           console.log(<any>error);
           this.status = 'error';
         }
@@ -209,11 +206,7 @@ export class EliminarEstatusAvaluos {
       this.estatusAvaluos = new EstatusAvaluos("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+  
 
 
   onNoClick(): void {
@@ -222,18 +215,27 @@ export class EliminarEstatusAvaluos {
 
   eliminarEstatusAvaluos(){    
     this._estatusAvaluosSercice.eliminarEstatusAvaluos(this.estatusAvaluos).subscribe(
-      response=>{
-        if(!response){
+      response => {
+        if (!response) {
           this.status = "error"
-        }else{
+        } else {
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
         var errorMessage = <any>error;
         console.log(errorMessage);
-        if(errorMessage != null){
+        if (errorMessage != null) {
           this.status = "error";
         }
       }
@@ -259,12 +261,6 @@ export class AgregarEstatusAvaluos {
       this.estatusAvaluos = new EstatusAvaluos("","","")
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -274,16 +270,25 @@ export class AgregarEstatusAvaluos {
     this.estatusAvaluos.empresa = "1";
     this._estatusAvaluosService.crearEstatusAvaluo(this.estatusAvaluos).subscribe(
       response => {
-        if(response){
+        if (response) {
           this.status = 'ok';
-          console.log(response);
-          
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
-          if(error){
+        if (error) {
           console.log(<any>error);
           this.status = 'error';
+          
         }
       }
 

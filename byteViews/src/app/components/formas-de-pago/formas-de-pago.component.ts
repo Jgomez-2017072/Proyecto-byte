@@ -84,9 +84,9 @@ buscar(id, descripcion2, empresa2){
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+      
         this.getFormaDePago();
-      }, 800);
+     
     });
   }
 
@@ -97,9 +97,9 @@ buscar(id, descripcion2, empresa2){
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      setTimeout(() => {
+     
         this.getFormaDePago();
-      }, 800);
+     
     });
   }
 
@@ -110,9 +110,9 @@ buscar(id, descripcion2, empresa2){
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      setTimeout(() => {
+    
         this.getFormaDePago();
-      }, 800);
+     
     });
   }
 
@@ -150,11 +150,7 @@ export class EditarFormasDePago {
       this.formaDePago = new FormasDePago("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+   
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -166,7 +162,17 @@ export class EditarFormasDePago {
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
@@ -201,11 +207,7 @@ export class EliminarFormasDePago {
       this.formaDePago = new FormasDePago("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -218,7 +220,16 @@ export class EliminarFormasDePago {
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -246,12 +257,7 @@ export class AgregarFormasDePago {
       this.formasDePago = new FormasDePago("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
+    
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -262,7 +268,16 @@ export class AgregarFormasDePago {
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
           
         }
       },

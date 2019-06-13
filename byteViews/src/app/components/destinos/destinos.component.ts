@@ -83,9 +83,9 @@ export class DestinosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getDestinos();
-      }, 800);
+   
     });
   }
 
@@ -97,9 +97,9 @@ export class DestinosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getDestinos();
-      }, 800);
+     
     });
   }
 
@@ -111,9 +111,9 @@ export class DestinosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
+     
         this.getDestinos();
-      }, 800);
+      
     });
   }
 
@@ -152,11 +152,7 @@ export class EditarDestino {
       this.destino = new Destino("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -168,7 +164,17 @@ export class EditarDestino {
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
@@ -204,12 +210,7 @@ export class EliminarDestino {
       this.destino = new Destino("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
+    
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -221,7 +222,16 @@ export class EliminarDestino {
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -250,11 +260,7 @@ public status;
       this.destino = new Destino("","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
+    
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -266,7 +272,16 @@ public status;
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
           
         }
       },

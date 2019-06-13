@@ -126,9 +126,7 @@ export class NotariosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getNotarios();
-      }, 800);
+      this.getNotarios();      
     });
   }
 
@@ -140,9 +138,7 @@ export class NotariosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getNotarios();
-      }, 800);
+      this.getNotarios();      
     });
   }
 
@@ -154,9 +150,7 @@ export class NotariosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getNotarios();
-      }, 800);
+      this.getNotarios();      
     });
   }
 
@@ -208,12 +202,7 @@ export class EditarNotarios {
     this.notario = new Notario("","","","","","","","","",true,"","","","","","","");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
+  
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -223,7 +212,19 @@ export class EditarNotarios {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+           // openSnackBar() {
+            //  super.getAlmacenadoras();
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition: 'end'
+              });
+           // }
+          }else{
+              this.snackBar.open(response.description, "", {
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
@@ -271,12 +272,6 @@ export class EliminarNotarios {
       this.notario = new Notario("","","","","","","","","",true,"","","","","","","");
     }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -287,7 +282,16 @@ export class EliminarNotarios {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -319,12 +323,6 @@ export class AgregarNotarios {
       this.notario = new Notario("","","","","","","","","",true,"","","","","","","");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -334,17 +332,25 @@ export class AgregarNotarios {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
-
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
+          
         }
       }
-
     )
   }
 }
