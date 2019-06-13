@@ -208,7 +208,7 @@ export class EliminarAlmacenadora implements OnInit {
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService: AlmacenadorasService) {
+    public dialogRef: MatDialogRef<EliminarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService: AlmacenadorasService) {
     this.almacenadora = new Almacenadora("", "", "");
   }
 

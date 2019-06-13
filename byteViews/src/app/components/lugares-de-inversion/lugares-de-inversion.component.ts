@@ -89,11 +89,8 @@ export class LugaresDeInversionComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      setTimeout(() => {
+      console.log('The dialog was closed');    
         this.getLugares();
-      }, 800);
     });
   }
 
@@ -104,10 +101,7 @@ export class LugaresDeInversionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getLugares();
-      }, 800);
     });
   }
 
@@ -118,10 +112,7 @@ export class LugaresDeInversionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getLugares();
-      }, 800);
     });
   }
 
@@ -132,10 +123,7 @@ export class LugaresDeInversionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getLugares();
-      }, 800);
     });
   }
 }
@@ -159,15 +147,9 @@ export class EditarLugar implements OnInit{
 
 
   constructor(
-    public dialogRef: MatDialogRef<AgregarLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
+    public dialogRef: MatDialogRef<EditarLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
       this.lugares = new Lugares("","","","");
 
-    }
-
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
     }
 
   onNoClick(): void {
@@ -180,7 +162,16 @@ export class EditarLugar implements OnInit{
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+        }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+        }
         }
       },
       error => {
@@ -212,14 +203,9 @@ export class EliminarLugar implements OnInit{
 
 
   constructor(
-    public dialogRef: MatDialogRef<AgregarLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
+    public dialogRef: MatDialogRef<EliminarLugar>,private snackBar: MatSnackBar, private _lugaresService : LugaresService) {
       this.lugares = new Lugares("","","","");
 
-    }
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
     }
 
   onNoClick(): void {
@@ -233,7 +219,16 @@ export class EliminarLugar implements OnInit{
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -264,12 +259,6 @@ export class AgregarLugar {
 
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -280,7 +269,16 @@ export class AgregarLugar {
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
           
         }
       },
