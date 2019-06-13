@@ -93,10 +93,6 @@ export class EmpresaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getEmpresas();
-      }, 800);
     });
   }
 }

@@ -82,10 +82,6 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getFormasDeDesembolso();
-      }, 800);
     });
   }
 
@@ -96,10 +92,6 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getFormasDeDesembolso();
-      }, 800);
     });
   }
 
@@ -110,10 +102,6 @@ export class FormasDeDesembolsoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getFormasDeDesembolso();
-      }, 800);
     });
   }
 

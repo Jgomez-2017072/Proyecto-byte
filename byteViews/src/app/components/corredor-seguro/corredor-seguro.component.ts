@@ -84,10 +84,6 @@ export class CorredorSeguroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getCorredoresSeguros();
-      }, 800);
     });
   }
 
@@ -98,10 +94,6 @@ export class CorredorSeguroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getCorredoresSeguros();
-      }, 800);
     });
   }
 
@@ -112,10 +104,6 @@ export class CorredorSeguroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getCorredoresSeguros();
-      }, 800);
     });
   }
 
@@ -151,13 +139,6 @@ export class EditarCorredorSeguro implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditarCorredorSeguro>, private snackBar: MatSnackBar, private _corredorSeguroService: CorredorSeguroService) {
     this.corredorSeguro = new CorredorSeguro("", "", "");
-  }
-
-
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
   }
 
   onNoClick(): void {

@@ -81,10 +81,6 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getInstituciones();
-      }, 800);
     });
   }
 
@@ -95,10 +91,6 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getInstituciones();
-      }, 800);
     });
   }
 
@@ -109,10 +101,6 @@ export class InstitucionesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getInstituciones();
-      }, 800);
     });
   }
 

@@ -82,10 +82,6 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
     });
   }
 
@@ -96,10 +92,6 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
     });
   }
 
@@ -110,10 +102,6 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
     });
   }
 
@@ -124,10 +112,6 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
     });
   }
 
