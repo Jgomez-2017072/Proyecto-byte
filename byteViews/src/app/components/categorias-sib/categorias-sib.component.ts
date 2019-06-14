@@ -169,12 +169,12 @@ export class EditarCategoriasSib {
           this.status = 'ok';
           if(response.description === 'Editado Correctamente'){
               this.dialogRef.close();
-              this.snackBar.open(response.description, "", {
+              this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
                 duration: 2100, horizontalPosition: 'end'
               });
            
           }else{
-              this.snackBar.open(response.description, "", {
+              this.snackBar.open(response.description, "", {panelClass: ['colorError'],
                 duration: 3100, horizontalPosition: 'end'
               });
           }
@@ -229,11 +229,11 @@ export class EliminarCategoriasSib {
           this.status = "Success"
           if(response.description === 'Eliminado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           }else{
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -279,11 +279,11 @@ export class AgregarCategoriasSib {
           this.status = 'ok';
           if(response.description === 'Agregado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           }else{
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
