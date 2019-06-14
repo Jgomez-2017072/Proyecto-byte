@@ -8,18 +8,18 @@ import { RecargoAdicional } from "src/app/models/recargoAdicional.model";
 
 
 export interface PeriodicElement {
-  cobroAdicional: String;
   code: Number;
   codigo: Number;
   descripcion: String;
   description: String;
   empresa: String;
   errorCore: Boolean;
-  institucion: Number;
+  institucion: String;
+  tipoRetencion: String;
   referencia1: String;
   referencia2: String;
   referencia3: String;
-  tipoRetencion: String;
+  
 }
 
 var datosMotivoDeReversa: MotivoDeReversa[];
@@ -28,14 +28,13 @@ var datosMotivoDeReversa: MotivoDeReversa[];
 var descripcion = '';
 var empresa = '';*/
 
-var cobroAdicional = "";
 var code = 0;
 var codigo = 0;
 var descripcion = "";
 var description = "";
 var empresa = "";
 var errorCore = true;
-var institucion = 0;
+var institucion = "";
 var referencia1 = "";
 var referencia2 = "";
 var referencia3 = "";
@@ -87,11 +86,10 @@ export class MotivosDeReversaComponent implements OnInit {
     )
   }
 
-  buscar(cobroAdicional2, code2, codigo2, descripcion2, description2,
+  buscar(code2, codigo2, descripcion2, description2,
     empresa2, errorCore2, institucion2, referencia12, referencia22,
     referencia32, tipoRetencion2) {
 
-    cobroAdicional = cobroAdicional2;
     code = code2;
     codigo = codigo2;
     descripcion = descripcion2;
@@ -103,7 +101,7 @@ export class MotivosDeReversaComponent implements OnInit {
     referencia2 = referencia22;
     referencia3 = referencia32;
     tipoRetencion = tipoRetencion2;
-    console.log(cobroAdicional + " - " + code + " - " + codigo + " - " + descripcion + " - "
+    console.log(code + " - " + codigo + " - " + descripcion + " - "
       + description + " - " + empresa + " - " + errorCore + " - " + institucion + " - " +
       referencia1 + " - " + referencia2 + " - " + referencia3 + " - " + tipoRetencion)
   }
@@ -164,8 +162,10 @@ export class MotivosDeReversaComponent implements OnInit {
 })
 export class EditarMotivoDeReversa implements OnInit {
 
+  institutoss
+  recargosAdicionaless
+
   ngOnInit() {
-    this.motivoDeReversa.cobroAdicional = cobroAdicional;
     this.motivoDeReversa.code = code;
     this.motivoDeReversa.codigo = codigo;
     this.motivoDeReversa.descripcion = descripcion;
@@ -173,10 +173,38 @@ export class EditarMotivoDeReversa implements OnInit {
     this.motivoDeReversa.empresa = empresa;
     this.motivoDeReversa.errorCore = errorCore;
     this.motivoDeReversa.institucion = institucion;
+    this.motivoDeReversa.tipoRetencion = tipoRetencion;
     this.motivoDeReversa.referencia1 = referencia1;
     this.motivoDeReversa.referencia2 = referencia2;
     this.motivoDeReversa.referencia3 = referencia3;
-    this.motivoDeReversa.tipoRetencion = tipoRetencion;
+    
+    this._motivosDeReversaService.getInstituciones().subscribe(
+      response => {
+        if (response){
+          this.institutoss = response;
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+
+    this._motivosDeReversaService.getRecargosAdicionales().subscribe(
+      response => {
+        if (response){
+          this.recargosAdicionaless = response;
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
   }
 
   public motivoDeReversa: MotivoDeReversa;
@@ -184,7 +212,7 @@ export class EditarMotivoDeReversa implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditarMotivoDeReversa>, private snackBar: MatSnackBar, private _motivosDeReversaService: MotivosDeReversaService) {
-    this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
+    this.motivoDeReversa = new MotivoDeReversa(0, 0, "", "", "", true, "", "", "", "", "");
   }
 
   onNoClick(): void {
@@ -246,7 +274,7 @@ export class EliminarMotivosDeReversa implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EliminarMotivosDeReversa>, private snackBar: MatSnackBar, private _motivosDeReversaService: MotivosDeReversaService) {
-    this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
+    this.motivoDeReversa = new MotivoDeReversa(0, 0, "", "", "", true, "", "", "", "", "");
   }
 
   onNoClick(): void {
@@ -254,6 +282,7 @@ export class EliminarMotivosDeReversa implements OnInit {
   }
 
   eliminarMotivoDeReversa() {
+    this.motivoDeReversa.empresa = '1';
     this._motivosDeReversaService.eliminarMotivoDeReversa(this.motivoDeReversa).subscribe(
       response => {
         if (!response) {
@@ -290,14 +319,47 @@ export class EliminarMotivosDeReversa implements OnInit {
   styleUrls: ['./motivos-de-reversa.component.scss'],
   providers: [MotivosDeReversaService]
 })
-export class AgregarMotivoDeReversa {
+export class AgregarMotivoDeReversa implements OnInit {
+
+  institutoss
+  recargosAdicionaless
+
+  ngOnInit() {
+    this._motivosDeReversaService.getInstituciones().subscribe(
+      response => {
+        if (response){
+          this.institutoss = response;
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+
+    this._motivosDeReversaService.getRecargosAdicionales().subscribe(
+      response => {
+        if (response){
+          this.recargosAdicionaless = response;
+        }
+      },
+      error => {
+        if (error) {
+          console.log(<any>error);
+          this.status = 'error';
+        }
+      }
+    )
+  }
 
   public motivoDeReversa: MotivoDeReversa;
   public status;
 
   constructor(
     public dialogRef: MatDialogRef<AgregarMotivoDeReversa>, private snackBar: MatSnackBar, private _motivosDeReversaService: MotivosDeReversaService) {
-    this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
+    this.motivoDeReversa = new MotivoDeReversa(0, 0, "", "", "", true, "", "", "", "", "");
   }
 
   onNoClick(): void {
@@ -308,7 +370,6 @@ export class AgregarMotivoDeReversa {
     this.motivoDeReversa.empresa = "1";
     this.motivoDeReversa.errorCore = true;
     this.motivoDeReversa.description = "";
-    this.motivoDeReversa.cobroAdicional = "";
     this.motivoDeReversa.code = 0;
     this._motivosDeReversaService.crearMotivoDeReversa(this.motivoDeReversa).subscribe(
       response => {
@@ -443,7 +504,6 @@ export class AgregarMotivosDeReversa implements OnInit {
 export class VerMotivoDeReversa implements OnInit {
 
   ngOnInit() {
-    this.motivoDeReversa.cobroAdicional = cobroAdicional;
     this.motivoDeReversa.code = code;
     this.motivoDeReversa.codigo = codigo;
     this.motivoDeReversa.descripcion = descripcion;
@@ -463,7 +523,7 @@ export class VerMotivoDeReversa implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<VerMotivoDeReversa>, private snackBar: MatSnackBar, private _motivosDereversasService: MotivosDeReversaService) {
-    this.motivoDeReversa = new MotivoDeReversa("", 0, 0, "", "", "", true, 0, "", "", "", "");
+    this.motivoDeReversa = new MotivoDeReversa(0, 0, "", "", "", true, "", "", "", "", "");
 
   }
 

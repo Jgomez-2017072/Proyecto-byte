@@ -18,14 +18,7 @@
             </button>
         </mat-form-field>
         <!--
-            <mat-form-field class="example-full-width">
-            <input matInput placeholder="Description" [(ngModel)]="motivoDeReversa.description">
-            <button mat-button *ngIf="motivoDeReversa.description" matSuffix mat-icon-button aria-label="Clear" (click)="motivoDeReversa.description=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-        -->
-        <mat-form-field>
+            <mat-form-field>
             <input matInput placeholder="Institucion" [(ngModel)]="motivoDeReversa.institucion">
             <button mat-button *ngIf="motivoDeReversa.institucion" matSuffix mat-icon-button aria-label="Clear"
                 (click)="motivoDeReversa.institucion=''">
@@ -39,6 +32,25 @@
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
+        -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select [(ngModel)]="motivoDeReversa.institucion">
+                <mat-option *ngFor="let inst of institutoss" [value]="inst.codigo">
+                    {{inst.descripcion}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Tipo de retencion</mat-label>
+            <mat-select [(ngModel)]="motivoDeReversa.tipoRetencion">
+                <mat-option *ngFor="let recA of recargosAdicionaless" [value]="recA.codigo">
+                    {{recA.descripcion}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <mat-form-field>
             <input matInput placeholder="Referencia 1" [(ngModel)]="motivoDeReversa.referencia1">
             <button mat-button *ngIf="motivoDeReversa.referencia1" matSuffix mat-icon-button aria-label="Clear"
@@ -64,7 +76,7 @@
     </div><br>
     <div class="modal-down">
         <div mat-dialog-actions>
-            <button mat-button class="btn-aceptar" (click)="editarMotivoDeReversa()">AGREGAR</button>
+            <button mat-button class="btn-aceptar" (click)="editarMotivoDeReversa()">EDITAR</button>
             <button mat-button class="btn-cancelar" (click)="onNoClick()">CANCELAR</button>
         </div>
     </div>

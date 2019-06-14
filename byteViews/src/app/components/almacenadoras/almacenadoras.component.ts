@@ -168,8 +168,7 @@ export class EditarAlmacenadora  implements OnInit {
           this.status = 'ok';
           if(response.description === 'Editado Correctamente'){
               this.dialogRef.close();
-           // openSnackBar() {
-            //  super.getAlmacenadoras();
+          
               this.snackBar.open(response.description, "", {
                 duration: 2100, horizontalPosition: 'end'
               });
