@@ -1,9 +1,24 @@
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<img src="./assets/image-fondo.jpeg" alt="Una persona tecleando en una computadora">
+
 
 <!--
-<img src="./assets/image-fondo.jpeg" alt="Una persona tecleando en una computadora">
--->
+<html>
 
-<div id="particles-js">
-        
-</div>
+<head>
+    <script src="particles.js"></script>
+</head>
+
+<body>
+    <div id="particle-div"></div>
+    <button id="particle-button">Start</button>
+
+    <script>
+        $('particle-button').click(function () {
+            particleJS.load('particle-div', 'particle-cfg.json');
+        });
+    </script>
+</body>
+
+</html>
+-->
