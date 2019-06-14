@@ -2,8 +2,8 @@
     <mat-toolbar color="primary" class="example-toolbar">
         <button mat-icon-button (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
-        </button>
-        <img src="./assets/icono-byte.png" class="imagen-menu" alt="">
+        </button>        
+        <a [routerLink]="nav.route"  *ngFor="let nav of fillerNav3"><img src="./assets/icono-byte.png" class="imagen-menu" alt=""></a>
     </mat-toolbar>
 
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
