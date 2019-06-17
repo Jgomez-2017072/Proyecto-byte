@@ -185,6 +185,9 @@ export class EditarAlmacenadora  implements OnInit {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -240,6 +243,7 @@ export class EliminarAlmacenadora implements OnInit {
         if (errorMessage != null) {
           this.status = "error";
         }
+      
       }
     )
   }
@@ -287,7 +291,9 @@ export class AgregarAlmacenadora {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
-          
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
 

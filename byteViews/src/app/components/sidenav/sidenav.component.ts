@@ -52,7 +52,7 @@ export class SidenavComponent implements OnInit {
   ]
 
   fillerNav3 = [
-    {image: './assets/image-menu.jpg', route: '/home'}
+    { route: '/home'}
   ]
 
   fillerNav = [
