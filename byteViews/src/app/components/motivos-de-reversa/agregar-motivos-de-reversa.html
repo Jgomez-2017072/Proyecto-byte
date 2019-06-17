@@ -1,29 +1,20 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Agregar</h2>
+    <h2 mat-dialog-title>Agregar Motivo de reversa</h2>
     <div mat-dialog-content>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="codigo" [(ngModel)]="motivoDeReversa.codigo">
+            <input matInput placeholder="codigo" [(ngModel)]="motivoDeReversa.codigo" pattern="[0-9]{1,3}">
             <button mat-button *ngIf="motivoDeReversa.codigo" matSuffix mat-icon-button aria-label="Clear"
                 (click)="motivoDeReversa.codigo=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Descripcion" [(ngModel)]="motivoDeReversa.descripcion">
+            <input matInput placeholder="Descripcion" [(ngModel)]="motivoDeReversa.descripcion" maxlength="30">
             <button mat-button *ngIf="motivoDeReversa.descripcion" matSuffix mat-icon-button aria-label="Clear"
                 (click)="motivoDeReversa.descripcion=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
-        <!--
-            <mat-form-field>
-            <input matInput placeholder="Institucion" [(ngModel)]="motivoDeReversa.institucion">
-            <button mat-button *ngIf="motivoDeReversa.institucion" matSuffix mat-icon-button aria-label="Clear"
-                (click)="motivoDeReversa.institucion=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-        -->
         <mat-form-field class="example-full-width">
             <mat-label>Status</mat-label>
             <mat-select [(ngModel)]="motivoDeReversa.institucion">
@@ -51,21 +42,21 @@
         </mat-form-field>
         <br>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Referencia 1" [(ngModel)]="motivoDeReversa.referencia1">
+            <input matInput placeholder="Referencia 1" [(ngModel)]="motivoDeReversa.referencia1" maxlength="30">
             <button mat-button *ngIf="motivoDeReversa.referencia1" matSuffix mat-icon-button aria-label="Clear"
                 (click)="motivoDeReversa.referencia1=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Referencia 2" [(ngModel)]="motivoDeReversa.referencia2">
+            <input matInput placeholder="Referencia 2" [(ngModel)]="motivoDeReversa.referencia2" maxlength="30">
             <button mat-button *ngIf="motivoDeReversa.referencia2" matSuffix mat-icon-button aria-label="Clear"
                 (click)="motivoDeReversa.referencia2=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Referencia 3" [(ngModel)]="motivoDeReversa.referencia3">
+            <input matInput placeholder="Referencia 3" [(ngModel)]="motivoDeReversa.referencia3" maxlength="30">
             <button mat-button *ngIf="motivoDeReversa.referencia3" matSuffix mat-icon-button aria-label="Clear"
                 (click)="motivoDeReversa.referencia3=''">
                 <mat-icon>close</mat-icon>

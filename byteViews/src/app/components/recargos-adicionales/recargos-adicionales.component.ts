@@ -184,11 +184,13 @@ export class EditarRecargos implements OnInit {
             // openSnackBar() {
             //  super.getAlmacenadoras();
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
             // }
           } else {
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -199,6 +201,10 @@ export class EditarRecargos implements OnInit {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", {
+          panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -323,10 +329,12 @@ export class AgregarRecargos {
           if (response.description === 'Agregado correctamente') {
             this.dialogRef.close();
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           } else {
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -336,6 +344,10 @@ export class AgregarRecargos {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
+          this.snackBar.open("Verifique los datos!", "", {
+            panelClass: ['colorError'],
+            duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
 

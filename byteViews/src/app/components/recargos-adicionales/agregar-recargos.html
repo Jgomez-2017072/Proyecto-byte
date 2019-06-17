@@ -1,28 +1,20 @@
-<div class="animated fadeIn"> 
-    <h2 mat-dialog-title>Agregar</h2>
+<div class="animated fadeIn">
+    <h2 mat-dialog-title>Agregar Recargos</h2>
     <div mat-dialog-content>
         <mat-form-field>
-            <input matInput placeholder="Código" [(ngModel)]="recargoAdicional.codigo">
+            <input matInput placeholder="Código" [(ngModel)]="recargoAdicional.codigo" pattern="[0-9]{1,3}">
             <button mat-button *ngIf="recargoAdicional.codigo" matSuffix mat-icon-button aria-label="Clear"
                 (click)="recargoAdicional.codigo=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Descripcion" [(ngModel)]="recargoAdicional.descripcion">
+            <input matInput placeholder="Descripcion" [(ngModel)]="recargoAdicional.descripcion" maxlength="30">
             <button mat-button *ngIf="recargoAdicional.descripcion" matSuffix mat-icon-button aria-label="Clear"
                 (click)="recargoAdicional.descripcion=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
-        <!--
-            <mat-form-field class="example-full-width">
-            <input matInput placeholder="Descripción para reportes" [(ngModel)]="recargoAdicional.description">
-            <button mat-button *ngIf="recargoAdicional.description" matSuffix mat-icon-button aria-label="Clear" (click)="recargoAdicional.description=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-        -->
     </div><br>
     <div class="modal-down">
         <div mat-dialog-actions>
