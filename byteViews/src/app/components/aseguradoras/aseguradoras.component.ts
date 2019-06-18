@@ -165,12 +165,13 @@ export class EditarAseguradora implements OnInit{
       response => {
         if(response){
           this.status = 'ok';
-          if(response.description === 'Editado Correctamente'){
+          if(response.description === 'Editado correctamente'){
             this.dialogRef.close();
             this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           }else{
+              
               this.snackBar.open(response.description, "", {panelClass: ['colorError'],
                 duration: 3100, horizontalPosition: 'end'
               });
@@ -182,6 +183,9 @@ export class EditarAseguradora implements OnInit{
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", {panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -276,9 +280,10 @@ export class AgregarAseguradora {
     this.aseguradora.empresa = "1";
     this._aseguradorasService.crearAseguradora(this.aseguradora).subscribe(
       response => {
+        console.log(response)
         if(response){
           this.status = 'ok';
-          if(response.description === 'Agregado correctamente'){
+          if(response.description === 'Agregado Correctamente'){
             this.dialogRef.close();
             this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
@@ -295,6 +300,9 @@ export class AgregarAseguradora {
           if(error){
           console.log(<any>error);
           this.status = 'error';
+          this.snackBar.open("Verifique los datos!", "", {panelClass: ['colorError'],
+            duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
 

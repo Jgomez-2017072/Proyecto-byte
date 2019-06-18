@@ -1,14 +1,14 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Editar</h2>
+    <h2 mat-dialog-title>Editar Motivo Cambio Ejecutivo</h2>
     <div mat-dialog-content class="modal-down1">
         <mat-form-field>
-            <input matInput placeholder="Código" [(ngModel)]="motivoCambioEjecutivo.codigo" sdf>
+            <input matInput placeholder="Código" disabled [(ngModel)]="motivoCambioEjecutivo.codigo" sdf>
             <button mat-button *ngIf="motivoCambioEjecutivo.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="almacenadora.codigo=''">
                     <mat-icon>close</mat-icon>
                 </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Descripción" [(ngModel)]="motivoCambioEjecutivo.descripcion">
+            <input matInput type="text" placeholder="Descripción" [(ngModel)]="motivoCambioEjecutivo.descripcion" maxlength="30">
             <button mat-button *ngIf="motivoCambioEjecutivo.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="almacenadora.descripcion=''">
                   <mat-icon>close</mat-icon>
               </button>

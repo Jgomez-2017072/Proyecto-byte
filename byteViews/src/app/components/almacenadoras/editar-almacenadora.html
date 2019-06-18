@@ -2,7 +2,7 @@
     <h2 mat-dialog-title>Editar Almacenadora</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="almacenadora.codigo"  pattern="[0-9]{1,3}">
+            <input matInput placeholder="Código" disabled [(ngModel)]="almacenadora.codigo"  pattern="[0-9]{1,3}">
             <button mat-button  *ngIf="almacenadora.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="almacenadora.codigo=''">
                 <mat-icon>close</mat-icon>
             </button> 

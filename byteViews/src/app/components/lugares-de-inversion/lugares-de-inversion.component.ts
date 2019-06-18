@@ -179,6 +179,9 @@ export class EditarLugar implements OnInit{
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", {panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -286,6 +289,9 @@ export class AgregarLugar {
           if(error){
           console.log(<any>error);
           this.status = 'error';
+          this.snackBar.open("Verifique los datos!", "", {panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+        });
         }
       }
 

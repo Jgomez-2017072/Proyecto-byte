@@ -2,19 +2,19 @@
     <h2 mat-dialog-title>Editar</h2>
     <div mat-dialog-content class="modal-down1" >   
             <mat-form-field >                
-                <input matInput placeholder="Código" [(ngModel)]="lugares.codigo">
+                <input matInput placeholder="Código" disabled [(ngModel)]="lugares.codigo">
                 <button mat-button  *ngIf="lugares.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="lugares.codigo=''">
                     <mat-icon>close</mat-icon>
                 </button> 
             </mat-form-field>
             <mat-form-field class="example-full-width">                
-                <input matInput placeholder="Descripción" [(ngModel)]="lugares.descripcion">
+                <input matInput placeholder="Descripción" [(ngModel)]="lugares.descripcion" maxlength="30">
                 <button mat-button *ngIf="lugares.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="lugares.descripcion=''">
                     <mat-icon>close</mat-icon>
                 </button> 
             </mat-form-field>
             <mat-form-field >                
-                <input matInput placeholder="Equivalencia" [(ngModel)]="lugares.equivalencia">
+                <input matInput placeholder="Equivalencia" [(ngModel)]="lugares.equivalencia" pattern="[0-9]{1,3}">
                 <button mat-button  *ngIf="lugares.equivalencia" matSuffix mat-icon-button aria-label="Clear" (click)="lugares.equivalencia=''">
                     <mat-icon>close</mat-icon>
                 </button> 
