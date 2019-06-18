@@ -1,51 +1,51 @@
 <div class="animated fadeIn">
 <div>
-  <h2 mat-dialog-title>Agregar</h2>
+  <h2 mat-dialog-title>Agregar Notario</h2>
   <div mat-dialog-content>
     <mat-form-field>
-      <input matInput type="text" placeholder="Código" [(ngModel)]="notario.codigo">
+      <input matInput type="text" placeholder="Código" [(ngModel)]="notario.codigo" pattern="[0-9]{1,3}">
       <button mat-button *ngIf="notario.codigo" matSuffix mat-icon-button aria-label="Clear"
         (click)="notario.codigo=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Nombre" [(ngModel)]="notario.nombre">
+      <input matInput type="text" placeholder="Nombre" [(ngModel)]="notario.nombre" maxlength="30">
       <button mat-button *ngIf="notario.nombre" matSuffix mat-icon-button aria-label="Clear"
         (click)="notario.nombre=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" placeholder="No. Colegiado" [(ngModel)]="notario.colegiado">
+      <input matInput type="text" placeholder="No. Colegiado" [(ngModel)]="notario.colegiado" maxlength="30">
       <button mat-button *ngIf="notario.colegiado" matSuffix mat-icon-button aria-label="Clear"
         (click)="notario.colegiado=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Dirección" [(ngModel)]="notario.direccion">
+      <input matInput type="text" placeholder="Dirección" [(ngModel)]="notario.direccion" maxlength="30">
       <button mat-button *ngIf="notario.direccion" matSuffix mat-icon-button aria-label="Clear"
         (click)="notario.direccion=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Identificación" [(ngModel)]="notario.identificacion">
+      <input matInput type="text" placeholder="Identificación" [(ngModel)]="notario.identificacion" maxlength="30">
       <button mat-button *ngIf="notario.identificacion" matSuffix mat-icon-button aria-label="Clear"
         (click)="notario.identificacion=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" placeholder="Teléfono" [(ngModel)]="notario.telefono">
+      <input matInput type="text" placeholder="Teléfono" [(ngModel)]="notario.telefono" maxlength="9">
       <button mat-button *ngIf="notario.telefono" matSuffix mat-icon-button aria-label="Clear"
         (click)="notario.telefono=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" placeholder="Fax" [(ngModel)]="notario.fax">
+      <input matInput type="text" placeholder="Fax" [(ngModel)]="notario.fax" maxlength="30">
       <button mat-button *ngIf="notario.fax" matSuffix mat-icon-button aria-label="Clear" (click)="notario.fax=''">
         <mat-icon>close</mat-icon>
       </button>

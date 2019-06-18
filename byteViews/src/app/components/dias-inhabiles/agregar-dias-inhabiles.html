@@ -1,6 +1,6 @@
 <div class="animated fadeIn">
 <div>
-  <h2 mat-dialog-title>Agregar</h2>
+  <h2 mat-dialog-title>Agregar Días-Inhábiles</h2>
   <div mat-dialog-content>
       <section class="example-full-width">
           <label id="example-radio-group-label">Tipo Feriado</label><br>
@@ -11,13 +11,13 @@
           </mat-radio-group>
         </section>   
     
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="diaInhabil.fechaFeriado">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="diaInhabil.fechaFeriado">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Descripción" [(ngModel)]="diaInhabil.descripcion">
+      <input matInput placeholder="Descripción" [(ngModel)]="diaInhabil.descripcion" maxlength="30">
       <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
         <mat-icon>close</mat-icon>
       </button>

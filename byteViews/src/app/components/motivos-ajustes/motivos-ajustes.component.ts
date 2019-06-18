@@ -198,6 +198,9 @@ export class EditarMotivoAjuste {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -311,7 +314,9 @@ export class AgregarMotivoAjuste {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
-          
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
     )

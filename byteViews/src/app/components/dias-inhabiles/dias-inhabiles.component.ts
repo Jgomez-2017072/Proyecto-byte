@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewChild} from '@angular/core';
-import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator } from '@angular/material';
+import { MatTableDataSource,MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatPaginator, DateAdapter } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DiaInhabilService } from 'src/app/services/dia-inhabil.service';
 import { DiaInhabil } from 'src/app/models/dia-inhabil.model';
@@ -130,42 +130,43 @@ export class DiasInhabilesComponent implements OnInit {
 })
 export class EditarDiaInhabil {
 
-  ngOnInit() {
-    //this.buscarAseguradora();    
-    this.diaInhabil.descripcion = descripcion;
-    this.diaInhabil.empresa = empresa;
-    this.diaInhabil.fechaFeriado = fechaFeriado;
-    this.diaInhabil.tipoFeriado = tipoFeriado;
-  }
-
+  
+  
   public diaInhabil : DiaInhabil ;
   public status;
 
   constructor(
     public dialogRef: MatDialogRef<EditarDiaInhabil>, 
     private snackBar: MatSnackBar,
+    private _adapter: DateAdapter<any>,    
     private _diasInhabilesService : DiaInhabilService) {
       this.diaInhabil = new DiaInhabil("","","","");
     }
+
+    ngOnInit() {
+      this.diaInhabil.descripcion = descripcion;
+      this.diaInhabil.empresa = empresa;
+      this.diaInhabil.fechaFeriado = fechaFeriado;
+      this.diaInhabil.tipoFeriado = tipoFeriado;
+      this._adapter.setLocale('es');
+    }
+  
 
 
   onNoClick(): void {
     this.dialogRef.close();
   }
   editarDiaInhabil(){
-    console.log(this.diaInhabil)
+    console.log(this.diaInhabil)    
     this._diasInhabilesService.editarDiaInhabil(this.diaInhabil).subscribe(
       response => {
         if (response) {
           this.status = 'ok';
           if(response.description === 'Editado Correctamente'){
               this.dialogRef.close();
-           // openSnackBar() {
-            //  super.getAlmacenadoras();
               this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
                 duration: 2100, horizontalPosition: 'end'
-              });
-           // }
+              });          
           }else{
               this.snackBar.open(response.description, "", {panelClass: ['colorError'],
                 duration: 3100, horizontalPosition: 'end'
@@ -178,6 +179,9 @@ export class EditarDiaInhabil {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -256,15 +260,21 @@ export class AgregarDiaInhabil {
   constructor(
     public dialogRef: MatDialogRef<AgregarDiaInhabil>, 
     private snackBar: MatSnackBar,
+    private _adapter: DateAdapter<any>,    
     private _diasInhabilesService : DiaInhabilService) {
       this.diaInhabil = new DiaInhabil("","","","");
+    }
+
+    ngOnInit(){
+      this._adapter.setLocale('es');
     }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
   crearDiaInhabil(){
-    this.diaInhabil.empresa = "1";
+    this.diaInhabil.empresa = "1";    
+    
     this._diasInhabilesService.crearDiaInhabil(this.diaInhabil).subscribe(
       response => {
         if (response) {
@@ -285,7 +295,9 @@ export class AgregarDiaInhabil {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
-          
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
     )
