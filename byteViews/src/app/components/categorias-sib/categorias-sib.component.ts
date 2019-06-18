@@ -185,6 +185,9 @@ export class EditarCategoriasSib {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -294,6 +297,9 @@ export class AgregarCategoriasSib {
           if(error){
           console.log(<any>error);
           this.status = 'error';
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
 

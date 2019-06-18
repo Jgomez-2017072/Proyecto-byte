@@ -1,15 +1,15 @@
 <div class="animated fadeIn">     
-  <h2 mat-dialog-title>Agregar</h2>
+  <h2 mat-dialog-title>Agregar Estatus Garantía Real</h2>
 
 <div mat-dialog-content>           
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="statusGarantiaReal.codigo">
+            <input matInput placeholder="Código" [(ngModel)]="statusGarantiaReal.codigo" pattern="[0-9]{1,3}">
             <button mat-button  *ngIf="statusGarantiaReal.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.codigo=''">
                 <mat-icon>close</mat-icon>
             </button> 
         </mat-form-field>
         <mat-form-field class="example-full-width">                
-          <input matInput placeholder="Descripción" [(ngModel)]="statusGarantiaReal.descripcion">
+          <input matInput placeholder="Descripción" [(ngModel)]="statusGarantiaReal.descripcion" maxlength="30">
           <button mat-button *ngIf="statusGarantiaReal.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.descripcion=''">
               <mat-icon>close</mat-icon>
           </button> 
