@@ -214,8 +214,6 @@ export class EditarNotarios {
           this.status = 'ok';
           if(response.description === 'Editado Correctamente'){
               this.dialogRef.close();
-           // openSnackBar() {
-            //  super.getAlmacenadoras();
               this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
                 duration: 2100, horizontalPosition: 'end'
               });
@@ -232,6 +230,9 @@ export class EditarNotarios {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -348,7 +349,9 @@ export class AgregarNotarios {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
-          
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
     )

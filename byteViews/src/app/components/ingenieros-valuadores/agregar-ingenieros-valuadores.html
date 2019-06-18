@@ -1,21 +1,21 @@
 <div class="animated fadeIn">
 <div>     
-    <h2 mat-dialog-title>Agregar</h2> 
+    <h2 mat-dialog-title>Agregar Supervisores</h2> 
   <div mat-dialog-content>           
           <mat-form-field >                
-              <input matInput placeholder="Código" [(ngModel)]="ingenieroValuador.codigo">
+              <input matInput placeholder="Código" [(ngModel)]="ingenieroValuador.codigo" pattern="[0-9]{1,3}">
               <button mat-button  *ngIf="ingenieroValuador.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="ingenieroValuador.codigo=''">
                   <mat-icon>close</mat-icon>
               </button> 
           </mat-form-field>
           <mat-form-field class="example-full-width">                
-            <input matInput placeholder="Nombre" [(ngModel)]="ingenieroValuador.descripcion">
+            <input matInput placeholder="Nombre" [(ngModel)]="ingenieroValuador.descripcion" maxlength="30">
             <button mat-button *ngIf="ingenieroValuador.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="ingenieroValuador.descripcion=''">
                 <mat-icon>close</mat-icon>
             </button> 
           </mat-form-field>
           <mat-form-field class="example-full-width">                
-              <input matInput placeholder="Registro" [(ngModel)]="ingenieroValuador.numeroRegistro">
+              <input matInput placeholder="Registro" [(ngModel)]="ingenieroValuador.numeroRegistro"  maxlength="30">
               <button mat-button *ngIf="ingenieroValuador.numeroRegistro" matSuffix mat-icon-button aria-label="Clear" (click)="ingenieroValuador.numeroRegistro=''">
                   <mat-icon>close</mat-icon>
               </button> 
