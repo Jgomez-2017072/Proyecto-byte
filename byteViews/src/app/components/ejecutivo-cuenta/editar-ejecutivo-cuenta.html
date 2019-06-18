@@ -1,20 +1,24 @@
 <div class="animated fadeIn">
   <h2 mat-dialog-title>Editar</h2>
   <div mat-dialog-content>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Código" [(ngModel)]="ejecutivoCuenta.codigo" disabled pattern="[0-9]{1,3}">
+    </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Código Empleado" [(ngModel)]="ejecutivoCuenta.codigoEmpleado">
+      <input matInput placeholder="Código Empleado" [(ngModel)]="ejecutivoCuenta.codigoEmpleado" pattern="[0-9]{1,3}">
       <button mat-button *ngIf="ejecutivoCuenta.codigoEmpleado" matSuffix mat-icon-button aria-label="Clear"
         (click)="ejecutivoCuenta.codigoEmpleado=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Nombre" [(ngModel)]="ejecutivoCuenta.nombre">
+      <input matInput placeholder="Nombre" [(ngModel)]="ejecutivoCuenta.nombre" maxlength="30">
       <button mat-button *ngIf="ejecutivoCuenta.nombre" matSuffix mat-icon-button aria-label="Clear"
         (click)="ejecutivoCuenta.nombre=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
+
     <section class="example-full-width">
       <label id="example-radio-group-label">Status</label><br><br>
       <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"

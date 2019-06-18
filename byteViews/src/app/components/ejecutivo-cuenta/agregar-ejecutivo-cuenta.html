@@ -1,22 +1,22 @@
 <div class="animated fadeIn">
-  <h2 mat-dialog-title>Agregar</h2>
+  <h2 mat-dialog-title>Agregar Ejecutivo Cuenta</h2>
   <div mat-dialog-content>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Código" [(ngModel)]="ejecutivoCuenta.codigo">
+      <input matInput placeholder="Código" [(ngModel)]="ejecutivoCuenta.codigo" pattern="[0-9]{1,3}">
       <button mat-button *ngIf="ejecutivoCuenta.codigo" matSuffix mat-icon-button aria-label="Clear"
         (click)="ejecutivoCuenta.codigo=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Código Empleado" [(ngModel)]="ejecutivoCuenta.codigoEmpleado">
+      <input matInput placeholder="Código Empleado" [(ngModel)]="ejecutivoCuenta.codigoEmpleado" pattern="[0-9]{1,4}">
       <button mat-button *ngIf="ejecutivoCuenta.codigoEmpleado" matSuffix mat-icon-button aria-label="Clear"
         (click)="ejecutivoCuenta.codigoEmpleado=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Nombre" [(ngModel)]="ejecutivoCuenta.nombre">
+      <input matInput placeholder="Nombre" [(ngModel)]="ejecutivoCuenta.nombre" maxlength="30">
       <button mat-button *ngIf="ejecutivoCuenta.nombre" matSuffix mat-icon-button aria-label="Clear"
         (click)="ejecutivoCuenta.nombre=''">
         <mat-icon>close</mat-icon>

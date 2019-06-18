@@ -19,7 +19,7 @@ export interface PeriodicElement {
   referencia1: String;
   referencia2: String;
   referencia3: String;
-  
+
 }
 
 var datosMotivoDeReversa: MotivoDeReversa[];
@@ -177,10 +177,10 @@ export class EditarMotivoDeReversa implements OnInit {
     this.motivoDeReversa.referencia1 = referencia1;
     this.motivoDeReversa.referencia2 = referencia2;
     this.motivoDeReversa.referencia3 = referencia3;
-    
+
     this._motivosDeReversaService.getInstituciones().subscribe(
       response => {
-        if (response){
+        if (response) {
           this.institutoss = response;
         }
       },
@@ -194,7 +194,7 @@ export class EditarMotivoDeReversa implements OnInit {
 
     this._motivosDeReversaService.getRecargosAdicionales().subscribe(
       response => {
-        if (response){
+        if (response) {
           this.recargosAdicionaless = response;
         }
       },
@@ -230,11 +230,13 @@ export class EditarMotivoDeReversa implements OnInit {
             // openSnackBar() {
             //  super.getAlmacenadoras();
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
             // }
           } else {
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -245,6 +247,10 @@ export class EditarMotivoDeReversa implements OnInit {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", {
+          panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -327,7 +333,7 @@ export class AgregarMotivoDeReversa implements OnInit {
   ngOnInit() {
     this._motivosDeReversaService.getInstituciones().subscribe(
       response => {
-        if (response){
+        if (response) {
           this.institutoss = response;
         }
       },
@@ -341,7 +347,7 @@ export class AgregarMotivoDeReversa implements OnInit {
 
     this._motivosDeReversaService.getRecargosAdicionales().subscribe(
       response => {
-        if (response){
+        if (response) {
           this.recargosAdicionaless = response;
         }
       },
@@ -378,10 +384,12 @@ export class AgregarMotivoDeReversa implements OnInit {
           if (response.description === 'Agregado correctamente') {
             this.dialogRef.close();
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           } else {
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -391,6 +399,10 @@ export class AgregarMotivoDeReversa implements OnInit {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
+          this.snackBar.open("Verifique los datos!", "", {
+            panelClass: ['colorError'],
+            duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
 
