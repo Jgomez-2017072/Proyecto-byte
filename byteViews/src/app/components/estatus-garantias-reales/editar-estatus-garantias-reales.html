@@ -1,14 +1,12 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Editar</h2>
+    <h2 mat-dialog-title>Editar Garantía Real</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="statusGarantiaReal.codigo" sdf>
-            <button mat-button  *ngIf="statusGarantiaReal.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.codigo=''">
-                <mat-icon>close</mat-icon>
-            </button> 
+            <input matInput placeholder="Código" disabled [(ngModel)]="statusGarantiaReal.codigo" pattern="[0-9]{1,3}">
+            
         </mat-form-field>  
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripción" [(ngModel)]="statusGarantiaReal.descripcion">
+          <input matInput type="text" placeholder="Descripción" [(ngModel)]="statusGarantiaReal.descripcion" maxlength="30">
           <button mat-button *ngIf="statusGarantiaReal.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="statusGarantiaReal.descripcion=''">
               <mat-icon>close</mat-icon>
           </button> 

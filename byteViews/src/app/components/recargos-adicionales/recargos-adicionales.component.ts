@@ -32,7 +32,7 @@ export class RecargosAdicionalesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.getRecargosAdicionales()
+    this.getRecargosAdicionales();
   }
 
   displayedColumns: string[] = ['codigo', 'descripcion', /*'description',*/  'editar', 'eliminar', 'ver'];
@@ -82,10 +82,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
+      this.getRecargosAdicionales();
     });
   }
 
@@ -96,10 +93,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
+      this.getRecargosAdicionales();
     });
   }
 
@@ -110,10 +104,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
+      this.getRecargosAdicionales();
     });
   }
 
@@ -124,10 +115,7 @@ export class RecargosAdicionalesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getRecargosAdicionales();
-      }, 800);
+      this.getRecargosAdicionales();
     });
   }
 
@@ -155,12 +143,6 @@ export class EditarRecargos implements OnInit {
     public dialogRef: MatDialogRef<EditarRecargos>, private snackBar: MatSnackBar, private _recargosAdicionalesService: RecargosAdicionalesService) {
     //this.recargoAdicional = new RecargoAdicional(0, "", ""/*, ""*/);
     this.recargoAdicional = new RecargoAdicional("", "", "", "", "", "", 0, "", "", true, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
-  }
-
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
   }
 
   onNoClick(): void {
@@ -197,7 +179,19 @@ export class EditarRecargos implements OnInit {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
+          if (response.description === 'Editado Correctamente') {
+            this.dialogRef.close();
+            // openSnackBar() {
+            //  super.getAlmacenadoras();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+            // }
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -233,13 +227,6 @@ export class EliminarRecargos implements OnInit {
     public dialogRef: MatDialogRef<EliminarRecargos>, private snackBar: MatSnackBar, private _recargosAdicionalesService: RecargosAdicionalesService) {
     //this.recargoAdicional = new RecargoAdicional(0, "", ""/*, ""*/);
     this.recargoAdicional = new RecargoAdicional("", "", "", "", "", "", 0, "", "", true, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
-
-  }
-
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
   }
 
   onNoClick(): void {
@@ -253,7 +240,16 @@ export class EliminarRecargos implements OnInit {
           this.status = "error"
         } else {
           this.status = "Success"
-          console.log(response)
+          if (response.description === 'Eliminado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -285,12 +281,6 @@ export class AgregarRecargos {
     //this.recargoAdicional = new RecargoAdicional(0, "", ""/*, ""*/);
     this.recargoAdicional = new RecargoAdicional("", "", "", "", "", "", 0, "", "", true, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
-  }
-
-  openSnackBar() {
-    this.snackBar.open("Registro Guardado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
   }
 
   onNoClick(): void {
@@ -330,8 +320,16 @@ export class AgregarRecargos {
       response => {
         if (response) {
           this.status = 'ok';
-          console.log(response);
-
+          if (response.description === 'Agregado correctamente') {
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            });
+          } else {
+            this.snackBar.open(response.description, "", {
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {

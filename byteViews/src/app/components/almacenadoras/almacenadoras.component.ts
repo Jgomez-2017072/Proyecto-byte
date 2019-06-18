@@ -168,14 +168,13 @@ export class EditarAlmacenadora  implements OnInit {
           this.status = 'ok';
           if(response.description === 'Editado Correctamente'){
               this.dialogRef.close();
-           // openSnackBar() {
-            //  super.getAlmacenadoras();
-              this.snackBar.open(response.description, "", {
+          
+              this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
                 duration: 2100, horizontalPosition: 'end'
               });
            // }
           }else{
-              this.snackBar.open(response.description, "", {
+              this.snackBar.open(response.description, "", { panelClass: ['colorError'],
                 duration: 3100, horizontalPosition: 'end'
               });
           }
@@ -186,6 +185,9 @@ export class EditarAlmacenadora  implements OnInit {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -208,7 +210,7 @@ export class EliminarAlmacenadora implements OnInit {
   public status;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService: AlmacenadorasService) {
+    public dialogRef: MatDialogRef<EliminarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService: AlmacenadorasService) {
     this.almacenadora = new Almacenadora("", "", "");
   }
 
@@ -225,11 +227,11 @@ export class EliminarAlmacenadora implements OnInit {
           this.status = "Success"
           if(response.description === 'Eliminado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           }else{
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", { panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -241,6 +243,7 @@ export class EliminarAlmacenadora implements OnInit {
         if (errorMessage != null) {
           this.status = "error";
         }
+      
       }
     )
   }
@@ -256,7 +259,7 @@ export class AgregarAlmacenadora {
 
   public almacenadora: Almacenadora;
   public status;
-
+  
   constructor(
     public dialogRef: MatDialogRef<AgregarAlmacenadora>, private snackBar: MatSnackBar, private _almacenadorasService: AlmacenadorasService) {
     this.almacenadora = new Almacenadora("", "", "");
@@ -274,11 +277,11 @@ export class AgregarAlmacenadora {
           this.status = 'ok';
           if(response.description === 'Agregado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
-              duration: 2100, horizontalPosition: 'end'
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end',
             });
-          }else{
-            this.snackBar.open(response.description, "", {
+          }else{    
+            this.snackBar.open(response.description, "", { panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -288,7 +291,9 @@ export class AgregarAlmacenadora {
         if (error) {
           console.log(<any>error);
           this.status = 'error';
-          
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
 

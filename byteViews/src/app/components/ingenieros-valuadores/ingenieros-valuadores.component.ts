@@ -91,11 +91,9 @@ export class IngenierosValuadoresComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed');     
       
-      setTimeout(() => {
-        this.getIngenierosValuadores();
-      }, 800);
+      this.getIngenierosValuadores();      
     });
   }
 
@@ -107,9 +105,7 @@ export class IngenierosValuadoresComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getIngenierosValuadores();
-      }, 800);
+      this.getIngenierosValuadores();      
     });
   }
 
@@ -121,9 +117,7 @@ export class IngenierosValuadoresComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getIngenierosValuadores();
-      }, 800);
+      this.getIngenierosValuadores();      
     });
   }
 
@@ -163,13 +157,7 @@ export class EditarIngenieroValuador {
       this.ingenieroValuador = new IngenieroValuador("","","","","",true,"");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
-
+   
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -178,13 +166,25 @@ export class EditarIngenieroValuador {
     console.log(this.ingenieroValuador)
     this._ingenierosValuadoresService.editarIngenieroValuador(this.ingenieroValuador).subscribe(
       response => {
-        if(response){
+        if (response) {
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+           // openSnackBar() {
+            //  super.getAlmacenadoras();
+              this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+                duration: 2100, horizontalPosition: 'end'
+              });
+           // }
+          }else{
+              this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
-        if(error){
+        if (error) {
           console.log(<any>error);
           this.status = 'error';
         }
@@ -218,29 +218,33 @@ export class EliminarIngenieroValuador {
       this.ingenieroValuador = new IngenieroValuador("","","","","",true,"");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
+    
   onNoClick(): void {
     this.dialogRef.close();
   }
   eliminarIngenieroValuador(){    
     this._ingenierosValuadoresService.eliminarIngenieroValuador(this.ingenieroValuador).subscribe(
-      response=>{
-        if(!response){
+      response => {
+        if (!response) {
           this.status = "error"
-        }else{
+        } else {
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
         var errorMessage = <any>error;
         console.log(errorMessage);
-        if(errorMessage != null){
+        if (errorMessage != null) {
           this.status = "error";
         }
       }
@@ -279,16 +283,25 @@ export class AgregarIngenieroValuador {
     this.ingenieroValuador.empresa = "1";
     this._ingenierosValuadoresService.crearIngenieroValuador(this.ingenieroValuador).subscribe(
       response => {
-        if(response){
+        if (response) {
           this.status = 'ok';
-          console.log(response);
-          
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
-          if(error){
+        if (error) {
           console.log(<any>error);
           this.status = 'error';
+          
         }
       }
 

@@ -1,15 +1,15 @@
 <div class="animated fadeIn">     
-  <h2 mat-dialog-title>Agregar</h2>
+  <h2 mat-dialog-title>Agregar Destino</h2>
 
 <div mat-dialog-content>           
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="destino.codigo">
+            <input matInput placeholder="Código" [(ngModel)]="destino.codigo" pattern="[0-9]{1,6}"> 
             <button mat-button  *ngIf="destino.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="destino.codigo=''">
                 <mat-icon>close</mat-icon>
             </button> 
         </mat-form-field>
         <mat-form-field class="example-full-width">                
-          <input matInput placeholder="Descripción" [(ngModel)]="destino.descripcion">
+          <input matInput placeholder="Descripción" [(ngModel)]="destino.descripcion" maxlength="30">
           <button mat-button *ngIf="destino.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="destino.descripcion=''">
               <mat-icon>close</mat-icon>
           </button> 

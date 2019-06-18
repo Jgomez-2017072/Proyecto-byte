@@ -166,12 +166,12 @@ export class EditarDestino {
           this.status = 'ok';
           if(response.description === 'Editado Correctamente'){
               this.dialogRef.close();
-              this.snackBar.open(response.description, "", {
+              this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
                 duration: 2100, horizontalPosition: 'end'
               });
            
           }else{
-              this.snackBar.open(response.description, "", {
+              this.snackBar.open(response.description, "", {panelClass: ['colorError'],
                 duration: 3100, horizontalPosition: 'end'
               });
           }
@@ -182,6 +182,9 @@ export class EditarDestino {
           console.log(<any>error);
           this.status = 'error';
         }
+        this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        });
       }
     )
   }
@@ -224,11 +227,11 @@ export class EliminarDestino {
           this.status = "Success"
           if(response.description === 'Eliminado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           }else{
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -274,11 +277,11 @@ public status;
           this.status = 'ok';
           if(response.description === 'Agregado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             });
           }else{
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
               duration: 3100, horizontalPosition: 'end'
             });
           }
@@ -289,6 +292,9 @@ public status;
           if(error){
           console.log(<any>error);
           this.status = 'error';
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
 

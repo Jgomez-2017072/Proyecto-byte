@@ -1,28 +1,28 @@
 
 <div class="animated fadeIn">     
-    <h2 mat-dialog-title>Agregar</h2>
+    <h2 mat-dialog-title>Agregar origen de fondos</h2>
 
   <div mat-dialog-content>           
           <mat-form-field >                
-              <input matInput placeholder="Código" [(ngModel)]="origenDeFondos.codigo">
+              <input matInput placeholder="Código Institución" [(ngModel)]="origenDeFondos.codigo" pattern="[0-9]{1,3}">
               <button mat-button  *ngIf="origenDeFondos.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="origenDeFondos.codigo=''">
                   <mat-icon>close</mat-icon>
               </button> 
           </mat-form-field>
           <mat-form-field class="example-full-width">                
-            <input matInput placeholder="Descripción" [(ngModel)]="origenDeFondos.descripcion">
+            <input matInput placeholder="Nombre Institución" [(ngModel)]="origenDeFondos.descripcion" maxlength="30">
             <button mat-button *ngIf="origenDeFondos.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="origenDeFondos.descripcion=''">
                 <mat-icon>close</mat-icon>
             </button> 
           </mat-form-field>
           <mat-form-field class="example-full-width">                
-            <input matInput placeholder="Abreviatura" [(ngModel)]="origenDeFondos.abreviatura">
+            <input matInput placeholder="Descripcion corta" [(ngModel)]="origenDeFondos.abreviatura">
             <button mat-button *ngIf="origenDeFondos.abreviatura" matSuffix mat-icon-button aria-label="Clear" (click)="origenDeFondos.abreviatura=''">
                 <mat-icon>close</mat-icon>
             </button> 
           </mat-form-field>
           <mat-form-field class="example-full-width">                
-            <input matInput placeholder="Usuario" [(ngModel)]="origenDeFondos.usuario">
+            <input matInput placeholder="Usuario" [(ngModel)]="origenDeFondos.usuario" maxlength="30">
             <button mat-button *ngIf="origenDeFondos.usuario" matSuffix mat-icon-button aria-label="Clear" (click)="origenDeFondos.usuario=''">
                 <mat-icon>close</mat-icon>
             </button> 

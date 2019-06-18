@@ -99,10 +99,8 @@ export class MotivosAjustesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getMotivosAjustes();
-      }, 800);
+    
+      this.getMotivosAjustes();    
     });
   }
 
@@ -114,9 +112,7 @@ export class MotivosAjustesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getMotivosAjustes();
-      }, 800);
+      this.getMotivosAjustes();    
     });
   }
 
@@ -128,9 +124,7 @@ export class MotivosAjustesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getMotivosAjustes();
-      }, 800);
+      this.getMotivosAjustes();    
     });
   }
   openDialog4(): void {
@@ -175,12 +169,6 @@ export class EditarMotivoAjuste {
       this.motivoAjuste = new MotivoAjuste("","","","","","","","","","","");
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Actualizado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -188,13 +176,25 @@ export class EditarMotivoAjuste {
     console.log(this.motivoAjuste)
     this._motivosAjustesService.editarMotivoAjuste(this.motivoAjuste).subscribe(
       response => {
-        if(response){
+        if (response) {
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+              this.dialogRef.close();
+           // openSnackBar() {
+            //  super.getAlmacenadoras();
+              this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+                duration: 2100, horizontalPosition: 'end'
+              });
+           // }
+          }else{
+              this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
-        if(error){
+        if (error) {
           console.log(<any>error);
           this.status = 'error';
         }
@@ -234,30 +234,33 @@ export class EliminarMotivoAjuste {
 
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   eliminarMotivoAjuste(){    
     this._motivosAjustesService.eliminarMotivoAjuste(this.motivoAjuste).subscribe(
-      response=>{
-        if(!response){
+      response => {
+        if (!response) {
           this.status = "error"
-        }else{
+        } else {
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
         var errorMessage = <any>error;
         console.log(errorMessage);
-        if(errorMessage != null){
+        if (errorMessage != null) {
           this.status = "error";
         }
       }
@@ -283,12 +286,6 @@ export class AgregarMotivoAjuste {
 
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -296,19 +293,27 @@ export class AgregarMotivoAjuste {
     this.motivoAjuste.empresa = "1";
     this._motivosAjustesService.crearMotivoAjuste(this.motivoAjuste).subscribe(
       response => {
-        if(response){
+        if (response) {
           this.status = 'ok';
-          console.log(response);
-          
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
-          if(error){
+        if (error) {
           console.log(<any>error);
           this.status = 'error';
+          
         }
       }
-
     )
   }
 

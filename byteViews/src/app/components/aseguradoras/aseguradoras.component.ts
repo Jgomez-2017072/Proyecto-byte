@@ -21,7 +21,6 @@ var empresa = '';
 @Component({
   selector: 'app-aseguradoras',
   templateUrl: './aseguradoras.component.html',
-
   styleUrls: ['./aseguradoras.component.scss'],
   providers : [AseguradorasService]
 
@@ -93,10 +92,7 @@ export class AseguradorasComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
         this.getAseguradoras();
-      }, 800);
     });
   }
 
@@ -107,10 +103,7 @@ export class AseguradorasComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
-      setTimeout(() => {
         this.getAseguradoras();
-      }, 800);
     });
   }
 
@@ -121,10 +114,7 @@ export class AseguradorasComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
-      setTimeout(() => {
         this.getAseguradoras();
-      }, 800);
     });
   }
 
@@ -143,13 +133,15 @@ export class AseguradorasComponent implements OnInit {
 
 @Component({
   selector: 'editar-aseguradora',
-  templateUrl: './editar-aseguradora.html',
-  styleUrls: ['./aseguradoras.component.scss']
+  templateUrl: 'editar-aseguradora.html',
+  styleUrls: ['./aseguradoras.component.scss'],
+  providers : [AseguradorasService]
 })
 export class EditarAseguradora implements OnInit{
 
+
+
   ngOnInit() {
-    //this.buscarAseguradora();
     this.aseguradora.codigo = codigo;
     this.aseguradora.descripcion = descripcion;
     this.aseguradora.empresa = empresa;
@@ -161,15 +153,8 @@ export class EditarAseguradora implements OnInit{
   constructor(
     public dialogRef: MatDialogRef<EditarAseguradora>, private snackBar: MatSnackBar,private _aseguradorasService : AseguradorasService) {
       this.aseguradora = new Aseguradora("","","");
+
     }
-    
-
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition : 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -180,7 +165,16 @@ export class EditarAseguradora implements OnInit{
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Editado Correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+              this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+                duration: 3100, horizontalPosition: 'end'
+              });
+          }
         }
       },
       error => {
@@ -199,7 +193,7 @@ export class EditarAseguradora implements OnInit{
 
 @Component({
   selector: 'eliminar-aseguradora',
-  templateUrl: './eliminar-aseguradora.html',
+  templateUrl: 'eliminar-aseguradora.html',
   styleUrls: ['./aseguradoras.component.scss']
 })
 export class EliminarAseguradora implements OnInit {
@@ -220,12 +214,6 @@ export class EliminarAseguradora implements OnInit {
 
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Eliminado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -237,7 +225,16 @@ export class EliminarAseguradora implements OnInit {
           this.status = "error"
         }else{
           this.status = "Success"
-          console.log(response)
+          if(response.description === 'Eliminado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", { panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
         }
       },
       error => {
@@ -271,12 +268,6 @@ export class AgregarAseguradora {
 
     }
 
-    openSnackBar() {
-      this.snackBar.open("Registro Guardado!", "", {
-        duration: 2100, horizontalPosition : 'end'
-      });
-    }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -287,7 +278,16 @@ export class AgregarAseguradora {
       response => {
         if(response){
           this.status = 'ok';
-          console.log(response);
+          if(response.description === 'Agregado correctamente'){
+            this.dialogRef.close();
+            this.snackBar.open(response.description, "", {panelClass: ['colorBueno'],
+              duration: 2100, horizontalPosition: 'end'
+            });
+          }else{
+            this.snackBar.open(response.description, "", {panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
+            });
+          }
           
         }
       },

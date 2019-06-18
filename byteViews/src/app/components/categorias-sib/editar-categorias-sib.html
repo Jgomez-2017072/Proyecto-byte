@@ -1,14 +1,12 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Editar</h2>
+    <h2 mat-dialog-title>Editar Categoria SIB</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="categoria.codigo" sdf>
-            <button mat-button  *ngIf="categoria.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="categoria.codigo=''">
-                <mat-icon>close</mat-icon>
-            </button> 
+            <input matInput placeholder="Código" disabled [(ngModel)]="categoria.codigo" pattern="[0-9]{1,4}">
+            
         </mat-form-field>  
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripción" [(ngModel)]="categoria.descripcion">
+          <input matInput type="text" placeholder="Descripción" [(ngModel)]="categoria.descripcion" maxlength="30">
           <button mat-button *ngIf="categoria.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="categoria.descripcion=''">
               <mat-icon>close</mat-icon>
           </button> 

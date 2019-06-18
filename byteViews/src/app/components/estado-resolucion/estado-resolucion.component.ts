@@ -69,9 +69,7 @@ export class EstadoResolucionComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      setTimeout(() => {
-        this.getEstadoResolucion();
-      }, 800);
+      this.getEstadoResolucion();
     });
   }
 
@@ -82,10 +80,7 @@ export class EstadoResolucionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getEstadoResolucion();
-      }, 800);
+      this.getEstadoResolucion();
     });
   }
 
@@ -96,10 +91,7 @@ export class EstadoResolucionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getEstadoResolucion();
-      }, 800);
+      this.getEstadoResolucion();
     });
   }
 
@@ -110,10 +102,7 @@ export class EstadoResolucionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      setTimeout(() => {
-        this.getEstadoResolucion();
-      }, 800);
+      this.getEstadoResolucion();
     });
   }
 
@@ -151,8 +140,17 @@ export class AgregarEstadoResolucion {
     this._estadoResolucionService.crearEstadoResolucion(this.estadoResolucion).subscribe(
       response => {
         if (response) {
-          console.log(response);
           this.status = 'ok'
+          if(response.description === "Agregado correctamente") {
+            this.dialogRef.close();
+            this.snackBar.open(response.description,"", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }else {
+            this.snackBar.open(response.description,"", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }
         }
       },
       error => {
@@ -186,12 +184,6 @@ export class EliminarEstadoResolucion implements OnInit {
     this.estadoResolucion = new EstadoResolucion("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Eliminado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -203,7 +195,16 @@ export class EliminarEstadoResolucion implements OnInit {
           this.status = 'error';
         } else {
           this.status = 'Success'
-          console.log(response);
+          if(response.description === "Eliminado correctamente") {
+            this.dialogRef.close();
+            this.snackBar.open(response.description,"", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }else {
+            this.snackBar.open(response.description, "", {
+              duration: 2100, horizontalPosition: 'end'
+            })
+          }
         }
       },
       error => {
@@ -239,12 +240,6 @@ export class EditarEstadoResolucion implements OnInit {
     this.estadoResolucion = new EstadoResolucion("", "", "");
   }
 
-  openSnackBar() {
-    this.snackBar.open("Registro Actualizado!", "", {
-      duration: 2100, horizontalPosition: 'end'
-    });
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -254,8 +249,17 @@ export class EditarEstadoResolucion implements OnInit {
     this._estadoResolucionService.editarEstadoResolucion(this.estadoResolucion).subscribe(
       response => {
         if (response) {
-          this.status = 'ok',
-            console.log(response);
+          this.status = 'ok';
+            if(response.description === "Editado Correctamente"){
+              this.dialogRef.close();
+              this.snackBar.open(response.description, "", {
+                duration:2100, horizontalPosition: 'end'
+              })
+            }else {
+              this.snackBar.open(response.description, "", {
+                duration: 2100, horizontalPosition:'end'
+              })
+            }
         }
       },
       error => {

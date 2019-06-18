@@ -1,27 +1,20 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Editar</h2>
+    <h2 mat-dialog-title>Editar Tipo Deducción</h2>
     <div mat-dialog-content class="modal-down1">
 
         <mat-form-field>
-            <input matInput placeholder="Código" [(ngModel)]="tipoDeduccion.codigo" sdf>
-            <button mat-button *ngIf="tipoDeduccion.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="tipoDeduccion.codigo=''">
-                    <mat-icon>close</mat-icon>
-                </button>
+            <input matInput placeholder="Código" disabled [(ngModel)]="tipoDeduccion.codigo" >
+            
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Descripción" [(ngModel)]="tipoDeduccion.descripcion">
+            <input matInput type="text" placeholder="Descripción" [(ngModel)]="tipoDeduccion.descripcion" maxlength="30"> 
             <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
                   <mat-icon>close</mat-icon>
               </button>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Empresa" [(ngModel)]="tipoDeduccion.empresa">
-            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
-                      <mat-icon>close</mat-icon>
-                  </button>
-        </mat-form-field>
+        
 
     </div><br>
     <div class="modal-down">

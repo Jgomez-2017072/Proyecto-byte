@@ -1,14 +1,12 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Editar</h2>
+    <h2 mat-dialog-title>Editar Destino</h2>
     <div mat-dialog-content class="modal-down1" >   
         <mat-form-field >                
-            <input matInput placeholder="Código" [(ngModel)]="destino.codigo" sdf>
-            <button mat-button  *ngIf="destino.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="destino.codigo=''">
-                <mat-icon>close</mat-icon>
-            </button> 
+            <input matInput placeholder="Código" disabled [(ngModel)]="destino.codigo" pattern="[0-9]{1,3}">
+            
         </mat-form-field>  
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="Descripción" [(ngModel)]="destino.descripcion">
+          <input matInput type="text" placeholder="Descripción" [(ngModel)]="destino.descripcion" maxlength="30">
           <button mat-button *ngIf="destino.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="destino.descripcion=''">
               <mat-icon>close</mat-icon>
           </button> 
