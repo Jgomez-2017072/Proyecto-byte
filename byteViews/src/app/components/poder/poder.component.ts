@@ -49,11 +49,11 @@ export class PoderComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
         }
       },
-       error => {
+      error => {
         console.log(<any>error);
       }
     )
-     
+
   }
 
   buscar(id, descripcion2, empresa2) {
@@ -72,7 +72,7 @@ export class PoderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-     this.getPoderes();
+      this.getPoderes();
     });
   }
 
@@ -84,7 +84,7 @@ export class PoderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-     this.getPoderes();
+      this.getPoderes();
     });
   }
 
@@ -142,14 +142,16 @@ export class AgregarPoder {
       response => {
         if (response) {
           this.status = 'ok';
-          if(response.description === "Agregado correctamente"){
+          if (response.description === "Agregado correctamente") {
             this.dialogRef.close();
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             })
-          }else{
-            this.snackBar.open(response.description,"", {
-              duration:2100, horizontalPosition:'end'
+          } else {
+            this.snackBar.open(response.description, "", {
+              panelClass: 'colorError',
+              duration: 2100, horizontalPosition: 'end'
             })
           }
         }
@@ -158,6 +160,9 @@ export class AgregarPoder {
         if (error) {
           console.log(<any>error);
           this.status = 'error'
+          this.snackBar.open("Verifique los datos!", "", { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          });
         }
       }
     )
@@ -196,14 +201,16 @@ export class EliminarPoder implements OnInit {
           this.status = 'error'
         } else {
           this.status = 'Success'
-          if(response.description === "Eliminado correctamente"){
+          if (response.description === "Eliminado correctamente") {
             this.dialogRef.close();
             this.snackBar.open(response.description, "", {
+              panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             })
-          }else{
+          } else {
             this.snackBar.open(response.description, "", {
-              duration: 2100, horizontalPosition: 'end'
+              panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
             })
           }
         }
@@ -252,15 +259,17 @@ export class EditarPoder implements OnInit {
       response => {
         if (response) {
           this.status = 'ok'
-          if(response.description === "Editado correctamente"){
+          if (response.description === "Editado Correctamente") {
             this.dialogRef.close();
 
-            this.snackBar.open(response.description,"", {
+            this.snackBar.open(response.description, "", {
+              panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             })
-          }else {
+          } else {
             this.snackBar.open(response.description, "", {
-              duration: 2100, horizontalPosition: 'end'
+              panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
             })
           }
         }
@@ -269,6 +278,10 @@ export class EditarPoder implements OnInit {
         if (error) {
           console.log(<any>error);
           this.status = 'error'
+          this.snackBar.open('Verifique los datos!', '', {
+            panelClass: ['colorError'],
+            duration: 3100, horizontalPosition: 'end'
+          })
         }
       }
     )
@@ -283,9 +296,9 @@ export class EditarPoder implements OnInit {
 
 export class VerPoder implements OnInit {
   ngOnInit() {
-   this.poder.codigo = codigo;
-   this.poder.descripcion = descripcion;
-   this.poder.empresa = empresa;
+    this.poder.codigo = codigo;
+    this.poder.descripcion = descripcion;
+    this.poder.empresa = empresa;
   }
 
   public poder: Poder;

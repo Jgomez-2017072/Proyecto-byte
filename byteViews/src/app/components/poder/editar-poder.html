@@ -1,14 +1,14 @@
 <div class="animated fadeIn">
-    <h2 mat-dialog-title>Editar</h2>
+    <h2 mat-dialog-title>Editar Poder</h2>
     <div mat-dialog-content class="modal-down1">
         <mat-form-field>
-            <input matInput placeholder="Código" [(ngModel)]="poder.codigo" sdf>
+            <input matInput placeholder="Código" disabled [(ngModel)]="poder.codigo" sdf>
             <button mat-button *ngIf="poder.codigo" matSuffix mat-icon-button aria-label="Clear" (click)="poder.codigo=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Descripción" [(ngModel)]="poder.descripcion">
+            <input matInput type="text" placeholder="Descripción" maxlength="30" [(ngModel)]="poder.descripcion">
             <button mat-button *ngIf="poder.descripcion" matSuffix mat-icon-button aria-label="Clear" (click)="poder.descripcion=''">
               <mat-icon>close</mat-icon>
           </button>

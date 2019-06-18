@@ -147,12 +147,12 @@ export class AgregarMotivoCambioEjecutivo {
           this.status = 'ok'
           if(response.description === 'Agregado correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", { panelClass: ['colorBueno'],
               duration:2100, horizontalPosition: 'end'
             })
           }else {
-            this.snackBar.open(response.description, "", {
-              duration: 2100, horizontalPosition: 'end'
+            this.snackBar.open(response.description, "", { panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
             })
           }
        
@@ -162,6 +162,9 @@ export class AgregarMotivoCambioEjecutivo {
         if (error) {
           console.log(<any>error);
           this.status = 'error'
+          this.snackBar.open('Verifique los datos?', '' ,{ panelClass: ['colorError'],
+          duration: 3100, horizontalPosition:'end'
+          })
         }
       }
     )
@@ -201,11 +204,11 @@ export class EliminarMotivoCambioEjecutivo implements OnInit {
           this.status = 'Succes'
           if(response.description === 'Eliminado correctamente' ){
             this.dialogRef.close();
-            this.snackBar.open(response.description,"", {
+            this.snackBar.open(response.description,"", { panelClass: ['colorBueno'],
               duration:2100, horizontalPosition:'end'
             })
           }else {
-            this.snackBar.open(response.description,"", {
+            this.snackBar.open(response.description,"", { panelClass: ['colorError'],
               duration:2100, horizontalPosition:'end'
             })
           }
@@ -255,13 +258,13 @@ export class EditarMotivoCambioEjecutivo implements OnInit {
       response => {
         if (response) {
           this.status = 'ok'
-          if(response.description === 'Agregado correctamente'){
+          if(response.description === 'Editado Correctamente'){
             this.dialogRef.close();
-            this.snackBar.open(response.descripcion, "", {
+            this.snackBar.open(response.description, "", { panelClass: ['colorBueno'],
               duration:2100, horizontalPosition: 'end'
             })
           }else {
-            this.snackBar.open(response.description, "", {
+            this.snackBar.open(response.description, "", { panelClass: ['colorError'],
               duration: 2100, horizontalPosition: 'end'
             })
           }
@@ -273,6 +276,9 @@ export class EditarMotivoCambioEjecutivo implements OnInit {
           console.log(<any>error);
           this.status = 'error'
         }
+        this.snackBar.open('Verifique los datos!', '', { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+        })
       }
     )
   }

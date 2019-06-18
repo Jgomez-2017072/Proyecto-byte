@@ -143,12 +143,12 @@ export class AgregarEstadoResolucion {
           this.status = 'ok'
           if(response.description === "Agregado correctamente") {
             this.dialogRef.close();
-            this.snackBar.open(response.description,"", {
+            this.snackBar.open(response.description,"", { panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             })
           }else {
-            this.snackBar.open(response.description,"", {
-              duration: 2100, horizontalPosition: 'end'
+            this.snackBar.open(response.description,"", { panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
             })
           }
         }
@@ -157,6 +157,9 @@ export class AgregarEstadoResolucion {
         if (error) {
           console.log(<any>error);
           this.status = 'error'
+          this.snackBar.open('Verifique los datos!', '', { panelClass: ['colorError'],
+        duration: 3100, horizontalPosition: 'end'
+          })
         }
       }
     )
@@ -197,12 +200,12 @@ export class EliminarEstadoResolucion implements OnInit {
           this.status = 'Success'
           if(response.description === "Eliminado correctamente") {
             this.dialogRef.close();
-            this.snackBar.open(response.description,"", {
+            this.snackBar.open(response.description,"", { panelClass: ['colorBueno'],
               duration: 2100, horizontalPosition: 'end'
             })
           }else {
-            this.snackBar.open(response.description, "", {
-              duration: 2100, horizontalPosition: 'end'
+            this.snackBar.open(response.description, "", { panelClass: ['colorError'],
+              duration: 3100, horizontalPosition: 'end'
             })
           }
         }
@@ -252,12 +255,12 @@ export class EditarEstadoResolucion implements OnInit {
           this.status = 'ok';
             if(response.description === "Editado Correctamente"){
               this.dialogRef.close();
-              this.snackBar.open(response.description, "", {
+              this.snackBar.open(response.description, "", { panelClass: ['colorBueno'],
                 duration:2100, horizontalPosition: 'end'
               })
             }else {
-              this.snackBar.open(response.description, "", {
-                duration: 2100, horizontalPosition:'end'
+              this.snackBar.open(response.description, "", { panelClass: ['colorError'],
+                duration: 3100, horizontalPosition:'end'
               })
             }
         }
@@ -266,6 +269,9 @@ export class EditarEstadoResolucion implements OnInit {
         if (error) {
           console.log(<any>error);
           this.status = 'error'
+          this.snackBar.open('Verifique los datos!', '', { panelClass: ['colorError'],
+          duration: 3100, horizontalPosition: 'end'
+          })
         }
       }
     )
